@@ -1,0 +1,23 @@
+docs_dir: 'content'
+site_name: 'RBKmoney docs'
+theme: 'readthedocs'
+strict: true
+extra_css:
+    - css/extra.css
+markdown_extensions:
+    - smarty
+    - admonition
+    - def_list
+    - footnotes
+    - toc:
+        permalink: True
+pages:
+    - 'Документация': 'index.md'
+    - 'Платформа':
+        - 'Терминология': 'platform/glossary.md'
+        - 'Быстрый старт': 'platform/overview.md'
+    - 'Прием платежей':
+        - 'Checkout': 'integrations/checkout.md'
+        - 'Tokenizer': 'integrations/tokenizer.md'
+        - 'Тестовые карты': 'integrations/testcards.md'
+    - 'API reference': 'api.md'
