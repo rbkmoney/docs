@@ -1,14 +1,14 @@
 docs_dir: 'content'
-site_name: 'RBKmoney docs'
-theme: 'readthedocs'
+site_name: 'RBKmoney|docs'
+repo_url: https://github.com/rbkmoney/docs
+theme: 'material'
 strict: true
-extra_css:
-    - css/extra.css
 markdown_extensions:
     - smarty
     - admonition
     - def_list
     - footnotes
+    - codehilite
     - toc:
         permalink: True
 pages:
