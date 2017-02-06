@@ -12,6 +12,7 @@
      <input id="cvv"/>
      <button id="pay-button" type="button">Pay</button>
  </form>
+
 ```
 
 Нам нужно преобразовать эту форму, таким образом, чтобы она больше не использовала карточные данные на вашем сервере. Для этого подключаем tokenizer.js на странице и изменяем атрибуты, чтобы предотвратить передачу конфиденциальных карточных данных на ваш сервер.
@@ -56,6 +57,7 @@
                     "expDate": $('#exp-date').val(),
                     "cvv": $('#cvv').val()
                 }, function (token) {
+
         //Token here
                 }, function (error) {
         //Error here
@@ -65,6 +67,16 @@
     </script>
 </head>
 <body>
+```
+
+```html
+<form>
+<input id="card-holder" placeholder="card holder">
+<input id="card-number" placeholder="card number">
+<input id="exp-date" placeholder="exp date">
+<input id="cvv" placeholder="cvv">
+<button id="pay-button" type="button">Pay</button>
+</form>
 ```
 
 В примере кода, вам необходимо будет установить публичный ключ полученный в личном кабинете, который позволяет токенизировать карточные данные или ожидает ошибку в ответ для отображения на платежной форме
