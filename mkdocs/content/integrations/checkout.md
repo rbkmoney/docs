@@ -4,7 +4,7 @@ Checkout валидирует и отправляет на наши сервер
 ## Пример кода инициализации платежной формы
 
 ```html
-<script src="tp://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
+<script src="http://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
         data-key="your_public_key"
         data-invoice-id="e213ed1"
         data-order-id="1"
