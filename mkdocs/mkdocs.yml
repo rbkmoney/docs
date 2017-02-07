@@ -20,5 +20,7 @@ pages:
         - 'Интерактивный пример': 'integrations/trynow.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
-        - 'Тестовые карты': 'integrations/testcards.md'
+    - 'Справочники':
+        - 'Тестовые карты': 'refs/testcards.md'
+        - 'Коды возврата ошибок': 'refs/errorcodes.md'
     - 'API reference': 'api.md'
