@@ -17,6 +17,7 @@ pages:
         - 'Терминология': 'platform/glossary.md'
         - 'Быстрый старт': 'platform/overview.md'
     - 'Прием платежей':
+        - 'Интерактивный пример': 'integrations/trynow.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
         - 'Тестовые карты': 'integrations/testcards.md'
