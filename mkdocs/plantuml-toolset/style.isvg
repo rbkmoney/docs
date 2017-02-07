@@ -1,0 +1,8 @@
+<style type="text/css">
+@font-face {
+  font-family: 'Neucha';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Neucha'), url(https://fonts.gstatic.com/s/neucha/v8/kum-AEgHOi-eoGXxKfEluA.ttf) format('truetype');
+}
+</style>
