@@ -22,5 +22,4 @@ pages:
         - 'Tokenizer': 'integrations/tokenizer.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
-        - 'Коды возврата ошибок': 'refs/errorcodes.md'
     - 'API reference': 'api.md'
