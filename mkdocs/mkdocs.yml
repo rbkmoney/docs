@@ -14,7 +14,7 @@ markdown_extensions:
 pages:
     - 'Документация': 'index.md'
     - 'Интеграция':
-        - 'Обозрение': 'integrations/overview.md'
+        - 'Обзор': 'integrations/overview.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
     - 'Справочники':
