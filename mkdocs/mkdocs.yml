@@ -5,7 +5,7 @@ theme: 'material'
 theme_dir: 'theme'
 extra:
     palette:
-        primary: light green
+        primary: green
         accent: lime
 extra_css:
     - 'assets/stylesheets/override.css'

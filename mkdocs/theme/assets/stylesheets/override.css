@@ -1,3 +1,8 @@
 .md-logo img {
     height: 2.8rem;
 }
+
+.admonition {
+    border-left-color: rgba(76,175,80,.4);
+    background-color: rgba(76,175,80,.15);
+}
