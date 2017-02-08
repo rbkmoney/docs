@@ -21,9 +21,7 @@ mkdocs serve --livereload
 make install-toolset
 ```
 
-- генерация png и svg из wsd
-!!!note
-	Для этого тулсета понадобится JDK
+- генерация png и svg из wsd (для этого тулсета понадобится JDK)
 
 ```shell
 make clean && make all
