@@ -15,9 +15,9 @@ pages:
     - 'Документация': 'index.md'
     - 'Платформа':
         - 'Терминология': 'platform/glossary.md'
-        - 'Быстрый старт': 'platform/overview.md'
-    - 'Прием платежей':
-        - 'Интерактивный пример': 'integrations/trynow.md'
+        - 'Интерактивный пример': 'platform/trynow.md'
+    - 'Интеграция':
+        - 'Быстрый старт': 'integrations/overview.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
     - 'Справочники':
