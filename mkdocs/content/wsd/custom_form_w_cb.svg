@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="883px" preserveAspectRatio="none" style="width:615px;height:883px;" version="1.1" viewBox="0 0 615 883" width="615px" zoomAndPan="magnify">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="831px" preserveAspectRatio="none" style="width:656px;height:831px;" version="1.1" viewBox="0 0 656 831" width="656px" zoomAndPan="magnify">
   <defs/>
   <g>
 <style type="text/css">
@@ -28,101 +28,101 @@
   src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
 }
 </style>
-    <text fill="#606060" font-family="Roboto" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="217" x="205" y="22.5742">Custom Form Successfull Payment Flow</text>
-    <text fill="#606060" font-family="Roboto" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="160" x="233.5" y="38.4004">Using Synchronous Callbacks</text>
-    <rect fill="#FFFFFF" height="81.4351" style="stroke: #000000; stroke-width: 2.0;" width="347" x="267" y="565.2915"/>
-    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="43" x2="43" y1="82.1162" y2="850.5967"/>
-    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="223" x2="223" y1="82.1162" y2="850.5967"/>
-    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="342" x2="342" y1="82.1162" y2="850.5967"/>
-    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="540" x2="540" y1="82.1162" y2="850.5967"/>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="71" x="8" y="48.6523"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="15" y="70.3223">Payer UA</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="71" x="8" y="849.5967"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="15" y="871.2666">Payer UA</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="87" x="180" y="48.6523"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="187" y="70.3223">tokenizer.js</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="87" x="180" y="849.5967"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="187" y="871.2666">tokenizer.js</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="131" x="277" y="48.6523"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="284" y="70.3223">Merchant Backend</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="131" x="277" y="849.5967"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="284" y="871.2666">Merchant Backend</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="127" x="477" y="48.6523"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="484" y="70.3223">Platfrom Backend</text>
-    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="127" x="477" y="849.5967"/>
-    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="484" y="871.2666">Platfrom Backend</text>
-    <polygon fill="#303030" points="330.5,111.1162,340.5,115.1162,330.5,119.1162,334.5,115.1162" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="336.5" y1="115.1162" y2="115.1162"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="50.5" y="109.7383">Инициировать покупку</text>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="384.5" y1="163.5513" y2="163.5513"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="384.5" x2="384.5" y1="163.5513" y2="176.5513"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="343.5" x2="384.5" y1="176.5513" y2="176.5513"/>
-    <polygon fill="#303030" points="353.5,172.5513,343.5,176.5513,353.5,180.5513,349.5,176.5513" style="stroke: #303030; stroke-width: 1.0;"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="145" x="349.5" y="140.8833">Зарезервировать товар</text>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="178" x="352.5" y="158.0283">Сгенерировать invoiceContext</text>
-    <polygon fill="#303030" points="528.5,203.5513,538.5,207.5513,528.5,211.5513,532.5,207.5513" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="534.5" y1="207.5513" y2="207.5513"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="172" x="349.5" y="202.1733">CreateInvoice(invoiceContext)</text>
-    <polygon fill="#303030" points="353.5,234.6963,343.5,238.6963,353.5,242.6963,349.5,238.6963" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="347.5" x2="539.5" y1="238.6963" y2="238.6963"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="359.5" y="233.3184">Ok(InvoiceID)</text>
-    <polygon fill="#303030" points="54.5,265.8413,44.5,269.8413,54.5,273.8413,50.5,269.8413" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="48.5" x2="341.5" y1="269.8413" y2="269.8413"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="152" x="60.5" y="264.4634">Ok(Render Payment Form)</text>
-    <polygon fill="#303030" points="211.5,296.9863,221.5,300.9863,211.5,304.9863,215.5,300.9863" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="217.5" y1="300.9863" y2="300.9863"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="156" x="50.5" y="295.6084">"ClickPayButton(CardData)"</text>
-    <polygon fill="#303030" points="528.5,328.1313,538.5,332.1313,528.5,336.1313,532.5,332.1313" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="223.5" x2="534.5" y1="332.1313" y2="332.1313"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="114" x="230.5" y="326.7534">Tokenize(CardData)</text>
-    <polygon fill="#303030" points="234.5,359.2764,224.5,363.2764,234.5,367.2764,230.5,363.2764" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="228.5" x2="539.5" y1="363.2764" y2="363.2764"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="60" x="240.5" y="357.8984">Ok(Token)</text>
-    <polygon fill="#303030" points="330.5,390.4214,340.5,394.4214,330.5,398.4214,334.5,394.4214" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="336.5" y1="394.4214" y2="394.4214"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="103" x="50.5" y="389.0435">HTTPPost(Token)</text>
-    <polygon fill="#303030" points="528.5,421.5664,538.5,425.5664,528.5,429.5664,532.5,425.5664" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="534.5" y1="425.5664" y2="425.5664"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="174" x="349.5" y="420.1885">StartPayment(Session, Token)</text>
-    <polygon fill="#303030" points="353.5,452.7114,343.5,456.7114,353.5,460.7114,349.5,456.7114" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="347.5" x2="539.5" y1="456.7114" y2="456.7114"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="359.5" y="451.3335">Ok(PaymentID)</text>
-    <polygon fill="#303030" points="54.5,483.8564,44.5,487.8564,54.5,491.8564,50.5,487.8564" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="48.5" x2="341.5" y1="487.8564" y2="487.8564"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="140" x="60.5" y="482.4785">Ok(Session, PaymentID)</text>
-    <polygon fill="#303030" points="330.5,515.0015,340.5,519.0015,330.5,523.0015,334.5,519.0015" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="336.5" y1="519.0015" y2="519.0015"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="50.5" y="513.6235">StartPolling(Session)</text>
-    <polygon fill="#303030" points="528.5,546.1465,538.5,550.1465,528.5,554.1465,532.5,550.1465" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="534.5" y1="550.1465" y2="550.1465"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="349.5" y="544.7686">Poll(Session)</text>
-    <rect fill="none" height="81.4351" style="stroke: #000000; stroke-width: 2.0;" width="347" x="267" y="565.2915"/>
-    <polygon fill="#EEEEEE" points="267,565.2915,327,565.2915,327,574.2915,317,584.2915,267,584.2915,267,565.2915" style="stroke: #000000; stroke-width: 2.0;"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="15" x="282" y="579.9136">alt</text>
-    <text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="342" y="578.8179">[Handle callbackResult]</text>
-    <polygon fill="#303030" points="353.5,603.4365,343.5,607.4365,353.5,611.4365,349.5,607.4365" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="347.5" x2="539.5" y1="607.4365" y2="607.4365"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="157" x="359.5" y="602.0586">callback(SuccessPayment)</text>
-    <polygon fill="#303030" points="528.5,634.5815,538.5,638.5815,528.5,642.5815,532.5,638.5815" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="534.5" y1="638.5815" y2="638.5815"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="16" x="349.5" y="633.2036">Ok</text>
-    <polygon fill="#303030" points="330.5,672.7266,340.5,676.7266,330.5,680.7266,334.5,676.7266" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="336.5" y1="676.7266" y2="676.7266"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="50.5" y="671.3486">Poll(Session)</text>
-    <polygon fill="#303030" points="528.5,703.8716,538.5,707.8716,528.5,711.8716,532.5,707.8716" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="342.5" x2="534.5" y1="707.8716" y2="707.8716"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="124" x="349.5" y="702.4937">PollEvents(InvoiceID)</text>
-    <polygon fill="#303030" points="353.5,735.0166,343.5,739.0166,353.5,743.0166,349.5,739.0166" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="347.5" x2="539.5" y1="739.0166" y2="739.0166"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="49" x="359.5" y="733.6387">Ok(Paid)</text>
-    <polygon fill="#303030" points="54.5,766.1616,44.5,770.1616,54.5,774.1616,50.5,770.1616" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="48.5" x2="341.5" y1="770.1616" y2="770.1616"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="49" x="60.5" y="764.7837">Ok(Paid)</text>
-    <polygon fill="#303030" points="330.5,797.3066,340.5,801.3066,330.5,805.3066,334.5,801.3066" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="43.5" x2="336.5" y1="801.3066" y2="801.3066"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="135" x="50.5" y="795.9287">Redirect(SuccessPage)</text>
-    <polygon fill="#303030" points="54.5,828.4517,44.5,832.4517,54.5,836.4517,50.5,832.4517" style="stroke: #303030; stroke-width: 1.0;"/>
-    <line style="stroke: #303030; stroke-width: 1.0;" x1="48.5" x2="341.5" y1="832.4517" y2="832.4517"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="60.5" y="827.0737">SuccessPage</text>
+    <text fill="#606060" font-family="Roboto" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="244" x="212.25" y="21.6016">Custom Form Successful Payment Flow</text>
+    <text fill="#606060" font-family="Roboto" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="184" x="242.25" y="35.7344">Using Synchronous Callbacks</text>
+    <rect fill="#FFFFFF" height="75.9316" style="stroke: #000000; stroke-width: 2.0;" width="369" x="286.5" y="532.4121"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="45" x2="45" y1="76.7539" y2="801.207"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="239.5" x2="239.5" y1="76.7539" y2="801.207"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="365.5" x2="365.5" y1="76.7539" y2="801.207"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="578.5" x2="578.5" y1="76.7539" y2="801.207"/>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="75" x="8" y="45.2656"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="15" y="65.8008">Payer UA</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="75" x="8" y="800.207"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="15" y="820.7422">Payer UA</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="94" x="192.5" y="45.2656"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="199.5" y="65.8008">tokenizer.js</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="94" x="192.5" y="800.207"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="199.5" y="820.7422">tokenizer.js</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="139" x="296.5" y="45.2656"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="303.5" y="65.8008">Merchant Backend</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="139" x="296.5" y="800.207"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="303.5" y="820.7422">Merchant Backend</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="133" x="512.5" y="45.2656"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="119" x="519.5" y="65.8008">Platform Backend</text>
+    <rect fill="#FEFEFE" height="30.4883" style="stroke: #303030; stroke-width: 1.5;" width="133" x="512.5" y="800.207"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="119" x="519.5" y="820.7422">Platform Backend</text>
+    <polygon fill="#303030" points="354,103.7539,364,107.7539,354,111.7539,358,107.7539" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="360" y1="107.7539" y2="107.7539"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="52.5" y="103.3223">Инициировать покупку</text>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="408" y1="152.6855" y2="152.6855"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="408" x2="408" y1="152.6855" y2="165.6855"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="367" x2="408" y1="165.6855" y2="165.6855"/>
+    <polygon fill="#303030" points="377,161.6855,367,165.6855,377,169.6855,373,165.6855" style="stroke: #303030; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="373" y="132.6328">Зарезервировать товар</text>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="195" x="377" y="147.9434">Сгенерировать invoiceContext</text>
+    <polygon fill="#303030" points="567,190.6855,577,194.6855,567,198.6855,571,194.6855" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="573" y1="194.6855" y2="194.6855"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="188" x="373" y="190.2539">CreateInvoice(invoiceContext)</text>
+    <polygon fill="#303030" points="377,219.9961,367,223.9961,377,227.9961,373,223.9961" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="578" y1="223.9961" y2="223.9961"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="85" x="383" y="219.5645">Ok(InvoiceID)</text>
+    <polygon fill="#303030" points="56.5,249.3066,46.5,253.3066,56.5,257.3066,52.5,253.3066" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="50.5" x2="365" y1="253.3066" y2="253.3066"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="162" x="62.5" y="248.875">Ok(Render Payment Form)</text>
+    <polygon fill="#303030" points="227.5,278.6172,237.5,282.6172,227.5,286.6172,231.5,282.6172" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="233.5" y1="282.6172" y2="282.6172"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="170" x="52.5" y="278.1855">"ClickPayButton(CardData)"</text>
+    <polygon fill="#303030" points="567,307.9277,577,311.9277,567,315.9277,571,311.9277" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="239.5" x2="573" y1="311.9277" y2="311.9277"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="123" x="246.5" y="307.4961">Tokenize(CardData)</text>
+    <polygon fill="#303030" points="250.5,337.2383,240.5,341.2383,250.5,345.2383,246.5,341.2383" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="244.5" x2="578" y1="341.2383" y2="341.2383"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="256.5" y="336.8066">Ok(Token)</text>
+    <polygon fill="#303030" points="354,366.5488,364,370.5488,354,374.5488,358,370.5488" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="360" y1="370.5488" y2="370.5488"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="107" x="52.5" y="366.1172">HTTPPost(Token)</text>
+    <polygon fill="#303030" points="567,395.8594,577,399.8594,567,403.8594,571,399.8594" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="573" y1="399.8594" y2="399.8594"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="185" x="373" y="395.4277">StartPayment(Session, Token)</text>
+    <polygon fill="#303030" points="377,425.1699,367,429.1699,377,433.1699,373,429.1699" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="578" y1="429.1699" y2="429.1699"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="93" x="383" y="424.7383">Ok(PaymentID)</text>
+    <polygon fill="#303030" points="56.5,454.4805,46.5,458.4805,56.5,462.4805,52.5,458.4805" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="50.5" x2="365" y1="458.4805" y2="458.4805"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="149" x="62.5" y="454.0488">Ok(Session, PaymentID)</text>
+    <polygon fill="#303030" points="354,483.791,364,487.791,354,491.791,358,487.791" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="360" y1="487.791" y2="487.791"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="128" x="52.5" y="483.3594">StartPolling(Session)</text>
+    <polygon fill="#303030" points="567,513.1016,577,517.1016,567,521.1016,571,517.1016" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="573" y1="517.1016" y2="517.1016"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="373" y="512.6699">Poll(Session)</text>
+    <rect fill="none" height="75.9316" style="stroke: #000000; stroke-width: 2.0;" width="369" x="286.5" y="532.4121"/>
+    <polygon fill="#EEEEEE" points="286.5,532.4121,348.5,532.4121,348.5,539.4121,338.5,549.4121,286.5,549.4121,286.5,532.4121" style="stroke: #000000; stroke-width: 2.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="17" x="301.5" y="545.9805">alt</text>
+    <text fill="#000000" font-family="Roboto" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="132" x="363.5" y="545.0469">[Handle callbackResult]</text>
+    <polygon fill="#303030" points="377,566.7227,367,570.7227,377,574.7227,373,570.7227" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="578" y1="570.7227" y2="570.7227"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="163" x="383" y="566.291">callback(SuccessPayment)</text>
+    <polygon fill="#303030" points="567,596.0332,577,600.0332,567,604.0332,571,600.0332" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="573" y1="600.0332" y2="600.0332"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="18" x="373" y="595.6016">Ok</text>
+    <polygon fill="#303030" points="354,632.3438,364,636.3438,354,640.3438,358,636.3438" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="360" y1="636.3438" y2="636.3438"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="52.5" y="631.9121">Poll(Session)</text>
+    <polygon fill="#303030" points="567,661.6543,577,665.6543,567,669.6543,571,665.6543" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="573" y1="665.6543" y2="665.6543"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="131" x="373" y="661.2227">PollEvents(InvoiceID)</text>
+    <polygon fill="#303030" points="377,690.9648,367,694.9648,377,698.9648,373,694.9648" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="578" y1="694.9648" y2="694.9648"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="383" y="690.5332">Ok(Paid)</text>
+    <polygon fill="#303030" points="56.5,720.2754,46.5,724.2754,56.5,728.2754,52.5,724.2754" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="50.5" x2="365" y1="724.2754" y2="724.2754"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="62.5" y="719.8438">Ok(Paid)</text>
+    <polygon fill="#303030" points="354,749.5859,364,753.5859,354,757.5859,358,753.5859" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="45.5" x2="360" y1="753.5859" y2="753.5859"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="52.5" y="749.1543">Redirect(SuccessPage)</text>
+    <polygon fill="#303030" points="56.5,778.8965,46.5,782.8965,56.5,786.8965,52.5,782.8965" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="50.5" x2="365" y1="782.8965" y2="782.8965"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="62.5" y="778.4648">SuccessPage</text>
   </g>
 </svg>

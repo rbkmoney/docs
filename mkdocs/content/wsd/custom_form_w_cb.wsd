@@ -2,12 +2,12 @@
 
 !include "plantuml-toolset/super-serious-skin.iwsd"
 
-title Custom Form Successfull Payment Flow\nUsing Synchronous Callbacks
+title Custom Form Successful Payment Flow\nUsing Synchronous Callbacks
 
 participant "Payer UA" as UA
 participant "tokenizer.js" as TKN
 participant "Merchant Backend" as MBE
-participant "Platfrom Backend" as PBE
+participant "Platform Backend" as PBE
 
 
 UA -> MBE: Инициировать покупку
