@@ -5,7 +5,7 @@ Checkout валидирует и отправляет на нашу сервер
 
 ```html
 <script src="http://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
-        data-key="your_public_key"
+        data-key="your_tokenizer_key"
         data-invoice-id="e213ed1"
         data-order-id="1"
         data-endpoint-init="http://<your-server-side>/init_endpoint"
@@ -21,7 +21,7 @@ Checkout валидирует и отправляет на нашу сервер
 ```
 
 ```
-    data-key - публичный ключ для токенизации карточных данных
+    data-key - ключ для токенизации карточных данных
     data-invoice-id - номер инвойса
     data-order-id - номер вашего заказа
     data-endpoint-init - инициализация платежа
