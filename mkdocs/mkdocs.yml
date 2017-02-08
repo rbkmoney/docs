@@ -13,11 +13,8 @@ markdown_extensions:
         permalink: True
 pages:
     - 'Документация': 'index.md'
-    - 'Платформа':
-        - 'Терминология': 'platform/glossary.md'
-        - 'Интерактивный пример': 'platform/trynow.md'
     - 'Интеграция':
-        - 'Быстрый старт': 'integrations/overview.md'
+        - 'Обозрение': 'integrations/overview.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
     - 'Справочники':
