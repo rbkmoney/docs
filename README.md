@@ -1,5 +1,7 @@
 # RBKmoney public docs
 
+После деплоя документация будет доступна по адресу [https://rbkmoney.github.io/docs/](https://rbkmoney.github.io/docs/)
+
 ## Сборка
 
 Для генерации статического сайта с документацией мы используем [MkDocs](http://www.mkdocs.org/). Убедитесь, что в используемой вами системе наличествует [make](https://www.gnu.org/software/make/), актуальная версия [Python](https://python.org) и его верный менеджер [pip](https://pypi.python.org/pypi/pip/).
