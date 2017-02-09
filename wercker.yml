@@ -1,0 +1,13 @@
+box: python
+
+build:
+  steps:
+    - pip-install
+    - script:
+        name: build docsite
+        code: mkdocs build -d ${WERCKER_OUTPUT_DIR}
+
+deploy:
+  steps:
+    - lukevivier/gh-pages:
+      token: ${GITHUB_API_TOKEN}

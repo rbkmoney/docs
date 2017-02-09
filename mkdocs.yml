@@ -1,0 +1,29 @@
+docs_dir: 'content'
+site_name: 'RBKmoney|docs'
+repo_url: https://github.com/rbkmoney/docs
+theme: 'material'
+theme_dir: 'theme'
+extra:
+    palette:
+        primary: green
+        accent: lime
+extra_css:
+    - 'assets/stylesheets/override.css'
+strict: true
+markdown_extensions:
+    - smarty
+    - admonition
+    - def_list
+    - footnotes
+    - codehilite
+    - toc:
+        permalink: True
+pages:
+    - 'Документация': 'index.md'
+    - 'Интеграция':
+        - 'Обзор': 'integrations/overview.md'
+        - 'Checkout': 'integrations/checkout.md'
+        - 'Tokenizer': 'integrations/tokenizer.md'
+    - 'Справочники':
+        - 'Тестовые карты': 'refs/testcards.md'
+    - 'API reference': 'api.md'
