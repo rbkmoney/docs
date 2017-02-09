@@ -1,17 +1,18 @@
 Библиотека **tokenizer.js** предоставляет вам возможность создания кастомных платежных форм, находящихся непосредственно на вашем веб-сервере, однако требует более сложной технической реализации.
 
-# Пример интеграции кастомной платежной формы
+## Пример интеграции кастомной платежной формы
 
 Во-первых, мы сделаем несколько изменений в форме оплаты. Давайте в качестве примера возьмем урезанную форму, не использующую tokenizer.js:
 
 ```html
-<form action="" method="POST" id="payment-form">
-  <input name="number"/>
-  <input name="cvc"/>
-  <input name="exp-month"/>
-  <input name="exp-year"/>
-  <button type="submit">Submit Payment</button>
-</form>
+<form id="payment-form">
+     <input id="card-number"/>
+     <input id="card-holder"/>
+     <input id="exp-date"/>
+     <input id="cvv"/>
+     <button id="pay-button" type="button">Pay</button>
+ </form>
+
 ```
 
 Нам нужно преобразовать эту форму, таким образом, чтобы она больше не использовала карточные данные на вашем сервере. Для этого подключаем tokenizer.js на странице и изменяем атрибуты, чтобы предотвратить передачу конфиденциальных карточных данных на ваш сервер.
@@ -23,18 +24,17 @@
 </head>
 
 <body>
-  <form action="" method="POST" id="payment-form">
-      <div class='alert' id='request-result' style=margin-top:30px></div>
-      <input name="card-number"/>
-      <input name="card-holder"/>
-      <input name="exp-date"/>
-      <input name="cvv"/>
-      <button id="pay-button" type="submit">Submit Payment</button>
-  </form>
-</body>
+  <form id="payment-form">
+       <input id="card-number"/>
+       <input id="card-holder"/>
+       <input id="exp-date"/>
+       <input id="cvv"/>
+       <button id="pay-button" type="button">Pay</button>
+   </form>
+   </body>
 ```
 
-Теперь мы просто добавим еще немного кода между <head></head>, чтобы попросить tokenizer.js отправить карточные данные и получить обратно карточный токен
+Теперь мы просто добавим еще немного кода между ```<head></head>```, чтобы попросить tokenizer.js отправить карточные данные и получить обратно карточный токен
 
 ```html
 <!DOCTYPE html>
@@ -49,14 +49,15 @@
     <script>
         $(function () {
             $('#pay-button').click(function () {
-        Tokenizer.setPublicKey('Your Public Key');
+        Tokenizer.setPublicKey('Your Tokenizer Key');
                 Tokenizer.card.createToken({
                     "paymentToolType": "cardData",
                     "cardHolder": $('#card-holder').val(),
                     "cardNumber": $('#card-number').val(),
                     "expDate": $('#exp-date').val(),
                     "cvv": $('#cvv').val()
-                }, function (result) {
+                }, function (token) {
+
         //Token here
                 }, function (error) {
         //Error here
@@ -78,4 +79,4 @@
 </form>
 ```
 
-В примере кода, вам необходимо будет установить публичный ключ полученный в личном кабинете, который позволяет токенизировать карточные данные или ожидает ошибку в ответ для отображения на платежной форме
+В примере кода, вам необходимо будет установить ключ токенизации, полученный в личном кабинете, который позволяет токенизировать карточные данные или ожидает ошибку в ответ для отображения на платежной форме.

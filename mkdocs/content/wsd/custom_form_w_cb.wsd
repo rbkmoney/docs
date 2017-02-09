@@ -1,0 +1,51 @@
+@startuml
+
+!include "plantuml-toolset/super-serious-skin.iwsd"
+
+title Custom Form Successful Payment Flow\nUsing Synchronous Callbacks
+
+participant "Payer UA" as UA
+participant "tokenizer.js" as TKN
+participant "Merchant Backend" as MBE
+participant "Platform Backend" as PBE
+
+
+UA -> MBE: Инициировать покупку
+
+MBE -> MBE:  Зарезервировать товар \n Сгенерировать invoiceContext
+
+MBE -> PBE: CreateInvoice(invoiceContext)
+PBE -> MBE: Ok(InvoiceID)
+
+MBE -> UA: Ok(Render Payment Form)
+
+UA -> TKN: "ClickPayButton(CardData)"
+
+TKN -> PBE: Tokenize(CardData)
+PBE -> TKN: Ok(Token)
+
+UA -> MBE: HTTPPost(Token)
+
+MBE -> PBE: StartPayment(Session, Token)
+PBE -> MBE: Ok(PaymentID)
+MBE -> UA: Ok(Session, PaymentID)
+
+UA -> MBE: StartPolling(Session)
+MBE -> PBE: Poll(Session)
+
+alt Handle callbackResult
+PBE -> MBE: callback(SuccessPayment)
+MBE -> PBE: Ok
+end
+
+UA -> MBE: Poll(Session)
+MBE -> PBE: PollEvents(InvoiceID)
+PBE -> MBE: Ok(Paid)
+
+MBE -> UA: Ok(Paid)
+
+UA -> MBE: Redirect(SuccessPage)
+MBE -> UA: SuccessPage
+
+
+@enduml
