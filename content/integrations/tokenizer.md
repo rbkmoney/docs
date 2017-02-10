@@ -21,9 +21,9 @@
         "expDate": "<exp_date>",
         "cvv": "<cvv>"
     }, function (token) {
-        //you receive token here
+        //token here
     }, function (error) {
-        //you receive error here
+        //error here
     });
 </script>
 ```
@@ -48,9 +48,9 @@
                     "expDate": $('#exp-date').val(),
                     "cvv": $('#cvv').val()
                 }, function (token) {
-                    //you receive token here
+                    //token here
                 }, function (error) {
-                    //you receive error here
+                    //error here
                 });
             });
         });

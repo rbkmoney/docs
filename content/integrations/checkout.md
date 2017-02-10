@@ -4,19 +4,19 @@ Checkout валидирует и отправляет на нашу сервер
 ## Пример кода инициализации платежной формы
 
 ```html
-<script src="http://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
-        data-key="<your_public_key>"
+<script src="https://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
+        data-key="<your_tokenizer_key>"
         data-invoice-id="e213ed1"
         data-order-id="1"
         data-amount="7,700"
         data-currency="Р"
-        data-logo="http://<your-server-side>/logo.png"
+        data-logo="https://<your-server-side>/logo.png"
         data-button-color="rgb(39, 136, 181)"
         data-name="Company name"
-        data-endpoint-init="http://<your-server-side>/init_endpoint"
-        data-endpoint-events="http://<your-server-side>/events_endpoint"
-        data-endpoint-success="http://<your-server-side>/success_endpoint"
-        data-endpoint-failed="http://<your-server-side>/failed_endpoint">
+        data-endpoint-init="https://<your-server-side>/init_endpoint"
+        data-endpoint-events="https://<your-server-side>/events_endpoint"
+        data-endpoint-success="https://<your-server-side>/success_endpoint"
+        data-endpoint-failed="https://<your-server-side>/failed_endpoint">
 </script>
 ```
 ``data-key`` - ключ для токенизации карточных данных
@@ -65,10 +65,10 @@ Checkout валидирует и отправляет на нашу сервер
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-    }
+    },
     params: {
-        invoiceId: <your invoiceId>,
-        orderId: <your orderId>
+        invoiceId: <invoiceId>,
+        orderId: <orderId>
     }
 }
 ```
