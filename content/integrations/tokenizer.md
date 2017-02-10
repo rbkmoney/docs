@@ -1,55 +1,46 @@
 Библиотека **tokenizer.js** предоставляет вам возможность создания кастомных платежных форм, находящихся непосредственно на вашем веб-сервере, однако требует более сложной технической реализации.
 
 ## Пример интеграции кастомной платежной формы
-
-Во-первых, мы сделаем несколько изменений в форме оплаты. Давайте в качестве примера возьмем урезанную форму, не использующую tokenizer.js:
-
+* Подключите tokenizer.js на свою страницу:
 ```html
-<form id="payment-form">
-     <input id="card-number"/>
-     <input id="card-holder"/>
-     <input id="exp-date"/>
-     <input id="cvv"/>
-     <button id="pay-button" type="button">Pay</button>
- </form>
-
+<script src="https://js.rbk.money/v2/tokenizer.js"></script>
+```
+* Установите ваш открытый ключ в tokenizer:
+```html
+<script type="text/javascript">
+    Tokenizer.setPublicKey('<your_tokenizer_key>');
+</script>
+```
+* Получите токен платежного средства, передав данные в tokenizer:
+```html
+<script type="text/javascript">
+    Tokenizer.card.createToken({
+        "paymentToolType": "cardData",
+        "cardHolder": "<card_holder>",
+        "cardNumber": "<card_number>",
+        "expDate": "<exp_date>",
+        "cvv": "<cvv>"
+    }, function (token) {
+        //you receive token here
+    }, function (error) {
+        //you receive error here
+    });
+</script>
 ```
 
-Нам нужно преобразовать эту форму, таким образом, чтобы она больше не использовала карточные данные на вашем сервере. Для этого подключаем tokenizer.js на странице и изменяем атрибуты, чтобы предотвратить передачу конфиденциальных карточных данных на ваш сервер.
-Теперь образец нашей формы выглядит следующим образом:
-
-```html
-<head>
-  <script type="text/javascript" src="https://js.rbk.money/v2/tokenizer.js"></script>
-</head>
-
-<body>
-  <form id="payment-form">
-       <input id="card-number"/>
-       <input id="card-holder"/>
-       <input id="exp-date"/>
-       <input id="cvv"/>
-       <button id="pay-button" type="button">Pay</button>
-   </form>
-   </body>
-```
-
-Теперь мы просто добавим еще немного кода между ```<head></head>```, чтобы попросить tokenizer.js отправить карточные данные и получить обратно карточный токен
-
+Пример обработки формы c помощью tokenizer:
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Tokenization sample</title>
-    <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
-
-<script type="application/javascript" src="https://js.rbk.money/v2/tokenizer.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
+    <script src="https://js.rbk.money/v2/tokenizer.js"></script>
     <script>
         $(function () {
             $('#pay-button').click(function () {
-        Tokenizer.setPublicKey('Your Tokenizer Key');
+                Tokenizer.setPublicKey('<your_tokenizer_key>');
                 Tokenizer.card.createToken({
                     "paymentToolType": "cardData",
                     "cardHolder": $('#card-holder').val(),
@@ -57,26 +48,21 @@
                     "expDate": $('#exp-date').val(),
                     "cvv": $('#cvv').val()
                 }, function (token) {
-
-        //Token here
+                    //you receive token here
                 }, function (error) {
-        //Error here
+                    //you receive error here
                 });
             });
         });
     </script>
 </head>
 <body>
+    <form>
+        <input id="card-holder" placeholder="card holder">
+        <input id="card-number" placeholder="card number">
+        <input id="exp-date" placeholder="exp date">
+        <input id="cvv" placeholder="cvv">
+        <button id="pay-button" type="button">Pay</button>
+    </form>
+</body>    
 ```
-
-```html
-<form>
-<input id="card-holder" placeholder="card holder">
-<input id="card-number" placeholder="card number">
-<input id="exp-date" placeholder="exp date">
-<input id="cvv" placeholder="cvv">
-<button id="pay-button" type="button">Pay</button>
-</form>
-```
-
-В примере кода, вам необходимо будет установить ключ токенизации, полученный в личном кабинете, который позволяет токенизировать карточные данные или ожидает ошибку в ответ для отображения на платежной форме.
