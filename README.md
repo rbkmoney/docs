@@ -1,5 +1,7 @@
 # RBKmoney public docs
 
+[![wercker status](https://app.wercker.com/status/c2f14b42298e56698eaa7d2d9ad7fa63/s/master "wercker status")](https://app.wercker.com/project/byKey/c2f14b42298e56698eaa7d2d9ad7fa63)
+
 После деплоя документация будет доступна по адресу [https://rbkmoney.github.io/docs/](https://rbkmoney.github.io/docs/)
 
 ## Сборка
