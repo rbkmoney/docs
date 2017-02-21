@@ -119,7 +119,7 @@ if($liveDemo) {
         script.setAttribute('data-currency', invoice.currency);
         script.setAttribute('data-endpoint-init', `${backendOriginUrl}/init`);
         script.setAttribute('data-endpoint-events', `${backendOriginUrl}/events`);
-        script.setAttribute('data-endpoint-success', '/');
+        script.setAttribute('data-endpoint-success', location.href);
         script.setAttribute('data-endpoint-success-method', 'GET');
         script.setAttribute('data-name', 'Company name');
 
