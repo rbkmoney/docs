@@ -13,6 +13,8 @@ extra_css:
     - 'livedemo/loader.css'
 extra_javascript:
     - 'livedemo/livedemo.js'
+    - 'counters/ga.js'
+    - 'counters/ym.js'
 strict: true
 markdown_extensions:
     - smarty
