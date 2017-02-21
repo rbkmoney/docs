@@ -1,0 +1,179 @@
+#fountainG{
+    position: absolute;
+    width: 198px;
+    height: 24px;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fountainG{
+    position:absolute;
+    top:0;
+    background-color:#4caf50;
+    width:24px;
+    height:24px;
+    animation-name:bounce_fountainG;
+    -o-animation-name:bounce_fountainG;
+    -ms-animation-name:bounce_fountainG;
+    -webkit-animation-name:bounce_fountainG;
+    -moz-animation-name:bounce_fountainG;
+    animation-duration:0.975s;
+    -o-animation-duration:0.975s;
+    -ms-animation-duration:0.975s;
+    -webkit-animation-duration:0.975s;
+    -moz-animation-duration:0.975s;
+    animation-iteration-count:infinite;
+    -o-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+    animation-direction:normal;
+    -o-animation-direction:normal;
+    -ms-animation-direction:normal;
+    -webkit-animation-direction:normal;
+    -moz-animation-direction:normal;
+    transform:scale(.3);
+    -o-transform:scale(.3);
+    -ms-transform:scale(.3);
+    -webkit-transform:scale(.3);
+    -moz-transform:scale(.3);
+    border-radius:16px;
+    -o-border-radius:16px;
+    -ms-border-radius:16px;
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+}
+
+#fountainG_1{
+    left:0;
+    animation-delay:0.386s;
+    -o-animation-delay:0.386s;
+    -ms-animation-delay:0.386s;
+    -webkit-animation-delay:0.386s;
+    -moz-animation-delay:0.386s;
+}
+
+#fountainG_2{
+    left:25px;
+    animation-delay:0.4825s;
+    -o-animation-delay:0.4825s;
+    -ms-animation-delay:0.4825s;
+    -webkit-animation-delay:0.4825s;
+    -moz-animation-delay:0.4825s;
+}
+
+#fountainG_3{
+    left:49px;
+    animation-delay:0.589s;
+    -o-animation-delay:0.589s;
+    -ms-animation-delay:0.589s;
+    -webkit-animation-delay:0.589s;
+    -moz-animation-delay:0.589s;
+}
+
+#fountainG_4{
+    left:74px;
+    animation-delay:0.6855s;
+    -o-animation-delay:0.6855s;
+    -ms-animation-delay:0.6855s;
+    -webkit-animation-delay:0.6855s;
+    -moz-animation-delay:0.6855s;
+}
+
+#fountainG_5{
+    left:99px;
+    animation-delay:0.782s;
+    -o-animation-delay:0.782s;
+    -ms-animation-delay:0.782s;
+    -webkit-animation-delay:0.782s;
+    -moz-animation-delay:0.782s;
+}
+
+#fountainG_6{
+    left:124px;
+    animation-delay:0.8785s;
+    -o-animation-delay:0.8785s;
+    -ms-animation-delay:0.8785s;
+    -webkit-animation-delay:0.8785s;
+    -moz-animation-delay:0.8785s;
+}
+
+#fountainG_7{
+    left:148px;
+    animation-delay:0.975s;
+    -o-animation-delay:0.975s;
+    -ms-animation-delay:0.975s;
+    -webkit-animation-delay:0.975s;
+    -moz-animation-delay:0.975s;
+}
+
+#fountainG_8{
+    left:173px;
+    animation-delay:1.0715s;
+    -o-animation-delay:1.0715s;
+    -ms-animation-delay:1.0715s;
+    -webkit-animation-delay:1.0715s;
+    -moz-animation-delay:1.0715s;
+}
+
+@keyframes bounce_fountainG{
+    0%{
+        transform:scale(1);
+        background-color:#4caf50;
+    }
+
+    100%{
+        transform:scale(.3);
+        background-color:rgba(255,255,255,0.8);
+    }
+}
+
+@-o-keyframes bounce_fountainG{
+    0%{
+        -o-transform:scale(1);
+        background-color:#4caf50;
+    }
+
+    100%{
+        -o-transform:scale(.3);
+        background-color:rgba(255,255,255,0.8);
+    }
+}
+
+@-ms-keyframes bounce_fountainG{
+    0%{
+        -ms-transform:scale(1);
+        background-color:#4caf50;
+    }
+
+    100%{
+        -ms-transform:scale(.3);
+        background-color:rgba(255,255,255,0.8);
+    }
+}
+
+@-webkit-keyframes bounce_fountainG{
+    0%{
+        -webkit-transform:scale(1);
+        background-color:#4caf50;
+    }
+
+    100%{
+        -webkit-transform:scale(.3);
+        background-color:rgba(255,255,255,0.8);
+    }
+}
+
+@-moz-keyframes bounce_fountainG{
+    0%{
+        -moz-transform:scale(1);
+        background-color:#4caf50;
+    }
+
+    100%{
+        -moz-transform:scale(.3);
+        background-color:rgba(255,255,255,0.8);
+    }
+}

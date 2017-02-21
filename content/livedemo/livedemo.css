@@ -1,0 +1,116 @@
+#live-demo::before,
+#live-demo-container::before,
+#pay-form::before,
+#payment::before {
+    display: block;
+}
+
+#live-demo {
+    width: 100%;
+    position: relative;
+    background: #f5f5f5;
+    text-align: left;
+    overflow: hidden;
+}
+
+#live-demo h2 {
+    margin: 0 auto 10px;
+}
+
+#live-demo .form-row {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+}
+
+#live-demo {
+    padding: 15px;
+    position: relative;
+    min-height: 150px;
+}
+
+#live-demo input {
+    width: 100%;
+    max-width: 200px;
+    padding: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+#live-demo input#amount {
+    max-width: 80px;
+}
+
+#live-demo select {
+    padding: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+#live-demo input[type="submit"] {
+    width: auto;
+    max-width: none;
+    color: #ffffff;
+    background: #4caf50;
+    padding: 8px 15px;
+    margin: 10px 0 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    font-size: 100%;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+#live-demo input[type="submit"]:hover {
+    color: #efefef;
+}
+
+#live-demo .rbkmoney-button {
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+    background: #4caf50;
+    padding: 8px 15px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+#live-demo .rbkmoney-button span {
+    background: #4caf50;
+    padding: 0;
+    height: auto;
+    line-height: 20px;
+    box-shadow: none;
+    transition: color 0.2s ease;
+    color: #ffffff;
+}
+#live-demo .rbkmoney-button:hover span {
+    color: #efefef;
+}
+
+#payment {
+    max-width: 280px;
+    padding: 10px;
+    background: #eeeeee;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    text-align: center;
+    overflow: hidden;
+}
+#payment div {
+    margin: 6px auto;
+}
+#payment .order {
+    display: inline-block;
+    position: relative;
+}
+#payment .order:hover::after {
+    content: attr(data-title);
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 85%);
+    z-index: 1;
+    background: rgba(255,255,255,0.8);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 3px 7px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+}
