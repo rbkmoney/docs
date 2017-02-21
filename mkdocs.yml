@@ -9,6 +9,10 @@ extra:
         accent: lime
 extra_css:
     - 'assets/stylesheets/override.css'
+    - 'livedemo/livedemo.css'
+    - 'livedemo/loader.css'
+extra_javascript:
+    - 'livedemo/livedemo.js'
 strict: true
 markdown_extensions:
     - smarty
