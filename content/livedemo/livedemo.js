@@ -1,8 +1,8 @@
-const $tryNow = document.getElementById('try-now');
-if($tryNow) {
+const $liveDemo = document.getElementById('live-demo');
+if($liveDemo) {
 
-    $tryNow.innerHTML = `
-        <div id="try-now-container">
+    $liveDemo.innerHTML = `
+        <div id="live-demo-container">
             <form action='javascript:initInvoice();'>
                 <h2>Конфигурация товара</h2>
                 <label class='form-row'>
@@ -35,11 +35,11 @@ if($tryNow) {
         </div>
     `;
 
-    const $container = document.getElementById('try-now-container');
+    const $container = document.getElementById('live-demo-container');
     const $loader = document.getElementById('fountainG');
-    const publicKey = '';
-    const hostCheckout = 'http://checkout.rbk.money:8080';
-    const hostBackend = 'http://localhost:8001';
+    const publicKey = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJUdEZzelc3NDB2NTQ1MThVUVg1MGNnczN1U2pCSXkxbDdGcDVyMHdmYzFrIn0.eyJqdGkiOiIyNTI3OTQyYS1kMGU4LTQzNTctYWJiMi03ZmE0NTIwZjBlYjAiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNDg3NjA5NzU2LCJpc3MiOiJodHRwczovL2F1dGgucmJrLm1vbmV5L2F1dGgvcmVhbG1zL2V4dGVybmFsIiwiYXVkIjoidG9rZW5pemVyIiwic3ViIjoiZjQyNzIzZDAtMjAyMi00YjY2LTlmOTItNDU0OTc2OWYxYTkyIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InRva2VuaXplciIsIm5vbmNlIjoiZDc0YTYzYzAtNzdkYi00MDdiLWEzNmUtMTJhODFiNTlkM2UxIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiZmNiMjRmMjktNDdhYi00YTY2LWFmZGItNDVkNmUyNjdlOGE3IiwiY2xpZW50X3Nlc3Npb24iOiIyM2E3OGY4Ny0yMTY5LTQ0NzMtYTM2OC04OTk2ODU5NTk5YWYiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBheW1lbnRfdG9vbF90b2tlbnM6Y3JlYXRlIl19fX0.bxSimSu5JxTd0b3THPXzJIelYh_Nclep4dQEVUBB8cWLpEm7IKA2eG0ZR9JtKGX9HXN2UFDY9phNNgbZ5vjsaYEl5hb5y0joCWniJPkUYIyy-yA4wDwpde1c97ALr4ZF-iJA3NKKgYtVlesrj99YOedW2qDvn2jzGwHgXBUX1iRxKhn7oARDp71QGxHWn4pdqbYLO8uAJfmRakXbpjtqLrTvf4Bv-Rmr48eKFBAH6OJhDcThpqv5AHlrSwqpokTtRewxNzWLpvDL1NoxDmeU9AXV7fnTGgxKWtKEJ_Vdm1ru---CxrEHd_UvynmV8w502Wwe6_g0fclcs-DR36hcLg';
+    const checkoutOriginUrl = 'https://checkout.rbk.money';
+    const backendOriginUrl = 'https://live-demo-backend.rbkmoney.com';
 
     function loadingStart() {
         $container.style.display = 'none';
@@ -94,7 +94,7 @@ if($tryNow) {
                 }
             }
         };
-        request.open('POST', `${hostCheckout}/invoice`, true);
+        request.open('POST', `${backendOriginUrl}/invoice`, true);
         request.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
         request.send(JSON.stringify(invoiceArgs));
     }
@@ -103,22 +103,22 @@ if($tryNow) {
         const amountMajor = Number(invoice.amount) / 100;
         $container.innerHTML = `
             <div id="payment">
-                <h2>Сформирован заказ</h2>
+                <h2 class="order" data-title="ID запроса: ${invoice.id}">Сформирован запрос</h2>
                 <div>Товар: ${invoice.product}</div>
                 <div>Сумма к оплате: ${amountMajor} ${invoice.currency}</div>
             </div>
         `;
 
         const script = document.createElement('script');
-        script.setAttribute('src', `${hostCheckout}/payframe/payframe.js`);
+        script.setAttribute('src', `${checkoutOriginUrl}/payframe/payframe.js`);
         script.setAttribute('class', 'rbkmoney-checkout');
         script.setAttribute('data-key', publicKey);
         script.setAttribute('data-invoice-id', invoice.id);
         script.setAttribute('data-order-id', '1');
         script.setAttribute('data-amount', String(amountMajor));
         script.setAttribute('data-currency', invoice.currency);
-        script.setAttribute('data-endpoint-init', `${hostBackend}/init`);
-        script.setAttribute('data-endpoint-events', `${hostBackend}/events`);
+        script.setAttribute('data-endpoint-init', `${backendOriginUrl}/init`);
+        script.setAttribute('data-endpoint-events', `${backendOriginUrl}/events`);
         script.setAttribute('data-endpoint-success', '/');
         script.setAttribute('data-endpoint-success-method', 'GET');
         script.setAttribute('data-name', 'Company name');

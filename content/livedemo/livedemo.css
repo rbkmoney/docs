@@ -1,11 +1,11 @@
-#try-now::before,
-#try-now-container::before,
+#live-demo::before,
+#live-demo-container::before,
 #pay-form::before,
 #payment::before {
     display: block;
 }
 
-#try-now {
+#live-demo {
     width: 100%;
     position: relative;
     background: #f5f5f5;
@@ -13,39 +13,39 @@
     overflow: hidden;
 }
 
-#try-now h2 {
+#live-demo h2 {
     margin: 0 auto 10px;
 }
 
-#try-now .form-row {
+#live-demo .form-row {
     display: block;
     width: 100%;
     margin: 8px 0;
 }
 
-#try-now {
+#live-demo {
     padding: 15px;
     position: relative;
     min-height: 150px;
 }
 
-#try-now input {
+#live-demo input {
     width: 100%;
     max-width: 200px;
     padding: 4px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
     border-radius: 2px;
 }
-#try-now input#amount {
+#live-demo input#amount {
     max-width: 80px;
 }
 
-#try-now select {
+#live-demo select {
     padding: 4px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
-#try-now input[type="submit"] {
+#live-demo input[type="submit"] {
     width: auto;
     max-width: none;
     color: #ffffff;
@@ -58,11 +58,11 @@
     cursor: pointer;
     transition: color 0.2s ease;
 }
-#try-now input[type="submit"]:hover {
+#live-demo input[type="submit"]:hover {
     color: #efefef;
 }
 
-#try-now .rbkmoney-button {
+#live-demo .rbkmoney-button {
     display: block;
     margin: 10px auto;
     border-radius: 2px;
@@ -70,7 +70,7 @@
     padding: 8px 15px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
-#try-now .rbkmoney-button span {
+#live-demo .rbkmoney-button span {
     background: #4caf50;
     padding: 0;
     height: auto;
@@ -79,7 +79,7 @@
     transition: color 0.2s ease;
     color: #ffffff;
 }
-#try-now .rbkmoney-button:hover span {
+#live-demo .rbkmoney-button:hover span {
     color: #efefef;
 }
 
@@ -95,4 +95,22 @@
 #payment div {
     margin: 6px auto;
 }
-
+#payment .order {
+    display: inline-block;
+    position: relative;
+}
+#payment .order:hover::after {
+    content: attr(data-title);
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 85%);
+    z-index: 1;
+    background: rgba(255,255,255,0.8);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 3px 7px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+}
