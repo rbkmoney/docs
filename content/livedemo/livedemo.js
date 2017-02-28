@@ -50,7 +50,7 @@ if($liveDemo) {
         $loader.style.display = 'none';
     }
 
-    function getDueDate(date) {
+    function getDueDate() {
         const checkFormat = (input) => {
             let formatted = String(input);
             if(formatted.length < 2) {
@@ -59,12 +59,15 @@ if($liveDemo) {
             return formatted;
         };
 
-        const year = date.getFullYear();
-        const month = checkFormat(date.getMonth() + 1);
-        const day = checkFormat(date.getDate() + 1);
-        const hours = checkFormat(date.getHours());
-        const minutes = checkFormat(date.getMinutes());
-        const seconds = checkFormat(date.getSeconds());
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + 1);
+
+        const year = dueDate.getFullYear();
+        const month = checkFormat(dueDate.getMonth() + 1);
+        const day = checkFormat(dueDate.getDate());
+        const hours = checkFormat(dueDate.getHours());
+        const minutes = checkFormat(dueDate.getMinutes());
+        const seconds = checkFormat(dueDate.getSeconds());
 
         return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + 'Z';
     }
@@ -74,7 +77,7 @@ if($liveDemo) {
             shopID: 1,
             amount: Number(document.getElementById('amount').value) * 100,
             currency: document.getElementById('currency').value,
-            dueDate: getDueDate(new Date()),
+            dueDate: getDueDate(),
             product: document.getElementById('product').value,
             description: document.getElementById('description').value,
             metadata: {}
