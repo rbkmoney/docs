@@ -12,6 +12,7 @@ extra_css:
     - 'livedemo/livedemo.css'
     - 'livedemo/loader.css'
 extra_javascript:
+    - 'livedemo/moment.min.js'
     - 'livedemo/livedemo.js'
     - 'counters/ga.js'
     - 'counters/ym.js'

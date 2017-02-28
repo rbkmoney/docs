@@ -50,34 +50,12 @@ if($liveDemo) {
         $loader.style.display = 'none';
     }
 
-    function getDueDate() {
-        const checkFormat = (input) => {
-            let formatted = String(input);
-            if(formatted.length < 2) {
-                formatted = '0' + formatted;
-            }
-            return formatted;
-        };
-
-        const dueDate = new Date();
-        dueDate.setDate(dueDate.getDate() + 1);
-
-        const year = dueDate.getFullYear();
-        const month = checkFormat(dueDate.getMonth() + 1);
-        const day = checkFormat(dueDate.getDate());
-        const hours = checkFormat(dueDate.getHours());
-        const minutes = checkFormat(dueDate.getMinutes());
-        const seconds = checkFormat(dueDate.getSeconds());
-
-        return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes + ':' + seconds + 'Z';
-    }
-
     function initInvoice() {
         const invoiceArgs = {
             shopID: 1,
             amount: Number(document.getElementById('amount').value) * 100,
             currency: document.getElementById('currency').value,
-            dueDate: getDueDate(),
+            dueDate: moment().add(1, 'days').utc().format(),
             product: document.getElementById('product').value,
             description: document.getElementById('description').value,
             metadata: {}
