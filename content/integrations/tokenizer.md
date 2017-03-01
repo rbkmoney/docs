@@ -5,7 +5,7 @@
 ```html
 <script src="https://js.rbk.money/v2/tokenizer.js"></script>
 ```
-* Установите ваш открытый ключ в tokenizer:
+* Установите ключ токенизации в tokenizer:
 ```html
 <script type="text/javascript">
     Tokenizer.setPublicKey('<your_tokenizer_key>');
@@ -36,7 +36,7 @@
     <meta charset="UTF-8">
     <title>Tokenization sample</title>
     <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
-    <script src="https://js.rbk.money/v2/tokenizer.js"></script>
+    <script src="https://rbkmoney.st/tokenizer.js"></script>
     <script>
         $(function () {
             $('#pay-button').click(function () {

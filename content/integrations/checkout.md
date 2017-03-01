@@ -19,7 +19,7 @@ Checkout валидирует и отправляет на нашу сервер
         data-endpoint-failed="https://<your-server-side>/failed_endpoint">
 </script>
 ```
-``data-key`` - ключ для токенизации карточных данных
+``data-key`` - ключ токенизации карточных данных
 
 ``data-invoice-id`` - номер инвойса
 
@@ -39,18 +39,18 @@ Checkout валидирует и отправляет на нашу сервер
 со статусом 200, который воспримет как успешный запуск платежа с вашей стороны. Далее форма начнет отправлять запросы для получения событий платежа.
 
 Пример запроса:
-```js
+```json
 {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json"
     },
-    body: {
-        invoiceId: <invoiceId>,
-        token: <token>,
-        session: <token session>,
-        contractInfo: {
-            email: <payer email>
+    "body": {
+        "invoiceId": "<invoiceId>",
+        "token": "<token>",
+        "session": "<token session>",
+        "contractInfo": {
+            "email": "<payer email>"
         }
     }
 }
@@ -59,27 +59,28 @@ Checkout валидирует и отправляет на нашу сервер
 ``data-endpoint-events`` - url на который форма будет отправлять GET запросы для получения событий платежа. Ответы ожидаются в соответствии с протоколом нашего [API](https://rbkmoney.github.io/api/#operation/getInvoiceEvents). Фактически вам необходимо спроксировать запрос формы к нашему API.
 
 Пример запроса:
-```js
+```json
 {
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+    "method": "GET",
+    "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
     },
-    params: {
-        invoiceId: <invoiceId>,
-        orderId: <orderId>
+    "params": {
+        "invoiceId": "<invoiceId>",
+        "orderId": "<orderId>"
     }
 }
 ```
 
-``data-endpoint-success``, ``data-endpoint-failed`` - url's на которые придут запросы, обработав которые вы можете настроить поведение в случае успешного или неуспешного платежа.
+``data-endpoint-success``, ``data-endpoint-failed`` - url's на которые придут запросы, обработав которые, вы можете настроить поведение в случае успешного или неуспешного платежа.
+
 Пример запроса:
-```js
+```json
 {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'x-form-urlencoded'
+    "method": "POST",
+    "headers": {
+        "Content-Type": "x-form-urlencoded"
     }
 }
 ```
