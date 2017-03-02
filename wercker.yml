@@ -6,8 +6,16 @@ build:
     - script:
         name: build docsite
         code: mkdocs build -d ${WERCKER_OUTPUT_DIR}
+  after-steps:
+    - slack-notifier:
+      url: ${SLACK_WEBHOOK_URL}
+      username: "wercker"
 
 deploy:
   steps:
     - lukevivier/gh-pages:
       token: ${GITHUB_API_TOKEN}
+  after-steps:
+    - slack-notifier:
+      url: ${SLACK_WEBHOOK_URL}
+      username: "wercker"
