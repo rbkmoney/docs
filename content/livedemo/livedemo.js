@@ -16,9 +16,6 @@ if($liveDemo) {
                 <label class='form-row'>
                     Стоимость
                     <input type='number' id='amount' min='1' max='40000' value='1499' />
-                    <select id='currency'>
-                        <option value='RUB'>RUB</option>
-                    </select>
                 </label>
                 <input type='submit' value='Создать Invoice в системе' />
             </form>
@@ -37,7 +34,6 @@ if($liveDemo) {
 
     const $container = document.getElementById('live-demo-container');
     const $loader = document.getElementById('fountainG');
-    const publicKey = 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJUdEZzelc3NDB2NTQ1MThVUVg1MGNnczN1U2pCSXkxbDdGcDVyMHdmYzFrIn0.eyJqdGkiOiIyNTI3OTQyYS1kMGU4LTQzNTctYWJiMi03ZmE0NTIwZjBlYjAiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNDg3NjA5NzU2LCJpc3MiOiJodHRwczovL2F1dGgucmJrLm1vbmV5L2F1dGgvcmVhbG1zL2V4dGVybmFsIiwiYXVkIjoidG9rZW5pemVyIiwic3ViIjoiZjQyNzIzZDAtMjAyMi00YjY2LTlmOTItNDU0OTc2OWYxYTkyIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InRva2VuaXplciIsIm5vbmNlIjoiZDc0YTYzYzAtNzdkYi00MDdiLWEzNmUtMTJhODFiNTlkM2UxIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiZmNiMjRmMjktNDdhYi00YTY2LWFmZGItNDVkNmUyNjdlOGE3IiwiY2xpZW50X3Nlc3Npb24iOiIyM2E3OGY4Ny0yMTY5LTQ0NzMtYTM2OC04OTk2ODU5NTk5YWYiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBheW1lbnRfdG9vbF90b2tlbnM6Y3JlYXRlIl19fX0.bxSimSu5JxTd0b3THPXzJIelYh_Nclep4dQEVUBB8cWLpEm7IKA2eG0ZR9JtKGX9HXN2UFDY9phNNgbZ5vjsaYEl5hb5y0joCWniJPkUYIyy-yA4wDwpde1c97ALr4ZF-iJA3NKKgYtVlesrj99YOedW2qDvn2jzGwHgXBUX1iRxKhn7oARDp71QGxHWn4pdqbYLO8uAJfmRakXbpjtqLrTvf4Bv-Rmr48eKFBAH6OJhDcThpqv5AHlrSwqpokTtRewxNzWLpvDL1NoxDmeU9AXV7fnTGgxKWtKEJ_Vdm1ru---CxrEHd_UvynmV8w502Wwe6_g0fclcs-DR36hcLg';
     const checkoutOriginUrl = 'https://checkout.rbk.money';
     const backendOriginUrl = 'https://live-demo-backend.rbkmoney.com';
 
@@ -54,7 +50,7 @@ if($liveDemo) {
         const invoiceArgs = {
             shopID: 1,
             amount: Number(document.getElementById('amount').value) * 100,
-            currency: document.getElementById('currency').value,
+            currency: 'RUB',
             dueDate: moment().add(1, 'days').utc().format(),
             product: document.getElementById('product').value,
             description: document.getElementById('description').value,
@@ -71,16 +67,34 @@ if($liveDemo) {
             if(request.readyState === 4) {
                 loadingComplete();
                 if(request.status >= 200 && request.status < 300) {
-                    initPayButton(JSON.parse(request.responseText));
+                    const invoice = JSON.parse(request.responseText);
+                    createAccessToken(invoice);
                 }
             }
         };
-        request.open('POST', `${backendOriginUrl}/invoice`, true);
+        request.open('POST', `${backendOriginUrl}/invoice/create`, true);
         request.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
         request.send(JSON.stringify(invoiceArgs));
     }
 
-    function initPayButton(invoice) {
+    function createAccessToken(invoice) {
+        loadingStart();
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if(request.readyState === 4) {
+                loadingComplete();
+                if(request.status >= 200 && request.status < 300) {
+                    const accessToken = JSON.parse(request.responseText);
+                    initPayButton(invoice, accessToken.payload);
+                }
+            }
+        };
+        request.open('POST', `${backendOriginUrl}/invoice/${invoice.id}/access_tokens`, true);
+        request.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+        request.send();
+    }
+
+    function initPayButton(invoice, payload) {
         const amountMajor = Number(invoice.amount) / 100;
         $container.innerHTML = `
             <div id="payment">
@@ -93,13 +107,10 @@ if($liveDemo) {
         const script = document.createElement('script');
         script.setAttribute('src', `${checkoutOriginUrl}/payframe/payframe.js`);
         script.setAttribute('class', 'rbkmoney-checkout');
-        script.setAttribute('data-key', publicKey);
+        script.setAttribute('data-access-token', payload);
         script.setAttribute('data-invoice-id', invoice.id);
-        script.setAttribute('data-order-id', '1');
         script.setAttribute('data-amount', String(amountMajor));
         script.setAttribute('data-currency', invoice.currency);
-        script.setAttribute('data-endpoint-init', `${backendOriginUrl}/init`);
-        script.setAttribute('data-endpoint-events', `${backendOriginUrl}/events`);
         script.setAttribute('data-endpoint-success', location.href);
         script.setAttribute('data-endpoint-success-method', 'GET');
         script.setAttribute('data-name', 'Company name');
@@ -108,4 +119,3 @@ if($liveDemo) {
         $payment.appendChild(script);
     }
 }
-
