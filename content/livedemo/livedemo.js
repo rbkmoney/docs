@@ -107,7 +107,7 @@ if($liveDemo) {
         var script = document.createElement('script');
         script.setAttribute('src', `${checkoutOriginUrl}/payframe/payframe.js`);
         script.setAttribute('class', 'rbkmoney-checkout');
-        script.setAttribute('data-access-token', payload);
+        script.setAttribute('data-invoice-access-token', payload);
         script.setAttribute('data-invoice-id', invoice.id);
         script.setAttribute('data-amount', String(amountMajor));
         script.setAttribute('data-currency', invoice.currency);

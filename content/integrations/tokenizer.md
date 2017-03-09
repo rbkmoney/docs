@@ -40,7 +40,7 @@
     <script>
         $(function () {
             $('#pay-button').click(function () {
-                Tokenizer.setPublicKey('<your_tokenizer_key>');
+                Tokenizer.setAccessToken('<access_token>');
                 Tokenizer.card.createToken({
                     paymentToolType: "CardData",
                     cardHolder: $('#card-holder').val(),
