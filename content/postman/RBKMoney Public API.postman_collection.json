@@ -1,0 +1,525 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RBKMoney Public API",
+		"_postman_id": "5f1ab1b3-6427-f73c-8aa2-eacfb409c0ed",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createInvoice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"invoice_id\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"2017-12-31T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createInvoiceAccessToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"invoice_token\", jsonData.payload);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/access_tokens",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentToolToken[VISA]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"paytool_token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/payment_tools",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"4242424242424242\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentToolToken[MC]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"paytool_token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/payment_tools",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5555555555554444\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createPayment",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentToolToken\":\"{{paytool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getPaymentById",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentToolToken\":\"eyJiaW4iOiI0MjQyNDIiLCJtYXNrZWRfcGFuIjoiNDI0MiIsInBheW1lbnRfc3lzdGVtIjoidmlzYSIsInRva2VuIjoiN1RqQjZQQTNDWnRkSExUalZEMVBpZyJ9\",\n  \"paymentSession\":\"eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiMTIzIiwiaXBfYWRkcmVzcyI6IjEwLjQuNTQuMjM1In0sInBheW1lbnRTZXNzaW9uIjoiNDE1ckh5NzBwb0tFYnFKbmFWRmR5RyJ9\",\n  \"contactInfo\":\n    {\n      \"email\":\"anton.lva@gmail.com\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getInvoiceById",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 199000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"111111\"\n  },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Dakimakura\",\n\"description\": \"Description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getInvoiceEvents",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/events?limit=1000",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "fulfillInvoice",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/fulfill",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getInvoices",
+			"request": {
+				"url": "https://api.rbk.money/v1/analytics/shops/1/invoices?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "payoutTools",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/contracts/1/payout_tools",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getContract",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/contracts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getMyParty",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/me",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getShopById",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/shops/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shopID\": 2,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"<script>alert('1');</script>\"\n  },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getPaymentMethodStats",
+			"request": {
+				"url": "https://api.rbk.money/v1/analytics/shops/1/customers/stats/payment_method?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z&splitUnit=minute&splitSize=1000&paymentMethod=bankCard",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getPaymentConversionStats",
+			"request": {
+				"url": "https://api.rbk.money/v1/analytics/shops/1/payments/stats/conversion?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z&splitUnit=minute&splitSize=1000",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
