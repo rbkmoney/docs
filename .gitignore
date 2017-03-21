@@ -1,3 +1,4 @@
 mkdocs/site
 plantuml-toolset
 .idea/
+.DS_Store
