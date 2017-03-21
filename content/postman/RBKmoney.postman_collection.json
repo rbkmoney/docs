@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "RBKMoney Public API",
+		"name": "RBKmoney",
 		"_postman_id": "5f1ab1b3-6427-f73c-8aa2-eacfb409c0ed",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -290,36 +290,6 @@
 			"response": []
 		},
 		{
-			"name": "fulfillInvoice",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/fulfill",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
 			"name": "getInvoices",
 			"request": {
 				"url": "https://api.rbk.money/v1/analytics/shops/1/invoices?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z",
@@ -496,6 +466,36 @@
 			"request": {
 				"url": "https://api.rbk.money/v1/analytics/shops/1/payments/stats/conversion?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z&splitUnit=minute&splitSize=1000",
 				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "fulfillInvoice",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/fulfill",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",

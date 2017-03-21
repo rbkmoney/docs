@@ -31,6 +31,7 @@ pages:
         - 'Обзор': 'integrations/overview.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
+        - 'Postman': 'integrations/postman.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
     - 'API reference': 'api.md'
