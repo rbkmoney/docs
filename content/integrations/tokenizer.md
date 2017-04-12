@@ -3,7 +3,7 @@
 ## Пример интеграции кастомной платежной формы
 * Подключите tokenizer.js на свою страницу:
 ```html
-<script src="https://js.rbk.money/v2/tokenizer.js"></script>
+<script src="https://rbkmoney.st/tokenizer.js"></script>
 ```
 * Установите access token в tokenizer:
 ```html
