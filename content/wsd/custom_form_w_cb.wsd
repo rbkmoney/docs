@@ -14,33 +14,39 @@ UA -> MBE: Инициировать покупку
 
 MBE -> MBE:  Зарезервировать товар \n Сгенерировать invoiceContext
 
-MBE -> PBE: CreateInvoice(invoiceContext)
-PBE -> MBE: Ok(InvoiceID)
+MBE -> PBE: createInvoice(invoiceContext, API Key)
+PBE -> MBE: 201(invoiceContext)
+
+MBE -> PBE: createInvoiceAccessToken(invoiceID, API Key)
+PBE -> MBE: 201(payload)
+
 
 MBE -> UA: Ok(Render Payment Form)
 
 UA -> TKN: "ClickPayButton(CardData)"
 
-TKN -> PBE: Tokenize(CardData)
-PBE -> TKN: Ok(Token)
+TKN -> PBE: createPaymentToolToken(payload,\ninvoiceAccessToken)
+PBE -> TKN: 201(paymentToolToken,\npaymentToolSession)
 
-UA -> MBE: HTTPPost(Token)
+TKN -> UA: Pass(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
 
-MBE -> PBE: StartPayment(Session, Token)
-PBE -> MBE: Ok(PaymentID)
-MBE -> UA: Ok(Session, PaymentID)
+UA -> MBE: HTTPPost(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
 
-UA -> MBE: StartPolling(Session)
-MBE -> PBE: Poll(Session)
+MBE -> PBE: createPayment(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+PBE -> MBE: 201(paymentContext)
+MBE -> UA: Ok(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+
+UA -> MBE: StartPolling(invoiceID,\ninvoiceAccessToken)
+MBE -> PBE: getPaymentByID(invoiceID,\ninvoiceAccessToken)
 
 alt Handle callbackResult
 PBE -> MBE: callback(SuccessPayment)
 MBE -> PBE: Ok
 end
 
-UA -> MBE: Poll(Session)
-MBE -> PBE: PollEvents(InvoiceID)
-PBE -> MBE: Ok(Paid)
+UA -> MBE: Poll(invoiceID,\ninvoiceAccessToken)
+MBE -> PBE: getInvoiceByID(invoiceID,\ninvoiceAccessToken)
+PBE -> MBE: 200(invoiceContext)
 
 MBE -> UA: Ok(Paid)
 
