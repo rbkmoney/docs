@@ -62,13 +62,13 @@
     <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="195" x="377" y="147.9434">Сгенерировать invoiceContext</text>
     <polygon fill="#303030" points="665,190.6855,675,194.6855,665,198.6855,669,194.6855" style="stroke: #303030; stroke-width: 1.0;"/>
     <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="671" y1="194.6855" y2="194.6855"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="186" x="373" y="190.2539">createInvoice(invoiceContext)</text>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="240" x="373" y="190.2539">createInvoice(invoiceContext, API Key)</text>
     <polygon fill="#303030" points="377,219.9961,367,223.9961,377,227.9961,373,223.9961" style="stroke: #303030; stroke-width: 1.0;"/>
     <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="676" y1="223.9961" y2="223.9961"/>
     <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="127" x="383" y="219.5645">201(invoiceContext)</text>
     <polygon fill="#303030" points="665,249.3066,675,253.3066,665,257.3066,669,253.3066" style="stroke: #303030; stroke-width: 1.0;"/>
     <line style="stroke: #303030; stroke-width: 1.0;" x1="366" x2="671" y1="253.3066" y2="253.3066"/>
-    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="287" x="373" y="248.875">createInvoiceAccessToken(invoiceID, API key)</text>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="287" x="373" y="248.875">createInvoiceAccessToken(invoiceID, API Key)</text>
     <polygon fill="#303030" points="377,278.6172,367,282.6172,377,286.6172,373,282.6172" style="stroke: #303030; stroke-width: 1.0;"/>
     <line style="stroke: #303030; stroke-width: 1.0;" x1="371" x2="676" y1="282.6172" y2="282.6172"/>
     <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="81" x="383" y="278.1855">201(payload)</text>
