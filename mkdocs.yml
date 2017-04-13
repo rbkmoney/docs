@@ -7,6 +7,10 @@ extra:
     palette:
         primary: green
         accent: lime
+    links:
+        'API reference': 
+            url: 'https://rbkmoney.github.io/api/'
+            target: _blank
 extra_css:
     - 'assets/stylesheets/override.css'
     - 'livedemo/livedemo.css'
@@ -24,7 +28,7 @@ markdown_extensions:
     - footnotes
     - codehilite
     - toc:
-        permalink: True
+        permalink: true
 pages:
     - 'Документация': 'index.md'
     - 'Интеграция':
@@ -34,4 +38,3 @@ pages:
         - 'Postman': 'integrations/postman.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
-    - 'API reference': 'api.md'

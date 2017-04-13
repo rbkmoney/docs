@@ -1,0 +1,13 @@
+{% if config.extra.links %}
+  {% for name,href in config.extra.links.items() %}
+     
+
+        <li class="md-nav__item">
+      <a href="{{ href['url'] }}" title="{{ name }}" class="md-nav__link md-nav__link--active" target="{{ href['target'] }}">
+        {{ name }}
+      </a>
+  </li>
+
+  {% endfor %}
+  </ul>
+{% endif %}
