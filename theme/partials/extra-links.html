@@ -1,0 +1,9 @@
+{% if config.extra.links %}
+  {% for name,href in config.extra.links.items() %}
+  	<li class="md-nav__item">
+		<a href="{{ href['url'] }}" title="{{ name }}" class="md-nav__link" target="{{ href['target'] }}">
+			{{ name }}
+		</a>
+	</li>
+  {% endfor %}
+{% endif %}
