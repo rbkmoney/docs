@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "RBKmoney",
-		"_postman_id": "5f1ab1b3-6427-f73c-8aa2-eacfb409c0ed",
+		"_postman_id": "be164581-accc-0204-03ca-c2c2f7b7ef1c",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -231,7 +231,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"paymentToolToken\":\"eyJiaW4iOiI0MjQyNDIiLCJtYXNrZWRfcGFuIjoiNDI0MiIsInBheW1lbnRfc3lzdGVtIjoidmlzYSIsInRva2VuIjoiN1RqQjZQQTNDWnRkSExUalZEMVBpZyJ9\",\n  \"paymentSession\":\"eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiMTIzIiwiaXBfYWRkcmVzcyI6IjEwLjQuNTQuMjM1In0sInBheW1lbnRTZXNzaW9uIjoiNDE1ckh5NzBwb0tFYnFKbmFWRmR5RyJ9\",\n  \"contactInfo\":\n    {\n      \"email\":\"anton.lva@gmail.com\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -261,7 +261,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 199000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"111111\"\n  },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Dakimakura\",\n\"description\": \"Description\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -284,7 +284,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -313,7 +316,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -343,7 +346,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -373,7 +376,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 100,\n\"currency\": \"RUB\",\n\"context\": { },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -396,7 +399,10 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -404,7 +410,7 @@
 		{
 			"name": "getShopById",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/shops/2",
+				"url": "https://api.rbk.money/v1/processing/shops/1",
 				"method": "GET",
 				"header": [
 					{
@@ -425,7 +431,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 2,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"<script>alert('1');</script>\"\n  },\n\"dueDate\": \"2017-02-28T15:33:12Z\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Description\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -455,7 +461,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -485,7 +491,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+					"raw": ""
 				},
 				"description": ""
 			},
@@ -515,7 +521,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"reason\": \"because fuck you that's why\"\n}"
+					"raw": "{\n  \"reason\": \"Purchase delivered\"\n}"
 				},
 				"description": ""
 			},
