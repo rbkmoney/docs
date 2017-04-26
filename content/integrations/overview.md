@@ -47,7 +47,7 @@
 ### Диаграмма последовательности взаимодействия
 
 В качестве примера проведения успешной оплаты с использованием Webhook`ов можно рассмотреть следующую диаграмму:
-<a href="/docs/wsd/custom_form_w_cb.png" data-lightbox="custom_form_w_cb.png" data-title="custom_form_w_cb.png"><img src="/wsd/custom_form_w_cb.png"></a>
+<a href="/docs/wsd/custom_form_w_cb.png" data-lightbox="custom_form_w_cb.png" data-title="custom_form_w_cb.png"><img src="/docs/wsd/custom_form_w_cb.png"></a>
 
 ## Авторизация запросов
 
