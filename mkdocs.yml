@@ -13,6 +13,7 @@ extra:
             target: _blank
 extra_css:
     - 'assets/stylesheets/override.css'
+    - 'lightbox/css/lightbox.min.css'
     - 'livedemo/livedemo.css'
     - 'livedemo/loader.css'
 extra_javascript:
@@ -20,6 +21,7 @@ extra_javascript:
     - 'livedemo/livedemo.js'
     - 'counters/ga.js'
     - 'counters/ym.js'
+    - 'lightbox/js/lightbox-plus-jquery.min.js'
 strict: true
 markdown_extensions:
     - smarty
