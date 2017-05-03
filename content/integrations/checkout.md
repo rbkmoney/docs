@@ -2,32 +2,72 @@
 
 ## Пример кода инициализации платежной формы
 
+### Использование HTML API
+
 ```html
-<script src="https://checkout.rbk.money/payframe/payframe.js" class="rbkmoney-checkout"
-        data-invoice-id="string"
-        data-invoice-access-token="string"
-        data-endpoint-success="https://<your-server-side>"
-        data-endpoint-success-method="GET"
-        data-endpoint-fail="https://<your-server-side>"
-        data-endpoint-fail-method="POST"
-        data-name="Company name"
-        data-amount="7,700"
-        data-currency="Р"
-        data-logo="https://checkout.rbk.money/checkout/images/logo.png">
+<form action="https://<your-server-side>" method="GET">
+    <script src="https://checkout.rbk.money/checkout.js" class="rbkmoney-checkout"
+            data-invoice-id="string"
+            data-invoice-access-token="string"
+            data-name="Company name"
+            data-logo="https://checkout.rbk.money/images/logo.png"
+            data-label="Pay with RBKmoney">
+    </script>
+</form>
+```
+
+С помощью `form` можно задать callback. В случае успешного платежа, будет произведен submit формы.
+
+| data-* атрибут           | Описание                                              | Обязательный | Возможные значения                    |
+| :----------------------: | ----------------------------------------------------- | :-----------:| :------------------------------------:|
+| invoice id               | Идентификатор инвойса                                 | ✓            | oVU2LzUCbQ                            |
+| invoice access token     | Токен для доступа к указанному инвойсу                | ✓            | eyJhbGciOiJSUzI1N...                  |
+| name                     | Метка для задания именования формы                    |              | Company name                          |
+| logo                     | URL для задания логотипа                              |              | `https://<your-server-side>/logo.png` |
+| label                    | Текст кнопки оплаты                                   |              |  Pay with RBKmoney                    |
+
+### Использование JS API
+
+```html
+<script src="https://checkout.rbk.money/checkout.js"></script>
+
+<button id="customButton">Pay</button>
+
+<script>
+    const checkout = RbkmoneyCheckout.configure({
+        invoiceID: 'string',
+        invoiceAccessToken: 'string',
+        name: 'Company name',
+        logo: 'https://checkout.rbk.money/images/logo.png',
+        opened: function () {
+            console.log('Checkout opened');
+        },
+        closed: function () {
+            console.log('Checkout closed');
+        },
+        finished: function () {
+            console.log('Payment successful finished');
+        }
+    });
+    
+    document.getElementById('customButton').addEventListener('click', function () {
+        checkout.open();
+    });
+    
+    window.addEventListener('popstate', function () {
+        checkout.close();
+    });
 </script>
 ```
 
-| data-* атрибут           | Описание                                                  | Обязательный | Возможные значения           |
-| :----------------------: | --------------------------------------------------------- | :-----------:| :---------------------------:|
-| invoice id               | Идентификатор инвойса                                     | ✓            | `oVU2LzUCbQ`                 |
-| invoice access token     | Токен для доступа к указанному инвойсу                    | ✓            | `eyJhbGciOiJSUzI1N...`       |
-| endpoint success         | URL для отправки нотификации в случае успешного платежа   |              | `https://<your-server-side>` |
-| endpoint success method  | Тип Http метода для endpoint success                      |              | `GET, POST (по-умолчанию)`   |
-| endpoint fail            | URL для отправки нотификации в случае неуспешного платежа |              | `https://<your-server-side>` |
-| endpoint fail method     | Тип Http метода для endpoint failed                       |              | `GET, POST (по-умолчанию)`   |
-| name                     | Метка для задания именования формы                        |              | `Company name`               |
-| amount                   | Метка для вывода стоимости платежа                        |              | `7,700`                      |
-| currency                 | Метка для вывода валюты                                   |              | `P`                          |
-| logo                     | URL для задания логотипа                                  |              | `https://<your-server-side>` |
+| Свойство конфигурации    | Описание                                              | Обязательное | Возможные значения                    |
+| :----------------------: | ----------------------------------------------------- | :-----------:| :------------------------------------:|
+| invoiceID                | Идентификатор инвойса                                 | ✓            | oVU2LzUCbQ                            |
+| invoiceAccessToken       | Токен для доступа к указанному инвойсу                | ✓            | eyJhbGciOiJSUzI1N...                  |
+| name                     | Метка для задания именования формы                    |              | Company name                          |
+| logo                     | URL для задания логотипа                              |              | `https://<your-server-side>/logo.png` |
+| opened                   | Callback на открытие модального окна                  |              | function                              |
+| closed                   | Callback на закрытие модального окна                  |              | function                              |
+| finished                 | Callback на успешное завершение платежа               |              | function                              |
 
-Примечание. Запросы на endpoint success, endpoint failed отправляются с `"Content-Type": "x-form-urlencoded"`.
+Примечание: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.

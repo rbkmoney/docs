@@ -34,7 +34,6 @@ if($liveDemo) {
 
     var $container = document.getElementById('live-demo-container');
     var $loader = document.getElementById('fountainG');
-    var checkoutOriginUrl = 'https://checkout.rbk.money';
     var backendOriginUrl = 'https://live-demo-backend.rbkmoney.com';
 
     function loadingStart() {
@@ -94,6 +93,13 @@ if($liveDemo) {
         request.send();
     }
 
+    var checkout;
+    function openCheckout() {
+        if(checkout) {
+            checkout.open();
+        }
+    }
+
     function initPayButton(invoice, payload) {
         var amountMajor = Number(invoice.amount) / 100;
         $container.innerHTML = `
@@ -101,21 +107,17 @@ if($liveDemo) {
                 <h2 class="order" data-title="ID запроса: ${invoice.id}">Сформирован запрос</h2>
                 <div>Товар: ${invoice.product}</div>
                 <div>Сумма к оплате: ${amountMajor} ${invoice.currency}</div>
+                <button class="checkout-button" onclick="openCheckout()">Оплатить</button>
             </div>
         `;
 
-        var script = document.createElement('script');
-        script.setAttribute('src', `${checkoutOriginUrl}/payframe/payframe.js`);
-        script.setAttribute('class', 'rbkmoney-checkout');
-        script.setAttribute('data-invoice-access-token', payload);
-        script.setAttribute('data-invoice-id', invoice.id);
-        script.setAttribute('data-amount', String(amountMajor));
-        script.setAttribute('data-currency', invoice.currency);
-        script.setAttribute('data-endpoint-success', location.href);
-        script.setAttribute('data-endpoint-success-method', 'GET');
-        script.setAttribute('data-name', 'Company name');
-
-        var $payment = document.getElementById('payment');
-        $payment.appendChild(script);
+        checkout = RbkmoneyCheckout.configure({
+            invoiceID: invoice.id,
+            invoiceAccessToken: payload,
+            name: 'Some company',
+            finished: function() {
+                location.replace(location.href);
+            }
+        });
     }
 }
