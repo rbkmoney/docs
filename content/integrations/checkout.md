@@ -40,13 +40,13 @@
         name: 'Company name',
         logo: 'https://checkout.rbk.money/images/logo.png',
         opened: function () {
-            console.log('Checkout on opened');
+            console.log('Checkout opened');
         },
         closed: function () {
-            console.log('Checkout on closed');
+            console.log('Checkout closed');
         },
         finished: function () {
-            console.log('Payment finished');
+            console.log('Payment successful finished');
         }
     });
     
@@ -69,3 +69,5 @@
 | opened                   | callback на открытие модального окна                  |              | function                              |
 | closed                   | callback на закрытие модального окна                  |              | function                              |
 | finished                 | callback на успешное завершение платежа               |              | function                              |
+
+Примечение: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.
