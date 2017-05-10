@@ -69,18 +69,3 @@
     display: inline-block;
     position: relative;
 }
-#checkout-container .order:hover::after {
-    content: attr(data-title);
-    white-space: nowrap;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 85%);
-    z-index: 1;
-    background: rgba(255,255,255,0.8);
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    padding: 3px 7px;
-    border: 1px solid #dddddd;
-    border-radius: 2px;
-}
