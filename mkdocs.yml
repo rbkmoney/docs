@@ -17,12 +17,12 @@ extra_css:
     - 'livedemo/livedemo.css'
     - 'livedemo/loader.css'
 extra_javascript:
+    - 'lightbox/js/lightbox-plus-jquery.min.js'
     - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
+    - 'https://checkout.rbk.money/checkout.js'
     - 'livedemo/livedemo.js'
     - 'counters/ga.js'
     - 'counters/ym.js'
-    - 'lightbox/js/lightbox-plus-jquery.min.js'
-    - 'https://checkout.rbk.money/checkout.js'
 strict: true
 markdown_extensions:
     - smarty
