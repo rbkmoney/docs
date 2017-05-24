@@ -26,9 +26,9 @@
 						"type": "text/javascript",
 						"exec": [
 							"//Prefer relative invoice dueDate",
-							"var today = new Date();",
-							"today.setHours(today.getHours() + 1);",
-							"postman.setEnvironmentVariable('nowPlus1h',(today).toISOString())"
+							"var Now = new Date();",
+							"Now.setHours(Now.getHours() + 1);",
+							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
 						]
 					}
 				}
@@ -55,7 +55,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"{{nowPlus1h}}\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
+					"raw": "{\n\"shopID\": 1,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"{{now_plus_1h}}\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
 				},
 				"description": ""
 			},
