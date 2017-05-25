@@ -11,7 +11,9 @@
             data-invoice-access-token="string"
             data-name="Company name"
             data-logo="https://checkout.rbk.money/images/logo.png"
-            data-label="Pay with RBKmoney">
+            data-label="Pay with RBKmoney"
+            data-description="Some product"
+            data-pay-button-label="Pay">
     </script>
 </form>
 ```
@@ -22,9 +24,11 @@
 | :----------------------: | ----------------------------------------------------- | :-----------:| :------------------------------------:|
 | invoice id               | Идентификатор инвойса                                 | ✓            | oVU2LzUCbQ                            |
 | invoice access token     | Токен для доступа к указанному инвойсу                | ✓            | eyJhbGciOiJSUzI1N...                  |
-| name                     | Метка для задания именования формы                    |              | Company name                          |
+| name                     | Наименование вашей компании или сайта                 |              | Company name                          |
 | logo                     | URL для задания логотипа                              |              | `https://<your-server-side>/logo.png` |
-| label                    | Текст кнопки оплаты                                   |              |  Pay with RBKmoney                    |
+| label                    | Текст кнопки открытия формы                           |              | Pay with RBKmoney                     |
+| description              | Описание вашего продукта или сервиса                  |              | Some product                          |
+| pay button label         | Текст кнопки оплаты                                   |              | Pay                                   |
 
 ### Использование JS API
 
@@ -39,6 +43,8 @@
         invoiceAccessToken: 'string',
         name: 'Company name',
         logo: 'https://checkout.rbk.money/images/logo.png',
+        description: 'Some product',
+        payButtonLabel: 'Pay',
         opened: function () {
             console.log('Checkout opened');
         },
@@ -64,8 +70,10 @@
 | :----------------------: | ----------------------------------------------------- | :-----------:| :------------------------------------:|
 | invoiceID                | Идентификатор инвойса                                 | ✓            | oVU2LzUCbQ                            |
 | invoiceAccessToken       | Токен для доступа к указанному инвойсу                | ✓            | eyJhbGciOiJSUzI1N...                  |
-| name                     | Метка для задания именования формы                    |              | Company name                          |
+| name                     | Наименование вашей компании или сайта                 |              | Company name                          |
 | logo                     | URL для задания логотипа                              |              | `https://<your-server-side>/logo.png` |
+| description              | Описание вашего продукта или сервиса                  |              | Some product                          |
+| payButtonLabel           | Текст кнопки оплаты                                   |              | Pay                                   |
 | opened                   | Callback на открытие модального окна                  |              | function                              |
 | closed                   | Callback на закрытие модального окна                  |              | function                              |
 | finished                 | Callback на успешное завершение платежа               |              | function                              |
