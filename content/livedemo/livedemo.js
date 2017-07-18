@@ -23,7 +23,7 @@ function initInvoice() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         data: JSON.stringify({
-            shopID: 1,
+            shopID: 'TEST',
             amount: Number($('#amount').val()) * 100 || 1000,
             currency: 'RUB',
             dueDate: moment().add(1, 'hour').utc().format(),
