@@ -7,12 +7,10 @@ $invoiceForm.children('.live-demo-button').click(function (e) {
     e.preventDefault();
     $invoiceForm.hide();
     $loader.show();
-    initInvoice().then(function (invoice) {
-        createAccessToken(invoice).then(function (accessToken) {
-            $loader.hide();
-            $checkoutContainer.show();
-            initPayButton(invoice, accessToken.payload);
-        });
+    initInvoice().then(function (invoiceAndToken) {
+        $loader.hide();
+        $checkoutContainer.show();
+        initPayButton(invoiceAndToken.invoice, invoiceAndToken.invoiceAccessToken.payload);
     });
 });
 
@@ -32,10 +30,6 @@ function initInvoice() {
             metadata: {}
         })
     });
-}
-
-function createAccessToken(invoice) {
-    return $.post(backendOriginUrl + '/invoice/' + invoice.id + '/access_tokens');
 }
 
 function initPayButton(invoice, payload) {
