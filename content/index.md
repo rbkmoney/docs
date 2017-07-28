@@ -21,38 +21,9 @@
     CVC: 123
 
 <section id="live-demo">
-    <form id="invoice-form">
-        <h3>Конфигурация товара</h2>
-        <div class="form-row">
-            <label>Наименование:</label>
-            <input type="text" id="product" maxlength="30" value="Резиновая уточка" />
-        </div>
-        <div class="form-row">
-            <label>Описание:</label>
-            <input type="text" id="description" maxlength="50" value="Очень нужная вещь" />
-        </div>
-        <div class="form-row">
-            <label>Стоимость:</label>
-            <input type="number" id="amount" min="1" max="40000" value="1499" />
-        </div>
-        <button class="live-demo-button">Создать invoice</button>
-    </form>
-    <div id="checkout-container" style="display: none">
-        <h3 class="order">Создан инвойс</h2>
-        <div class="product">Товар:&nbsp;</div>
-        <div class="description">Описание:&nbsp;</div>
-        <div class="amount">Сумма к оплате:&nbsp;</div>
+    <h3>Произвести тестовую оплату</h2>
+    <div id="checkout-container">
         <button class="live-demo-button">Оплатить</button>
-    </div>
-    <div id="fountainG" style="display: none">
-        <div id="fountainG_1" class="fountainG"></div>
-        <div id="fountainG_2" class="fountainG"></div>
-        <div id="fountainG_3" class="fountainG"></div>
-        <div id="fountainG_4" class="fountainG"></div>
-        <div id="fountainG_5" class="fountainG"></div>
-        <div id="fountainG_6" class="fountainG"></div>
-        <div id="fountainG_7" class="fountainG"></div>
-        <div id="fountainG_8" class="fountainG"></div>
     </div>
 </section>
 
