@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "RBKmoney",
-		"_postman_id": "bde0c56f-0124-8da5-976b-0682ea88df4c",
+		"_postman_id": "5d85cc69-d3bc-1b25-ea41-b4ac70925d4f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -16,7 +16,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"invoice_id\", jsonData.id);"
+							"postman.setEnvironmentVariable(\"invoice_id\", jsonData.invoice.id);",
+							"postman.setEnvironmentVariable(\"invoice_access_token\", jsonData.invoiceAccessToken.payload);"
 						]
 					}
 				},
@@ -55,49 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": 1,\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"{{now_plus_1h}}\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "createInvoiceAccessToken",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"invoice_token\", jsonData.payload);"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/access_tokens",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\"shopID\": \"{{shop_id}}\",\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"{{now_plus_1h}}\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
 				},
 				"description": ""
 			},
@@ -112,7 +71,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"paytool_token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.token);",
 							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
 						]
 					}
@@ -124,7 +83,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_token}}",
+						"value": "Bearer {{invoice_access_token}}",
 						"description": ""
 					},
 					{
@@ -155,7 +114,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"paytool_token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.token);",
 							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
 						]
 					}
@@ -167,7 +126,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_token}}",
+						"value": "Bearer {{invoice_access_token}}",
 						"description": ""
 					},
 					{
@@ -190,14 +149,14 @@
 			"response": []
 		},
 		{
-			"name": "createPayment",
+			"name": "createInstantPayment",
 			"request": {
 				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_token}}",
+						"value": "Bearer {{invoice_access_token}}",
 						"description": ""
 					},
 					{
@@ -213,7 +172,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"paymentToolToken\":\"{{paytool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentParamsFlowInstant\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
 				},
 				"description": ""
 			},
@@ -227,7 +186,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_token}}",
+						"value": "Bearer {{invoice_access_token}}",
 						"description": ""
 					},
 					{
@@ -257,7 +216,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_token}}",
+						"value": "Bearer {{invoice_access_token}}",
 						"description": ""
 					},
 					{
@@ -282,7 +241,31 @@
 		{
 			"name": "getInvoiceEvents",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/events?limit=1000",
+				"url": {
+					"raw": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/events?limit={{limit}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"v1",
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"events"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "{{limit}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -307,37 +290,43 @@
 		{
 			"name": "getInvoices",
 			"request": {
-				"url": "https://api.rbk.money/v1/analytics/shops/1/invoices?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z",
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+				"url": {
+					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/invoices?fromTime={{from_time}}&toTime={{to_time}}&limit={{limit}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"v1",
+						"analytics",
+						"shops",
+						"{{shop_id}}",
+						"invoices"
+					],
+					"query": [
+						{
+							"key": "fromTime",
+							"value": "{{from_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "toTime",
+							"value": "{{to_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "limit",
+							"value": "{{limit}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "payoutTools",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/contracts/1/payout_tools",
 				"method": "GET",
 				"header": [
 					{
@@ -422,7 +411,7 @@
 		{
 			"name": "getShopById",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/shops/1",
+				"url": "https://api.rbk.money/v1/processing/shops/{{shop_id}}",
 				"method": "GET",
 				"header": [
 					{
@@ -452,7 +441,57 @@
 		{
 			"name": "getPaymentMethodStats",
 			"request": {
-				"url": "https://api.rbk.money/v1/analytics/shops/1/customers/stats/payment_method?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z&splitUnit=minute&splitSize=1000&paymentMethod=bankCard",
+				"url": {
+					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/customers/stats/payment_method?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}&paymentMethod=bankCard",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"v1",
+						"analytics",
+						"shops",
+						"{{shop_id}}",
+						"customers",
+						"stats",
+						"payment_method"
+					],
+					"query": [
+						{
+							"key": "fromTime",
+							"value": "{{from_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "toTime",
+							"value": "{{to_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "splitUnit",
+							"value": "{{split_unit}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "splitSize",
+							"value": "{{split_size}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "paymentMethod",
+							"value": "bankCard",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -482,7 +521,51 @@
 		{
 			"name": "getPaymentConversionStats",
 			"request": {
-				"url": "https://api.rbk.money/v1/analytics/shops/1/payments/stats/conversion?fromTime=2017-01-01T00:00:00Z&toTime=2017-12-31T00:00:00Z&splitUnit=minute&splitSize=1000",
+				"url": {
+					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/payments/stats/conversion?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"v1",
+						"analytics",
+						"shops",
+						"{{shop_id}}",
+						"payments",
+						"stats",
+						"conversion"
+					],
+					"query": [
+						{
+							"key": "fromTime",
+							"value": "{{from_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "toTime",
+							"value": "{{to_time}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "splitUnit",
+							"value": "{{split_unit}}",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "splitSize",
+							"value": "{{split_size}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
 				"method": "GET",
 				"header": [
 					{
