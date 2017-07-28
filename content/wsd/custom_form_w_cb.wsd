@@ -15,11 +15,7 @@ UA -> MBE: Инициировать покупку
 MBE -> MBE:  Зарезервировать товар \n Сгенерировать invoiceContext
 
 MBE -> PBE: createInvoice(invoiceContext, API Key)
-PBE -> MBE: 201(invoiceContext)
-
-MBE -> PBE: createInvoiceAccessToken(invoiceID, API Key)
-PBE -> MBE: 201(payload)
-
+PBE -> MBE: 201(invoiceContext,\ninvoiceAccessToken)
 
 MBE -> UA: Ok(Render Payment Form)
 
