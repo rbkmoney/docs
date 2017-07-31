@@ -1,50 +1,27 @@
-var $invoiceForm = $('#invoice-form');
-var $checkoutContainer = $('#checkout-container');
-var $loader = $('#fountainG');
-var backendOriginUrl = 'https://live-demo-backend.rbkmoney.com';
+var checkout;
 
-$invoiceForm.children('.live-demo-button').click(function (e) {
+$('.live-demo-button').on('click', function (e) {
     e.preventDefault();
-    $invoiceForm.hide();
-    $loader.show();
-    initInvoice().then(function (invoiceAndToken) {
-        $loader.hide();
-        $checkoutContainer.show();
-        initPayButton(invoiceAndToken.invoice, invoiceAndToken.invoiceAccessToken.payload);
-    });
+    if (!checkout) {
+        initCheckout('sUFLuTavi4', 'eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InNVRkx2eEhPcjIiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMuc1VGTHVUYXZpNC5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy5zVUZMdVRhdmk0OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.23zeJum41PbKd4_p4xg4v7ITNZDjeI72hK3cI5_MbZ8czforsPCYca8yiC9v5dfLeAiKKXxE8Ks-_HowY1EeWA');
+    }
+    checkout.open();
 });
 
-function initInvoice() {
-    return $.ajax({
-        url: backendOriginUrl + '/invoice/create',
-        method: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        data: JSON.stringify({
-            shopID: 'TEST',
-            amount: Number($('#amount').val()) * 100 || 1000,
-            currency: 'RUB',
-            dueDate: moment().add(1, 'hour').utc().format(),
-            product: $('#product').val(),
-            description: $('#description').val(),
-            metadata: {}
-        })
-    });
-}
-
-function initPayButton(invoice, payload) {
-    var checkout = RbkmoneyCheckout.configure({
-        invoiceID: invoice.id,
-        invoiceAccessToken: payload,
-        name: 'Some company',
+function initCheckout(templateID, templateAccessToken) {
+    checkout = RbkmoneyCheckout.configure({
+        invoiceTemplateID: templateID,
+        invoiceTemplateAccessToken: templateAccessToken,
+        name: 'Резиновая уточка',
+        description: 'Очень важная вещь',
         finished: function () {
             location.reload();
+        },
+        opened: function() {
+            $('body').css('overflow', 'hidden');
+        },
+        closed: function() {
+            $('body').css('overflow', 'auto');
         }
-    });
-    $checkoutContainer.children('.product').append(invoice.product);
-    $checkoutContainer.children('.description').append(invoice.description);
-    $checkoutContainer.children('.amount').append(Number(invoice.amount) / 100).append(invoice.currency);
-    $checkoutContainer.children('.live-demo-button').click(function () {
-        checkout.open();
     });
 }

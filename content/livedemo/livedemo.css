@@ -1,47 +1,4 @@
-#live-demo::before,
-#invoice-container::before,
-#pay-form::before,
-#checkout-container::before {
-    display: block;
-}
-
-#live-demo {
-    width: 100%;
-    position: relative;
-    background: #f7f7f7;
-    text-align: left;
-    overflow: hidden;
-}
-
-#live-demo h3 {
-    margin: 0 auto 10px;
-}
-
-#live-demo .form-row {
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-}
-
-#live-demo {
-    padding: 15px;
-    position: relative;
-    min-height: 150px;
-}
-
-#live-demo input {
-    width: 100%;
-    padding: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-    border-radius: 2px;
-}
-
-#live-demo select {
-    padding: 4px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-}
-
-#live-demo .live-demo-button {
+.live-demo-button {
     width: auto;
     max-width: none;
     color: #ffffff;
@@ -53,18 +10,4 @@
     font-size: 100%;
     cursor: pointer;
     transition: color 0.2s ease;
-}
-
-#checkout-container {
-    padding: 10px;
-    border-radius: 2px;
-    text-align: center;
-    overflow: hidden;
-}
-#checkout-container div {
-    margin: 6px auto;
-}
-#checkout-container .order {
-    display: inline-block;
-    position: relative;
 }

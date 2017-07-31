@@ -12,7 +12,7 @@
     + Вы хотите минимизировать время подключения и затраты на разработку? Попробуйте наше [готовое решение по приему платежей](/integrations/checkout).
     + Вы хотите полностью управлять внешним видом и действиями плательщика прямо на вашем сайте? Реализуйте собственную кастомную форму и [интегрируйтесь](/integrations/tokenizer) с платформой, использующей наше API для приема платежей.
 
-## Вы можете посмотреть как работает наша платежная форма
+## Платежная форма Checkout
 
 Для оплаты можно указать реквизиты одной из [тестовых карт](/refs/testcards). Например:
 
@@ -20,41 +20,21 @@
     Exp date: 12/20
     CVC: 123
 
-<section id="live-demo">
-    <form id="invoice-form">
-        <h3>Конфигурация товара</h2>
-        <div class="form-row">
-            <label>Наименование:</label>
-            <input type="text" id="product" maxlength="30" value="Резиновая уточка" />
-        </div>
-        <div class="form-row">
-            <label>Описание:</label>
-            <input type="text" id="description" maxlength="50" value="Очень нужная вещь" />
-        </div>
-        <div class="form-row">
-            <label>Стоимость:</label>
-            <input type="number" id="amount" min="1" max="40000" value="1499" />
-        </div>
-        <button class="live-demo-button">Создать invoice</button>
-    </form>
-    <div id="checkout-container" style="display: none">
-        <h3 class="order">Создан инвойс</h2>
-        <div class="product">Товар:&nbsp;</div>
-        <div class="description">Описание:&nbsp;</div>
-        <div class="amount">Сумма к оплате:&nbsp;</div>
-        <button class="live-demo-button">Оплатить</button>
-    </div>
-    <div id="fountainG" style="display: none">
-        <div id="fountainG_1" class="fountainG"></div>
-        <div id="fountainG_2" class="fountainG"></div>
-        <div id="fountainG_3" class="fountainG"></div>
-        <div id="fountainG_4" class="fountainG"></div>
-        <div id="fountainG_5" class="fountainG"></div>
-        <div id="fountainG_6" class="fountainG"></div>
-        <div id="fountainG_7" class="fountainG"></div>
-        <div id="fountainG_8" class="fountainG"></div>
-    </div>
-</section>
+<button class="live-demo-button">Оплатить</button>
+
+Вы можете разместить следующий фрагмент кода у себя на сайте и провести тестовый платеж:
+```html
+<script src="https://checkout.rbk.money/checkout.js" class="rbkmoney-checkout"
+    data-invoice-template-id="sUFLuTavi4"
+    data-invoice-template-access-token="eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InNVRkx2eEhPcjIiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMuc1VGTHVUYXZpNC5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy5zVUZMdVRhdmk0OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.23zeJum41PbKd4_p4xg4v7ITNZDjeI72hK3cI5_MbZ8czforsPCYca8yiC9v5dfLeAiKKXxE8Ks-_HowY1EeWA"
+    data-name="Company name"
+    data-logo="https://checkout.rbk.money/images/logo.png"
+    data-label="Pay with RBKmoney"
+    data-description="Some product"
+    data-pay-button-label="Pay">
+</script>
+```
+Более подробную информацию вы можете найти в разделе интеграции [checkout](/integrations/checkout).
 
 ## Нужна помощь?
 
