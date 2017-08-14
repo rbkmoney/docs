@@ -23,6 +23,8 @@ function initCheckout(templateID, templateAccessToken) {
         invoiceTemplateAccessToken: templateAccessToken,
         name: 'Резиновая уточка',
         description: 'Очень важная вещь',
+        applePayTest: true,
+        popupMode: window.ApplePaySession && ApplePaySession.canMakePayments,
         finished: function () {
             location.reload();
         },
