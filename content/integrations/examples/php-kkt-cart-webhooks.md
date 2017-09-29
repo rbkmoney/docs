@@ -140,7 +140,7 @@ function prepareHeaders($apiKey)
 Для того, чтобы платёжная форма запустила холдированный платеж, устанавливаем флаг параметра `paymentFlowHold`, а также, устанавливаем политику того, что делать по окончании срока холдирования. `holdExpiration=cancel` по истечении срока вернет деньги плательщику, `holdExpiration=capture` - спишет их в нашу пользу.
 
 ```html
-<form action="http://localhost:8000/integrations/examples/php-kkt-cart-webhooks/#1_1" method="GET">
+<form action="https://your-web-site.address/success.action.php" method="GET">
     <script src="https://checkout.rbk.money/checkout.js" class="rbkmoney-checkout"
             data-invoice-id="u7o9gfIwPA"
             data-invoice-access-token="eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A"
