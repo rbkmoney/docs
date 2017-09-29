@@ -224,38 +224,70 @@ User-Agent: okhttp/3.6.0
 
 ```php
 <?php
-/**
- * Verification signature
- *
- * @param $data
- * @param $signature
- * @param $public_key
- * @return bool
- */
-public function verificationSignature($data, $signature, $public_key)
+
+// ваш ключ для вебхука из ЛК
+define("RBKM_WEBHOOK_KEY",'your webhook key');
+
+$paramsContentSignature = getParametersContentSignature($_SERVER['Content-Signature']);
+$signature = urlsafe_b64decode($paramsContentSignature['digest']);
+
+// Данные, которые пришли в теле сообщения
+$content = file_get_contents('php://input');
+$publicKey = '-----BEGIN PUBLIC KEY-----' . PHP_EOL . RBKM_WEBHOOK_KEY . PHP_EOL . '-----END PUBLIC KEY-----';
+if(!verification_signature($content, $signature, $public_key)) {
+    http_response_code(400);
+    echo json_encode(['message' => 'Webhook notification signature mismatch']);
+    exit();
+}
+
+// Преобразуем данные в массив и делаем остальные проверки
+$data = json_decode($content, TRUE); 
+
+// Далее различные проверки, например, совпадения магазина, суммы, номера заказа, статуса, нужных событий и т.д.
+
+
+
+// Вспомогательная функция
+function urlsafe_b64decode($string)
+{
+    $data = str_replace(array('-', '_'), array('+', '/'), $string);
+    $mod4 = strlen($data) % 4;
+
+    if ($mod4) {
+        $data .= substr('====', $mod4);
+    }
+
+    return base64_decode($data);
+}
+
+
+// Проверка сигнатуры
+function verificationSignature($data = '', $signature = '', $public_key = '')
 {
     if (empty($data) || empty($signature) || empty($public_key)) {
         return FALSE;
     }
+
     $public_key_id = openssl_get_publickey($public_key);
     if (empty($public_key_id)) {
         return FALSE;
     }
-    $verify = openssl_verify($data, $signature, $public_key_id, OPENSSL_ALGO_SHA256);
-    return ($verify == static::OPENSSL_VERIFY_SIGNATURE_IS_CORRECT);
+
+    $verify = openssl_verify($data, $signature, $public_key_id, static::OPENSSL_SIGNATURE_ALG);
+    
+    return ($verify == 1);
 }
-/**
- * Data logging
- *
- * @param $method
- * @param $message
- */
-public function logger($method, $message)
+
+// Разбираем сигнатуру
+function getParametersContentSignature($contentSignature)
 {
-    if ($this->config->get('rbkmoney_payment_logs')) {
-        $this->log->write('rbkmoney ' . $method . '. ' . print_r($message, true));
-    }
-}
+    preg_match_all("|alg=(\S+);\sdigest=(.*)|i", $contentSignature, $matches, PREG_PATTERN_ORDER);
+    
+    $params = array();
+    $params['alg'] = !empty($matches[1][0]) ? $matches[1][0] : '';
+    $params['digest'] = !empty($matches[2][0]) ? $matches[2][0] : '';
+
+    return $params;
 }
 ?>
 ```
