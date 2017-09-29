@@ -37,6 +37,8 @@
 ```php
 <?php
 
+$apiKey = "eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A";
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -48,12 +50,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\n  \"shopID\": \"TEST\",\n  \"dueDate\": \"2017-09-27T15:21:51.002Z\",\n  \"amount\": 8500,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 2500,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Доставка\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"ID заказа во внутренней CRM: 13123298761\"\n  }\n}",
-  CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A",
-    "cache-control: no-cache",
-    "content-type: application/json; charset=utf-8",
-    "x-request-id: 1506529946"
-  ),
+  CURLOPT_HTTPHEADER => prepareHeaders($apiKey),
 ));
 
 $response = curl_exec($curl);
@@ -65,6 +62,16 @@ if ($err) {
   echo "cURL Error #:" . $err;
 } else {
   echo $response;
+}
+
+function prepareHeaders($apiKey)
+{
+    $headers = [];
+    $headers[] = 'X-Request-ID: ' . uniqid();
+    $headers[] = 'Authorization: Bearer ' . $apiKey;
+    $headers[] = 'Content-type: application/json; charset=utf-8';
+    $headers[] = 'Accept: application/json';
+    return $headers;
 }
 ```
 
@@ -177,7 +184,7 @@ if ($err) {
 - PaymentCancelled - платеж отменен (захолдированные средства возвращены)
 
 После успешной оплаты с холдированием на URL обработки вебхуков нашего магазина платформа пришлет сообщение вида:
-```
+```json
 Content-Signature: alg=RS256; digest=dwIGRnwI67mi36Z-CUTuXpo_4dGKtWXFpQXW_9aab4Nave9CaJVjP9FJtPSiWM_6Va3OFhch8nIsCEQggSTwWWraRDHCg_Y7GD0_yAfPGS5iWtxtBvHGFNKRQKFcI72wQFXfUWS8HroUTEmeZVb6pxIzyLOKMjEMD_JRZizxER6DCOFKsXgvl8NZfeOqiD6ZEP2IwxRCi0wnHJWF3IcMRs5lP6YiIXnXXQGGLKnqij8jt0cUELI0gDChWbJlX0lLB4c_A8r9PNm7aGrAqrAMxJmDgH0IlUTl21g7LrCWNhd_FAhcPaVSjwgHTBYRY2GFcoe5u6PnLWChn7dDW66XwA==
 Content-Type: application/json; charset=utf-8
 Content-Length: 706
@@ -304,6 +311,7 @@ function getParametersContentSignature($contentSignature)
 
 ```php
 <?php
+$apiKey = "eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A";
 
 $curl = curl_init();
 
@@ -316,12 +324,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\n\"reason\": \"cancel\"\n}",
-  CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer ",
-    "cache-control: no-cache",
-    "content-type: application/json; charset=utf-8",
-    "x-request-id: 1506531295"
-  ),
+  CURLOPT_HTTPHEADER => prepareHeaders($apiKey),
 ));
 
 $response = curl_exec($curl);
@@ -333,6 +336,16 @@ if ($err) {
   echo "cURL Error #:" . $err;
 } else {
   echo $response;
+}
+
+function prepareHeaders($apiKey)
+{
+    $headers = [];
+    $headers[] = 'X-Request-ID: ' . uniqid();
+    $headers[] = 'Authorization: Bearer ' . $apiKey;
+    $headers[] = 'Content-type: application/json; charset=utf-8';
+    $headers[] = 'Accept: application/json';
+    return $headers;
 }
 ?>
 ```
