@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "RBKmoney",
-		"_postman_id": "5d85cc69-d3bc-1b25-ea41-b4ac70925d4f",
+		"_postman_id": "aacaf23c-bd7c-bfb5-2e1e-b554f99bdb17",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -56,7 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"shopID\": \"{{shop_id}}\",\n\"amount\": 100000,\n\"currency\": \"RUB\",\n\"metadata\": \n  { \n    \"order_id\": \"Postman order\"\n  },\n\"dueDate\": \"{{now_plus_1h}}\",\n\"product\": \"Rubber Duck\",\n\"description\": \"Postman description\"\n}"
+					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Внутренний номер заказа 13123298761\"\n  }\n}"
 				},
 				"description": ""
 			},
@@ -172,16 +172,148 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentParamsFlowInstant\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowInstant\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "getPaymentById",
+			"name": "createHeldPayment",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/1",
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowHold\",\n    \"onHoldExpiration\": \"cancel\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "capturePayment",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/capture",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reason\": \"capture\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "cancelPayment",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/cancel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reason\": \"cancel\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createInvoiceAccessToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"invoice_access_token\", jsonData.payload);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/access_tokens",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getInvoiceById",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}",
 				"method": "GET",
 				"header": [
 					{
@@ -209,9 +341,39 @@
 			"response": []
 		},
 		{
-			"name": "getInvoiceById",
+			"name": "getInvoicePaymentMethods",
 			"request": {
 				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}",
+						"description": ""
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getPaymentById",
+			"request": {
+				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}",
 				"method": "GET",
 				"header": [
 					{
