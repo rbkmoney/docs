@@ -1,8 +1,9 @@
 docs_dir: 'content'
 site_name: 'RBKmoney|docs'
 repo_url: https://github.com/rbkmoney/docs
-theme: 'material'
-theme_dir: 'theme'
+theme:
+    name: material
+    custom_dir: theme
 extra:
     palette:
         primary: green
@@ -40,5 +41,7 @@ pages:
         - 'Postman': 'integrations/postman.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
+        - 'Модули CMS':
+            - 'InSales': 'integrations/cms-modules/insales/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
