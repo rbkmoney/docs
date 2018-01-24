@@ -43,5 +43,6 @@ pages:
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
         - 'Модули CMS':
             - 'InSales': 'integrations/cms-modules/insales/index.md'
+            - 'Webasyst/ShopScript': 'integrations/cms-modules/webasyst/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
