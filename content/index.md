@@ -28,10 +28,8 @@
     data-invoice-template-id="sUFLuTavi4"
     data-invoice-template-access-token="eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InNVRkx2eEhPcjIiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMuc1VGTHVUYXZpNC5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy5zVUZMdVRhdmk0OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.23zeJum41PbKd4_p4xg4v7ITNZDjeI72hK3cI5_MbZ8czforsPCYca8yiC9v5dfLeAiKKXxE8Ks-_HowY1EeWA"
     data-name="Company name"
-    data-logo="https://checkout.rbk.money/images/logo.png"
-    data-label="Pay with RBKmoney"
     data-description="Some product"
-    data-pay-button-label="Pay">
+    data-label="Pay with RBKmoney">
 </script>
 ```
 Более подробную информацию вы можете найти в разделе интеграции [checkout](/integrations/checkout).

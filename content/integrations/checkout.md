@@ -10,26 +10,22 @@
             data-invoice-id="string"
             data-invoice-access-token="string"
             data-name="Company name"
-            data-logo="https://checkout.rbk.money/images/logo.png"
-            data-label="Pay with RBKmoney"
             data-description="Some product"
-            data-pay-button-label="Pay">
+            data-label="Pay with RBKmoney">
     </script>
 </form>
 ```
 
 С помощью `form` можно задать callback. В случае успешного платежа, будет произведен submit формы.
 
-| data-* атрибут            | Описание                                                             | Обязательный | Возможные значения                    |
-| :-----------------------: | -------------------------------------------------------------------- | :-----------:| :------------------------------------:|
-| data-invoice-id           | Идентификатор инвойса                                                | ✓            | oVU2LzUCbQ                            |
-| data-invoice-access-token | Токен для доступа к указанному инвойсу                               | ✓            | eyJhbGciOiJSUzI1N...                  |
-| data-name                 | Наименование вашей компании или сайта                                |              | Company name                          |
-| data-logo                 | URL для задания логотипа                                             |              | `https://<your-server-side>/logo.png` |
-| data-label                | Текст кнопки открытия формы                                          |              | Pay with RBKmoney                     |
-| data-description          | Описание вашего продукта или сервиса                                 |              | Some product                          |
-| data-pay-button-label     | Текст кнопки оплаты                                                  |              | Pay                                   |
-| data-email                | Если вы знаете email вашего плательщика, вы можете его предзаполнить |              | example@mail.com                      |
+| data-* атрибут            | Описание                                                             | Обязательный | Возможные значения   |
+| :-----------------------: | -------------------------------------------------------------------- | :-----------:| :-------------------:|
+| data-invoice-id           | Идентификатор инвойса                                                | ✓            | oVU2LzUCbQ           |
+| data-invoice-access-token | Токен для доступа к указанному инвойсу                               | ✓            | eyJhbGciOiJSUzI1N... |
+| data-name                 | Наименование вашей компании или сайта                                |              | Company name         |
+| data-description          | Описание вашего продукта или сервиса                                 |              | Some product         |
+| data-label                | Текст кнопки открытия формы                                          |              | Pay with RBKmoney    |
+| data-email                | Если вы знаете email вашего плательщика, вы можете его предзаполнить |              | example@mail.com     |
 
 ### Использование JS API
 
@@ -43,9 +39,7 @@
         invoiceID: 'string',
         invoiceAccessToken: 'string',
         name: 'Company name',
-        logo: 'https://checkout.rbk.money/images/logo.png',
         description: 'Some product',
-        payButtonLabel: 'Pay',
         opened: function () {
             console.log('Checkout opened');
         },
@@ -72,9 +66,7 @@
 | invoiceID                | Идентификатор инвойса                                                | ✓            | oVU2LzUCbQ                            |
 | invoiceAccessToken       | Токен для доступа к указанному инвойсу                               | ✓            | eyJhbGciOiJSUzI1N...                  |
 | name                     | Наименование вашей компании или сайта                                |              | Company name                          |
-| logo                     | URL для задания логотипа                                             |              | `https://<your-server-side>/logo.png` |
 | description              | Описание вашего продукта или сервиса                                 |              | Some product                          |
-| payButtonLabel           | Текст кнопки оплаты                                                  |              | Pay                                   |
 | email                    | Если вы знаете email вашего плательщика, вы можете его предзаполнить |              | example@mail.com                      |
 | opened                   | Callback на открытие модального окна                                 |              | function                              |
 | closed                   | Callback на закрытие модального окна                                 |              | function                              |
@@ -87,6 +79,12 @@
 
 * HTML API: `data-invoice-template-id`, `data-invoice-template-access-token`.
 * JS API: `invoiceTemplateID`, `invoiceTemplateAccessToken`.
+
+### Создание привязки [плательщика](https://rbkmoney.github.io/api/#tag/Customers).
+Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор плательщика и токен для доступа к указанному плательщику.
+
+* HTML API: `data-customer-id`, `data-customer-access-token`.
+* JS API: `customerID`, `customerAccessToken`.
 
 ### Совершение оплаты с удержанием денежных средств.
 Для настройки необходимо:
@@ -101,9 +99,10 @@
 | paymentFlowHold                | data-payment-flow-hold    | Признак совершения оплаты с удержанием денежных средств | true / false       |
 | holdExpiration                 | data-hold-expiration      | Политика управления удержанием денежных средств         | cancel / capture   |
 
-### Подключение дополнительных методов оплаты
-#### Терминалы оплаты
+### Управление дополнительными методами оплаты.
 
-| Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения |
-| :----------------------------: | :------------------------:| :-----------------:|
-| terminals                      | data-terminals            | true / false       |
+| Метод оплаты         | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения | Значение по умолчанию  |
+| :------------------: | :----------------------------: | :------------------------:| :-----------------:| :--------------------: |
+| Электронные кошельки | terminals                      | data-terminals            | true / false       | true                   |
+| Терминалы оплаты     | wallets                        | data-wallets              | true / false       | true                   |
+
