@@ -44,5 +44,6 @@ pages:
         - 'Модули CMS':
             - 'InSales': 'integrations/cms-modules/insales/index.md'
             - 'Webasyst/ShopScript': 'integrations/cms-modules/webasyst/index.md'
+            - 'Wordpress/Woocommerce': 'integrations/cms-modules/woocommerce/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
