@@ -242,16 +242,6 @@
 				}
 			],
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{api_key}}",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [
 					{
@@ -261,6 +251,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
 					}
 				],
 				"body": {
