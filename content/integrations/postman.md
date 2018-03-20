@@ -34,9 +34,3 @@
 
 - сделайте вызов любого метода RBKmoney API, например, createInvoice() чтобы создать в системе инвойс и получить его данные:
 <a href="../../postman/screenshots/postman-api-call.png" data-lightbox="postman-api-call" data-title="postman-api-call.png"><img src="../../postman/screenshots/postman-api-call.png"></a>
-
-- запустите _Runner_, выберите коллекцию _RBKmoney_, выберите окружение _RBKmoney_ и нажмите _Start Run_ для проведения вызовов всех методов API последовательно
-<a href="../../postman/screenshots/postman-open-runner.png" data-lightbox="postman-open-runner" data-title="postman-open-runner.png"><img src="../../postman/screenshots/postman-open-runner.png"></a>
-
-- в тестовом магазине вашего [личного кабинета](https://dashboard.rbk.money/analytics/TEST/finance) появится успешно оплаченный инвойс с описанием "Postman description"
-<a href="../../postman/screenshots/postman-runner-done.png" data-lightbox="postman-runner-done" data-title="postman-runner-done.png"><img src="../../postman/screenshots/postman-runner-done.png"></a>
