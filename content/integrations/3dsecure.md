@@ -31,7 +31,7 @@
     - если у вас нет сертификации PCI-DSS, то подключаем библиотеку tokenizer.js [согласно инструкции](/integrations/tokenizer/) и получаем платежный токен через библиотеку;
     - если у вас есть сертификация PCI-DSS, то передаем карточные данные напрямую вызывая метод [createPaymentResource](https://rbkmoney.github.io/api/#operation/createPaymentResource) и также получаем платежный токен.
 4. Из кода вашей платежной формы запускаем процесс списания денег с карты плательщика вызывая метод [createPayment](https://rbkmoney.github.io/api/#operation/createPayment).
-5. Запускаем таймер и начинаем опрашивать RBKmoney API на предмет изменения появления новых событий в инвойсе вызывая метод [getInvoiceEvents](https://rbkmoney.github.io/api/#operation/getInvoiceEvents).
+5. Запускаем таймер и начинаем опрашивать RBKmoney API на предмет появления новых событий в инвойсе вызывая метод [getInvoiceEvents](https://rbkmoney.github.io/api/#operation/getInvoiceEvents).
     - *мы рекомендуем установить интервал опроса в 1 секунду и ограничение на время опроса в 60 секунд либо 60 запросов.*
 6. В это время Платформа RBKmoney
     - проверяет вовлеченность карты в 3D-Secure, и в случае положительного ответа от международных платежных систем, получает необходимые для запуска 3D-Secure данные;
