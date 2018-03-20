@@ -1,10 +1,8 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "c5cb59c9-0a5a-4cd0-91b7-d81eca889160",
 		"name": "RBKmoney",
-		"_postman_id": "aacaf23c-bd7c-bfb5-2e1e-b554f99bdb17",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -35,236 +33,35 @@
 				}
 			],
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Внутренний номер заказа 13123298761\"\n  }\n}"
+					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Order num 12345\",\n  \"description\": \"Delicious meals\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Sandwich\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Cola\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Internal order num 13123298761\"\n  }\n}"
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "createPaymentToolToken[VISA]",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.token);",
-							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
-						]
-					}
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices"
+					]
 				}
-			],
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/payment_tools",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"4242424242424242\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "createPaymentToolToken[MC]",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.token);",
-							"postman.setEnvironmentVariable(\"payment_session\", jsonData.session);"
-						]
-					}
-				}
-			],
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/payment_tools",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5555555555554444\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "createInstantPayment",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowInstant\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "createHeldPayment",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowHold\",\n    \"onHoldExpiration\": \"cancel\"\n  },\n  \"paymentToolToken\":\"{{payment_tool_token}}\",\n  \"paymentSession\":\"{{payment_session}}\",\n  \"contactInfo\":\n    {\n      \"email\":\"{{notifications_email}}\",\n      \"phoneNumber\":\"9876543210\"\n    }\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "capturePayment",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/capture",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"reason\": \"capture\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "cancelPayment",
-			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/cancel",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"reason\": \"cancel\"\n}"
-				},
-				"description": ""
 			},
 			"response": []
 		},
@@ -283,136 +80,767 @@
 				}
 			],
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/access_tokens",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/access-tokens",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"access-tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentResource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "383b980b-2889-4b04-85be-11d8b0331f42",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.paymentToolToken);",
+							"postman.setEnvironmentVariable(\"payment_session\", jsonData.paymentSession);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"4242424242424242\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/payment-resources",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"payment-resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentResource(3DS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "608469f6-649b-4a40-9d1f-bbb8bd55f7b9",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.paymentToolToken);",
+							"postman.setEnvironmentVariable(\"payment_session\", jsonData.paymentSession);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5169147129584558\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/payment-resources",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"payment-resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec4646ea-5ede-426b-96e7-4a8d559be664",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"customer_id\", jsonData.customer.id);",
+							"postman.setEnvironmentVariable(\"customer_access_token\", jsonData.customerAccessToken.payload);"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "250827f2-b9f4-4099-ad11-57d4591dd340",
+						"type": "text/javascript",
+						"exec": [
+							"//Prefer relative invoice dueDate",
+							"var Now = new Date();",
+							"Now.setHours(Now.getHours() + 1);",
+							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"shopID\": \"{{shop_id}}\",\r\n  \"contactInfo\": {\r\n    \"email\": \"user@example.com\",\r\n    \"phoneNumber\": \"79876543210\"\r\n  },\r\n  \"metadata\": {}\r\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/customers",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomerBinding",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15c1f731-872f-4c33-abbd-4e6d097ea676",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "998f9ffa-3820-4291-ac8c-2c60bb04b71f",
+						"type": "text/javascript",
+						"exec": [
+							"//Prefer relative invoice dueDate",
+							"var Now = new Date();",
+							"Now.setHours(Now.getHours() + 1);",
+							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"paymentResource\": {\r\n    \"paymentToolToken\": \"{{payment_tool_token}}\",\r\n    \"paymentSession\": \"{{payment_session}}\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}/bindings",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"customers",
+						"{{customer_id}}",
+						"bindings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createInstantPayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c2049ed3-6e53-4de8-9d48-655551cb8379",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"payment_id\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowInstant\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomerInstantPayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04b67c1b-1782-4f75-8411-11256a29608c",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"payment_id\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flow\": {\r\n    \"type\": \"PaymentFlowInstant\"\r\n  },\r\n  \"payer\": {\r\n    \"payerType\": \"CustomerPayer\",\r\n    \"customerID\": \"{{customer_id}}\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createHeldPayment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40d60b29-e813-42ba-ad6b-3a3bb3ec2c0b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"payment_id\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowHold\",\n    \"onHoldExpiration\": \"cancel\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "capturePayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reason\": \"capture\"\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/capture",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments",
+						"{{payment_id}}",
+						"capture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelPayment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{invoice_access_token}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reason\": \"cancel\"\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/cancel",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments",
+						"{{payment_id}}",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPartialRefund",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5aa4b89f-8f56-4a75-8377-ffe27c8aecaf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "af6fe20e-561a-4986-9350-800fe78ad753",
+						"type": "text/javascript",
+						"exec": [
+							"//Prefer relative invoice dueDate",
+							"var Now = new Date();",
+							"Now.setHours(Now.getHours() + 1);",
+							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 100,\r\n  \"currency\": \"RUB\",\r\n  \"reason\": \"string\"\r\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/refunds",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments",
+						"{{payment_id}}",
+						"refunds"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getInvoiceById",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
+						"value": "Bearer {{invoice_access_token}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"customers",
+						"{{customer_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerEvents",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}/events?limit={{limit}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"customers",
+						"{{customer_id}}",
+						"events"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "{{limit}}"
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getInvoicePaymentMethods",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
+						"value": "Bearer {{invoice_access_token}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getPaymentById",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/payments/{{payment_id}}",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}",
-						"description": ""
+						"value": "Bearer {{invoice_access_token}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"payments",
+						"{{payment_id}}"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getInvoiceEvents",
 			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/events?limit={{limit}}",
-					"protocol": "https",
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/events?limit={{limit}}",
 					"host": [
-						"api",
-						"rbk",
-						"money"
+						"{{api_endpoint}}"
 					],
 					"path": [
-						"v1",
 						"processing",
 						"invoices",
 						"{{invoice_id}}",
@@ -421,47 +849,41 @@
 					"query": [
 						{
 							"key": "limit",
-							"value": "{{limit}}",
-							"equals": true,
-							"description": ""
+							"value": "{{limit}}"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getInvoices",
 			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/invoices?fromTime={{from_time}}&toTime={{to_time}}&limit={{limit}}",
-					"protocol": "https",
+					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/invoices?fromTime={{from_time}}&toTime={{to_time}}&limit={{limit}}",
 					"host": [
-						"api",
-						"rbk",
-						"money"
+						"{{api_endpoint}}"
 					],
 					"path": [
-						"v1",
 						"analytics",
 						"shops",
 						"{{shop_id}}",
@@ -470,149 +892,151 @@
 					"query": [
 						{
 							"key": "fromTime",
-							"value": "{{from_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{from_time}}"
 						},
 						{
 							"key": "toTime",
-							"value": "{{to_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{to_time}}"
 						},
 						{
 							"key": "limit",
-							"value": "{{limit}}",
-							"equals": true,
-							"description": ""
+							"value": "{{limit}}"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getContract",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/contracts",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/contracts",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"contracts"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getMyParty",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/me",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/me",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"me"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getShopById",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/shops/{{shop_id}}",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/shops/{{shop_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"shops",
+						"{{shop_id}}"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getPaymentMethodStats",
 			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/customers/stats/payment_method?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}&paymentMethod=bankCard",
-					"protocol": "https",
+					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/customers/stats/payment_method?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}&paymentMethod=bankCard",
 					"host": [
-						"api",
-						"rbk",
-						"money"
+						"{{api_endpoint}}"
 					],
 					"path": [
-						"v1",
 						"analytics",
 						"shops",
 						"{{shop_id}}",
@@ -623,76 +1047,57 @@
 					"query": [
 						{
 							"key": "fromTime",
-							"value": "{{from_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{from_time}}"
 						},
 						{
 							"key": "toTime",
-							"value": "{{to_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{to_time}}"
 						},
 						{
 							"key": "splitUnit",
-							"value": "{{split_unit}}",
-							"equals": true,
-							"description": ""
+							"value": "{{split_unit}}"
 						},
 						{
 							"key": "splitSize",
-							"value": "{{split_size}}",
-							"equals": true,
-							"description": ""
+							"value": "{{split_size}}"
 						},
 						{
 							"key": "paymentMethod",
-							"value": "bankCard",
-							"equals": true,
-							"description": ""
+							"value": "bankCard"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "getPaymentConversionStats",
 			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "https://api.rbk.money/v1/analytics/shops/{{shop_id}}/payments/stats/conversion?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}",
-					"protocol": "https",
+					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/payments/stats/conversion?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}",
 					"host": [
-						"api",
-						"rbk",
-						"money"
+						"{{api_endpoint}}"
 					],
 					"path": [
-						"v1",
 						"analytics",
 						"shops",
 						"{{shop_id}}",
@@ -703,84 +1108,161 @@
 					"query": [
 						{
 							"key": "fromTime",
-							"value": "{{from_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{from_time}}"
 						},
 						{
 							"key": "toTime",
-							"value": "{{to_time}}",
-							"equals": true,
-							"description": ""
+							"value": "{{to_time}}"
 						},
 						{
 							"key": "splitUnit",
-							"value": "{{split_unit}}",
-							"equals": true,
-							"description": ""
+							"value": "{{split_unit}}"
 						},
 						{
 							"key": "splitSize",
-							"value": "{{split_size}}",
-							"equals": true,
-							"description": ""
+							"value": "{{split_size}}"
 						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"description": ""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "fulfillInvoice",
 			"request": {
-				"url": "https://api.rbk.money/v1/processing/invoices/{{invoice_id}}/fulfill",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{api_key}}",
-						"description": ""
+						"value": "Bearer {{api_key}}"
 					},
 					{
 						"key": "X-Request-ID",
-						"value": "{{$timestamp}}",
-						"description": ""
+						"value": "{{$timestamp}}"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json; charset=utf-8",
-						"description": ""
+						"value": "application/json; charset=utf-8"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"reason\": \"Purchase delivered\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/fulfill",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoices",
+						"{{invoice_id}}",
+						"fulfill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWebhooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{api_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/webhooks",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInvoiceTemplateByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fae03278-b5cc-42cd-b068-0250b6a5392c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "749c0c21-a5d7-4ad9-a0fb-a16c33b2bbab",
+						"type": "text/javascript",
+						"exec": [
+							"//Prefer relative invoice dueDate",
+							"var Now = new Date();",
+							"Now.setHours(Now.getHours() + 1);",
+							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Внутренний номер заказа 13123298761\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{api_endpoint}}/processing/invoice-templates/{{invoice_template_id}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"processing",
+						"invoice-templates",
+						"{{invoice_template_id}}"
+					]
+				}
 			},
 			"response": []
 		}
