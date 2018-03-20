@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "179ae286-ec09-e3e5-22ee-c4830df8f4d4",
+		"_postman_id": "c5cb59c9-0a5a-4cd0-91b7-d81eca889160",
 		"name": "RBKmoney",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -197,7 +197,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5555555555554444\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5169147129584558\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/payment-resources",
@@ -1194,7 +1194,10 @@
 						"value": "application/json"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/webhooks",
 					"host": [
