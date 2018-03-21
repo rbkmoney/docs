@@ -1,0 +1,66 @@
+@startuml
+
+!include "plantuml-toolset/super-serious-skin.iwsd"
+
+title 3D-Secure flow
+
+participant "Customer Payer" as CST
+participant "User Agent" as UA
+participant "Merchant Backend" as MRCH
+participant "RBKmoney API" as RBK
+participant "Merchant Custom Checkout" as CHK
+participant "Card Issuer" as ISR
+participant "Card Acquirer" as ACQ
+participant "MPI Server" as MPI
+
+
+MRCH -> RBK: createInvoice()
+RBK -> MRCH: invoiceCreated(invoiceID, invoiceAccessToken)
+
+MRCH -> UA: renderCheckout(invoiceID, invoiceAccessToken)
+CST -> CHK: httpPost(cardHolderData)
+
+CHK -> RBK: createPayment(cardHolderData, invoiceID, invoiceAccessToken)
+RBK -> CHK: paymentStarted(paymentID)
+
+CHK -> CHK: startPolling(invoice data, interval=1 second)
+
+CHK -> RBK: getInvoiceEvents(invoiceID, invoiceAccessToken)
+
+RBK -> MPI: check3DSEnrolled(cardHolderData)
+MPI -> RBK: vERes(enrolled, acsURL)
+RBK -> MPI: getPAReqForm()
+MPI -> RBK: paReq(MD, PaReq, TermUrl)
+
+CHK -> RBK: getInvoiceEvents(invoiceID, invoiceAccessToken)
+
+RBK -> CHK: eventPaymentInteractionRequested(requestType, TermUrl,\n PaReq, MD, uriTemplate)
+
+CHK -> ISR: httpRedirect(uriTemplate, TermUrl, PaReq, MD,\nuriTemplate=https://wrapper.rbk.money/.../term_url?termination_uri={YOUR_PAYMENT_FORM_URI})
+
+ISR -> UA: Card ISRuer 3DS page
+ISR -> CST: Send 2nd factor auth code
+UA -> ISR: httpRequest(2nd factor code)
+
+ISR -> UA: httpRedirect(uriTemplate=https://wrapper.rbk.money/..., PaRes)
+
+RBK -> MPI: checkPaRes(PaRes)
+MPI -> RBK: paResVerified(3dsTransactionID)
+
+RBK -> UA: httpRedirect(termination_uri={YOUR_PAYMENT_FORM_URI})
+UA -> CHK: httpRedirect({YOUR_PAYMENT_FORM_URI})
+
+RBK -> ACQ: processPayment(cardHolderData, 3dsTransactionID)
+ACQ -> RBK: paymentProcessed(paymentData)
+
+CHK -> RBK: getInvoiceEvents(invoiceID, invoiceAccessToken)
+RBK -> CHK: paymentProcessed()
+
+CHK -> UA: successPageRedirect(invoiceID)
+
+MRCH -> RBK: getInvoiceByID(invoiceID)
+
+MRCH -> MRCH: paymentProcessed()
+
+
+@enduml

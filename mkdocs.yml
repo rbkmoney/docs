@@ -38,6 +38,7 @@ pages:
         - 'Обзор': 'integrations/overview.md'
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
+        - '3D-Secure': 'integrations/3dsecure.md'
         - 'Postman': 'integrations/postman.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
