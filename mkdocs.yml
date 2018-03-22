@@ -43,6 +43,7 @@ pages:
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
         - 'Модули CMS':
+            - 'Bitrix': 'integrations/cms-modules/bitrix/index.md'
             - 'InSales': 'integrations/cms-modules/insales/index.md'
             - 'Webasyst/ShopScript': 'integrations/cms-modules/webasyst/index.md'
             - 'Wordpress/Woocommerce': 'integrations/cms-modules/woocommerce/index.md'
