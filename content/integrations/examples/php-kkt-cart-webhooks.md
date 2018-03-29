@@ -244,45 +244,48 @@ User-Agent: okhttp/3.6.0
 ```php
 <?php
 
-// ваш ключ для вебхука из ЛК
-define("RBKM_WEBHOOK_KEY",'your webhook key');
+// Достаем сигнатуру из заголовка и декодируем
+$signatureFromHeader = getSignatureFromHeader($_SERVER['HTTP_CONTENT_SIGNATURE']);
 
-$paramsContentSignature = getParametersContentSignature($_SERVER['Content-Signature']);
-$signature = urlsafe_b64decode($paramsContentSignature['digest']);
+function getSignatureFromHeader($contentSignature) {
+        $signature = preg_replace("/alg=(\S+);\sdigest=/", '', $contentSignature);
+
+        if (empty($signature)) {
+            throw new Exception('Signature is missing');
+        }
+
+        return $signature;
+}
+
+
+// Декодируем данные
+$decodedSignature = urlsafe_b64decode($signatureFromHeader);
+function urlsafe_b64decode($string) {
+    return base64_decode(strtr($string, '-_,', '+/='));
+}
+
 
 // Данные, которые пришли в теле сообщения
 $content = file_get_contents('php://input');
-$publicKey = '-----BEGIN PUBLIC KEY-----' . PHP_EOL . RBKM_WEBHOOK_KEY . PHP_EOL . '-----END PUBLIC KEY-----';
-if(!verification_signature($content, $signature, $public_key)) {
+
+/**
+ * Публичный ключ - ключ для обработки уведомлений о смене статуса
+ * 
+ * Заходим в личный кабинет RBKmoney: Создать Webhook;
+ * Вставляем в поле URL на который будут приходить уведомления
+ * Выбираем Типы событий, например: InvoicePaid и InvoiceCanсelled;
+ * После создания Webhook-а копируем Публичный ключ после нажатия на Показать детали;
+ * Копируем Публичный ключ;
+ */
+$publicKey = 'your webhook public key';
+if(!verificationSignature($content, $decodedSignature, $publicKey)) {
     http_response_code(400);
     echo json_encode(['message' => 'Webhook notification signature mismatch']);
     exit();
 }
 
-// Преобразуем данные в массив и делаем остальные проверки
-$data = json_decode($content, TRUE); 
-
-// Далее различные проверки, например, совпадения магазина, суммы, номера заказа, статуса, нужных событий и т.д.
-
-
-
-// Вспомогательная функция
-function urlsafe_b64decode($string)
-{
-    $data = str_replace(array('-', '_'), array('+', '/'), $string);
-    $mod4 = strlen($data) % 4;
-
-    if ($mod4) {
-        $data .= substr('====', $mod4);
-    }
-
-    return base64_decode($data);
-}
-
-
-// Проверка сигнатуры
-function verificationSignature($data = '', $signature = '', $public_key = '')
-{
+// Проверяем сигнатуру
+function verificationSignature($data, $signature, $public_key) {
     if (empty($data) || empty($signature) || empty($public_key)) {
         return FALSE;
     }
@@ -292,22 +295,20 @@ function verificationSignature($data = '', $signature = '', $public_key = '')
         return FALSE;
     }
 
-    $verify = openssl_verify($data, $signature, $public_key_id, static::OPENSSL_SIGNATURE_ALG);
+    $verify = openssl_verify($data, $signature, $public_key_id, OPENSSL_ALGO_SHA256);
     
     return ($verify == 1);
 }
 
-// Разбираем сигнатуру
-function getParametersContentSignature($contentSignature)
-{
-    preg_match_all("|alg=(\S+);\sdigest=(.*)|i", $contentSignature, $matches, PREG_PATTERN_ORDER);
-    
-    $params = array();
-    $params['alg'] = !empty($matches[1][0]) ? $matches[1][0] : '';
-    $params['digest'] = !empty($matches[2][0]) ? $matches[2][0] : '';
 
-    return $params;
-}
+// Преобразуем данные в массив
+$data = json_decode($content, TRUE); 
+
+// Далее различные проверки.
+// Например: совпадения магазина, суммы, номера заказа, статуса, нужных событий и т.д.
+
+// Обновление статуса заказа
+
 ?>
 ```
 
