@@ -21,3 +21,5 @@
 |                        | MasterCard     | 5105105105105100         | 12/20     | 123      |
 | Unknown Failure        | Visa           | 4111110000000112         | 12/20     | 123      |
 |                        | MasterCard     | 5124990000000002         | 12/20     | 123      |
+| Apple Pay Success      | Visa           | 4300000000000777         | 12/20     | 123      |
+| Apple Pay Failure      | Visa           | 5000000000000009         | 12/20     | 123      |
