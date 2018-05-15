@@ -23,3 +23,7 @@
 |                        | MasterCard     | 5124990000000002         | 12/20     | 123      |
 | Apple Pay Success      | Visa           | 4300000000000777         | 12/20     | 123      |
 | Apple Pay Failure      | Visa           | 5000000000000009         | 12/20     | 123      |
+| Google Pay Success     | MasterCard     | 2222990905257051         | 12/20     | 123      |
+| Google Pay Failure     | MasterCard     | 2222405343248877         | 12/20     | 123      |
+| Samsung Pay Success    | MasterCard     | 2223577120017656         | 12/20     | 123      |
+| Samsung Pay Failure    | MasterCard     | 2223007648726984         | 12/20     | 123      |
