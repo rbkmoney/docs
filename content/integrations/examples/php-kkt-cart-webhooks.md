@@ -50,7 +50,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\n  \"shopID\": \"TEST\",\n  \"dueDate\": \"2017-09-27T15:21:51.002Z\",\n  \"amount\": 8500,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 2500,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Доставка\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"ID заказа во внутренней CRM: 13123298761\"\n  }\n}",
-  CURLOPT_HTTPHEADER => prepareHeaders($apiKey),
+  CURLOPT_HTTPHEADER => prepare_headers($apiKey),
 ));
 
 $response = curl_exec($curl);
@@ -64,7 +64,7 @@ if ($err) {
   echo $response;
 }
 
-function prepareHeaders($apiKey)
+function prepare_headers($apiKey)
 {
     $headers = [];
     $headers[] = 'X-Request-ID: ' . uniqid();
@@ -245,9 +245,9 @@ User-Agent: okhttp/3.6.0
 <?php
 
 // Достаем сигнатуру из заголовка и декодируем
-$signatureFromHeader = getSignatureFromHeader($_SERVER['HTTP_CONTENT_SIGNATURE']);
+$signatureFromHeader = get_signature_from_header($_SERVER['HTTP_CONTENT_SIGNATURE']);
 
-function getSignatureFromHeader($contentSignature) {
+function get_signature_from_header($contentSignature) {
         $signature = preg_replace("/alg=(\S+);\sdigest=/", '', $contentSignature);
 
         if (empty($signature)) {
@@ -259,8 +259,8 @@ function getSignatureFromHeader($contentSignature) {
 
 
 // Декодируем данные
-$decodedSignature = urlsafe_b64decode($signatureFromHeader);
-function urlsafe_b64decode($string) {
+$decodedSignature = urlsafe_base64decode($signatureFromHeader);
+function urlsafe_base64decode($string) {
     return base64_decode(strtr($string, '-_,', '+/='));
 }
 
@@ -275,27 +275,27 @@ $content = file_get_contents('php://input');
  * Вставляем в поле URL на который будут приходить уведомления
  * Выбираем Типы событий, например: InvoicePaid и InvoiceCanсelled;
  * После создания Webhook-а копируем Публичный ключ после нажатия на Показать детали;
- * Копируем Публичный ключ;
+ * Копируем Публичный ключ полностью с заголовками ---- BEGIN PUB...;
  */
-$publicKey = 'your webhook public key';
-if(!verificationSignature($content, $decodedSignature, $publicKey)) {
+$webhookPublicKey = 'your webhook public key';
+if(!verify_signature($content, $decodedSignature, $webhookPublicKey)) {
     http_response_code(400);
     echo json_encode(['message' => 'Webhook notification signature mismatch']);
     exit();
 }
 
 // Проверяем сигнатуру
-function verificationSignature($data, $signature, $public_key) {
-    if (empty($data) || empty($signature) || empty($public_key)) {
+function verify_signature($data, $signature, $publicKey) {
+    if (empty($data) || empty($signature) || empty($publicKey)) {
         return FALSE;
     }
 
-    $public_key_id = openssl_get_publickey($public_key);
-    if (empty($public_key_id)) {
+    $publicKeyId = openssl_get_publickey($publicKey);
+    if (empty($publicKeyId)) {
         return FALSE;
     }
 
-    $verify = openssl_verify($data, $signature, $public_key_id, OPENSSL_ALGO_SHA256);
+    $verify = openssl_verify($data, $signature, $publicKeyId, OPENSSL_ALGO_SHA256);
     
     return ($verify == 1);
 }
@@ -337,7 +337,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\n\"reason\": \"cancel\"\n}",
-  CURLOPT_HTTPHEADER => prepareHeaders($apiKey),
+  CURLOPT_HTTPHEADER => prepare_headers($apiKey),
 ));
 
 $response = curl_exec($curl);
@@ -351,7 +351,7 @@ if ($err) {
   echo $response;
 }
 
-function prepareHeaders($apiKey)
+function prepare_headers($apiKey)
 {
     $headers = [];
     $headers[] = 'X-Request-ID: ' . uniqid();
