@@ -259,8 +259,8 @@ function getSignatureFromHeader($contentSignature) {
 
 
 // Декодируем данные
-$decodedSignature = urlsafe_b64decode($signatureFromHeader);
-function urlsafe_b64decode($string) {
+$decodedSignature = urlsafeB64decode($signatureFromHeader);
+function urlsafeB64decode($string) {
     return base64_decode(strtr($string, '-_,', '+/='));
 }
 
@@ -285,17 +285,17 @@ if(!verificationSignature($content, $decodedSignature, $publicKey)) {
 }
 
 // Проверяем сигнатуру
-function verificationSignature($data, $signature, $public_key) {
-    if (empty($data) || empty($signature) || empty($public_key)) {
+function verificationSignature($data, $signature, $publicKey) {
+    if (empty($data) || empty($signature) || empty($publicKey)) {
         return FALSE;
     }
 
-    $public_key_id = openssl_get_publickey($public_key);
-    if (empty($public_key_id)) {
+    $publicKeyId = openssl_get_publickey($publicKey);
+    if (empty($publicKeyId)) {
         return FALSE;
     }
 
-    $verify = openssl_verify($data, $signature, $public_key_id, OPENSSL_ALGO_SHA256);
+    $verify = openssl_verify($data, $signature, $publicKeyId, OPENSSL_ALGO_SHA256);
     
     return ($verify == 1);
 }
