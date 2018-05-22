@@ -47,6 +47,13 @@ pages:
             - 'InSales': 'integrations/cms-modules/insales/index.md'
             - 'Webasyst/ShopScript': 'integrations/cms-modules/webasyst/index.md'
             - 'Wordpress/Woocommerce': 'integrations/cms-modules/woocommerce/index.md'
+            - 'Wordpress/E-commerce': 'integrations/cms-modules/wp-e-commerce/index.md'
             - 'Opencart': 'integrations/cms-modules/opencart/index.md'
+            - 'Netcat': 'integrations/cms-modules/netcat/index.md'
+            - 'Prestashop': 'integrations/cms-modules/prestashop/index.md'
+            - 'Drupal/Ubercart': 'integrations/cms-modules/ubercart/index.md'
+            - 'Drupal/Commerce': 'integrations/cms-modules/drupal-commerce/index.md'
+            - 'Magento': 'integrations/cms-modules/magento/index.md'
+            - 'Joomla/Virtuemart': 'integrations/cms-modules/virtuemart/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
