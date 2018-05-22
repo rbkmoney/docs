@@ -38,11 +38,12 @@ RBK -> CHK: eventPaymentInteractionRequested(requestType, TermUrl,\n PaReq, MD, 
 
 CHK -> ISR: httpRedirect(uriTemplate, TermUrl, PaReq, MD,\nuriTemplate=https://wrapper.rbk.money/.../term_url?termination_uri={YOUR_PAYMENT_FORM_URI})
 
-ISR -> UA: Card ISRuer 3DS page
+ISR -> UA: Card Issuer 3DS page
 ISR -> CST: Send 2nd factor auth code
 UA -> ISR: httpRequest(2nd factor code)
 
 ISR -> UA: httpRedirect(uriTemplate=https://wrapper.rbk.money/..., PaRes)
+UA -> RBK: httpPostData(PaRes)
 
 RBK -> MPI: checkPaRes(PaRes)
 MPI -> RBK: paResVerified(3dsTransactionID)
