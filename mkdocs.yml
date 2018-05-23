@@ -39,6 +39,7 @@ pages:
         - 'Checkout': 'integrations/checkout.md'
         - 'Tokenizer': 'integrations/tokenizer.md'
         - '3D-Secure': 'integrations/3dsecure.md'
+        - 'Recurring': 'integrations/recurring.md'
         - 'Postman': 'integrations/postman.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
@@ -57,3 +58,4 @@ pages:
             - 'Joomla/Virtuemart': 'integrations/cms-modules/virtuemart/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
+
