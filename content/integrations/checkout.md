@@ -28,39 +28,34 @@
 | data-email                | Если вы знаете email вашего плательщика, вы можете его предзаполнить |              | example@mail.com     |
 | data-obscure-card-cvv     | Затенять карточный cvv код                                           |              | true / false         |
 | data-require-card-holder  | Требовать от плательщика заполнять поле card holder                  |              | true / false         |
+| data-locale               | Настройка локализации платежной формы                                |              | auto / ru / en       |
 
 ### Использование JS API
 
-```html
-<script src="https://checkout.rbk.money/checkout.js"></script>
+```javascript
+const checkout = RbkmoneyCheckout.configure({
+    invoiceID: 'string',
+    invoiceAccessToken: 'string',
+    name: 'Company name',
+    description: 'Some product',
+    opened: function () {
+        console.log('Checkout opened');
+    },
+    closed: function () {
+        console.log('Checkout closed');
+    },
+    finished: function () {
+        console.log('Payment successful finished');
+    }
+});
 
-<button id="customButton">Pay</button>
+document.getElementById('customButton').addEventListener('click', function () {
+    checkout.open();
+});
 
-<script>
-    const checkout = RbkmoneyCheckout.configure({
-        invoiceID: 'string',
-        invoiceAccessToken: 'string',
-        name: 'Company name',
-        description: 'Some product',
-        opened: function () {
-            console.log('Checkout opened');
-        },
-        closed: function () {
-            console.log('Checkout closed');
-        },
-        finished: function () {
-            console.log('Payment successful finished');
-        }
-    });
-    
-    document.getElementById('customButton').addEventListener('click', function () {
-        checkout.open();
-    });
-    
-    window.addEventListener('popstate', function () {
-        checkout.close();
-    });
-</script>
+window.addEventListener('popstate', function () {
+    checkout.close();
+});
 ```
 
 | Свойство конфигурации    | Описание                                                             | Обязательное | Возможные значения   |
@@ -75,6 +70,7 @@
 | finished                 | Callback на успешное завершение платежа                              |              | function             |
 | obscureCardCvv           | Затенять карточный cvv код                                           |              | true / false         |
 | requireCardHolder        | Требовать от плательщика заполнять поле card holder                  |              | true / false         |
+| locale                   | Настройка локализации платежной формы                                |              | auto / ru / en       |
 
 Примечание: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.
 
@@ -89,6 +85,14 @@
 | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Описание                                                                                                                 | Возможные значения |
 | :----------------------------: | :------------------------:| :-----------------------------------------------------------------------------------------------------------------------:| :----------------: |
 | amount                         | data-amount               | Сумма к оплате, в минорных денежных единицах, например в копейках в случае указания российских рублей в качестве валюты. | integer            |
+
+Пример интеграции:
+
+JS API
+<script async src="//jsfiddle.net/Ildar_Galeev/2g59m5fv/19/embed/js,html/"></script>
+
+HTML API
+<script async src="//jsfiddle.net/Ildar_Galeev/xrx0qgfk/embed/html/"></script>
 
 ### Создание привязки [плательщика](https://rbkmoney.github.io/api/#tag/Customers).
 Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор плательщика и токен для доступа к указанному плательщику.
@@ -109,9 +113,40 @@
 | paymentFlowHold                | data-payment-flow-hold    | Признак совершения оплаты с удержанием денежных средств | true / false       |
 | holdExpiration                 | data-hold-expiration      | Политика управления удержанием денежных средств         | cancel / capture   |
 
-### Управление дополнительными методами оплаты.
+### Управление методами оплаты.
 
-| Метод оплаты         | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения | Значение по умолчанию  |
-| :------------------: | :----------------------------: | :------------------------:| :-----------------:| :--------------------: |
-| Электронные кошельки | terminals                      | data-terminals            | true / false       | true                   |
-| Терминалы оплаты     | wallets                        | data-wallets              | true / false       | true                   |
+| Метод оплаты                                                                   | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения | Значение по умолчанию  |
+| :---------------------------------------------------------------------------:  | :----------------------------: | :------------------------:| :-----------------:| :--------------------: |
+| Банковская карта и токенизированные карты (Apple Pay, Google Pay, Samsung Pay) | bankCard                       | data-bank-card            | true / false       | true                   |
+| Электронные кошельки                                                           | terminals                      | data-terminals            | true / false       | true                   |
+| Терминалы оплаты                                                               | wallets                        | data-wallets              | true / false       | true                   |
+
+Управление методами оплаты, которые будут предложены плательщику в первую очередь:
+
+* HTML API: `data-initial-payment-method`
+* JS API: `initialPaymentMethod`
+
+Возможные значения:
+
+`bankCard` - Банковская карта.
+
+`terminalEuroset` - Терминалы "Евросеть".
+
+`walletQiwi` - Электоронный кошелек "Qiwi".
+
+### Предотвращение блокировки функции открытия checkout.
+Не вызывайте функцию открытия checkout в callback. Большинство мобильных браузеров блокируют подобное поведение. Открытие нового окна должно происходить в результате действия пользователя.
+
+```javascript
+// Будет работать:
+document.getElementById("button").addEventListener("click", function() {
+    checkout.open();
+});
+
+// Не будет работать:
+document.getElementById("button").addEventListener("click", function() {
+    someFunction().then(function() {
+        checkout.open();
+    });
+});
+```
