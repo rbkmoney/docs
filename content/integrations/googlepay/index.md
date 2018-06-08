@@ -232,7 +232,7 @@ function processPayment(paymentData) {
 
 - в переменной `paymentToolType` укажите значение `TokenizedCardData`;
 - в переменной `provider` укажите `GooglePay`;
-- в переменной `provider`:
+- в переменной `merchantID`:
     - для тестовой среды укажите `rbkmoney`;
     - для боевой среды укажите идентификатор вашего мерчанта, выданный вам RBKmoney.
 - в структуру `paymentToken` передайте структуру, полученную из Google Pay.
