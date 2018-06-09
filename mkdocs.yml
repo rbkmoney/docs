@@ -41,6 +41,7 @@ pages:
         - '3D-Secure': 'integrations/3dsecure.md'
         - 'Recurring': 'integrations/recurring.md'
         - 'Postman': 'integrations/postman.md'
+        - 'Google Pay': 'integrations/googlepay/index.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
         - 'Модули CMS':
