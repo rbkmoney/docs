@@ -16,14 +16,7 @@ extra_css:
     - 'assets/stylesheets/override.css'
     - 'lightbox/css/lightbox.min.css'
     - 'livedemo/livedemo.css'
-extra_javascript:
-    - 'lightbox/js/lightbox-plus-jquery.min.js'
-    - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
-    - 'https://checkout.rbk.money/checkout.js'
-    - 'livedemo/livedemo.js'
-    - 'counters/ga.js'
-    - 'counters/ym.js'
-strict: true
+strict: false
 markdown_extensions:
     - smarty
     - admonition
@@ -42,6 +35,7 @@ pages:
         - 'Recurring': 'integrations/recurring.md'
         - 'Postman': 'integrations/postman.md'
         - 'Google Pay': 'integrations/googlepay/index.md'
+        - 'Apple Pay': 'integrations/applepay/index.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
         - 'Модули CMS':
@@ -59,4 +53,3 @@ pages:
             - 'Joomla/Virtuemart': 'integrations/cms-modules/virtuemart/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
-
