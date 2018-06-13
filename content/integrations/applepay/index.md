@@ -132,6 +132,7 @@ session.begin();
 </div>
 <script src="applepay.js"></script>
 <link rel="stylesheet" href="applepay.css">
+<textarea id="token-area"></textarea>
 
 ### Собираем все вместе
 
@@ -147,7 +148,6 @@ var displayName = 'RBKmoney Apple Pay Test';
 if (window.ApplePaySession) {
     var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
     promise.then(function(canMakePayments) {
-        console.log(ApplePaySession.canMakePaymentsWithActiveCard);
         if (canMakePayments)
             processApplePayRoutine();
         else
@@ -238,23 +238,30 @@ function processApplePayRoutine() {
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "ApplePay",
-    "merchantID": "rbkmoney",
+    "merchantID": "merchant.money.rbk.checkout",
     "paymentToken": {
-      "cardInfo": {
-        "cardNetwork": "MASTERCARD",
-        "cardDetails": "4444",
-        "cardImageUri": "https://lh6.ggpht.com/h6TBIVV7tlYGr1zkIA8CmCzINizzASbPIetpxh_5otBu3VkPEC5_Kk_wH5szy7gDhMkRhVVp",
-        "cardDescription": "Mastercard •••• 4444",
-        "cardClass": "CREDIT"
-      },
-      "paymentMethodToken": {
-        "tokenizationType": "PAYMENT_GATEWAY",
-        "token": "{\"signature\":\"MEUCIZ29vZ2xlIHBheSBkZWNvZGVkIHNpZ25hdHVyZSBkYXRhIChiaW5hcnkpCg\\u003d\",\"protocolVersion\":\"ECv1\",\"signedMessage\":\"{\\\"encryptedMessage\\\":\\\"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwg//c2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQgbGFib3JlIGV0IGRvbG9yZSBtYWdu//YSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0//aW9uIHVsbGFtY28gbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCg\\\",\\\"ephemeralPublicKey\\\":\\\"Z29vZ2xlIHBheSBlbXBoZXJhbCBwdWJsaWMga2V5IChkZWNvZGVkIGJpbmFyeSkK\\\\u003d\\\",\\\"tag\\\":\\\"Z29vZ2xlIHBheSB0YWcgKGRlY29kZWQgYmluYXJ5KQo\\\\u003d\\\"}\"}"
+      "token": {
+        "paymentData": {
+          "version": "EC_v1",
+          "data": "SFifeDwQPOu8Rh47AF3qplwaXmxMYU0Ewu5aw51eJ4AbCa/7MwrbbaVog9WTHvpabl7xnDuHdD+wCyzElCKIxXs1acLs2aC0rP6XSixA7I49aN7s4eMGyc7ZP3hx2dPXFto4bh5I1Pd9+hRJITp//swx+wuAjM3TF0DupLNmkA77zIAlb24JzZ3ItOcRpHQDoYnWyO1IQKvUw9EW1yB54ialI/hUxyqhRniBIAeiPERHrakSzuUjmPdpOCsgQjGHFiN80le9i6cIkvl7HD5bOvaIdb6aAdUAU/uHTLElGT3dymrjQty1OZfmYHB12H0mrTPYJLSWf390247sDsOP4c/f9VmLxcD3wnMAId8J0zSSTWv0l10cW+JgfaP3mnto0Acb/UGXPBYwkP3daQ==",
+          "signature": "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",
+          "header": {
+            "ephemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvCNyjDTYkSr9gboDq+76VvftIbAqUi4PbvJJP/e0XXRWv77MoNEmLh5pJag5ZSEpm7gTSKuTVJ8CgkFjbFpy8w==",
+            "publicKeyHash": "ZVhwTYqTzCNgV16oq5xL0rSBMGRojETt21+DdgRXzyk=",
+            "transactionId": "09e95dae77a116fa1a8fe2b049b8326ce5f9ff6f66ee8fd01289d05d19aa682e"
+          }
+        },
+        "paymentMethod": {
+          "displayName": "MasterCard 1471",
+          "network": "MasterCard",
+          "type": "debit"
+        },
+        "transactionIdentifier": "09E95DAE77A116FA1A8FE2B049B8326CE5F9FF6F66EE8FD01289D05D19AA682E"
       }
     }
   },
   "clientInfo": {
-    "fingerprint": "aa32fec9f377e6fae19a6a8bcde41bd1"
+    "fingerprint": "d042b8eeada885f5bac8821d99101a09"
   }
 }
 ```
@@ -357,31 +364,38 @@ curl -X POST \
 ```bash
 curl -X POST \
   https://api.rbk.money/v2/processing/payment-resources \
-  -H 'Authorization: Bearer {INVOICE_ACCESS_TOKEN}' \
+  -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1528470722' \
+  -H 'X-Request-ID: 1528913559' \
   -d '{
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "ApplePay",
-    "merchantID": "rbkmoney",
+    "merchantID": "merchant.money.rbk.checkout",
     "paymentToken": {
-      "cardInfo": {
-        "cardNetwork": "MASTERCARD",
-        "cardDetails": "4444",
-        "cardImageUri": "https://lh6.ggpht.com/h6TBIVV7tlYGr1zkIA8CmCzINizzASbPIetpxh_5otBu3VkPEC5_Kk_wH5szy7gDhMkRhVVp",
-        "cardDescription": "Mastercard •••• 4444",
-        "cardClass": "CREDIT"
-      },
-      "paymentMethodToken": {
-        "tokenizationType": "PAYMENT_GATEWAY",
-        "token": "{\"signature\":\"MEUCIZ29vZ2xlIHBheSBkZWNvZGVkIHNpZ25hdHVyZSBkYXRhIChiaW5hcnkpCg\\u003d\",\"protocolVersion\":\"ECv1\",\"signedMessage\":\"{\\\"encryptedMessage\\\":\\\"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwg//c2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQgbGFib3JlIGV0IGRvbG9yZSBtYWdu//YSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0//aW9uIHVsbGFtY28gbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCg\\\",\\\"ephemeralPublicKey\\\":\\\"Z29vZ2xlIHBheSBlbXBoZXJhbCBwdWJsaWMga2V5IChkZWNvZGVkIGJpbmFyeSkK\\\\u003d\\\",\\\"tag\\\":\\\"Z29vZ2xlIHBheSB0YWcgKGRlY29kZWQgYmluYXJ5KQo\\\\u003d\\\"}\"}"
+      "token": {
+        "paymentData": {
+          "version": "EC_v1",
+          "data": "SFifeDwQPOu8Rh47AF3qplwaXmxMYU0Ewu5aw51eJ4AbCa/7MwrbbaVog9WTHvpabl7xnDuHdD+wCyzElCKIxXs1acLs2aC0rP6XSixA7I49aN7s4eMGyc7ZP3hx2dPXFto4bh5I1Pd9+hRJITp//swx+wuAjM3TF0DupLNmkA77zIAlb24JzZ3ItOcRpHQDoYnWyO1IQKvUw9EW1yB54ialI/hUxyqhRniBIAeiPERHrakSzuUjmPdpOCsgQjGHFiN80le9i6cIkvl7HD5bOvaIdb6aAdUAU/uHTLElGT3dymrjQty1OZfmYHB12H0mrTPYJLSWf390247sDsOP4c/f9VmLxcD3wnMAId8J0zSSTWv0l10cW+JgfaP3mnto0Acb/UGXPBYwkP3daQ==",
+          "signature": "MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCAMIID5jCCA4ugAwIBAgIIaGD2mdnMpw8wCgYIKoZIzj0EAwIwejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE2MDYwMzE4MTY0MFoXDTIxMDYwMjE4MTY0MFowYjEoMCYGA1UEAwwfZWNjLXNtcC1icm9rZXItc2lnbl9VQzQtU0FOREJPWDEUMBIGA1UECwwLaU9TIFN5c3RlbXMxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgjD9q8Oc914gLFDZm0US5jfiqQHdbLPgsc1LUmeY+M9OvegaJajCHkwz3c6OKpbC9q+hkwNFxOh6RCbOlRsSlaOCAhEwggINMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwHQYDVR0OBBYEFAIkMAua7u1GMZekplopnkJxghxFMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUI/JJxE+T5O8n5sT2KGw/orv9LkswggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMA4GA1UdDwEB/wQEAwIHgDAPBgkqhkiG92NkBh0EAgUAMAoGCCqGSM49BAMCA0kAMEYCIQDaHGOui+X2T44R6GVpN7m2nEcr6T6sMjOhZ5NuSo1egwIhAL1a+/hp88DKJ0sv3eT3FxWcs71xmbLKD/QJ3mWagrJNMIIC7jCCAnWgAwIBAgIISW0vvzqY2pcwCgYIKoZIzj0EAwIwZzEbMBkGA1UEAwwSQXBwbGUgUm9vdCBDQSAtIEczMSYwJAYDVQQLDB1BcHBsZSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwHhcNMTQwNTA2MjM0NjMwWhcNMjkwNTA2MjM0NjMwWjB6MS4wLAYDVQQDDCVBcHBsZSBBcHBsaWNhdGlvbiBJbnRlZ3JhdGlvbiBDQSAtIEczMSYwJAYDVQQLDB1BcHBsZSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTETMBEGA1UECgwKQXBwbGUgSW5jLjELMAkGA1UEBhMCVVMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATwFxGEGddkhdUaXiWBB3bogKLv3nuuTeCN/EuT4TNW1WZbNa4i0Jd2DSJOe7oI/XYXzojLdrtmcL7I6CmE/1RFo4H3MIH0MEYGCCsGAQUFBwEBBDowODA2BggrBgEFBQcwAYYqaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZXJvb3RjYWczMB0GA1UdDgQWBBQj8knET5Pk7yfmxPYobD+iu/0uSzAPBgNVHRMBAf8EBTADAQH/MB8GA1UdIwQYMBaAFLuw3qFYM4iapIqZ3r6966/ayySrMDcGA1UdHwQwMC4wLKAqoCiGJmh0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlcm9vdGNhZzMuY3JsMA4GA1UdDwEB/wQEAwIBBjAQBgoqhkiG92NkBgIOBAIFADAKBggqhkjOPQQDAgNnADBkAjA6z3KDURaZsYb7NcNWymK/9Bft2Q91TaKOvvGcgV5Ct4n4mPebWZ+Y1UENj53pwv4CMDIt1UQhsKMFd2xd8zg7kGf9F3wsIW2WT8ZyaYISb1T4en0bmcubCYkhYQaZDwmSHQAAMYIBjDCCAYgCAQEwgYYwejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTAghoYPaZ2cynDzANBglghkgBZQMEAgEFAKCBlTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xODA2MTMxODA2MjJaMCoGCSqGSIb3DQEJNDEdMBswDQYJYIZIAWUDBAIBBQChCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIKGYCqr7zYf65HOIMXC9IsuyCdW04Bszaltf0KPeEH+1MAoGCCqGSM49BAMCBEcwRQIhAMidZ8NFKiEF6jEIT8ak2ADmXKNrPdYRd6QGA4/hh3RDAiBCO47jxHk6QhddakyskqyD2Yp9e4tHBNyTGrUMdyGTEgAAAAAAAA==",
+          "header": {
+            "ephemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvCNyjDTYkSr9gboDq+76VvftIbAqUi4PbvJJP/e0XXRWv77MoNEmLh5pJag5ZSEpm7gTSKuTVJ8CgkFjbFpy8w==",
+            "publicKeyHash": "ZVhwTYqTzCNgV16oq5xL0rSBMGRojETt21+DdgRXzyk=",
+            "transactionId": "09e95dae77a116fa1a8fe2b049b8326ce5f9ff6f66ee8fd01289d05d19aa682e"
+          }
+        },
+        "paymentMethod": {
+          "displayName": "MasterCard 1471",
+          "network": "MasterCard",
+          "type": "debit"
+        },
+        "transactionIdentifier": "09E95DAE77A116FA1A8FE2B049B8326CE5F9FF6F66EE8FD01289D05D19AA682E"
       }
     }
   },
   "clientInfo": {
-    "fingerprint": "aa32fec9f377e6fae19a6a8bcde41bd1"
+    "fingerprint": "d042b8eeada885f5bac8821d99101a09"
   }
 }'
 ```
@@ -391,19 +405,19 @@ curl -X POST \
 ```json
 {
     "clientInfo": {
-        "fingerprint": "aa32fec9f377e6fae19a6a8bcde41bd1",
+        "fingerprint": "d042b8eeada885f5bac8821d99101a09",
         "ip": "2A04:4A00:5:1014::100D"
     },
-    "paymentSession": "{PAYMENT_SESSION}",
+    "paymentSession": "eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiZDA0MmI4ZWVhZGE4ODVmNWJhYzg4MjFkOTkxMDFhMDkiLCJpcCI6IjJBMDQ6NEEwMDo1OjEwMTQ6OjEwMEQifSwicGF5bWVudFNlc3Npb24iOiJJYW90VGV6SUhGSFVKVkJwbFNDWHkifQ",
     "paymentToolDetails": {
-        "bin": "411111",
-        "cardNumberMask": "411111******4444",
+        "bin": "520424",
+        "cardNumberMask": "520424******1471",
         "detailsType": "PaymentToolDetailsBankCard",
-        "lastDigits": "4444",
+        "lastDigits": "1471",
         "paymentSystem": "mastercard",
-        "tokenProvider": "Applepay"
+        "tokenProvider": "applepay"
     },
-    "paymentToolToken": "{PAYMENT_TOOL_TOKEN}"
+    "paymentToolToken": "eyJiaW4iOiI1MjA0MjQiLCJtYXNrZWRfcGFuIjoiMTQ3MSIsInBheW1lbnRfc3lzdGVtIjoibWFzdGVyY2FyZCIsInRva2VuIjoiM25FN0s0ckdXVW91RzlVVjVJN2lMNyIsInRva2VuX3Byb3ZpZGVyIjoiYXBwbGVwYXkiLCJ0eXBlIjoiYmFua19jYXJkIn0"
 }
 ```
 
@@ -433,50 +447,4 @@ curl -X POST \
 }'
 ```
 
-- проверяем статус обработки платежа:
-
-```bash
-curl -X GET \
-  https://api.rbk.money/v2/processing/invoices/10vRl9xqGlk/payments/1 \
-  -H 'Authorization: Bearer {YOUR_API_KEY}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1528471100'
-```
-
-- пример ответа Платформы. Платеж успешно проведен:
-
-```json
-{
-    "amount": 6000,
-    "createdAt": "2018-06-08T15:18:06.834793Z",
-    "currency": "RUB",
-    "flow": {
-        "type": "PaymentFlowInstant"
-    },
-    "id": "1",
-    "invoiceID": "10vRl9xqGlk",
-    "payer": {
-        "clientInfo": {
-            "fingerprint": "aa32fec9f377e6fae19a6a8bcde41bd1",
-            "ip": "2A04:4A00:5:1014::100D"
-        },
-        "contactInfo": {
-            "email": "test@test.com",
-            "phoneNumber": "9876543210"
-        },
-        "payerType": "PaymentResourcePayer",
-        "paymentSession": "{PAYMENT_SESSION}",
-        "paymentToolDetails": {
-            "bin": "411111",
-            "cardNumberMask": "411111******4444",
-            "detailsType": "PaymentToolDetailsBankCard",
-            "lastDigits": "4444",
-            "paymentSystem": "mastercard",
-            "tokenProvider": "Applepay"
-        },
-        "paymentToolToken": "{PAYMENT_TOOL_TOKEN}"
-    },
-    "status": "captured"
-}
-```
+- проверяем статус обработки платежа, обрабатываем результат.

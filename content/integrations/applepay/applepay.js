@@ -7,7 +7,6 @@ var displayName = 'RBKmoney Apple Pay Test';
 if (window.ApplePaySession) {
     var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
     promise.then(function(canMakePayments) {
-        console.log(ApplePaySession.canMakePaymentsWithActiveCard);
         if (canMakePayments)
             processApplePayRoutine();
         else
@@ -64,6 +63,8 @@ function processApplePayRoutine() {
         }
 
         session.onpaymentauthorized = function(event) {
+            document.getElementById("token-area").value = JSON.stringify(event.payment.token);
+
             console.log(JSON.stringify(event.payment.token));
             session.completePayment(ApplePaySession.STATUS_SUCCESS);
         }
