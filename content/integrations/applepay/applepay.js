@@ -1,4 +1,4 @@
-var domainName = 'applefags.rbkmoney.com';
+var domainName = 'developer.rbk.money';
 var merchantIdentifier = 'merchant.money.rbk.checkout';
 var paymentAmount = 10;
 var merchantValidationEndpoint = 'https://wrapper.rbk.money/applepay/api/v1/session';
@@ -63,8 +63,6 @@ function processApplePayRoutine() {
         }
 
         session.onpaymentauthorized = function(event) {
-            document.getElementById("token-area").value = JSON.stringify(event.payment.token);
-
             console.log(JSON.stringify(event.payment.token));
             session.completePayment(ApplePaySession.STATUS_SUCCESS);
         }
