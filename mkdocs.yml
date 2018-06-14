@@ -16,7 +16,14 @@ extra_css:
     - 'assets/stylesheets/override.css'
     - 'lightbox/css/lightbox.min.css'
     - 'livedemo/livedemo.css'
-strict: false
+extra_javascript:
+    - 'lightbox/js/lightbox-plus-jquery.min.js'
+    - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
+    - 'https://checkout.rbk.money/checkout.js'
+    - 'livedemo/livedemo.js'
+    - 'counters/ga.js'
+    - 'counters/ym.js'
+strict: true
 markdown_extensions:
     - smarty
     - admonition
