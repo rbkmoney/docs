@@ -42,6 +42,7 @@ pages:
         - 'Recurring': 'integrations/recurring.md'
         - 'Postman': 'integrations/postman.md'
         - 'Google Pay': 'integrations/googlepay/index.md'
+        - 'Apple Pay': 'integrations/applepay/index.md'
         - 'Примеры':
             - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
         - 'Модули CMS':
@@ -59,4 +60,3 @@ pages:
             - 'Joomla/Virtuemart': 'integrations/cms-modules/virtuemart/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'refs/testcards.md'
-
