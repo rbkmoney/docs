@@ -5,12 +5,9 @@ theme:
     name: material
     custom_dir: theme
 extra:
-    palette:
-        primary: green
-        accent: lime
     links:
         'API reference':
-            url: 'https://rbkmoney.github.io/api/'
+            url: 'https://developer.rbk.money/api/'
             target: _blank
 extra_css:
     - 'assets/stylesheets/override.css'

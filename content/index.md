@@ -36,5 +36,5 @@
 
 ## Нужна помощь?
 
-- Прочитайте [полную документацию](https://rbkmoney.github.io/api/) по нашим публичным API.
+- Прочитайте [полную документацию](https://developer.rbk.money/api/) по нашим публичным API.
 - Мы отвечаем на [вопросы](https://github.com/rbkmoney/docs/issues) и принимаем [предложения по изменениям](https://github.com/rbkmoney/docs/pulls) в нашем публичном репозитории этой документации на [Github](https://github.com/rbkmoney/docs).

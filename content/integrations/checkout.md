@@ -1,7 +1,7 @@
 Платежная форма Checkout представляет собой готовое техническое решение, которое позволяет совершить платеж. Форма отдается с веб-серверов RBKmoney и открывается в iframe таким образом, чтобы создать для плательщика видимость нахождения на сайте мерчанта.
 
 ## Примеры интеграции платежной формы
-Рассмотрим сценарии с использованием [инвойсов](https://rbkmoney.github.io/api/#tag/Invoices):
+Рассмотрим сценарии с использованием [инвойсов](https://developer.rbk.money/api/#tag/Invoices):
 ### Использование HTML API
 
 ```html
@@ -74,7 +74,7 @@ window.addEventListener('popstate', function () {
 
 Примечание: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.
 
-### Совершение оплаты с использованием [шаблонов инвойсов](https://rbkmoney.github.io/api/#tag/InvoiceTemplates).
+### Совершение оплаты с использованием [шаблонов инвойсов](https://developer.rbk.money/api/#tag/InvoiceTemplates).
 Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор шаблона инвойса и токен для доступа к указанному шаблону.
 
 * HTML API: `data-invoice-template-id`, `data-invoice-template-access-token`.
@@ -94,7 +94,7 @@ JS API
 HTML API
 <script async src="//jsfiddle.net/Ildar_Galeev/xrx0qgfk/embed/html/"></script>
 
-### Создание привязки [плательщика](https://rbkmoney.github.io/api/#tag/Customers).
+### Создание привязки [плательщика](https://developer.rbk.money/api/#tag/Customers).
 Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор плательщика и токен для доступа к указанному плательщику.
 
 * HTML API: `data-customer-id`, `data-customer-access-token`.

@@ -24,19 +24,19 @@
 
 ### Подробное описание сценария
 
-1. Используя ваш приватный API-ключ с вашего бэкенда создаем в RBKmoney инвойс вызывая метод [createInvoice](https://rbkmoney.github.io/api/#operation/createInvoice) и получаем в ответ идентификатор инвойса и токен доступа к нему - `invoiceAccessToken`.
+1. Используя ваш приватный API-ключ с вашего бэкенда создаем в RBKmoney инвойс вызывая метод [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) и получаем в ответ идентификатор инвойса и токен доступа к нему - `invoiceAccessToken`.
 2. С вашего бэкенда формируем HTML-код, передаем туда полученный идентификатор и токен доступа инвойса и отдаем этот код в браузер плательщику.
     - *Внимание! Ни в коем случае не передавайте в браузер ваш приватный API-ключ! Используйте только полученный `invoiceAccessToken`.*
 3. В коде вашей платежной формы
     - если у вас нет сертификации PCI-DSS, то подключаем библиотеку tokenizer.js [согласно инструкции](/integrations/tokenizer/) и получаем платежный токен через библиотеку;
-    - если у вас есть сертификация PCI-DSS, то передаем карточные данные напрямую вызывая метод [createPaymentResource](https://rbkmoney.github.io/api/#operation/createPaymentResource) и также получаем платежный токен.
-4. Из кода вашей платежной формы запускаем процесс списания денег с карты плательщика вызывая метод [createPayment](https://rbkmoney.github.io/api/#operation/createPayment).
-5. Запускаем таймер и начинаем опрашивать RBKmoney API на предмет появления новых событий в инвойсе вызывая метод [getInvoiceEvents](https://rbkmoney.github.io/api/#operation/getInvoiceEvents).
+    - если у вас есть сертификация PCI-DSS, то передаем карточные данные напрямую вызывая метод [createPaymentResource](https://developer.rbk.money/api/#operation/createPaymentResource) и также получаем платежный токен.
+4. Из кода вашей платежной формы запускаем процесс списания денег с карты плательщика вызывая метод [createPayment](https://developer.rbk.money/api/#operation/createPayment).
+5. Запускаем таймер и начинаем опрашивать RBKmoney API на предмет появления новых событий в инвойсе вызывая метод [getInvoiceEvents](https://developer.rbk.money/api/#operation/getInvoiceEvents).
     - *мы рекомендуем установить интервал опроса в 1 секунду и ограничение на время опроса в 60-120 секунд либо 60-120 запросов.*
 6. В это время Платформа RBKmoney
     - проверяет вовлеченность карты в 3D-Secure, и в случае положительного ответа от международных платежных систем, получает необходимые для запуска 3D-Secure данные;
     - добавляет полученные данные в виде инструкции для платежной формы в событие инвойса;
-    - *набор данных описан в документации метода [getInvoiceEvents](https://rbkmoney.github.io/api/#operation/getInvoiceEvents) и доступен к просмотру если развернуть Response Schema по пути*
+    - *набор данных описан в документации метода [getInvoiceEvents](https://developer.rbk.money/api/#operation/getInvoiceEvents) и доступен к просмотру если развернуть Response Schema по пути*
     ```
         changes - PaymentInteractionRequested - userInteraction -  interactionType - Redirect.
     ```
