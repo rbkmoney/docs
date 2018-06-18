@@ -180,13 +180,13 @@ $(function() {
             description: 'Product description',
             email: 'example@example.com',
             finished: function() {
-                location.href = '#';
+                console.log('Payment successful finished');
             },
             opened: function() {
-                $('body').css('overflow', 'hidden');
+                console.log('Checkout opened');
             },
             closed: function() {
-                $('body').css('overflow', 'auto');
+                console.log('Checkout closed');
             }
         });
     }
