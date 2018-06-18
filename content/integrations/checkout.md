@@ -150,3 +150,49 @@ document.getElementById("button").addEventListener("click", function() {
     });
 });
 ```
+
+### Ошибка `RbkmoneyCheckout is not defined`
+
+При некорректном встраивании Checkout в код вашей страницы часто может возникать ошибка `RbkmoneyCheckout is not defined`. Она связана с тем, что вы вызываете функцию RbkmoneyCheckout.configure() до полной инициализации DOM. Используйте удобные вам практики для того, чтобы обеспечить вызов платежной формы после полной инициализации модели документа.
+
+Частный случай решения этой задачи с использованием `jquery`, указывающий направление ее решения может выглядеть так:
+
+```html
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://checkout.rbk.money/checkout.js"></script>
+</head>
+<script>
+$(function() {
+    $('#rbkmoney-checkout').on('click', function(e) {
+        e.preventDefault();
+        const checkout = initCheckout('{INVOICE_ID}', '{INVOICE_ACCESS_TOKEN}');
+        checkout.open();
+    });
+
+    function initCheckout(invoiceID, invoiceAccessToken) {
+        return RbkmoneyCheckout.configure({
+            invoiceID: invoiceID,
+            invoiceAccessToken: invoiceAccessToken,
+            name: 'Product name',
+            description: 'Product description',
+            email: 'example@example.com',
+            finished: function() {
+                location.href = '#';
+            },
+            opened: function() {
+                $('body').css('overflow', 'hidden');
+            },
+            closed: function() {
+                $('body').css('overflow', 'auto');
+            }
+        });
+    }
+});
+</script>
+<button id="rbkmoney-checkout">Pay with RBKmoney</button>
+
+</html>
+```
