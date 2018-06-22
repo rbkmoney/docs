@@ -202,7 +202,7 @@ curl -X POST \
 !!!note
 	Обратите внимание! Привязка карт *всегда* требует прохождения процесса [3D-Secure](/integrations/3dsecure.md)
 
-- передаем полученные `paymentToolToken` и `paymentSession` в метод [createBinding](https://v2.api.developer.rbk.money/#operation/createBinding)
+- передаем полученные `paymentToolToken` и `paymentSession` в метод [createBinding](https://developer.rbk.money/api/#operation/createBinding)
 
 ```bash
 curl -X POST \
