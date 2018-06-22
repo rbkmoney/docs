@@ -223,12 +223,12 @@ function processApplePayRoutine() {
 
 Для проведения платежа с Apple Pay необходимо выполнить следующие вызовы RBKmoney API:
 
-- создать в Платформе инвойс, вызвав метод [createInvoice()](https://v2.api.developer.rbk.money/#operation/createInvoice);
-- либо, если инвойс уже был создан ранее, создать [invoiceAccessToken](https://v2.api.developer.rbk.money/#operation/createInvoiceAccessToken);
-- используя полученный `invoiceAccessToken` создать платежный токен RBKmoney, вызывав метод [createPaymentResource()](https://v2.api.developer.rbk.money/#operation/createPaymentResource);
+- создать в Платформе инвойс, вызвав метод [createInvoice()](https://developer.rbk.money/api/#operation/createInvoice);
+- либо, если инвойс уже был создан ранее, создать [invoiceAccessToken](https://developer.rbk.money/api/#operation/createInvoiceAccessToken);
+- используя полученный `invoiceAccessToken` создать платежный токен RBKmoney, вызывав метод [createPaymentResource()](https://developer.rbk.money/api/#operation/createPaymentResource);
 - использовать полученный платежный токен RBKmoney для запуска одно- или двустадийных платежей.
 
-### Пример структуры [paymentResourse](https://v2.api.developer.rbk.money/#operation/createPaymentResource)
+### Пример структуры [paymentResourse](https://developer.rbk.money/api/#operation/createPaymentResource)
 
 #### Необходимые данные
 
