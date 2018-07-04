@@ -1,4 +1,5 @@
-box: python
+box: 
+  id: python:2.7-slim
 
 build:
   steps:
