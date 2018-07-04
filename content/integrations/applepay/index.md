@@ -370,7 +370,7 @@ curl -X POST \
 ```bash
 curl -X POST \
   https://api.rbk.money/v2/processing/payment-resources \
-  -H 'Authorization: Bearer {YOUR_API_KEY}' \
+  -H 'Authorization: Bearer {INVOICE_ACCESS_TOKEN}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
   -H 'X-Request-ID: 1528913559' \
