@@ -46,8 +46,8 @@ DestinationGrant3: "token": "eyJt...MTowNDowOVoifQ"
 Payres1: "token": "eyJt...MTowNDowOVoifQ"\n"bin": "415039"
 Payres3: "token": "eyJt...MTowNDowOVoifQ"\n"bin": "415039"
 
-Destination1 --> Payres1: issue
-Destination3 --> Payres3: issue
+Destination1 --> Payres1: owns
+Destination3 --> Payres3: owns
 
 Destination1 --> DestinationGrant1: issue
 Destination3 --> DestinationGrant3: issue
