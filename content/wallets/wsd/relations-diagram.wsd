@@ -1,0 +1,67 @@
+@startuml
+
+!include "plantuml-toolset/super-serious-skin.iwsd"
+
+skinparam State {
+    BackgroundColor<<refunded>>  #ffd54f
+    BackgroundColor<<cancelled>>  #e57373
+    BackgroundColor<<fulfilled>>  #81c784
+}
+
+skinparam GenericArrowFontSize 11
+
+User1 : id1: "281220eb-a4ef-4d03-b666-bdec4b26c5f7"\nemail: "example1@example.com"
+User2 : id2: "281220eb-a4ef-4d03-b666-bdec4b26c5f7"\nemail: "example2@example.com"
+UserN : idN: "NNNNNNNN-NNNN-NNNN-NNNN-NNNNNNNNNNNN"\nemail: "example3@example.com"
+
+Person --> User1 : owns
+Person --> User2 : owns
+Person --> UserN : owns
+
+Identity1 : "id": "1"\n"name": "Ivanov Ivan"
+Identity2 : "id": "2"\n"name": "Ivanov Ivan"
+Identity3 : "id": "3"\n"name": "Ivanov Ivan"
+IdentityN : idN: "N"\nname: "N N"
+
+User1 --> Identity1 : owns
+User2 --> Identity2 : owns
+User2 --> Identity3 : owns
+UserN --> IdentityN : owns
+
+PrivDoc1: "type": "RUSDomesticPassportData"\n"number": "123476"\n"familyName": "Иванов"\n"type": "RUSRetireeInsuranceCertificateData"\n"number": "123-456-789 76"
+PrivDoc3: "type": "RUSDomesticPassportData"\n"number": "123476"\n"familyName": "Иванов"\n"type": "RUSRetireeInsuranceCertificateData"\n"number": "123-456-789 76"
+
+Identity1 --> PrivDoc1: owns
+Identity3 --> PrivDoc3: owns
+
+Destination1: "id": "1"\n"name": "User-friendly name"
+Destination3: "id": "1"\n"name": "User-friendly name"
+
+Identity1 --> Destination1: owns
+Identity3 --> Destination3: owns
+
+DestinationGrant1: "token": "eyJt...MTowNDowOVoifQ"
+DestinationGrant3: "token": "eyJt...MTowNDowOVoifQ"
+
+Destination1 --> DestinationGrant1: issue
+Destination3 --> DestinationGrant3: issue
+
+Wallet1: "id": "1"\n"name": "User-friendly name"
+Wallet3: "id": "1"\n"name": "User-friendly name"
+
+Identity1 --> Wallet1: owns
+Identity3 --> Wallet3: owns
+
+Wallet1 --> Account1: owns
+Wallet3 --> Account3: owns
+
+Account1: "amount": 0\n"currency": "RUB"
+Account3: "amount": 0\n"currency": "RUB"
+
+WalletGrant1: "token": "eyJt...MTowNDowOVoifQ"\n"amount": 10000
+WalletGrant3: "token": "eyJt...MTowNDowOVoifQ"\n"amount": 10000
+
+Wallet1 --> WalletGrant1: issue
+Wallet3 --> WalletGrant3: issue
+
+@enduml
