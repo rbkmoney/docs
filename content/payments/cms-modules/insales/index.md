@@ -23,14 +23,14 @@
 
 Переходим в установленные приложения в магазине InSales и выбираем платежный модуль по названию RBKmoney:
 
-![module.png](img//module.png)
+![module.png](img/module.png)
 
 Нажимаем на название RBKmoney и переходим на страницу с настройками приложения.
 
 - ID магазина – это Ваш идентификатор магазина из RBKmoney. Скопируйте его в Личном кабинете RBKmoney в разделе "Детали магазина" – поле "Идентификатор";
 - Ваш ключ для доступа к API из личного кабинета – это Ваш ключ для доступа к API. Скопируйте его в Личном кабинете RBKmoney в разделе "API Ключ":
 
-![api-key.png](img//api-key.png)
+![api-key.png](img/api-key.png)
 
 - Ваш ключ подписи получаемых на Webhook уведомлений из личного кабинета.
 
@@ -38,22 +38,22 @@
 
 - перейти в раздел "Помощь" магазина InSales, скопировать "Адрес приема HTTP уведомлений":
 
-![webhook.png](img//webhook.png)
+![webhook.png](img/webhook.png)
 
 - вставить в Личном кабинете RBKmoney в раздел "Webhooks";
 - Создать Webhook;
 – Скопировать в поле URL;
 – Выбрать Типы событий "InvoicePaid" и "Invoice Canсelled":
 
-![webhook-dashboard.png](img//webhook-dashboard.png)
+![webhook-dashboard.png](img/webhook-dashboard.png)
 
 - после создания Webhook копируем "Публичный ключ" через открытие "Показать детали" и вставляем в поле "Ваш ключ подписи получаемых на Webhook уведомлений из личного кабинета":
 
-![webhook-dashboard-key.png](img//webhook-dashboard-key.png)
+![webhook-dashboard-key.png](img/webhook-dashboard-key.png)
 
 - Заполняем форму Кастомизация формы оплаты и сохраняем настройки:
 
-![customize.png](img//customize.png)
+![customize.png](img/customize.png)
  
 ### Настройки при подключении внешнего способа оплаты в InSales
 
@@ -61,11 +61,11 @@
 - "Оплата" - "Добавить новый вариант";
 - "Внешний способ оплаты" - "Добавить":
 
-![payment-methods.png](img//payment-methods.png)
+![payment-methods.png](img/payment-methods.png)
 
 - Для заполнения полей в форме копируем информацию из уже известного нам раздела "Помощь" магазина InSales:
 
-![payment-methods-settings.png](img//payment-methods-settings.png)
+![payment-methods-settings.png](img/payment-methods-settings.png)
 
 - Сохраняем настройки.
 

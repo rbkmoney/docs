@@ -28,27 +28,27 @@
 
 - Устанавливаем плагин через менеджер расширений (`administrator/index.php?option=com_installer&view=install`):
 
-![Install](img//install.png)
+![Install](img/install.png)
 
 - Выбираем наш архив и устанавливаем его:
 
-![Upload](img//upload.png)
+![Upload](img/upload.png)
 
 - Включаем плагин (`administrator/index.php?option=com_installer&view=manage`):
 
-![Activated](img//activated.png)
+![Activated](img/activated.png)
 
 - Выбираем платежные методы:
 
-![Payment methods](img//payment_methods.png)
+![Payment methods](img/payment_methods.png)
 
 - Добавляем способ оплаты в Virtuemart (`administrator/index.php?option=com_virtuemart&view=paymentmethod`):
 
-![List payment methods](img//list_payment_methods.png)
+![List payment methods](img/list_payment_methods.png)
 
 - Выбираем модуль RBKmoney, в нем на первой вкладке:
 
-![Сommon settings](img//common_settings.png)
+![Сommon settings](img/common_settings.png)
 
 - Название - RBKmoney;
 - опубликовано - "да";
@@ -58,7 +58,7 @@
 
 - во вкладке `Конфигурация` прописываем данные, полученные в системе RBKmoney:
 
-![Custom settings](img//custom_settings.png)
+![Custom settings](img/custom_settings.png)
 
 - настраиваем плагин в соответствие с данными из [личного кабинета RBKmoney](https://dashboard.rbk.money):
 
@@ -79,8 +79,8 @@
 
 - логи доступны по пути `VirtueMart / Tools / Logs`, после чего выбираем необходимый файл с логами:
 
-![Настройки](img//virtuemart.png)
+![Настройки](img/virtuemart.png)
 
 - можем выбрать логи и ознакомиться с содержимым интересующего нас файла:
 
-![Логи доступны](img//logs.png)
+![Логи доступны](img/logs.png)
