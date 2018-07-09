@@ -45,7 +45,7 @@
 ### Диаграмма последовательности взаимодействия
 
 В качестве примера проведения успешной оплаты с использованием Webhook`ов можно рассмотреть следующую диаграмму:
-<a href="../../wsd/custom_form_w_cb.png" data-lightbox="custom_form_w_cb.png" data-title="custom_form_w_cb.png"><img src="../../wsd/custom_form_w_cb.png"></a>
+<a href="../../payments/wsd/custom_form_w_cb.png" data-lightbox="custom_form_w_cb.png" data-title="custom_form_w_cb.png"><img src="../../payments/wsd/custom_form_w_cb.png"></a>
 
 ## Авторизация запросов
 
@@ -68,5 +68,5 @@
 
 ## Сценарии интеграции
 
-- Вы хотите интегрировать готовую платежную форму Checkout, которая обеспечивает оркестрацию всего процесса платежа? Вам [сюда](/integrations/checkout).
-- Вы хотите интегрировать вашу кастомную платежную форму с платформой? Тогда вам [сюда](/integrations/tokenizer).
+- Вы хотите интегрировать готовую платежную форму Checkout, которая обеспечивает оркестрацию всего процесса платежа? Вам [сюда](/checkout).
+- Вы хотите интегрировать вашу кастомную платежную форму с платформой? Тогда вам [сюда](/tokenizer).

@@ -6,18 +6,24 @@ theme:
     custom_dir: theme
 extra:
     links:
-        'API reference':
+        'Payments API':
             url: 'https://developer.rbk.money/api/'
+            target: _blank
+        'Wallets API':
+            url: 'https://rbkmoney.github.io/wallets-api/v0/'
+            target: _blank
+        'Identification API':
+            url: 'https://rbkmoney.github.io/wallets-api/v0/?api/privdoc/swagger.json'
             target: _blank
 extra_css:
     - 'assets/stylesheets/override.css'
     - 'lightbox/css/lightbox.min.css'
-    - 'livedemo/livedemo.css'
+    - 'payments/livedemo/livedemo.css'
 extra_javascript:
     - 'lightbox/js/lightbox-plus-jquery.min.js'
     - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
     - 'https://checkout.rbk.money/checkout.js'
-    - 'livedemo/livedemo.js'
+    - 'payments/livedemo/livedemo.js'
     - 'counters/ga.js'
     - 'counters/ym.js'
 strict: true
@@ -32,28 +38,31 @@ markdown_extensions:
 pages:
     - 'Документация': 'index.md'
     - 'Интеграция':
-        - 'Обзор': 'integrations/overview.md'
-        - 'Checkout': 'integrations/checkout.md'
-        - 'Tokenizer': 'integrations/tokenizer.md'
-        - '3D-Secure': 'integrations/3dsecure.md'
-        - 'Recurring': 'integrations/recurring.md'
-        - 'Postman': 'integrations/postman.md'
-        - 'Google Pay': 'integrations/googlepay/index.md'
-        - 'Apple Pay': 'integrations/applepay/index.md'
-        - 'Примеры':
-            - 'PHP and Checkout': 'integrations/examples/php-kkt-cart-webhooks.md'
-        - 'Модули CMS':
-            - 'Bitrix': 'integrations/cms-modules/bitrix/index.md'
-            - 'InSales': 'integrations/cms-modules/insales/index.md'
-            - 'Webasyst/ShopScript': 'integrations/cms-modules/webasyst/index.md'
-            - 'Wordpress/Woocommerce': 'integrations/cms-modules/woocommerce/index.md'
-            - 'Wordpress/E-commerce': 'integrations/cms-modules/wp-e-commerce/index.md'
-            - 'Opencart': 'integrations/cms-modules/opencart/index.md'
-            - 'Netcat': 'integrations/cms-modules/netcat/index.md'
-            - 'Prestashop': 'integrations/cms-modules/prestashop/index.md'
-            - 'Drupal/Ubercart': 'integrations/cms-modules/ubercart/index.md'
-            - 'Drupal/Commerce': 'integrations/cms-modules/drupal-commerce/index.md'
-            - 'Magento': 'integrations/cms-modules/magento/index.md'
-            - 'Joomla/Virtuemart': 'integrations/cms-modules/virtuemart/index.md'
+        - Payments:
+            - 'Обзор': 'payments/overview.md'
+            - 'Checkout': 'payments/checkout.md'
+            - 'Tokenizer': 'payments/tokenizer.md'
+            - '3D-Secure': 'payments/3dsecure.md'
+            - 'Recurring': 'payments/recurring.md'
+            - 'Postman': 'payments/postman.md'
+            - 'Google Pay': 'payments/googlepay/index.md'
+            - 'Apple Pay': 'payments/applepay/index.md'
+            - 'Примеры':
+                - 'PHP and Checkout': 'payments/examples/php-kkt-cart-webhooks.md'
+            - 'Модули CMS':
+                - 'Bitrix': 'payments/cms-modules/bitrix/index.md'
+                - 'InSales': 'payments/cms-modules/insales/index.md'
+                - 'Webasyst/ShopScript': 'payments/cms-modules/webasyst/index.md'
+                - 'Wordpress/Woocommerce': 'payments/cms-modules/woocommerce/index.md'
+                - 'Wordpress/E-commerce': 'payments/cms-modules/wp-e-commerce/index.md'
+                - 'Opencart': 'payments/cms-modules/opencart/index.md'
+                - 'Netcat': 'payments/cms-modules/netcat/index.md'
+                - 'Prestashop': 'payments/cms-modules/prestashop/index.md'
+                - 'Drupal/Ubercart': 'payments/cms-modules/ubercart/index.md'
+                - 'Drupal/Commerce': 'payments/cms-modules/drupal-commerce/index.md'
+                - 'Magento': 'payments/cms-modules/magento/index.md'
+                - 'Joomla/Virtuemart': 'payments/cms-modules/virtuemart/index.md'
+        - Wallets:
+                - 'Обзор': 'wallets/overview.md'
     - 'Справочники':
-        - 'Тестовые карты': 'refs/testcards.md'
+        - 'Тестовые карты': 'payments/refs/testcards.md'

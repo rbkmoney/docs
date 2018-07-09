@@ -62,11 +62,11 @@ curl -X POST \
 }
 ```
 
-- полученные `customer.id` и `customerAccessToken.payload` передаем в [RBKmoney Checkout](/integrations/checkout/#_3)
+- полученные `customer.id` и `customerAccessToken.payload` передаем в [RBKmoney Checkout](/checkout/#_3)
 
 - плательщик вводит карточные данные в форму и нажимает "Привязать"
 
-![checkout_binding.png](/img/checkout_binding.png)
+![checkout_binding.png](/payments/img/checkout_binding.png)
 
 - проверяем состояние плательщика (либо обрабатываем соответствующий вебхук)
 
@@ -200,7 +200,7 @@ curl -X POST \
 ```
 
 !!!note
-	Обратите внимание! Привязка карт *всегда* требует прохождения процесса [3D-Secure](/integrations/3dsecure.md)
+	Обратите внимание! Привязка карт *всегда* требует прохождения процесса [3D-Secure](3dsecure.md)
 
 - передаем полученные `paymentToolToken` и `paymentSession` в метод [createBinding](https://developer.rbk.money/api/#operation/createBinding)
 
