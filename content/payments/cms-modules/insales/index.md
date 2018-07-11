@@ -51,7 +51,7 @@
 
 ![webhook-dashboard-key.png](img/webhook-dashboard-key.png)
 
-- Заполняем форму Кастомизация формы оплаты и сохраняем настройки:
+- Заполняем форму "Кастомизация формы оплаты" и сохраняем настройки:
 
 ![customize.png](img/customize.png)
  
