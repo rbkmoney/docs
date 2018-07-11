@@ -70,6 +70,8 @@ Identity, или идентификатор личности — это стру
 
 К Identity, в качестве идентифицирующих документов может быть привязан один набор Private Documents (паспортные данные и СНИЛС) в один момент времени. Данные этих документов хранятся в сервисе `RBKmoney Identity Storage` и их токены могут быть переданы в `RBKmoney Wallet` в качестве набора идентифицирующих документов с помощью вызова соответствующего метода Wallet API. Статус идентификации влияет на лимиты по операциям в кошельках.
 
+При запуске процесса связки Identity и набора Private Documents в фоновом режиме производится проверка предоставленных данных документов в сервисе [ЕСИА](https://ru.wikipedia.org/wiki/%D0%95%D0%B4%D0%B8%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B8_%D0%B0%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8).
+
 #### Private documents
 
 ##### RUSDomesticPassportData
@@ -107,68 +109,9 @@ Identity, или идентификатор личности — это стру
 }
 ```
 
-#### Destinations
+### Wallets
 
-К Identity может быть привязано неограниченное количество Destination, или методов вывода денег. На момент написания статьи поддерживается только банковская карта.
-
-Пример структуры, описывающей BankCardDestinationResource, может выглядеть так:
-
-```json
-{
-  "createdAt": "2018-07-09T20:03:16.438363Z",
-  "currency": "RUB",
-  "id": "1",
-  "identity": "1",
-  "isBlocked": false,
-  "metadata": {
-    "display_name": "Моя зарплатная карта"
-  },
-  "name": "User-friendly name",
-  "resource": {
-    "bin": "415039",
-    "lastDigits": "0900",
-    "paymentSystem": "visa",
-    "token": "6OqZRRhIPoPchPII20gfIk",
-    "type": "BankCardDestinationResource"
-  },
-  "status": "Unauthorized"
-}
-```
-
-###### Payment resource
-
-К Destination может быть привязано неограниченное количество средств вывода. Такими средствами могут быть, например, банковская карта, счет в банке, номер телефона или электронный кошелек другой системы. На момент написания статьи поддерживается только одно средство вывода - банковская карта.
-
-Структура средства вывода в виде банковской карты может выглядеть так:
-
-```json
-{
-    "authData": "50jPBQ22aP1Uvw4cr86iKT",
-    "bin": "415039",
-    "lastDigits": "0900",
-    "paymentSystem": "visa",
-    "token": "eyJiaW4iOiI0MTUwMzkiLCJsYXN0RGlnaXRzIjoiMDkwMCIsIm1hc2tlZFBhbiI6IjA5MDAiLCJwYXltZW50U3lzdGVtIjoidmlzYSIsInRva2VuIjoiNk9xWlJSaElQb1BjaFBJSTIwZ2ZJayJ9"
-}
-```
-
-##### Destination Grant
-
-Destination — это привязанный к Identity получатель выводимых денег, например привязанная владельцем банковская карта. Поскольку это ресурс, принадлежащий не вам, напрямую управлять этим ресурсом нельзя. Нужно запросить явно выраженное право на управление этим ресурсом. Для этого необходимо запросить Grant на управление Destination.
-
-Пример структуры Destination Grant:
-
-```json
-{
-    "token": "eyJtZXRhZGF0YSI6e30sInJlc291cmNlSUQiOiIyeHdHWW1CZ1A5bUJOeE1IVW04RlpncnNtTFUiLCJyZXNvdXJjZVR5cGUiOiJkZXN0aW5hdGlvbnMiLCJ2YWxpZFVudGlsIjoiMjAxOS0wNy0wN1QxMTowNDowOVoifQ",
-    "validUntil": "2019-07-07T11:04:09Z"
-}
-```
-
-Также, Identity может создать произвольное количество кошельков Wallet RBKmoney.
-
-### Wallet
-
-Wallet, или кошелек RBKmoney — это структура, которая описывает количество денег на счетах, дает возможность предоставить Grant'ы на пополнение или списание средств, а также провести непосредственно вывод средств c кошелька на привязанный к Identity Destination.
+Wallet, или кошелек RBKmoney — это структура, которая описывает баланс ЭДС на счетах, привязанных к кошельку, дает возможность предоставить Grant'ы на пополнение или списание средств, а также провести непосредственно вывод средств c кошелька на привязанный к Identity Destination.
 
 Структура Wallet может выглядеть так:
 
@@ -203,7 +146,7 @@ Wallet, или кошелек RBKmoney — это структура, котор
 }
 ```
 
-#### Grant
+#### Wallet Grant
 
 Без прямого на то согласия владельца кошелька провести операции ввода или вывода средств нельзя. В качестве электронного подтверждения такого согласия используются Grant'ы, подтверждающие ваше право перевести или вывести с кошелька определенную в Grant'е сумму. Grant'ы имеют четко определенный срок жизни, после которого автоматически становятся недействительными.
 
@@ -219,6 +162,65 @@ Wallet, или кошелек RBKmoney — это структура, котор
     "validUntil": "2019-07-07T11:04:09Z"
 }
 ```
+
+#### Destinations
+
+К Identity может быть привязано неограниченное количество Destination, или методов вывода денег. На момент написания статьи поддерживается только банковская карта.
+
+Пример структуры, описывающей BankCardDestinationResource, может выглядеть так:
+
+```json
+{
+  "createdAt": "2018-07-09T20:03:16.438363Z",
+  "currency": "RUB",
+  "id": "1",
+  "identity": "1",
+  "isBlocked": false,
+  "metadata": {
+    "display_name": "Моя зарплатная карта"
+  },
+  "name": "User-friendly name",
+  "resource": {
+    "bin": "415039",
+    "lastDigits": "0900",
+    "paymentSystem": "visa",
+    "token": "6OqZRRhIPoPchPII20gfIk",
+    "type": "BankCardDestinationResource"
+  },
+  "status": "Unauthorized"
+}
+```
+
+###### Payment resource
+
+К Destination может быть привязаноодно средств вывода в один момент времени. Таким средством может быть, например, банковская карта, счет в банке, номер телефона или электронный кошелек другой системы. На момент написания статьи поддерживается только одно средство вывода - банковская карта.
+
+Структура средства вывода в виде банковской карты может выглядеть так:
+
+```json
+{
+    "authData": "50jPBQ22aP1Uvw4cr86iKT",
+    "bin": "415039",
+    "lastDigits": "0900",
+    "paymentSystem": "visa",
+    "token": "eyJiaW4iOiI0MTUwMzkiLCJsYXN0RGlnaXRzIjoiMDkwMCIsIm1hc2tlZFBhbiI6IjA5MDAiLCJwYXltZW50U3lzdGVtIjoidmlzYSIsInRva2VuIjoiNk9xWlJSaElQb1BjaFBJSTIwZ2ZJayJ9"
+}
+```
+
+##### Destination Grant
+
+Destination — это привязанный к Identity получатель выводимых денег, например привязанная владельцем банковская карта. Владелец Destination может выдать Grant на его использование третьим лицам.
+
+Пример структуры Destination Grant:
+
+```json
+{
+    "token": "eyJtZXRhZGF0YSI6e30sInJlc291cmNlSUQiOiIyeHdHWW1CZ1A5bUJOeE1IVW04RlpncnNtTFUiLCJyZXNvdXJjZVR5cGUiOiJkZXN0aW5hdGlvbnMiLCJ2YWxpZFVudGlsIjoiMjAxOS0wNy0wN1QxMTowNDowOVoifQ",
+    "validUntil": "2019-07-07T11:04:09Z"
+}
+```
+
+Также, Identity может создать произвольное количество кошельков Wallet RBKmoney.
 
 #### Withdrawal
 
