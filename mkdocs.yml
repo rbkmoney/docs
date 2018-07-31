@@ -12,7 +12,7 @@ extra:
         'Wallets API':
             url: 'https://rbkmoney.github.io/wallets-api/v0/'
             target: _blank
-        'Identification API':
+        'Identity Storage API':
             url: 'https://rbkmoney.github.io/wallets-api/v0/?api/privdoc/swagger.json'
             target: _blank
 extra_css:
