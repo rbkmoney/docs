@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="691px" style="width:819px;height:691px;" version="1.1" viewBox="0 0 819 691" width="819px">
+  <defs/>
+  <g>
+<style type="text/css">
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/W4wDsBUluyw0tK3tykhXEfesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
+}
+</style>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="276" x="437.5" y="134"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="437.5" x2="713.5" y1="162.4639" y2="162.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="37" x="557" y="153.6699">User1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="256" x="442.5" y="180.0381">id1: "281220eb-a4ef-4d03-b666-bdec4b26c5f7"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="181" x="442.5" y="195.8643">email: "example1@example.com"</text>
+    <rect fill="#FEFEFE" height="54.29" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="59" x="749" y="142"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="749" x2="808" y1="170.4639" y2="170.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="39" x="759" y="161.6699">UserN</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="9" x="754" y="188.0381">...</text>
+    <rect fill="#FEFEFE" height="50" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="65" x="661" y="8"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="661" x2="726" y1="36.4639" y2="36.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="45" x="671" y="27.6699">Person</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="135" x="318" y="280"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="318" x2="453" y1="308.4639" y2="308.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="57" x="357" y="299.6699">Identity1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="323" y="326.0381">"id": "1"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="115" x="323" y="341.8643">"name": "Ivanov Ivan"</text>
+    <rect fill="#FEFEFE" height="54.29" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="79" x="739" y="288"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="739" x2="818" y1="316.4639" y2="316.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="59" x="749" y="307.6699">IdentityN</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="9" x="744" y="334.0381">...</text>
+    <rect fill="#FEFEFE" height="117.5947" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="257" x="6" y="426"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="6" x2="263" y1="454.4639" y2="454.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="57" x="106" y="445.6699">PrivDoc1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="193" x="11" y="472.0381">"type": "RUSDomesticPassportData"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="11" y="487.8643">"number": "123476"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="11" y="503.6904">"familyName": "Иванов"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="237" x="11" y="519.5166">"type": "RUSRetireeInsuranceCertificateData"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="150" x="11" y="535.3428">"number": "123-456-789 76"</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="174" x="298.5" y="450"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="298.5" x2="472.5" y1="478.4639" y2="478.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="344.5" y="469.6699">Destination1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="303.5" y="496.0381">"id": "1"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="154" x="303.5" y="511.8643">"name": "User-friendly name"</text>
+    <rect fill="#FEFEFE" height="54.29" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="208" x="46.5" y="628"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="46.5" x2="254.5" y1="656.4639" y2="656.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="118" x="91.5" y="647.6699">DestinationGrant1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="188" x="51.5" y="674.0381">"token": "eyJt...MTowNDowOVoifQ"</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="208" x="289.5" y="620"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="289.5" x2="497.5" y1="648.4639" y2="648.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="52" x="367.5" y="639.6699">Payres1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="188" x="294.5" y="666.0381">"token": "eyJt...MTowNDowOVoifQ"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="81" x="294.5" y="681.8643">"bin": "415039"</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="174" x="507.5" y="450"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="507.5" x2="681.5" y1="478.4639" y2="478.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49" x="570" y="469.6699">Wallet1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="512.5" y="496.0381">"id": "1"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="154" x="512.5" y="511.8643">"name": "User-friendly name"</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="110" x="539.5" y="620"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="539.5" x2="649.5" y1="648.4639" y2="648.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="564.5" y="639.6699">Account1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="544.5" y="666.0381">"amount": 0</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="90" x="544.5" y="681.8643">"currency": "RUB"</text>
+    <rect fill="#FEFEFE" height="70.1162" rx="12.5" ry="12.5" style="stroke: #303030; stroke-width: 1.5;" width="208" x="489.5" y="280"/>
+    <line style="stroke: #303030; stroke-width: 1.5;" x1="489.5" x2="697.5" y1="308.4639" y2="308.4639"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="85" x="551" y="299.6699">WalletGrant1</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="188" x="494.5" y="326.0381">"token": "eyJt...MTowNDowOVoifQ"</text>
+    <text fill="#000000" font-family="Roboto" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="92" x="494.5" y="341.8643">"amount": 10000</text>
+    <path d="M672.131,58.266 C654.552,78.229 629.323,106.879 609.052,129.898 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="605.586,133.834,614.5364,129.7242,608.8908,130.0819,608.5331,124.4364,605.586,133.834" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="646.5" y="100.5264">owns</text>
+    <path d="M708.893,58.266 C722.945,80.419 743.782,113.268 758.995,137.251 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="761.767,141.621,760.3226,131.8786,759.0882,137.3992,753.5676,136.1648,761.767,141.621" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="737.5" y="100.5264">owns</text>
+    <path d="M530.473,204.126 C501.709,225.925 464.402,254.2 434.837,276.608 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="430.533,279.87,440.1217,277.6212,434.5177,276.8497,435.2892,271.2457,430.533,279.87" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="487.5" y="246.5264">owns</text>
+    <path d="M778.5,196.077 C778.5,220.392 778.5,256.698 778.5,282.596 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="778.5,287.63,782.5,278.63,778.5,282.63,774.5,278.63,778.5,287.63" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="779.5" y="246.5264">owns</text>
+    <path d="M334.404,350.2 C303.275,371.035 262.588,398.268 226.052,422.722 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="221.618,425.69,231.3219,424.0067,225.7727,422.9083,226.8712,417.3591,221.618,425.69" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="291.5" y="392.5264">owns</text>
+    <path d="M385.5,350.403 C385.5,377.786 385.5,416.124 385.5,444.711 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="385.5,449.931,389.5,440.931,385.5,444.931,381.5,440.931,385.5,449.931" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="386.5" y="392.5264">owns</text>
+    <path d="M387.138,520.403 C388.442,547.786 390.268,586.124 391.629,614.7112 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="391.878,619.9308,395.4451,610.7506,391.64,614.9365,387.4541,611.1314,391.878,619.9308" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="391.5" y="586.5264">owns</text>
+    <path d="M337.661,520.2 C294.673,550.932 232.215,595.5823 191.477,624.7061 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="187.112,627.8264,196.76,625.8473,191.1798,624.919,192.1081,619.3388,187.112,627.8264" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="27" x="262.5" y="586.5264">issue</text>
+    <path d="M428.046,350.2 C462.797,378.134 511.855,417.567 547.708,446.388 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="552.013,449.848,547.5062,441.0908,548.1166,446.7146,542.4928,447.325,552.013,449.848" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="485.5" y="392.5264">owns</text>
+    <path d="M594.5,520.403 C594.5,547.786 594.5,586.124 594.5,614.7112 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="594.5,619.9308,598.5,610.9308,594.5,614.9308,590.5,610.9308,594.5,619.9308" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="595.5" y="586.5264">owns</text>
+    <path d="M579.766,204.126 C582.403,225.223 585.798,252.385 588.553,274.424 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="589.202,279.62,592.0525,270.1927,588.5806,274.6588,584.1145,271.1869,589.202,279.62" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="27" x="586.5" y="246.5264">issue</text>
+    <path d="M593.705,350.403 C593.868,377.786 594.096,416.124 594.266,444.711 " fill="none" style="stroke: #606060; stroke-width: 1.0;"/>
+    <polygon fill="#606060" points="594.297,449.931,598.2429,440.9072,594.267,444.9311,590.2431,440.9552,594.297,449.931" style="stroke: #606060; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="595.5" y="392.5264">manages</text>
+  </g>
+</svg>
