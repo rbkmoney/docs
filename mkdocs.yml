@@ -19,13 +19,12 @@ extra_css:
     - 'assets/stylesheets/override.css'
     - 'lightbox/css/lightbox.min.css'
     - 'payments/livedemo/livedemo.css'
+    - 'wallets/payouts/wallet-utils.css'
 extra_javascript:
     - 'lightbox/js/lightbox-plus-jquery.min.js'
     - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
     - 'https://checkout.rbk.money/checkout.js'
     - 'payments/livedemo/livedemo.js'
-    - 'counters/ga.js'
-    - 'counters/ym.js'
 strict: true
 markdown_extensions:
     - smarty
@@ -64,5 +63,6 @@ pages:
                 - 'Joomla/Virtuemart': 'payments/cms-modules/virtuemart/index.md'
         - Wallets:
                 - 'Обзор': 'wallets/overview.md'
+                - 'Выплаты на карты': 'wallets/payouts/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'payments/refs/testcards.md'
