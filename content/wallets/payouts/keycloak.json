@@ -1,0 +1,7 @@
+{
+  "realm": "external",
+  "auth-server-url": "https://auth.rbk.money/auth",
+  "ssl-required": "none",
+  "resource": "developer.rbk.money",
+  "public-client": true
+}
