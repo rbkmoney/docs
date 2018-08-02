@@ -4,6 +4,7 @@ const AuthInfo = (function() {
         this.email = '';
         this.token = '';
         this.authUrl = '';
+        this.profile = '';
     }
 
     return AuthInfo;
@@ -36,10 +37,12 @@ const AuthService = (function() {
     AuthService.getAccountInfo = function() {
         const result = new AuthInfo();
         if (this.authInstance) {
+            this.authInstance.loadUserProfile();
             result.profileName = this.authInstance.tokenParsed.name;
             result.email = this.authInstance.tokenParsed.email;
             result.token = this.authInstance.token;
             result.authUrl = this.authInstance.authServerUrl;
+            result.profile = this.authInstance.profile;
         }
         return result;
     };
@@ -54,8 +57,10 @@ function guid() {
     return `${s4()}${s4()}-${s4()}-${s4()}`;
 }
 
-
 function createIdentity() {
+    const apiEndpoint = 'https://api.rbk.money/wallet/v0/identities';
+    const walletProviderId = 'test';
+
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
@@ -63,13 +68,13 @@ function createIdentity() {
             resolve(data);
         };
         xhr.onerror = reject;
-        xhr.open('POST', 'https://api.rbk.money/wallet/v0/identities', true);
+        xhr.open('POST', apiEndpoint, true);
         xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
         xhr.setRequestHeader('Authorization', 'Bearer ' + AuthService.getAccountInfo().token);
         xhr.setRequestHeader('X-Request-ID', guid());
         xhr.send(JSON.stringify({
-            name: 'Иванов Иван Иванович',
-            provider: 'test',
+            name: AuthService.getAccountInfo().profileName,
+            provider: walletProviderId,
             class: 'person',
             metadata: {
                 lkDisplayName: 'Иванов Иван Иванович'
@@ -79,21 +84,42 @@ function createIdentity() {
 }
 
 $(() => {
+    var identityID;
+
     AuthService.init().then(() => {
         $('#login-user-button').click(() => {
             AuthService.login();
         });
     });
-});
 
+    $('#start-identity-button').click(() => {
+        if (!AuthService.authInstance.authenticated)
+            AuthService.login();
 
-$('#start-identity-button').click(() => {
-    console.log(AuthService.getAccountInfo().token);
-    const walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
-    createIdentity().then((response) => {
-        console.log(response.id);
-        walletUtils.startIdentityChallenge({
-            identityID: response.id
+        const walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
+        createIdentity().then((response) => {
+            identityID = response.id;
+            walletUtils.startIdentityChallenge({
+                identityID: response.id
+            });
         });
+
+        walletUtils.onCompleteIdentityChallenge = (e) => console.log('onCompleteIdentityChallenge:', e);
+    });
+
+    $('#create-payout-button').click(() => {
+        if (!AuthService.authInstance.authenticated)
+            AuthService.login();
+
+        if (!identityID)
+            alert("Пройдите идентификацию!");
+
+        const walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
+        walletUtils.createOutput({
+            identityID: identityID,
+            name: "Payout #" + identityID
+        });
+
+        walletUtils.onCreateOutput = (e) => console.log('onCreateOutput:', e.data);
     });
 });
