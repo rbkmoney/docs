@@ -11,3 +11,8 @@
     cursor: pointer;
     transition: color 0.2s ease;
 }
+
+.wallet-utils-button:disabled {
+    background-color: darkgrey;
+    cursor: pointer;
+}

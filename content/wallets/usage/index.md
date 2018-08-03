@@ -80,29 +80,29 @@ auth.login();
 
 ```js
 function createIdentity() {
-    const apiEndpoint = 'https://api.rbk.money/wallet/v0/identities';
     const walletProviderId = 'test';
-
-    return new Promise(function(resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            var data = JSON.parse(this.responseText);
-            resolve(data);
-        };
-        xhr.onerror = reject;
-        xhr.open('POST', apiEndpoint, true);
-        xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
-        xhr.setRequestHeader('Authorization', 'Bearer ' + AuthService.getAccountInfo().token);
-        xhr.setRequestHeader('X-Request-ID', guid());
-        xhr.send(JSON.stringify({
-            name: AuthService.getAccountInfo().profileName,
+    const {token, profileName} = AuthService.getAccountInfo();
+    return fetch('https://api.rbk.money/wallet/v0/identities', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${token}`,
+            'X-Request-ID': guid(),
+        },
+        body: JSON.stringify({
+            name: profileName,
             provider: walletProviderId,
             class: 'person',
             metadata: {
                 lkDisplayName: 'Иванов Иван Иванович'
             }
-        }));
-    });
+        })
+    }).then((res) =>
+        res.status >= 200 && res.status <= 300
+            ? res.json()
+            : res.json()
+                .then((ex) => Promise.reject(ex))
+                .catch(() => Promise.reject(res)));
 }
 ```
 
@@ -134,11 +134,11 @@ walletUtils.onFailIdentityChallenge = (event) => {
 
 ## Привязка карты
 
-Теперь, когда у нас создана личность и опционально пройдена идентификация, мы можем привязать к личности карту. Для этого необходимо вызвать функцию `createOutput()` из `Wallet Utils` и передать в нее идентификатор личности и название карты для вывода:
+Теперь, когда у нас создана личность и опционально пройдена идентификация, мы можем привязать к личности карту. Для этого необходимо вызвать функцию `createDestination()` из `Wallet Utils` и передать в нее идентификатор личности и название карты для вывода:
 
 
 ```js
-walletUtils.createOutput({
+walletUtils.createDestination({
     identityID: identityID,
     name: "Visa 4242 42** **** **** 4242"
 });

@@ -1,4 +1,4 @@
-const AuthInfo = (function() {
+const AuthInfo = (function () {
     function AuthInfo() {
         this.profileName = '';
         this.email = '';
@@ -10,31 +10,32 @@ const AuthInfo = (function() {
     return AuthInfo;
 })();
 
-const AuthService = (function() {
-    function AuthService() {}
+const AuthService = (function () {
+    function AuthService() {
+    }
 
-    AuthService.init = function() {
+    AuthService.init = function () {
         const _this = this;
         const auth = new Keycloak('keycloak.json');
-        return new Promise(function(resolve, reject) {
-            auth.init().success(function() {
+        return new Promise(function (resolve, reject) {
+            auth.init().success(function () {
                 _this.authInstance = auth;
                 resolve();
-            }).error(function() {
+            }).error(function () {
                 return reject();
             });
         });
     };
-    AuthService.login = function() {
+    AuthService.login = function () {
         this.authInstance.login();
     };
-    AuthService.logout = function() {
+    AuthService.logout = function () {
         this.authInstance.logout();
     };
-    AuthService.updateToken = function(minValidity) {
+    AuthService.updateToken = function (minValidity) {
         return this.authInstance.updateToken(minValidity);
     };
-    AuthService.getAccountInfo = function() {
+    AuthService.getAccountInfo = function () {
         const result = new AuthInfo();
         if (this.authInstance) {
             this.authInstance.loadUserProfile();
@@ -58,68 +59,90 @@ function guid() {
 }
 
 function createIdentity() {
-    const apiEndpoint = 'https://api.rbk.money/wallet/v0/identities';
     const walletProviderId = 'test';
-
-    return new Promise(function(resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            var data = JSON.parse(this.responseText);
-            resolve(data);
-        };
-        xhr.onerror = reject;
-        xhr.open('POST', apiEndpoint, true);
-        xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
-        xhr.setRequestHeader('Authorization', 'Bearer ' + AuthService.getAccountInfo().token);
-        xhr.setRequestHeader('X-Request-ID', guid());
-        xhr.send(JSON.stringify({
-            name: AuthService.getAccountInfo().profileName,
+    const {token, profileName} = AuthService.getAccountInfo();
+    return fetch('https://api.rbk.money/wallet/v0/identities', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${token}`,
+            'X-Request-ID': guid(),
+        },
+        body: JSON.stringify({
+            name: profileName,
             provider: walletProviderId,
             class: 'person',
             metadata: {
                 lkDisplayName: 'Иванов Иван Иванович'
             }
-        }));
-    });
+        })
+    }).then((res) =>
+        res.status >= 200 && res.status <= 300
+            ? res.json()
+            : res.json()
+                .then((ex) => Promise.reject(ex))
+                .catch(() => Promise.reject(res)));
 }
 
 $(() => {
-    var identityID;
-
     AuthService.init().then(() => {
-        $('#login-user-button').click(() => {
-            AuthService.login();
-        });
-    });
+        let identityID;
+        let walletUtils;
+        const authenticated = AuthService.authInstance.authenticated;
 
-    $('#start-identity-button').click(() => {
-        if (!AuthService.authInstance.authenticated)
-            AuthService.login();
+        if (authenticated) {
+            walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
 
-        const walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
-        createIdentity().then((response) => {
-            identityID = response.id;
-            walletUtils.startIdentityChallenge({
-                identityID: response.id
+            walletUtils.onCancel = () =>
+                console.log('Wallet utils UI is dismissed');
+        }
+
+        $('#login-user-button').click(() =>
+            AuthService.login());
+
+        const identityButton = $('#start-identity-button');
+        identityButton.click(() => {
+            if (!authenticated) {
+                AuthService.login();
+                return;
+            }
+            identityButton.attr('disabled', true);
+            createIdentity().then((response) => {
+                identityButton.attr('disabled', false);
+                identityID = response.id;
+                walletUtils.startIdentityChallenge({
+                    identityID: response.id
+                });
+            }).catch((error) => {
+                console.error('createIdentity failed', error);
+                identityButton.attr('disabled', false);
             });
+
+            walletUtils.onCompleteIdentityChallenge = (e) =>
+                console.log('onCompleteIdentityChallenge:', e);
+
+            walletUtils.onCancelIdentityChallenge = (e) =>
+                console.log('onCancelIdentityChallenge:', e);
+
+            walletUtils.onFailIdentityChallenge = (e) =>
+                console.log('onFailIdentityChallenge:', e);
         });
 
-        walletUtils.onCompleteIdentityChallenge = (e) => console.log('onCompleteIdentityChallenge:', e);
-    });
+        $('#create-payout-button').click(() => {
+            if (!authenticated) {
+                AuthService.login();
+                return;
+            }
+            if (!identityID) {
+                alert('Пройдите идентификацию!');
+            }
+            walletUtils.createDestination({
+                identityID: identityID,
+                name: `Payout #${identityID}`
+            });
 
-    $('#create-payout-button').click(() => {
-        if (!AuthService.authInstance.authenticated)
-            AuthService.login();
-
-        if (!identityID)
-            alert("Пройдите идентификацию!");
-
-        const walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
-        walletUtils.createOutput({
-            identityID: identityID,
-            name: "Payout #" + identityID
+            walletUtils.onCreateDestination = (e) =>
+                console.log('onCreateDestination:', e.data);
         });
-
-        walletUtils.onCreateOutput = (e) => console.log('onCreateOutput:', e.data);
     });
 });
