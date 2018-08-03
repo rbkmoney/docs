@@ -26,7 +26,7 @@
   "realm": "external",
   "auth-server-url": "https://auth.rbk.money/auth",
   "ssl-required": "none",
-  "resource": "developer.rbk.money",
+  "resource": "test-dummy",
   "public-client": true
 }
 ```
@@ -50,7 +50,7 @@ auth.login();
     Внимание!
     OpenID Connect подразумевает предварительную регистрацию клиента на стороне RBKmoney и указание Redirect URL ваших сайтов, на которые будет разрешен возврат клиентов после авторизации в `RBKmoney Auth`. После регистрации вам будет выдан файл `keycloak.json` с боевыми настройками. Для получения боевого доступа [обратитесь](mailto:support@rbk.money) к нам.
 
-    Для тестовой среды используйте клиента `developer.rbk.money` из примера выше.
+    Для тестовой среды используйте клиента `test-dummy` из примера выше.
 
     Валидные адреса для переадресации клиента: **`http://localhost:8000/*`**, **`http://127.0.0.1:8000/*`**. Настройте свой веб-сервер на эти адреса в вашей тестовой среде.
 
@@ -140,7 +140,7 @@ walletUtils.onFailIdentityChallenge = (event) => {
 ```js
 walletUtils.createOutput({
     identityID: identityID,
-    name: "Payout #" + identityID
+    name: "Visa 4242 42** **** **** 4242"
 });
 ```
 
@@ -158,7 +158,7 @@ walletUtils.createOutput({
 
 Теперь у нас достаточно данных для того, чтобы со своего бекэнда создать кошелек, получить права на [управление кошельком](/wallets/overview/#_7) и [методом вывода](/wallets/overview/#_10) и запустить процесс [выплаты на карту](/wallets/overview/#_11).
 
-- вызываем метод `createWallet()`:
+- делаем запрос на создание кошелька `createWallet()`:
 
 ```bash
 curl -X POST \
