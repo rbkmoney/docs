@@ -65,5 +65,6 @@ nav:
         - Wallets:
                 - 'Обзор': 'wallets/overview.md'
                 - 'Работа с кошельками': 'wallets/usage/index.md'
+                - 'Выплаты на карты': 'wallets/card-payouts/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'payments/refs/testcards.md'
