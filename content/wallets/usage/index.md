@@ -100,27 +100,15 @@ auth.login();
 function createIdentity() {
     const walletProviderId = 'test';
     const {token, profileName} = AuthService.getAccountInfo();
-    return fetch('https://api.rbk.money/wallet/v0/identities', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            name: profileName,
-            provider: walletProviderId,
-            class: 'person',
-            metadata: {
-                lkDisplayName: 'Иванов Иван Иванович'
-            }
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const params = {
+        name: profileName,
+        provider: walletProviderId,
+        class: 'person',
+        metadata: {
+            lkDisplayName: 'Иванов Иван Иванович'
+        }
+    };
+    return post('https://api.rbk.money/wallet/v0/identities', token, params);
 }
 ```
 
@@ -202,24 +190,11 @@ walletUtils.createDestination({
 
 ```js
 function createDestinationGrant(destinationID, validUntil) {
-    const walletProviderId = 'test';
     const {token} = AuthService.getAccountInfo();
-    return fetch(`https://api.rbk.money/wallet/v0/destinations/${destinationID}/grants`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            validUntil: validUntil
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const params = {
+        validUntil: validUntil
+    };
+    return post(`https://api.rbk.money/wallet/v0/destinations/${destinationID}/grants`, token, params);
 }
 ```
 
@@ -251,29 +226,16 @@ function createDestinationGrant(destinationID, validUntil) {
 
 ```js
 function createWallet(identityID) {
-    const walletProviderId = 'test';
-    const {token, profileName} = AuthService.getAccountInfo();
-    return fetch('https://api.rbk.money/wallet/v0/wallets', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            name: 'Default wallet',
-            identity: identityID,
-            currency: 'RUB',
-            metadata: {
-                "client_locale": "RU_ru"
-            }
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const {token} = AuthService.getAccountInfo();
+    const params = {
+        name: 'Default wallet',
+        identity: identityID,
+        currency: 'RUB',
+        metadata: {
+            client_locale: 'RU_ru'
+        }
+    };
+    return post('https://api.rbk.money/wallet/v0/wallets', token, params);
 }
 ```
 

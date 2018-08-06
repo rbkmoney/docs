@@ -58,102 +58,78 @@ function guid() {
     return `${s4()}${s4()}-${s4()}-${s4()}`;
 }
 
+function getDueDate() {
+    const nowPlus1Y = new Date();
+    nowPlus1Y.setDate(nowPlus1Y.getDate() + 365);
+    return nowPlus1Y.toISOString();
+}
+
+function log(object) {
+    return JSON.stringify(object, null, 2);
+}
+
+function post(endpoint, token, body) {
+    return fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${token}`,
+            'X-Request-ID': guid(),
+        },
+        body: JSON.stringify(body)
+    }).then((res) =>
+        res.status >= 200 && res.status <= 300
+            ? res.json()
+            : res.json()
+                .then((ex) => Promise.reject(ex))
+                .catch(() => Promise.reject(res)))
+}
+
 function createIdentity() {
     const walletProviderId = 'test';
     const {token, profileName} = AuthService.getAccountInfo();
-    return fetch('https://api.rbk.money/wallet/v0/identities', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            name: profileName,
-            provider: walletProviderId,
-            class: 'person',
-            metadata: {
-                lkDisplayName: 'Иванов Иван Иванович'
-            }
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const params = {
+        name: profileName,
+        provider: walletProviderId,
+        class: 'person',
+        metadata: {
+            lkDisplayName: 'Иванов Иван Иванович'
+        }
+    };
+    return post('https://api.rbk.money/wallet/v0/identities', token, params);
 }
 
 function createWallet(identityID) {
-    const walletProviderId = 'test';
     const {token} = AuthService.getAccountInfo();
-    return fetch('https://api.rbk.money/wallet/v0/wallets', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            name: 'Default wallet',
-            identity: identityID,
-            currency: 'RUB',
-            metadata: {
-                "client_locale": "RU_ru"
-            }
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const params = {
+        name: 'Default wallet',
+        identity: identityID,
+        currency: 'RUB',
+        metadata: {
+            client_locale: 'RU_ru'
+        }
+    };
+    return post('https://api.rbk.money/wallet/v0/wallets', token, params);
 }
 
 function createWalletGrant(walletID, amount, validUntil) {
-    const walletProviderId = 'test';
     const {token} = AuthService.getAccountInfo();
-    return fetch(`https://api.rbk.money/wallet/v0/wallets/${walletID}/grants`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
+    const params = {
+        asset: {
+            amount: amount,
+            currency: 'RUB'
         },
-        body: JSON.stringify({
-            asset: {
-                amount: amount,
-                "currency": "RUB"
-            },
-            validUntil: validUntil
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+        validUntil: validUntil
+    };
+    return post(`https://api.rbk.money/wallet/v0/wallets/${walletID}/grants`, token, params);
 }
 
 function createDestinationGrant(destinationID, validUntil) {
-    const walletProviderId = 'test';
     const {token} = AuthService.getAccountInfo();
-    return fetch(`https://api.rbk.money/wallet/v0/destinations/${destinationID}/grants`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'Authorization': `Bearer ${token}`,
-            'X-Request-ID': guid(),
-        },
-        body: JSON.stringify({
-            validUntil: validUntil
-        })
-    }).then((res) =>
-        res.status >= 200 && res.status <= 300
-            ? res.json()
-            : res.json()
-                .then((ex) => Promise.reject(ex))
-                .catch(() => Promise.reject(res)));
+    const params = {
+        validUntil: validUntil
+    };
+    return post(`https://api.rbk.money/wallet/v0/destinations/${destinationID}/grants`, token, params);
 }
 
 $(() => {
@@ -163,9 +139,7 @@ $(() => {
         let walletID;
         let walletUtils;
         const authenticated = AuthService.authInstance.authenticated;
-
-        var nowPlus1Y = new Date();
-        nowPlus1Y.setDate(nowPlus1Y.getDate() + 365);
+        const dueDate = getDueDate();
 
         if (authenticated) {
             walletUtils = new RbkmoneyWalletUtils(AuthService.getAccountInfo().token);
@@ -184,11 +158,11 @@ $(() => {
                 return;
             }
 
-            identityButton.attr('disabled', true)
+            identityButton.attr('disabled', true);
             createIdentity().then((response) => {
                 identityButton.attr('disabled', false);
                 identityID = response.id;
-                console.log(JSON.stringify(response));
+                log(response);
             });
         });
 
@@ -203,7 +177,6 @@ $(() => {
                 return;
             }
 
-            identityChallengeButton.attr('disabled', true);
             walletUtils.startIdentityChallenge({
                 identityID: identityID
             });
@@ -239,7 +212,6 @@ $(() => {
 
         const walletButton = $('#create-wallet-button');
         $('#create-wallet-button').click(() => {
-            walletButton.attr('disabled', true);
             if (!authenticated) {
                 AuthService.login();
                 return;
@@ -248,17 +220,16 @@ $(() => {
                 alert('Пройдите идентификацию!');
                 return;
             }
-
+            walletButton.attr('disabled', true);
             createWallet(identityID).then((response) => {
                 walletButton.attr('disabled', false);
                 walletID = response.id;
-                console.log(JSON.stringify(response));
+                log(response);
             });
         });
 
         const walletGrantButton = $('#create-wallet-grant-button');
         $('#create-wallet-grant-button').click(() => {
-            walletGrantButton.attr('disabled', true);
             if (!authenticated) {
                 AuthService.login();
                 return;
@@ -271,10 +242,10 @@ $(() => {
                 alert('Создайте кошелек!');
                 return;
             }
-
-            createWalletGrant(walletID, 100, nowPlus1Y.toISOString()).then((response) => {
+            walletGrantButton.attr('disabled', true);
+            createWalletGrant(walletID, 100, dueDate).then((response) => {
                 walletGrantButton.attr('disabled', false);
-                console.log(JSON.stringify(response));
+                log(response);
             });
         });
 
@@ -294,9 +265,9 @@ $(() => {
             }
 
             destinationGrantButton.attr('disabled', true);
-            createDestinationGrant(destinationID, nowPlus1Y.toISOString()).then((response) => {
+            createDestinationGrant(destinationID, dueDate).then((response) => {
                 destinationGrantButton.attr('disabled', false);
-                console.log(JSON.stringify(response));
+                log(response);
             });
         });
     });
