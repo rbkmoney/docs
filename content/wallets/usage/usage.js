@@ -65,7 +65,7 @@ function getDueDate() {
 }
 
 function log(object) {
-    return JSON.stringify(object, null, 2);
+    return console.log(JSON.stringify(object, null, 2));
 }
 
 function post(endpoint, token, body) {
