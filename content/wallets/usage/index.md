@@ -11,6 +11,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="usage.js"></script>
+<link rel="stylesheet" href="usage.css">
 
 Право на управление кошельком от имени пользователя нужно запросить у него явным образом. Данная возможность реализована в виде стандартного [OAuth2 Flow](https://en.wikipedia.org/wiki/OAuth#OAuth_2.0) по протоколу [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect). Протокол подразумевает обязательное взаимодействие с плательщиком через браузер. 
 
