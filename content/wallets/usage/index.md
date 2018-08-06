@@ -57,26 +57,41 @@ auth.login();
 
 Теперь мы можем разместить у себя в личном кабинете кнопку, при нажатии на которую наш клиент сможет зарегистрировать или авторизовать свою учетную запись в `RBKmoney Auth`.
 
-Эта документация интерактивная. Нажмите на кнопку и зарегистрируйтесь, или авторизуйтесь в сервисе, для получения полного объема информации, предоставляемого в статье.
+Эта документация интерактивная. Нажмите на кнопку и зарегистрируйтесь, или авторизуйтесь в сервисе, для получения полного объема информации, предоставляемого в статье. Большинство функций записывают свои действия в консоли браузера, вы можете использовать их для отладки.
 
 <button id="login-user-button" class="wallet-utils-button">Войти в RBKmoney</button>
 
-После успешной авторизации мы получили JWT, который позволит нам выполнить все необходимые действия в `Wallet API` от имени пользователя. 
+После успешной авторизации мы получили JWT, который позволит нам выполнить все необходимые действия в `Wallet API` от имени пользователя.
 
-## Создание личности и идентификация
+## Создание личности
 
 Теперь, когда мы имеем права [пользователя](/wallets/overview/#_2), мы можем создать ему [личность](/wallets/overview/#_3) и запустить процесс идентификации.
 
-Для решения проблем, связанных с соответствием требований законов о хранении и обработке персональных данных мы предоставляем не только сервис хранения персональных данных `RBKmoney Private Storage`, но и библиотеку, реализующую пользовательский интерфейс.
+!!!note
+    Обратите внимание! JWT, которые вы получаете через Oauth2 Flow, имеют очень короткое время жизни - минуты. Это сделано для безопасности. Нецелесообразно передавать клиентский JWT себе на бекэнд для работы с `Wallets API`. Мы рекомендуем все действия - создание личности, кошелька и получение прав на управление и вывод создавать на фронтенде, после чего передавать токены прав себе на бекэнд и использовать их для создания выплат. Срок жизни прав управления вы устанавливаете сами.
 
-Для подключения библиотеки включаем ее в код нашей страницы:
+<button id="create-identity-button" class="wallet-utils-button">Создать личность</button>
 
-```html
-<script src="https://wallet.rbk.money/wallet-utils.js"></script>
+- в ответ нам возвращается структура, подобная:
+
+```json
+{
+  "class": "person",
+  "createdAt": "2018-08-06T11:48:01.183346Z",
+  "id": "1",
+  "isBlocked": false,
+  "level": "anonymous",
+  "metadata": {
+    "lkDisplayName": "Иванов Иван Иванович"
+  },
+  "name": "test test",
+  "provider": "test"
+}
 ```
-<script src="https://wallet.rbk.money/wallet-utils.js"></script>
 
-Для запуска непосредственно процесса идентификации нам нужно узнать идентификатор личности. Предположим, что пользователь новый и у него нет личности. Создадим ее асинхронно, воспользовавшись JWT, полученным в предыдущей главе:
+В дальнейшем нам для создания метода вывода и кошелька понадобится идентификатор созданной личности, запомним его.
+
+Пример функции создания личности может выглядеть так:
 
 ```js
 function createIdentity() {
@@ -106,7 +121,20 @@ function createIdentity() {
 }
 ```
 
-дальше достаточно вызвать функцию `startIdentityChallenge()` из `Wallet Utils` и передать в нее полученный при создании идентификатор личности:
+## RBKmoney Wallet Utils
+
+Для решения проблем, связанных с соответствием требований законов о хранении и обработке карточных и персональных данных мы предоставляем JS-библиотеку, реализующую пользовательский интерфейсы ввода паспортных и карточных данных.
+
+Для подключения библиотеки включаем ее в код нашей страницы:
+
+```html
+<script src="https://wallet.rbk.money/wallet-utils.js"></script>
+```
+<script src="https://wallet.rbk.money/wallet-utils.js"></script>
+
+## Запуск процесса идентификации
+
+Для запуска непосредственно процесса идентификации нам достаточно вызвать функцию `startIdentityChallenge()` из `Wallet Utils` и передать в нее полученный при создании идентификатор личности:
 
 ```js
 walletUtils.startIdentityChallenge({
@@ -114,11 +142,9 @@ walletUtils.startIdentityChallenge({
 });
 ```
 
-Теперь мы можем создать обработчик, который при нажатии на кнопку создает личность, получает ее идентификатор и запускает процесс идентификации Wallet Utils с отображением формы ввода паспортных данных и СНИЛС.
-
 Нажмите на кнопку и введите тестовые данные.
 
-<button id="start-identity-button" class="wallet-utils-button">Пройти идентификацию</button>
+<button id="create-identity-challenge-button" class="wallet-utils-button">Запустить идентификацию</button>
 
 Библиотека самостоятельно завершит процесс идентификации и вернет события успеха или ошибки, которые вы можете обработать:
 
@@ -144,38 +170,63 @@ walletUtils.createDestination({
 });
 ```
 
+### Привязать карту
+
 Теперь мы можем создать обработчик, который при нажатии на кнопку запрашивает карточные данные, привязывает их к личности и создает [метод вывода средств](/wallets/overview/#_8).
 
 <button id="create-payout-button" class="wallet-utils-button">Привязать карту</button>
 
-## Серверная часть
+### Создать право управления привязкой
 
-На этом браузерную часть можно считать завершенной. Пример реализации, обеспечивающего работу интерактивных кнопок вы можете посмотреть в исходном коде скрипта [usage.js](usage.js).
+После создания метода вывода нам нужно получить [право управления методом вывода](/wallets/overview/#_10), или `destination grant`.
 
-Любым удобным способом передаем себе на бекэнд JWT клиента, с ним мы будем обращаться к `Wallet API`, а также идентификаторы личности и метода вывода средств, полученных выше.
+<button id="create-destination-grant-button" class="wallet-utils-button">Создать право управления методом вывода</button>
+
+- в ответ нам возвращается структура, подобная:
+
+```json
+{
+    "token": "eyJtZXRhZGF0YSI6e30sInJlc291cmNlSUQiOiIxIiwicmVzb3VyY2VUeXBlIjoiZGVzdGluYXRpb25zIiwidmFsaWRVbnRpbCI6IjIwMTktMDctMDdUMTE6MDQ6MDlaIn0",
+    "validUntil": "2019-07-07T11:04:09Z"
+}
+```
+Пока запомним ее, мы к ней вернемся, и перейдем к созданию кошелька и получению права управления им.
+
+!!!note
+    Скрипт, встроенный в документацию также логгирует данные в консоль браузера, вы можете просмотреть структуру ответа для вашей учетной записи.
+
+Пример функции создания прав на метод вывода может выглядеть так:
+
+```js
+function createDestinationGrant(destinationID, validUntil) {
+    const walletProviderId = 'test';
+    const {token} = AuthService.getAccountInfo();
+    return fetch(`https://api.rbk.money/wallet/v0/destinations/${destinationID}/grants`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${token}`,
+            'X-Request-ID': guid(),
+        },
+        body: JSON.stringify({
+            validUntil: validUntil
+        })
+    }).then((res) =>
+        res.status >= 200 && res.status <= 300
+            ? res.json()
+            : res.json()
+                .then((ex) => Promise.reject(ex))
+                .catch(() => Promise.reject(res)));
+}
+```
 
 ## Создание кошелька
 
-Теперь у нас достаточно данных для того, чтобы со своего бекэнда создать кошелек, получить права на [управление кошельком](/wallets/overview/#_7) и [методом вывода](/wallets/overview/#_10) и запустить процесс [выплаты на карту](/wallets/overview/#_11).
+Теперь у нас достаточно данных для того, чтобы создать кошелек, получить право на [управление кошельком](/wallets/overview/#_7) и передать данные себе на бекэнд, где запустить процесс [выплаты на карту](/wallets/overview/#_11).
 
-- делаем запрос на создание кошелька `createWallet()`:
+### Создать кошелек
 
-```bash
-curl -X POST \
-  https://api.rbk.money/wallet/v0/wallets \
-  -H 'Authorization: Bearer {JWT}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533232362' \
-  -d '{
-  "name": "Friendly name",
-  "identity": "{IDENTITY_ID}",
-  "currency": "RUB",
-  "metadata": {
-      "client_locale": "RU_ru"
-  }
-}'
-```
+<button id="create-wallet-button" class="wallet-utils-button">Создать кошелек</button>
 
 - в ответ нам возвращается структура о созданном кошельке:
 
@@ -193,29 +244,45 @@ curl -X POST \
 }
 ```
 
+Пример функции создания кошелька может выглядеть так:
+
+```js
+function createWallet(identityID) {
+    const walletProviderId = 'test';
+    const {token, profileName} = AuthService.getAccountInfo();
+    return fetch('https://api.rbk.money/wallet/v0/wallets', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${token}`,
+            'X-Request-ID': guid(),
+        },
+        body: JSON.stringify({
+            name: 'Default wallet',
+            identity: identityID,
+            currency: 'RUB',
+            metadata: {
+                "client_locale": "RU_ru"
+            }
+        })
+    }).then((res) =>
+        res.status >= 200 && res.status <= 300
+            ? res.json()
+            : res.json()
+                .then((ex) => Promise.reject(ex))
+                .catch(() => Promise.reject(res)));
+}
+```
+
 в дальнейшем нам понадобится его идентификатор.
 
-## Право управления кошельком и методом вывода
+### Право управления кошельком
 
 - создаем право на управление кошельком:
 
-```bash
-curl -X POST \
-  https://api.rbk.money/wallet/v0/wallets/{WALLET_ID}/grants \
-  -H 'Authorization: Bearer {JWT}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533232490' \
-  -d '{
-  "asset": {
-    "amount": 10000,
-    "currency": "RUB"
-  },
-  "validUntil": "2019-07-07T11:04:09Z"
-}'
-```
+<button id="create-wallet-grant-button" class="wallet-utils-button">Создать право управления кошельком</button>
 
-- в ответ нам возвращается структура:
+- в ответ нам возвращается структура, подобная:
 
 ```json
 {
@@ -228,28 +295,16 @@ curl -X POST \
 }
 ```
 
-- создаем право на управление методом вывода средств:
+## Серверная часть
 
-```bash
-curl -X POST \
-  https://api.rbk.money/wallet/v0/destinations/{DESTINATION_ID}/grants \
-  -H 'Authorization: Bearer {JWT}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533232632' \
-  -d '{
-  "validUntil": "2019-07-07T11:04:09Z"
-}'
-```
+На этом браузерную часть можно считать завершенной. Пример реализации, обеспечивающего работу интерактивных кнопок вы можете посмотреть в исходном коде скрипта [usage.js](usage.js).
 
-- в ответ нам возвращается структура:
+Любым удобным способом передаем себе на бекэнд:
 
-```json
-{
-    "token": "eyJtZXRhZGF0YSI6e30sInJlc291cmNlSUQiOiIxIiwicmVzb3VyY2VUeXBlIjoiZGVzdGluYXRpb25zIiwidmFsaWRVbnRpbCI6IjIwMTktMDctMDdUMTE6MDQ6MDlaIn0",
-    "validUntil": "2019-07-07T11:04:09Z"
-}
-```
+  - `destinationID`, или идентификатор метода вывода средств;
+    - `destination grant`, или структуру права управления методом вывода;
+  - `walletID`, или идентификатор кошелька;
+    - `wallet grant`, или структуру права управления кошельком.
 
 ## Вывод средств на карту
 
