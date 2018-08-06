@@ -16,16 +16,16 @@ extra:
             url: 'https://rbkmoney.github.io/wallets-api/v0/?api/privdoc/swagger.json'
             target: _blank
 extra_css:
-    - 'assets/stylesheets/override.css'
-    - 'lightbox/css/lightbox.min.css'
-    - 'payments/livedemo/livedemo.css'
+    - '/assets/stylesheets/override.css'
+    - '/lightbox/css/lightbox.min.css'
+    - '/payments/livedemo/livedemo.css'
+    - '/wallets/usage/usage.css'
 extra_javascript:
-    - 'lightbox/js/lightbox-plus-jquery.min.js'
+    - '/lightbox/js/lightbox-plus-jquery.min.js'
     - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
     - 'https://checkout.rbk.money/checkout.js'
-    - 'payments/livedemo/livedemo.js'
-    - 'counters/ga.js'
-    - 'counters/ym.js'
+    - '/payments/livedemo/livedemo.js'
+    - 'https://code.jquery.com/jquery-3.3.1.min.js'
 strict: true
 markdown_extensions:
     - smarty
@@ -35,7 +35,7 @@ markdown_extensions:
     - codehilite
     - toc:
         permalink: true
-pages:
+nav:
     - 'Документация': 'index.md'
     - 'Интеграция':
         - Payments:
@@ -64,5 +64,6 @@ pages:
                 - 'Joomla/Virtuemart': 'payments/cms-modules/virtuemart/index.md'
         - Wallets:
                 - 'Обзор': 'wallets/overview.md'
+                - 'Работа с кошельками': 'wallets/usage/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'payments/refs/testcards.md'
