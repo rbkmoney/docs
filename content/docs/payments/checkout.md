@@ -74,7 +74,7 @@ window.addEventListener('popstate', function () {
 
 Примечание: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.
 
-### Совершение оплаты с использованием [шаблонов инвойсов](https://developer.rbk.money/api/#tag/InvoiceTemplates).
+### Совершение оплаты с использованием [шаблонов инвойсов](https://developer.rbk.money/api/#tag/InvoiceTemplates)
 Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор шаблона инвойса и токен для доступа к указанному шаблону.
 
 * HTML API: `data-invoice-template-id`, `data-invoice-template-access-token`.
@@ -94,13 +94,13 @@ JS API
 HTML API
 <script async src="//jsfiddle.net/Ildar_Galeev/xrx0qgfk/embed/html/"></script>
 
-### Создание привязки [плательщика](https://developer.rbk.money/api/#tag/Customers).
+### Создание привязки [плательщика](https://developer.rbk.money/api/#tag/Customers)
 Вместо пары `invoiceID` и `invoiceAccessToken`, необходимо использовать идентификатор плательщика и токен для доступа к указанному плательщику.
 
 * HTML API: `data-customer-id`, `data-customer-access-token`.
 * JS API: `customerID`, `customerAccessToken`.
 
-### Совершение оплаты с удержанием денежных средств.
+### Совершение оплаты с удержанием денежных средств
 Для настройки необходимо:
 
 1. Указать параметр конфигурации `paymentFlowHold` со значением: `true`.
@@ -113,28 +113,37 @@ HTML API
 | paymentFlowHold                | data-payment-flow-hold    | Признак совершения оплаты с удержанием денежных средств | true / false       |
 | holdExpiration                 | data-hold-expiration      | Политика управления удержанием денежных средств         | cancel / capture   |
 
-### Управление методами оплаты.
+### Управление методами оплаты
 
-| Метод оплаты                                                                   | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения | Значение по умолчанию  |
-| :---------------------------------------------------------------------------:  | :----------------------------: | :------------------------:| :-----------------:| :--------------------: |
-| Банковская карта и токенизированные карты (Apple Pay, Google Pay, Samsung Pay) | bankCard                       | data-bank-card            | true / false       | true                   |
-| Электронные кошельки                                                           | wallets                        | data-wallets              | true / false       | true                   |
-| Терминалы оплаты                                                               | terminals                      | data-terminals            | true / false       | true                   |
+| Метод оплаты         | Свойство конфигурации (JS API) | data-* атрибут (HTML API) | Возможные значения | Значение по умолчанию  |
+| :-----------------:  | :----------------------------: | :------------------------:| :-----------------:| :--------------------: |
+| Банковская карта     | bankCard                       | data-bank-card            | true / false       | true                   |
+| Электронные кошельки | wallets                        | data-wallets              | true / false       | true                   |
+| Терминалы оплаты     | terminals                      | data-terminals            | true / false       | true                   |
+| Apple Pay            | applePay                       | data-apple-pay            | true / false       | true                   |
+| Google Pay           | googlePay                      | data-google-pay           | true / false       | true                   |
+| Samsung Pay          | samsungPay                     | data-samsung-pay          | true / false       | true                   |
 
-Управление методами оплаты, которые будут предложены плательщику в первую очередь:
+Управление методом оплаты, который будет предложен плательщику в первую очередь:
 
 * HTML API: `data-initial-payment-method`
 * JS API: `initialPaymentMethod`
 
 Возможные значения:
 
-`bankCard` - Банковская карта.
+- `bankCard` - Банковская карта.
 
-`terminalEuroset` - Терминалы "Евросеть".
+- `terminalEuroset` - Терминалы "Евросеть".
 
-`walletQiwi` - Электоронный кошелек "Qiwi".
+- `walletQiwi` - Электоронный кошелек "Qiwi".
 
-### Предотвращение блокировки функции открытия checkout.
+- `applePay` - Apple Pay.
+
+- `googlePay` - Google Pay.
+
+- `samsungPay` - Samsung Pay.
+
+### Предотвращение блокировки функции открытия checkout
 Не вызывайте функцию открытия checkout в callback. Большинство мобильных браузеров блокируют подобное поведение. Открытие нового окна должно происходить в результате действия пользователя.
 
 ```javascript
