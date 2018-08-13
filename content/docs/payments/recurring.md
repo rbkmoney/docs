@@ -62,11 +62,11 @@ curl -X POST \
 }
 ```
 
-- полученные `customer.id` и `customerAccessToken.payload` передаем в [RBKmoney Checkout](/payments/checkout/#_3)
+- полученные `customer.id` и `customerAccessToken.payload` передаем в [RBKmoney Checkout](/docs/payments/checkout/#_3)
 
 - плательщик вводит карточные данные в форму и нажимает "Привязать"
 
-![checkout_binding.png](/payments/img/checkout_binding.png)
+![checkout_binding.png](/docs/payments/img/checkout_binding.png)
 
 - проверяем состояние плательщика (либо обрабатываем соответствующий вебхук)
 
