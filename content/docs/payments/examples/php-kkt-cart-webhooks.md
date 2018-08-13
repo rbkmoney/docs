@@ -329,7 +329,7 @@ $apiKey = "eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoL
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.rbk.money/v1/processing/invoices/u7o9gfIwPA/payments/1/cancel",
+  CURLOPT_URL => "https://api.rbk.money/v1/processing/invoices/u7o9gfIwPA/docs/payments/1/cancel",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
