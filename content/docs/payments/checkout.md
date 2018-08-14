@@ -29,7 +29,7 @@
 | data-obscure-card-cvv     | Затенять карточный cvv код                                           |              | true / false         |
 | data-require-card-holder  | Требовать от плательщика заполнять поле card holder                  |              | true / false         |
 | data-locale               | Настройка локализации платежной формы                                |              | auto / ru / en       |
-| data-popup-mode           | Открывать checkout в новом окне браузера                             |              | true / false         |
+| data-popup-mode           | Открывать checkout в новой вкладке браузера                          |              | true / false         |
 
 ### Использование JS API
 
@@ -72,7 +72,7 @@ window.addEventListener('popstate', function () {
 | obscureCardCvv           | Затенять карточный cvv код                                           |              | true / false         |
 | requireCardHolder        | Требовать от плательщика заполнять поле card holder                  |              | true / false         |
 | locale                   | Настройка локализации платежной формы                                |              | auto / ru / en       |
-| popupMode                | Открывать checkout в новом окне браузера                             |              | true / false         |
+| popupMode                | Открывать checkout в новой вкладке браузера                          |              | true / false         |
 
 Примечание: Checkout возвращает управление в callback только при успешном завершении платежа. С целью увеличения конверсии оплат при неуспешных попытках оплаты (например неверно введены данные или на карте недостаточно средств) мы оставляем UA плательщика на форме, позволяя исправить ошибку, использовать другую карту и т.п.
 
