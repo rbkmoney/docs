@@ -34,6 +34,13 @@
 
 Теперь мы можем на нашем бэкенде написать код, который, собственно, создаст нам инвойс:
 
+
+| Название| Описание                                                             | Где взять?   |
+| :-----------------------: | :--------------------------------------------------------------------: | :-----------: |
+| shopID           | Идентификатор магазина из RBKmoney                                                | скопируйте его в [ЛК RBKmoney](https://dashboard.rbk.money) в разделе `Детали магазина`, поле `Идентификатор` |
+| apiKey           | Ключ для доступа к API                                                | скопируйте его в [ЛК RBKmoney](https://dashboard.rbk.money) в разделе `API Ключ` |
+
+
 ```php
 <?php
 
@@ -148,13 +155,18 @@ function prepare_headers($apiKey)
             data-hold-expiration="capture"            
             data-name="Заказ №12345"
             data-email='hungry-man@email.ru'
-            data-logo="https://checkout.rbk.money/images/logo.png"
             data-label="Оплатить с карты"
             data-description="Изысканная кухня"
             data-pay-button-label="Оплатить">
     </script>
 </form>
 ```
+
+!!!note
+    `success.action.php` - адрес страницы для переадресации плательщика в случае успешного платежа.
+
+    Не путайте ее со страницей обработчика webhook-а
+
 
 Интеграция практически завершена. Теперь мы можем отдать сформированный HTML-код в браузер плательщика.
 
@@ -166,7 +178,6 @@ function prepare_headers($apiKey)
             data-invoice-template-access-token="eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A"
             data-name="Заказ №12345"
             data-email="hungry-man@email.ru"
-            data-logo="https://checkout.rbk.money/images/logo.png"
             data-label="Оплатить с карты"
             data-description="Изысканная кухня"
             data-pay-button-label="Оплатить">
@@ -368,6 +379,21 @@ function prepare_headers($apiKey)
 ### 4.2. Сценарий подтверждения платежа
 
 В случае успешной доставки, когда мы понимаем, что сделка завершена, нет смысла ждать стандартных 3 суток для автоматического подтверждения платежа. Достаточно вызвать метод [capturePayment](https://developer.rbk.money/api/#operation/capturePayment) с подходом, аналогичным в п 4.1. и деньги окажутся на счете вашего магазина.
+
+### 4.3. Возможные проблемы с Webhook-ами
+
+!!!note "Webhook возвращает HTTP/200, но статус не обновляется"
+    Проверьте, что происходит вызов функций обработчика вебхуков и доступ не ограничен, например, вашей внутренней системой авторизации
+
+!!!note "При получении Webhook-а отсутствует тело сообщения, но есть подпись"
+    Все дело в 301 редиректе на вашей стороне, который передает заголовки, но не передает тело сообщения.
+
+    Страница для обработки webhook-а должна быть доступна без каких-либо редиректов на нее.
+
+!!!note "При получении Webhook-а отсутствует подпись в заголовке"
+    Такое случается, когда указывают в форме URL не информационной страницы, а URL обработки webhook-а.
+
+    Нужно помнить, что информационная страница [**success.action.php**](#2) и страница обработки [**webhook-а**](#3) - не одно и тоже
 
 
 ### Остались вопросы?
