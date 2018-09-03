@@ -175,41 +175,42 @@ document.getElementById("button").addEventListener("click", function() {
 Частный случай решения этой задачи с использованием `jquery`, указывающий направление ее решения может выглядеть так:
 
 ```html
+<!DOCTYPE html>
 <html>
-
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://checkout.rbk.money/checkout.js"></script>
 </head>
-<script>
-$(function() {
-    $('#rbkmoney-checkout').on('click', function(e) {
-        e.preventDefault();
-        const checkout = initCheckout('{INVOICE_ID}', '{INVOICE_ACCESS_TOKEN}');
-        checkout.open();
-    });
-
-    function initCheckout(invoiceID, invoiceAccessToken) {
-        return RbkmoneyCheckout.configure({
-            invoiceID: invoiceID,
-            invoiceAccessToken: invoiceAccessToken,
-            name: 'Product name',
-            description: 'Product description',
-            email: 'example@example.com',
-            finished: function() {
-                console.log('Payment successful finished');
-            },
-            opened: function() {
-                console.log('Checkout opened');
-            },
-            closed: function() {
-                console.log('Checkout closed');
-            }
+<body>
+    <script>
+    $(function() {
+        $('#rbkmoney-checkout').on('click', function(e) {
+            e.preventDefault();
+            const checkout = initCheckout('{INVOICE_ID}', '{INVOICE_ACCESS_TOKEN}');
+            checkout.open();
         });
-    }
-});
-</script>
-<button id="rbkmoney-checkout">Pay with RBKmoney</button>
-
+    
+        function initCheckout(invoiceID, invoiceAccessToken) {
+            return RbkmoneyCheckout.configure({
+                invoiceID: invoiceID,
+                invoiceAccessToken: invoiceAccessToken,
+                name: 'Product name',
+                description: 'Product description',
+                email: 'example@example.com',
+                finished: function() {
+                    console.log('Payment successful finished');
+                },
+                opened: function() {
+                    console.log('Checkout opened');
+                },
+                closed: function() {
+                    console.log('Checkout closed');
+                }
+            });
+        }
+    });
+    </script>
+    <button id="rbkmoney-checkout">Pay with RBKmoney</button>
+</body>
 </html>
 ```
