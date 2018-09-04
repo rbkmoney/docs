@@ -233,7 +233,7 @@ function processPayment(paymentData) {
 
 - в переменной `paymentToolType` укажите значение `TokenizedCardData`;
 - в переменной `provider` укажите `GooglePay`;
-- в переменной `merchantID`:
+- в переменной `gatewayMerchantId`:
     - для тестовой среды укажите `rbkmoney`;
     - для боевой среды укажите идентификатор вашего мерчанта, выданный вам RBKmoney.
 - в структуру `paymentToken` передайте структуру, полученную из Google Pay.
@@ -245,7 +245,7 @@ function processPayment(paymentData) {
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "GooglePay",
-    "merchantID": "rbkmoney",
+    "gatewayMerchantId": "rbkmoney",
     "paymentToken": {
       "cardInfo": {
         "cardNetwork": "MASTERCARD",
@@ -372,7 +372,7 @@ curl -X POST \
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "GooglePay",
-    "merchantID": "rbkmoney",
+    "gatewayMerchantId": "rbkmoney",
     "paymentToken": {
       "cardInfo": {
         "cardNetwork": "MASTERCARD",
