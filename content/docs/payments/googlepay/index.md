@@ -25,7 +25,7 @@ var allowedPaymentMethods = ['CARD', 'TOKENIZED_CARD'];
 tokenizationType: 'PAYMENT_GATEWAY'
 ```
 
-- для тестового окружения укажите значения `gateway` и `gatewayMerchantId` как `rbkmoney`:
+- для тестового окружения укажите значения `gateway` как `rbkmoney` и `gatewayMerchantId` как `rbkmoney-test`:
 
 ```js
 'gateway': 'rbkmoney',
@@ -245,7 +245,7 @@ function processPayment(paymentData) {
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "GooglePay",
-    "gatewayMerchantID": "rbkmoney",
+    "gatewayMerchantID": "rbkmoney-test",
     "paymentToken": {
       "cardInfo": {
         "cardNetwork": "MASTERCARD",
