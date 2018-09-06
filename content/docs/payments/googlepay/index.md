@@ -29,11 +29,11 @@ tokenizationType: 'PAYMENT_GATEWAY'
 
 ```js
 'gateway': 'rbkmoney',
-'gatewayMerchantId': 'rbkmoney'
+'gatewayMerchantId': 'rbkmoney-test'
 ```
 
 !!! note
-    Указанный merchantId используется для тестов. Для получения боевого merchantId [обратитесь к нам](mailto:support@rbk.money).
+    Указанный gatewayMerchantId используется для тестов. Для получения боевого gatewayMerchantId [обратитесь к нам](mailto:support@rbk.money).
 
 Если вы все сделали правильно, то у вас на сайте появится такая кнопка:
 
@@ -68,7 +68,7 @@ var tokenizationParameters = {
   tokenizationType: 'PAYMENT_GATEWAY',
   parameters: {
     'gateway': 'rbkmoney',
-    'gatewayMerchantId': 'rbkmoney'
+    'gatewayMerchantId': 'rbkmoney-test'
   }
 }
 
@@ -233,8 +233,8 @@ function processPayment(paymentData) {
 
 - в переменной `paymentToolType` укажите значение `TokenizedCardData`;
 - в переменной `provider` укажите `GooglePay`;
-- в переменной `gatewayMerchantId`:
-    - для тестовой среды укажите `rbkmoney`;
+- в переменной `gatewayMerchantID`:
+    - для тестовой среды укажите `rbkmoney-test`;
     - для боевой среды укажите идентификатор вашего мерчанта, выданный вам RBKmoney.
 - в структуру `paymentToken` передайте структуру, полученную из Google Pay.
 
@@ -245,7 +245,7 @@ function processPayment(paymentData) {
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "GooglePay",
-    "gatewayMerchantId": "rbkmoney",
+    "gatewayMerchantID": "rbkmoney",
     "paymentToken": {
       "cardInfo": {
         "cardNetwork": "MASTERCARD",
@@ -372,7 +372,7 @@ curl -X POST \
   "paymentTool": {
     "paymentToolType": "TokenizedCardData",
     "provider": "GooglePay",
-    "gatewayMerchantId": "rbkmoney",
+    "gatewayMerchantID": "rbkmoney-test",
     "paymentToken": {
       "cardInfo": {
         "cardNetwork": "MASTERCARD",
