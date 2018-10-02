@@ -2,26 +2,351 @@
 
 Однако для того, чтобы такие платежи заработали необходимо произвести первый платеж с участием плательщика, показав ему форму ввода карточных данных.
 
+Платформа предоставляет несколько решений для организации безакцепнтых списаний - непрозрачные для плательщика, когда первый успешный платеж используется как родительский для последующих фоновых списаний и прозрачные, когда плательщику явным образом предлагается привязать карту для последующих списаний.
 
-## Бизнес-процесс
+На момент написания текущей версии статьи сервисы [VAU](https://developer.visa.com/capabilities/vau/docs)/[ABU](https://developer.mastercard.com/product/automatic-billing-updater) платформой не обслуживаются, предоставляется только возможность безакцептного списания средств с карт плательщиков.
+
+## Правила и ограничения
+
+- плательщик должен явно согласиться с предоставлением своей карты для последующих рекуррентных платежей;
+- в информационном уведомлении (чеке) о платеже должно указываться:
+    - пометка "recurring transaction" ("периодическая операция", "транзакция на основании постоянного поручения");
+    - расписание платежа (по какому графику производятся регулярные списания);
+    - время жизни подписки (до какого срока плательщик дал согласие на оплату).
+- в случае получения ошибки рекуррентного платежа создание повторных попыток списания допускается не чаще 1 раза в сутки на протяжении не более 31 дней.
+
+## Рекуррентные списания по первому платежу
+
+Перед началом использования фоновых безакцепнтых списаний с вашего бекэнда, необходимо произвести первый инициирующий платеж, а также уведомить плательщика, что данная карта будет использоваться для регулярных платежей в дальнейшем.
+
+!!!note
+    Необходимо явным образом получить согласие плательщика на последующие фоновые списания размещением соответствующего поля для установки флажка (checkbox) с согласием. При необходимости нужно иметь возможность предоставить данные, подтверждающие отметку этого флажка плательщиком.
+
+В дальнейшем идентификаторы успешных родительских идентификаторов инвойса и платежа достаточно будет передавать параметрами в функцию создания нового платежа.
+
+!!!note
+    В связи с рекомендациями международных платежных систем не делать перерыва более 6 месяцев между двумя рекуррентными платежами, мы рекомендуем для каждого последующего рекуррентного платежа использовать идентификаторы предыдущего, а не первого родительского.
+
+### Интеграция без использования Checkout
+
+- создаем в платформе инвойс
+
+```bash
+curl -X POST \
+  https://api.rbk.money/v2/processing/invoices \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzaG14MU95bjJWc2psTEZRNTNLYk5Nek12RGZUcjdzcGxYelJDeDRERVR3In0.eyJqdGkiOiIwYjY2OGQyNC0wNTVkLTQ5MGUtYWJmZC1kNzdhNWQ4MTkxMzMiLCJleHAiOjE1NjI2NjU5NDIsIm5iZiI6MCwiaWF0IjoxNTMxMTI5OTQyLCJpc3MiOiJodHRwczovL2F1dGgucmJrLm1vbmV5L2F1dGgvcmVhbG1zL2V4dGVybmFsIiwiYXVkIjoia29mZmluZyIsInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImtvZmZpbmciLCJub25jZSI6IjFlMzVlODNjLTE0YmEtNGE5Ny04N2JhLTY0M2IwZTdjYTRkMCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6IjA1MDUzNjFkLTI3ZWUtNGZkZS1hODQ2LWVmZDZhNDJiY2E0MCIsImFjciI6IjAiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXNoYm9hcmQucmJrLm1vbmV5Il0sInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLioucGF5bWVudHM6d3JpdGUiLCJjdXN0b21lcnMuKi5iaW5kaW5nczp3cml0ZSIsInBhcnR5OnJlYWQiLCJpbnZvaWNlcy4qLnBheW1lbnRzOnJlYWQiLCJjdXN0b21lcnM6d3JpdGUiLCJwYXJ0eTp3cml0ZSIsImN1c3RvbWVycy4qLmJpbmRpbmdzOnJlYWQiLCJjdXN0b21lcnM6cmVhZCIsImludm9pY2VzOndyaXRlIiwiaW52b2ljZXM6cmVhZCJdfSwidXJsLXNob3J0ZW5lciI6eyJyb2xlcyI6WyJzaG9ydGVuZWQtdXJsczp3cml0ZSIsInNob3J0ZW5lZC11cmxzOnJlYWQiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sIm5hbWUiOiJSQksgTW9uZXkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhbnRvbi5sdmFAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6IlJCSyIsImZhbWlseV9uYW1lIjoiTW9uZXkiLCJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20ifQ.r41XbNI2B-OiH5k4jxpnKP8aCxO5fWYm8WHryXtVapw3sv9LHEJEs4TnXAq3Rqk0vFAvh47G-d_buIebH2L2Up8KJj3XxwmyeQZOfH76CZLUIqVHks-ThZgxo2gSQJawisO_G97C82hrh_PsJK80Kx40MgvwDstNIo8xWNYZKjQKN83nM_tICWvlj9SvOO-QenimznlOtmrpHPaldMV_WB5UwBI2NK1_uv9fmBlEZVbWTAblJ4Z6TZlQeAusD2GgtoxRBJjk3wvIxNlyAsesDLxlB3b1VaH_i6LAHeoSF_arxSUwKOvpiOHxyormUudp52jhHbbq5Gk5ATEO53bRd2o7bHQVdq670Lfum2XcOHtYhGKGbB8dwrfU8UqvfzzI7L1TvskcmiJ2f5dxmcOFwuJoIcJvp-SFPKxh7Kd9nbhSvjUqffTKIV61ZdhP2eUU0j0AuZEFbXjd4uiZvINKPy2wdCBxcAZJd6D96vq8rmdfwbauB2HEOcLHVcddS6TFdJzvXNcYEZY7siH2ynQsJUxLsvsNAGTrhHtjWnnuMvVLKQberN-de4t2V3Qq_ikKE44CU6MYqXY0EFPZYH4Yt8uF76AC-IsJQzZRHifjoVA8afa-CWbqqBfnjT-lqbr9r-EtIPAQSY1LSVW0RF9BDC0dO13naOQH9pBCUV90eHo' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: 1538484422' \
+  -d '{
+  "shopID": "TEST",
+  "dueDate": "2018-09-28T09:57:12.183Z",
+  "amount": 1000,
+  "currency": "RUB",
+  "product": "Recurring Parent #1",
+  "description": "Delicious meals",
+"metadata": 
+  { 
+    "order_id": "Internal order num 13123298761"
+  }
+}'
+```
+
+- пример ответа платформы
+
+```json
+{
+    "invoice": {
+        "amount": 1000,
+        "createdAt": "2018-10-02T12:52:42.489022Z",
+        "currency": "RUB",
+        "description": "Delicious meals",
+        "dueDate": "2018-10-02T13:52:43.623000Z",
+        "id": "141oE76atY8",
+        "metadata": {
+            "order_id": "Internal order num 13123298761"
+        },
+        "product": "Recurring Parent #1",
+        "shopID": "TEST",
+        "status": "unpaid"
+    },
+    "invoiceAccessToken": {
+        "payload": "eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJjb25zIjoiY2xpZW50IiwiZXhwIjoxNTM4NzQzOTYyLCJqdGkiOiIxNDFvRTdobU5paSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLjE0MW9FNzZhdFk4LnBheW1lbnRzOnJlYWQiLCJpbnZvaWNlcy4xNDFvRTc2YXRZOC5wYXltZW50czp3cml0ZSIsImludm9pY2VzLjE0MW9FNzZhdFk4OnJlYWQiLCJwYXltZW50X3Jlc291cmNlczp3cml0ZSJdfX0sInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiJ9.laviEf3MaAvVTF49zsqjCvQNOH5LPemccrKtwaR21DR6dTTj60cN55fcqYnOKIGeWKDZfgxvONBEsG-4VeCnVg"
+    }
+}
+```
+
+- запускам по инвойсу платеж, сообщая платформе, что он должен стать родительским рекуррентным платежом, передавая `"makeRecurrent": true`;
+- платеж может запускаться как по одностадийной (Instant), так и двухстадийной (Hold) схеме:
+
+```bash
+curl -X POST \
+  https://api.rbk.money/v2/processing/invoices/141oE76atY8/payments \
+  -H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJjb25zIjoiY2xpZW50IiwiZXhwIjoxNTM4NzQzOTYyLCJqdGkiOiIxNDFvRTdobU5paSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLjE0MW9FNzZhdFk4LnBheW1lbnRzOnJlYWQiLCJpbnZvaWNlcy4xNDFvRTc2YXRZOC5wYXltZW50czp3cml0ZSIsImludm9pY2VzLjE0MW9FNzZhdFk4OnJlYWQiLCJwYXltZW50X3Jlc291cmNlczp3cml0ZSJdfX0sInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiJ9.laviEf3MaAvVTF49zsqjCvQNOH5LPemccrKtwaR21DR6dTTj60cN55fcqYnOKIGeWKDZfgxvONBEsG-4VeCnVg' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: 1538484795' \
+  -d '{
+  "flow": {
+    "type": "PaymentFlowInstant"
+  },
+  "payer": {
+      "payerType": "PaymentResourcePayer",
+    "paymentToolToken":"eyJiaW4iOiI0MjQyNDIiLCJtYXNrZWRfcGFuIjoiNDI0MiIsInBheW1lbnRfc3lzdGVtIjoidmlzYSIsInRva2VuIjoiNExLZE4zOUJZNkx2VzNQNTA4R1U4VSIsInR5cGUiOiJiYW5rX2NhcmQifQ",
+    "paymentSession":"eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiMTIzIiwiaXAiOiIyQTA0OjRBMDA6NToxMDE0OjoxMDBEIn0sInBheW1lbnRTZXNzaW9uIjoiM0hSV09sTjQ2eVRsNzlMVkZxeGVlYyJ9",
+    "contactInfo":
+      {
+        "email":"test@test.com",
+        "phoneNumber":"9876543210"
+      }
+  },
+  "makeRecurrent": true
+}'
+```
+
+- пример ответа платформы:
+
+```json
+{
+    "amount": 1000,
+    "createdAt": "2018-10-02T12:55:29.471382Z",
+    "currency": "RUB",
+    "flow": {
+        "type": "PaymentFlowInstant"
+    },
+    "id": "1",
+    "invoiceID": "141oE76atY8",
+    "makeRecurrent": true,
+    "payer": {
+        "clientInfo": {
+            "fingerprint": "123",
+            "ip": "2A04:4A00:5:1014::100D"
+        },
+        "contactInfo": {
+            "email": "test@test.com",
+            "phoneNumber": "9876543210"
+        },
+        "payerType": "PaymentResourcePayer",
+        "paymentSession": "eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiMTIzIiwiaXAiOiIyQTA0OjRBMDA6NToxMDE0OjoxMDBEIn0sInBheW1lbnRTZXNzaW9uIjoiM0hSV09sTjQ2eVRsNzlMVkZxeGVlYyJ9",
+        "paymentToolDetails": {
+            "bin": "424242",
+            "cardNumberMask": "424242******4242",
+            "detailsType": "PaymentToolDetailsBankCard",
+            "lastDigits": "4242",
+            "paymentSystem": "visa"
+        },
+        "paymentToolToken": "eyJiaW4iOiI0MjQyNDIiLCJtYXNrZWRfcGFuIjoiNDI0MiIsInBheW1lbnRfc3lzdGVtIjoidmlzYSIsInRva2VuIjoiNExLZE4zOUJZNkx2VzNQNTA4R1U4VSIsInR5cGUiOiJiYW5rX2NhcmQifQ"
+    },
+    "status": "pending"
+}
+```
+
+- в большинстве случаев мы будем требовать прохождения 3D-Secure для успешной обработки подобных платежей;
+- обрабатываем платеж как обычный и убеждаемся в его переходе в успешное состояние:
+
+```bash
+curl -X GET \
+  https://api.rbk.money/v2/processing/invoices/141oE76atY8/payments/1 \
+  -H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJjb25zIjoiY2xpZW50IiwiZXhwIjoxNTM4NzQzOTYyLCJqdGkiOiIxNDFvRTdobU5paSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLjE0MW9FNzZhdFk4LnBheW1lbnRzOnJlYWQiLCJpbnZvaWNlcy4xNDFvRTc2YXRZOC5wYXltZW50czp3cml0ZSIsImludm9pY2VzLjE0MW9FNzZhdFk4OnJlYWQiLCJwYXltZW50X3Jlc291cmNlczp3cml0ZSJdfX0sInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiJ9.laviEf3MaAvVTF49zsqjCvQNOH5LPemccrKtwaR21DR6dTTj60cN55fcqYnOKIGeWKDZfgxvONBEsG-4VeCnVg' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: 1538485221'
+```
+
+- пример ответа платформы, платеж успешен:
+
+```json
+{
+    "amount": 1000,
+    "createdAt": "2018-10-02T12:55:29.471382Z",
+    "currency": "RUB",
+    "flow": {
+        "type": "PaymentFlowInstant"
+    },
+    "id": "1",
+    "invoiceID": "141oE76atY8",
+    "makeRecurrent": true,
+    "payer": {
+        "clientInfo": {
+            "fingerprint": "123",
+            "ip": "2A04:4A00:5:1014::100D"
+        },
+        "contactInfo": {
+            "email": "test@test.com",
+            "phoneNumber": "9876543210"
+        },
+        "payerType": "PaymentResourcePayer",
+        "paymentSession": "eyJjbGllbnRJbmZvIjp7ImZpbmdlcnByaW50IjoiMTIzIiwiaXAiOiIyQTA0OjRBMDA6NToxMDE0OjoxMDBEIn0sInBheW1lbnRTZXNzaW9uIjoiM0hSV09sTjQ2eVRsNzlMVkZxeGVlYyJ9",
+        "paymentToolDetails": {
+            "bin": "424242",
+            "cardNumberMask": "424242******4242",
+            "detailsType": "PaymentToolDetailsBankCard",
+            "lastDigits": "4242",
+            "paymentSystem": "visa"
+        },
+        "paymentToolToken": "eyJiaW4iOiI0MjQyNDIiLCJtYXNrZWRfcGFuIjoiNDI0MiIsInBheW1lbnRfc3lzdGVtIjoidmlzYSIsInRva2VuIjoiNExLZE4zOUJZNkx2VzNQNTA4R1U4VSIsInR5cGUiOiJiYW5rX2NhcmQifQ"
+    },
+    "status": "captured"
+}
+```
+
+- теперь у нас имеются идентификаторы успешных родительских инвойса `141oE76atY8` и платежа `1`, мы используем их в следующем вызове создания платежа уже без участия плательщика и ввода карты;
+- для начала создаем в платформе новый инвойс:
+
+```bash
+curl -X POST \
+  https://api.rbk.money/v2/processing/invoices \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzaG14MU95bjJWc2psTEZRNTNLYk5Nek12RGZUcjdzcGxYelJDeDRERVR3In0.eyJqdGkiOiIwYjY2OGQyNC0wNTVkLTQ5MGUtYWJmZC1kNzdhNWQ4MTkxMzMiLCJleHAiOjE1NjI2NjU5NDIsIm5iZiI6MCwiaWF0IjoxNTMxMTI5OTQyLCJpc3MiOiJodHRwczovL2F1dGgucmJrLm1vbmV5L2F1dGgvcmVhbG1zL2V4dGVybmFsIiwiYXVkIjoia29mZmluZyIsInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImtvZmZpbmciLCJub25jZSI6IjFlMzVlODNjLTE0YmEtNGE5Ny04N2JhLTY0M2IwZTdjYTRkMCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6IjA1MDUzNjFkLTI3ZWUtNGZkZS1hODQ2LWVmZDZhNDJiY2E0MCIsImFjciI6IjAiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9kYXNoYm9hcmQucmJrLm1vbmV5Il0sInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLioucGF5bWVudHM6d3JpdGUiLCJjdXN0b21lcnMuKi5iaW5kaW5nczp3cml0ZSIsInBhcnR5OnJlYWQiLCJpbnZvaWNlcy4qLnBheW1lbnRzOnJlYWQiLCJjdXN0b21lcnM6d3JpdGUiLCJwYXJ0eTp3cml0ZSIsImN1c3RvbWVycy4qLmJpbmRpbmdzOnJlYWQiLCJjdXN0b21lcnM6cmVhZCIsImludm9pY2VzOndyaXRlIiwiaW52b2ljZXM6cmVhZCJdfSwidXJsLXNob3J0ZW5lciI6eyJyb2xlcyI6WyJzaG9ydGVuZWQtdXJsczp3cml0ZSIsInNob3J0ZW5lZC11cmxzOnJlYWQiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sIm5hbWUiOiJSQksgTW9uZXkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhbnRvbi5sdmFAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6IlJCSyIsImZhbWlseV9uYW1lIjoiTW9uZXkiLCJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20ifQ.r41XbNI2B-OiH5k4jxpnKP8aCxO5fWYm8WHryXtVapw3sv9LHEJEs4TnXAq3Rqk0vFAvh47G-d_buIebH2L2Up8KJj3XxwmyeQZOfH76CZLUIqVHks-ThZgxo2gSQJawisO_G97C82hrh_PsJK80Kx40MgvwDstNIo8xWNYZKjQKN83nM_tICWvlj9SvOO-QenimznlOtmrpHPaldMV_WB5UwBI2NK1_uv9fmBlEZVbWTAblJ4Z6TZlQeAusD2GgtoxRBJjk3wvIxNlyAsesDLxlB3b1VaH_i6LAHeoSF_arxSUwKOvpiOHxyormUudp52jhHbbq5Gk5ATEO53bRd2o7bHQVdq670Lfum2XcOHtYhGKGbB8dwrfU8UqvfzzI7L1TvskcmiJ2f5dxmcOFwuJoIcJvp-SFPKxh7Kd9nbhSvjUqffTKIV61ZdhP2eUU0j0AuZEFbXjd4uiZvINKPy2wdCBxcAZJd6D96vq8rmdfwbauB2HEOcLHVcddS6TFdJzvXNcYEZY7siH2ynQsJUxLsvsNAGTrhHtjWnnuMvVLKQberN-de4t2V3Qq_ikKE44CU6MYqXY0EFPZYH4Yt8uF76AC-IsJQzZRHifjoVA8afa-CWbqqBfnjT-lqbr9r-EtIPAQSY1LSVW0RF9BDC0dO13naOQH9pBCUV90eHo' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: 1538485363' \
+  -d '{
+  "shopID": "TEST",
+  "dueDate": "2018-10-02T13:52:43.623Z",
+  "amount": 1000,
+  "currency": "RUB",
+  "product": "Recurring Child #1",
+  "description": "Delicious meals",
+"metadata": 
+  { 
+    "order_id": "Internal order num 13123298761"
+  }
+}'
+```
+
+- пример ответа платформы:
+
+```json
+{
+    "invoice": {
+        "amount": 1000,
+        "createdAt": "2018-10-02T13:02:58.058595Z",
+        "currency": "RUB",
+        "description": "Delicious meals",
+        "dueDate": "2018-10-02T14:02:59.155000Z",
+        "id": "141oxZOgbmy",
+        "metadata": {
+            "order_id": "Internal order num 13123298761"
+        },
+        "product": "Recurring Child #1",
+        "shopID": "TEST",
+        "status": "unpaid"
+    },
+    "invoiceAccessToken": {
+        "payload": "eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJjb25zIjoiY2xpZW50IiwiZXhwIjoxNTM4NzQ0NTc4LCJqdGkiOiIxNDFveFp6SW5KMiIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLjE0MW94Wk9nYm15LnBheW1lbnRzOnJlYWQiLCJpbnZvaWNlcy4xNDFveFpPZ2JteS5wYXltZW50czp3cml0ZSIsImludm9pY2VzLjE0MW94Wk9nYm15OnJlYWQiLCJwYXltZW50X3Jlc291cmNlczp3cml0ZSJdfX0sInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiJ9.BoxHhjWxMomlYvtX92KBReJM9APfXGZYfg4AkP86KbrGHJBlWOh8uVF5dSFiYOqqsu9EiCppfhA9XzwT0TO6_g"
+    }
+}
+```
+
+- оплатим этот инвойс с помощью рекуррентного платежа, передав идентификаторы предыдущего родительского платежа;
+- также пометим этот платеж как родительский для следующих рекуррентных платежей:
+
+```bash
+curl -X POST \
+  https://api.rbk.money/v2/processing/invoices/141oxZOgbmy/payments \
+  -H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJjb25zIjoiY2xpZW50IiwiZXhwIjoxNTM4NzQ0NTc4LCJqdGkiOiIxNDFveFp6SW5KMiIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbImludm9pY2VzLjE0MW94Wk9nYm15LnBheW1lbnRzOnJlYWQiLCJpbnZvaWNlcy4xNDFveFpPZ2JteS5wYXltZW50czp3cml0ZSIsImludm9pY2VzLjE0MW94Wk9nYm15OnJlYWQiLCJwYXltZW50X3Jlc291cmNlczp3cml0ZSJdfX0sInN1YiI6ImY0MjcyM2QwLTIwMjItNGI2Ni05ZjkyLTQ1NDk3NjlmMWE5MiJ9.BoxHhjWxMomlYvtX92KBReJM9APfXGZYfg4AkP86KbrGHJBlWOh8uVF5dSFiYOqqsu9EiCppfhA9XzwT0TO6_g' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: 1538485479' \
+  -d '{
+  "flow": {
+    "type": "PaymentFlowHold",
+    "onHoldExpiration": "cancel"
+  },
+  "payer": {
+      "payerType": "RecurrentPayer",
+    "recurrentParentPayment": {
+      "invoiceID": "141oE76atY8",
+      "paymentID": "1"
+    },
+    "contactInfo":
+      {
+        "email":"test@test.com",
+        "phoneNumber":"9876543210"
+      }
+  },
+  "makeRecurrent": true
+}'
+```
+
+- платеж успешно создан:
+
+```json
+{
+    "amount": 1000,
+    "createdAt": "2018-10-02T13:04:33.717364Z",
+    "currency": "RUB",
+    "flow": {
+        "heldUntil": "2018-10-03T13:04:33Z",
+        "onHoldExpiration": "cancel",
+        "type": "PaymentFlowHold"
+    },
+    "id": "1",
+    "invoiceID": "141oxZOgbmy",
+    "makeRecurrent": true,
+    "payer": {
+        "contactInfo": {
+            "email": "test@test.com",
+            "phoneNumber": "9876543210"
+        },
+        "payerType": "RecurrentPayer",
+        "recurrentParentPayment": {
+            "invoiceID": "141oE76atY8",
+            "paymentID": "1"
+        }
+    },
+    "status": "pending"
+}
+```
+
+- убедимся, что платеж прошел успешно:
+
+```json
+{
+    "amount": 1000,
+    "createdAt": "2018-10-02T13:04:33.717364Z",
+    "currency": "RUB",
+    "flow": {
+        "heldUntil": "2018-10-03T13:04:33Z",
+        "onHoldExpiration": "cancel",
+        "type": "PaymentFlowHold"
+    },
+    "id": "1",
+    "invoiceID": "141oxZOgbmy",
+    "makeRecurrent": true,
+    "payer": {
+        "contactInfo": {
+            "email": "test@test.com",
+            "phoneNumber": "9876543210"
+        },
+        "payerType": "RecurrentPayer",
+        "recurrentParentPayment": {
+            "invoiceID": "141oE76atY8",
+            "paymentID": "1"
+        }
+    },
+    "status": "captured"
+}
+```
+
+- теперь мы можем использовать этот платеж как родительский, используя его идентификаторы `141oxZOgbmy` и `1` для оплаты последующих инвойсов.
+
+## Рекуррентные платежи по привязанной карте
 
 Платформа предоставляет возможность провести процесс привязки карты к плательщику, созданному внутри платформы. В виде взаимодействия с плательщиком это может выглядеть следующим образом:
 
 - плательщик заходит в личный кабинет на вашем сайте;
 - отображаем плательщику кнопку "Привязать карту";
 - плательщик нажимает на кнопку, открывается форма ввода карточных данных;
-- плательщик вводит данные карты и нажимает кнопку "Привязать карту" и соглашается с условиями безакцептных списаний;
+- плательщик вводит данные карты и нажимает кнопку "Привязать карту" и соглашается с условиями безакцепнтых списаний;
 - платформа в это время производит попытку списания и мгновенного возврата произвольной суммы (на момент написания этой версии документации - 10₽/1$/1€) с карты плательщика;
-- в случае успешного списания платформа предоставляет возможность списывать средства с привязанной карты уже с вашего бекенда без участия плательщика.
+- в случае успешного списания платформа предоставляет возможность списывать средства с привязанной карты уже с вашего бекэнда без участия плательщика.
 
-!!!note
-	Обратите внимание! Платформа не предоставляет возможность безусловных безакцептных списаний без предварительного явного процесса привязки карты! Безусловные рекуррентные платежи после первой успешной транзакции не предоставляются.
+### Привязка карт и плательщики
 
-## Привязка карт и плательщики
+На момент написания текущей версии статьи в один момент времени существует только одна активная привязка карты. Количество привязываемых к плательщику карт – не ограничено. Активной становится последняя привязанная карта.
 
-На момент написания текущей версии статьи в один момент времени существует только одна активная привязка карты. Количество привязываемых к плательщику карт - неограничено. Активной становится последняя привязанная карта.
-
-### Пример реализации с RBKmoney Checkout
+#### Пример реализации с RBKmoney Checkout
 
 - создаем плательщика в Платформе
 
@@ -154,7 +479,7 @@ curl -X POST \
 }'
 ```
 
-### Реализация с собственной платежной формой
+#### Реализация с собственной платежной формой
 
 - получаем платежные токен и сессию с вашей формы ввода карточных данных
 
@@ -200,7 +525,7 @@ curl -X POST \
 ```
 
 !!!note
-	Обратите внимание! Привязка карт *всегда* требует прохождения процесса [3D-Secure](3dsecure.md)
+  Обратите внимание! Привязка карт *всегда* требует прохождения процесса [3D-Secure](3dsecure.md)
 
 - передаем полученные `paymentToolToken` и `paymentSession` в метод [createBinding](https://developer.rbk.money/api/#operation/createBinding)
 
@@ -230,6 +555,6 @@ curl -X GET \
   -H 'X-Request-ID: 1527071300'
 ```
 
-  - обрабатываем события плательщика точно таким же образом, как и платежа
+- обрабатываем события плательщика точно таким же образом, как и платежа
 
-  - после перехода плательщика в состояние `ready` создаем инвойсы и производим списания с плательщика как указано вы инструкции выше
+- после перехода плательщика в состояние `ready` создаем инвойсы и производим списания с плательщика как указано вы инструкции выше.
