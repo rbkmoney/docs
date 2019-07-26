@@ -9,3 +9,5 @@ Disallow: /docs/payments/cms-modules/ubercart/
 Disallow: /docs/payments/cms-modules/drupal-commerce/
 Disallow: /docs/payments/cms-modules/magento
 Disallow: /docs/payments/cms-modules/virtuemart/
+Disallow: /docs/payments/applepay/
+Disallow: /docs/payments/googlepay/
