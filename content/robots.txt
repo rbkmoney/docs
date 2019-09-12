@@ -1,3 +1,21 @@
+User-agent: Yandex
+
+Disallow: /docs/payments/cms-modules/bitrix/
+Disallow: /docs/payments/cms-modules/webasyst/
+Disallow: /docs/payments/cms-modules/woocommerce/
+Disallow: /docs/payments/cms-modules/wp-e-commerce/
+Disallow: /docs/payments/cms-modules/opencart/
+Disallow: /docs/payments/cms-modules/netcat/
+Disallow: /docs/payments/cms-modules/prestashop/
+Disallow: /docs/payments/cms-modules/ubercart/
+Disallow: /docs/payments/cms-modules/drupal-commerce/
+Disallow: /docs/payments/cms-modules/magento
+Disallow: /docs/payments/cms-modules/virtuemart/
+Disallow: /docs/payments/applepay/
+Disallow: /docs/payments/googlepay/
+
+User-agent: Googlebot
+
 Disallow: /docs/payments/cms-modules/bitrix/
 Disallow: /docs/payments/cms-modules/webasyst/
 Disallow: /docs/payments/cms-modules/woocommerce/
