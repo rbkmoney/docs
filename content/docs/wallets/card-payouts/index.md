@@ -181,11 +181,11 @@ curl -X POST \
 
 ```bash
 curl -X GET \
-  https://api.rbk.money/wallet/v0/destinations/1 \
+  https://api.rbk.money/wallet/v0/destinations/{DESTINATION_ID} \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: 1533563815' \
-  -H 'X-Request-ID: 1533563815'
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -H 'X-Request-ID: {REQUEST_ID}'
 ```
 
 - пример ответа платформы:
