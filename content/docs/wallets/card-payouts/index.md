@@ -28,7 +28,7 @@
 
 ### Создание личности
 
-- единоразово создаем себе личность. Пример запроса:
+- единоразово создаем себе личность. Для тестовой среды используйте `"provider": "test"` и `"class": "person"`. Пример запроса:
 
 ```bash
 curl -X POST \
@@ -50,7 +50,7 @@ curl -X POST \
 {
   "class": "person",
   "createdAt": "2018-08-06T13:46:42.234281Z",
-  "id": "1",
+  "id": "{IDENTITY_ID}",
   "isBlocked": false,
   "level": "anonymous",
   "name": "Megacorp inc.",
@@ -58,7 +58,7 @@ curl -X POST \
 }
 ```
 
-- опционально для боевого доступа предоставляем идентификатор личности (как правило он будет равен `1`) и проходим процесс идентификации.
+- для боевого доступа полученный идентификатор личности нужно будет сообщить в техподдержку для активации боевого режима.
 
 ### Создание кошелька
 
@@ -73,7 +73,7 @@ curl -X POST \
   -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
   "name": "Megacorp payouts wallet",
-  "identity": "1",
+  "identity": "{IDENTITY_ID}",
   "currency": "RUB"
 }'
 ```
@@ -84,8 +84,8 @@ curl -X POST \
 {
   "createdAt": "2018-08-06T13:48:09.076234Z",
   "currency": "RUB",
-  "id": "1",
-  "identity": "1",
+  "id": "{WALLET_ID}",
+  "identity": "{IDENTITY_ID}",
   "isBlocked": false,
   "name": "Megacorp payouts wallet"
 }
@@ -108,8 +108,7 @@ curl -X POST \
   "type": "BankCard",
   "cardNumber": "4242424242424242",
   "expDate": "12/21",
-  "cardHolder": "KEYN FAWKES",
-  "cvv": "321"
+  "cardHolder": "KEYN FAWKES"
 }'
 ```
 
@@ -139,14 +138,14 @@ curl -X POST \
   -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
 	"name": "Customer #1234567890",
-	"identity": "3",
+	"identity": "{IDENTITY_ID}",
     "currency": "RUB",
 	"resource": {
     	"type": "BankCardDestinationResource",
     	"token": "eyJiaW4iOiI0MTUwMzkiLCJsYXN0RGlnaXRzIjoiMDkwMCIsInBheW1lbnRTeXN0ZW0iOiJ2aXNhIiwidG9rZW4iOiI1TXlURjVha0VRWmVEMVZLS2JpNVluIn0"
 	},
 	"metadata": {
-    	"display_name": "Card #4242"
+       "display_name": "Drivers Card #4242"
 	}
 }'
 ```
@@ -157,8 +156,8 @@ curl -X POST \
 {
   "createdAt": "2018-08-06T13:55:28.824975Z",
   "currency": "RUB",
-  "id": "22",
-  "identity": "3",
+  "id": "{DESTINATION_ID}",
+  "identity": "{IDENTITY_ID}",
   "isBlocked": false,
   "metadata": {
     "display_name": "Card #4242"
@@ -194,8 +193,8 @@ curl -X GET \
 {
   "createdAt": "2018-08-06T13:55:28.824975Z",
   "currency": "RUB",
-  "id": "22",
-  "identity": "3",
+  "id": "{DESTINATION_ID}",
+  "identity": "{IDENTITY_ID}",
   "isBlocked": false,
   "metadata": {
     "display_name": "Card #4242"
@@ -226,8 +225,8 @@ curl -X POST \
   -H 'Content-Type: application/json; charset=utf-8' \
   -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
-	"wallet": "18",
-	"destination": "22",
+	"wallet": "{WALLET_ID}",
+	"destination": "{DESTINATION_ID}",
 	"body": {
     	"amount": 10000,
     	"currency": "RUB"
@@ -244,10 +243,10 @@ curl -X POST \
     "currency": "RUB"
   },
   "createdAt": "2018-08-06T14:03:16.137075Z",
-  "destination": "22",
-  "id": "11",
+  "destination": "{DESTINATION_ID}",
+  "id": "{WITHDRAWAL_ID}",
   "status": "Pending",
-  "wallet": "18"
+  "wallet": "{WALLET_ID}"
 }
 ```
 
@@ -255,7 +254,7 @@ curl -X POST \
 
 ```bash
 curl -X GET \
-  https://api.rbk.money/wallet/v0/withdrawals/12 \
+  https://api.rbk.money/wallet/v0/withdrawals/{WITHDRAWAL_ID} \
   -H 'Authorization: Bearer {YOUR_API_KEY}'
 ```
 
