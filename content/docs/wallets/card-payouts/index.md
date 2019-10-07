@@ -36,7 +36,7 @@ curl -X POST \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533563176' \
+  -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
   "name": "Megacorp inc.",
   "provider": "test",
@@ -70,7 +70,7 @@ curl -X POST \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533563283' \
+  -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
   "name": "Megacorp payouts wallet",
   "identity": "1",
@@ -103,7 +103,7 @@ curl -X POST \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533563501' \
+  -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
   "type": "BankCard",
   "cardNumber": "4242424242424242",
@@ -136,7 +136,7 @@ curl -X POST \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533563723' \
+  -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
 	"name": "Customer #1234567890",
 	"identity": "3",
@@ -224,7 +224,7 @@ curl -X POST \
   -H 'Authorization: Bearer {YOUR_API_KEY}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-Request-ID: 1533564191' \
+  -H 'X-Request-ID: {REQUEST_ID}' \
   -d '{
 	"wallet": "18",
 	"destination": "22",
