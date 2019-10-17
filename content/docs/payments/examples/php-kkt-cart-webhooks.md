@@ -182,18 +182,6 @@ function prepare_headers($apiKey)
             data-description="Изысканная кухня"
             data-pay-button-label="Оплатить">
     </script>
-    <script>
-        (function checkIntegrationLoaded(self) {
-            setTimeout(function() {
-                var rbkmoneyButtons = document.getElementsByClassName('rbkmoney-button');
-                if (rbkmoneyButtons) {
-                    rbkmoneyButtons[0].nextElementSibling.remove();
-                } else {
-                    check(self);
-                }
-            }, 300);
-        })(this);
-    </script>
 </form>
 
 ### 3. Проверка успеха платежа с помощью вебхука
