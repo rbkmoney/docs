@@ -131,7 +131,7 @@ HTML API
 | Apple Pay            | applePay                       | data-apple-pay            | true / false       | true                   |
 | Google Pay           | googlePay                      | data-google-pay           | true / false       | true                   |
 | Samsung Pay          | samsungPay                     | data-samsung-pay          | true / false       | true                   |
-| Мобильная коммерция  | mobileCommerce                 | data-mobile-commerce      | true / false       | true                   |
+| Счет телефона        | phoneAccount                   | data-phone-account        | true / false       | true                   |
 
 Управление методом оплаты, который будет предложен плательщику в первую очередь:
 
@@ -152,7 +152,7 @@ HTML API
 
 - `samsungPay` - Samsung Pay.
 
-- `mobileCommerce` - Mobile Commerce.
+- `phoneAccount` - Phone Account.
 
 ### Темы
 
