@@ -70,7 +70,7 @@ nav:
         - 'Справочники':
             - 'Тестовые карты': 'en/docs/payments/refs/testcards.md'
     - RU:
-        - 'Документация': 'index.md'
+        - 'Документация': 'ru/index.md'
         - 'Интеграция':
             - Payments:
                 - 'Обзор': 'ru/docs/payments/overview.md'
