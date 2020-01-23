@@ -1,0 +1,53 @@
+@startuml
+
+!include "plantuml-toolset/super-serious-skin.iwsd"
+
+title Custom form successful payment flow\nusing webhooks
+
+participant "Payer UA" as UA
+participant "tokenizer.js" as TKN
+participant "Merchant Backend" as MBE
+participant "Platform Backend" as PBE
+
+
+UA -> MBE: Инициировать покупку
+
+MBE -> MBE:  Зарезервировать товар \n Сгенерировать invoiceContext
+
+MBE -> PBE: createInvoice(invoiceContext, API Key)
+PBE -> MBE: 201(invoiceContext,\ninvoiceAccessToken)
+
+MBE -> UA: Ok(Render Payment Form)
+
+UA -> TKN: "ClickPayButton(CardData)"
+
+TKN -> PBE: createPaymentToolToken(payload,\ninvoiceAccessToken)
+PBE -> TKN: 201(paymentToolToken,\npaymentToolSession)
+
+TKN -> UA: Pass(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+
+UA -> MBE: HTTPPost(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+
+MBE -> PBE: createPayment(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+PBE -> MBE: 201(paymentContext)
+MBE -> UA: Ok(invoiceAccessToken,\npaymentToolToken,\npaymentToolSession)
+
+UA -> MBE: StartPolling(invoiceID,\ninvoiceAccessToken)
+MBE -> PBE: getPaymentByID(invoiceID,\ninvoiceAccessToken)
+
+alt Handle Webhook Event
+PBE -> MBE: HTTP POST(InvoiceStatus)
+MBE -> PBE: Ok (200)
+end
+
+UA -> MBE: Poll(invoiceID,\ninvoiceAccessToken)
+MBE -> PBE: getInvoiceByID(invoiceID,\ninvoiceAccessToken)
+PBE -> MBE: 200(invoiceContext)
+
+MBE -> UA: Ok(Paid)
+
+UA -> MBE: Redirect(SuccessPage)
+MBE -> UA: SuccessPage
+
+
+@enduml

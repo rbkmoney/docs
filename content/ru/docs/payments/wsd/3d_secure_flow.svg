@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1144px" style="width:1993px;height:1144px;" version="1.1" viewBox="0 0 1993 1144" width="1993px">
+  <defs/>
+  <g>
+<style type="text/css">
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v15/W4wDsBUluyw0tK3tykhXEfesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v15/t6Nd4cfPRhZP44Q5QAjcC50EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
+}
+</style>
+    <text fill="#606060" font-family="Roboto" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="959.25" y="22.5742">3D-Secure flow</text>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="65" x2="65" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="173" x2="173" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="473.5" x2="473.5" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="769" x2="769" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="1161" x2="1161" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="1749.5" x2="1749.5" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="1851.5" x2="1851.5" y1="66.29" y2="1112.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="1951.5" x2="1951.5" y1="66.29" y2="1112.0757"/>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="114" x="8" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="15" y="54.4961">Customer Payer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="114" x="8" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="15" y="1132.7456">Customer Payer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="82" x="132" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="139" y="54.4961">User Agent</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="82" x="132" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="139" y="1132.7456">User Agent</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="131" x="408.5" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="415.5" y="54.4961">Merchant Backend</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="131" x="408.5" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="415.5" y="1132.7456">Merchant Backend</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="108" x="715" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="722" y="54.4961">RBKmoney API</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="108" x="715" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="722" y="1132.7456">RBKmoney API</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="188" x="1067" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="174" x="1074" y="54.4961">Merchant Custom Checkout</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="188" x="1067" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="174" x="1074" y="1132.7456">Merchant Custom Checkout</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="85" x="1707.5" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="1714.5" y="54.4961">Card Issuer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="85" x="1707.5" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="1714.5" y="1132.7456">Card Issuer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="99" x="1802.5" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="1809.5" y="54.4961">Card Acquirer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="99" x="1802.5" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="1809.5" y="1132.7456">Card Acquirer</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="81" x="1911.5" y="32.8262"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="1918.5" y="54.4961">MPI Server</text>
+    <rect fill="#FEFEFE" height="32.4639" style="stroke: #303030; stroke-width: 1.5;" width="81" x="1911.5" y="1111.0757"/>
+    <text fill="#000000" font-family="Roboto" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="1918.5" y="1132.7456">MPI Server</text>
+    <polygon fill="#303030" points="757,95.29,767,99.29,757,103.29,761,99.29" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="474" x2="763" y1="99.29" y2="99.29"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="481" y="93.9121">createInvoice()</text>
+    <polygon fill="#303030" points="485,126.4351,475,130.4351,485,134.4351,481,130.4351" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="479" x2="768" y1="130.4351" y2="130.4351"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="271" x="491" y="125.0571">invoiceCreated(invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="184,157.5801,174,161.5801,184,165.5801,180,161.5801" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="178" x2="473" y1="161.5801" y2="161.5801"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="277" x="190" y="156.2021">renderCheckout(invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="1149,188.7251,1159,192.7251,1149,196.7251,1153,192.7251" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="65" x2="1155" y1="192.7251" y2="192.7251"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="146" x="72" y="187.3472">httpPost(cardHolderData)</text>
+    <polygon fill="#303030" points="780,219.8701,770,223.8701,780,227.8701,776,223.8701" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1160" y1="223.8701" y2="223.8701"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="368" x="786" y="218.4922">createPayment(cardHolderData, invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="1149,251.0151,1159,255.0151,1149,259.0151,1153,255.0151" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1155" y1="255.0151" y2="255.0151"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="161" x="776" y="249.6372">paymentStarted(paymentID)</text>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="1161" x2="1203" y1="286.3052" y2="286.3052"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="1203" x2="1203" y1="286.3052" y2="299.3052"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="1162" x2="1203" y1="299.3052" y2="299.3052"/>
+    <polygon fill="#303030" points="1172,295.3052,1162,299.3052,1172,303.3052,1168,299.3052" style="stroke: #303030; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="247" x="1168" y="280.7822">startPolling(invoice data, interval=1 second)</text>
+    <polygon fill="#303030" points="780,326.3052,770,330.3052,780,334.3052,776,330.3052" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1160" y1="330.3052" y2="330.3052"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="284" x="786" y="324.9272">getInvoiceEvents(invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="1940,357.4502,1950,361.4502,1940,365.4502,1944,361.4502" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1946" y1="361.4502" y2="361.4502"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="202" x="776" y="356.0723">check3DSEnrolled(cardHolderData)</text>
+    <polygon fill="#303030" points="780,388.5952,770,392.5952,780,396.5952,776,392.5952" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1951" y1="392.5952" y2="392.5952"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="786" y="387.2173">vERes(enrolled, acsURL)</text>
+    <polygon fill="#303030" points="1940,419.7402,1950,423.7402,1940,427.7402,1944,423.7402" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1946" y1="423.7402" y2="423.7402"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="94" x="776" y="418.3623">getPAReqForm()</text>
+    <polygon fill="#303030" points="780,450.8853,770,454.8853,780,458.8853,776,454.8853" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1951" y1="454.8853" y2="454.8853"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="159" x="786" y="449.5073">paReq(MD, PaReq, TermUrl)</text>
+    <polygon fill="#303030" points="780,482.0303,770,486.0303,780,490.0303,776,486.0303" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1160" y1="486.0303" y2="486.0303"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="284" x="786" y="480.6523">getInvoiceEvents(invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="1149,530.1753,1159,534.1753,1149,538.1753,1153,534.1753" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1155" y1="534.1753" y2="534.1753"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="332" x="776" y="511.7974">eventPaymentInteractionRequested(requestType, TermUrl,</text>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="142" x="779" y="528.9424">PaReq, MD, uriTemplate)</text>
+    <polygon fill="#303030" points="1738,578.4653,1748,582.4653,1738,586.4653,1742,582.4653" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="1161" x2="1744" y1="582.4653" y2="582.4653"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="264" x="1168" y="560.0874">httpRedirect(uriTemplate, TermUrl, PaReq, MD,</text>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="565" x="1168" y="577.2324">uriTemplate=https://wrapper.rbk.money/.../term_url?termination_uri={YOUR_PAYMENT_FORM_URI})</text>
+    <polygon fill="#303030" points="184,609.7554,174,613.7554,184,617.7554,180,613.7554" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="178" x2="1749" y1="613.7554" y2="613.7554"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="123" x="190" y="608.3774">Card Issuer 3DS page</text>
+    <polygon fill="#303030" points="76,640.9004,66,644.9004,76,648.9004,72,644.9004" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="70" x2="1749" y1="644.9004" y2="644.9004"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="149" x="82" y="639.5225">Send 2nd factor auth code</text>
+    <polygon fill="#303030" points="1738,672.0454,1748,676.0454,1738,680.0454,1742,676.0454" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="173" x2="1744" y1="676.0454" y2="676.0454"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="167" x="180" y="670.6675">httpRequest(2nd factor code)</text>
+    <polygon fill="#303030" points="184,703.1904,174,707.1904,184,711.1904,180,707.1904" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="178" x2="1749" y1="707.1904" y2="707.1904"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="360" x="190" y="701.8125">httpRedirect(uriTemplate=https://wrapper.rbk.money/..., PaRes)</text>
+    <polygon fill="#303030" points="757,734.3354,767,738.3354,757,742.3354,761,738.3354" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="173" x2="763" y1="738.3354" y2="738.3354"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="121" x="180" y="732.9575">httpPostData(PaRes)</text>
+    <polygon fill="#303030" points="1940,765.4805,1950,769.4805,1940,773.4805,1944,769.4805" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1946" y1="769.4805" y2="769.4805"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="118" x="776" y="764.1025">checkPaRes(PaRes)</text>
+    <polygon fill="#303030" points="780,796.6255,770,800.6255,780,804.6255,776,800.6255" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1951" y1="800.6255" y2="800.6255"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="191" x="786" y="795.2476">paResVerified(3dsTransactionID)</text>
+    <polygon fill="#303030" points="184,827.7705,174,831.7705,184,835.7705,180,831.7705" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="178" x2="768" y1="831.7705" y2="831.7705"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="342" x="190" y="826.3926">httpRedirect(termination_uri={YOUR_PAYMENT_FORM_URI})</text>
+    <polygon fill="#303030" points="1149,858.9155,1159,862.9155,1149,866.9155,1153,862.9155" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="173" x2="1155" y1="862.9155" y2="862.9155"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="251" x="180" y="857.5376">httpRedirect({YOUR_PAYMENT_FORM_URI})</text>
+    <polygon fill="#303030" points="1840,890.0605,1850,894.0605,1840,898.0605,1844,894.0605" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1846" y1="894.0605" y2="894.0605"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="302" x="776" y="888.6826">processPayment(cardHolderData, 3dsTransactionID)</text>
+    <polygon fill="#303030" points="780,921.2056,770,925.2056,780,929.2056,776,925.2056" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1851" y1="925.2056" y2="925.2056"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="195" x="786" y="919.8276">paymentProcessed(paymentData)</text>
+    <polygon fill="#303030" points="780,952.3506,770,956.3506,780,960.3506,776,956.3506" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="774" x2="1160" y1="956.3506" y2="956.3506"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="284" x="786" y="950.9727">getInvoiceEvents(invoiceID, invoiceAccessToken)</text>
+    <polygon fill="#303030" points="1149,983.4956,1159,987.4956,1149,991.4956,1153,987.4956" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="769" x2="1155" y1="987.4956" y2="987.4956"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="776" y="982.1177">paymentProcessed()</text>
+    <polygon fill="#303030" points="184,1014.6406,174,1018.6406,184,1022.6406,180,1018.6406" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="178" x2="1160" y1="1018.6406" y2="1018.6406"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="187" x="190" y="1013.2627">successPageRedirect(invoiceID)</text>
+    <polygon fill="#303030" points="757,1045.7856,767,1049.7856,757,1053.7856,761,1049.7856" style="stroke: #303030; stroke-width: 1.0;"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="474" x2="763" y1="1049.7856" y2="1049.7856"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="481" y="1044.4077">getInvoiceByID(invoiceID)</text>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="474" x2="516" y1="1081.0757" y2="1081.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="516" x2="516" y1="1081.0757" y2="1094.0757"/>
+    <line style="stroke: #303030; stroke-width: 1.0;" x1="475" x2="516" y1="1094.0757" y2="1094.0757"/>
+    <polygon fill="#303030" points="485,1090.0757,475,1094.0757,485,1098.0757,481,1094.0757" style="stroke: #303030; stroke-width: 1.0;"/>
+    <text fill="#000000" font-family="Roboto" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="481" y="1075.5527">paymentProcessed()</text>
+  </g>
+</svg>

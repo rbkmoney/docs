@@ -1,0 +1,48 @@
+@startuml
+
+!include "plantuml-toolset/super-serious-skin.iwsd"
+
+skinparam GenericArrowFontSize 11
+
+User1 : id1: "281220eb-a4ef-4d03-b666-bdec4b26c5f7"\nemail: "example1@example.com"
+UserN : ...
+
+Person --> User1 : owns
+Person --> UserN : owns
+
+Identity1 : "id": "1"\n"name": "Ivanov Ivan"
+IdentityN : ...
+
+User1 --> Identity1 : owns
+UserN --> IdentityN : owns
+
+PrivDoc1: "type": "RUSDomesticPassportData"\n"number": "123476"\n"familyName": "Иванов"\n"type": "RUSRetireeInsuranceCertificateData"\n"number": "123-456-789 76"
+
+Identity1 --> PrivDoc1: owns
+
+Destination1: "id": "1"\n"name": "User-friendly name"
+
+Identity1 --> Destination1: owns
+
+DestinationGrant1: "token": "eyJt...MTowNDowOVoifQ"
+
+Payres1: "token": "eyJt...MTowNDowOVoifQ"\n"bin": "415039"
+
+Destination1 --> Payres1: owns
+
+Destination1 --> DestinationGrant1: issue
+
+Wallet1: "id": "1"\n"name": "User-friendly name"
+
+Identity1 --> Wallet1: owns
+
+Wallet1 --> Account1: owns
+
+Account1: "amount": 0\n"currency": "RUB"
+
+WalletGrant1: "token": "eyJt...MTowNDowOVoifQ"\n"amount": 10000
+
+User1 --> WalletGrant1: issue
+WalletGrant1 --> Wallet1: manages
+
+@enduml
