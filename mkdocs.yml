@@ -48,6 +48,7 @@ nav:
             - 'Apple Pay': 'docs/payments/applepay/index.md'
             - 'Примеры':
                 - 'PHP and Checkout': 'docs/payments/examples/php-kkt-cart-webhooks.md'
+                - 'Node.js верификация webhook': 'docs/payments/examples/nodejs-webhook-verification.md'
             - 'Модули CMS':
                 - 'Bitrix': 'docs/payments/cms-modules/bitrix/index.md'
                 - 'InSales': 'docs/payments/cms-modules/insales/index.md'
