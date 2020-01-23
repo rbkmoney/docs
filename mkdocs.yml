@@ -17,14 +17,14 @@ extra:
             target: _blank
 extra_css:
     - 'assets/stylesheets/override.css'
-    - '/docs/lightbox/css/lightbox.min.css'
-    - '/docs/payments/livedemo/livedemo.css'
+    - 'en/docs/lightbox/css/lightbox.min.css'
+    - 'en/docs/payments/livedemo/livedemo.css'
 extra_javascript:
     - 'https://code.jquery.com/jquery-3.3.1.min.js'
     - 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'
     - 'https://checkout.rbk.money/checkout.js'
-    - '/docs/payments/livedemo/livedemo.js'
-    - '/docs/lightbox/js/lightbox.min.js'
+    - 'en/docs/payments/livedemo/livedemo.js'
+    - 'en/docs/lightbox/js/lightbox.min.js'
 strict: true
 markdown_extensions:
     - smarty
@@ -35,36 +35,71 @@ markdown_extensions:
     - toc:
         permalink: true
 nav:
-    - 'Документация': 'index.md'
-    - 'Интеграция':
-        - Payments:
-            - 'Обзор': 'docs/payments/overview.md'
-            - 'Checkout': 'docs/payments/checkout.md'
-            - 'Tokenizer': 'docs/payments/tokenizer.md'
-            - '3D-Secure': 'docs/payments/3dsecure.md'
-            - 'Recurring': 'docs/payments/recurring.md'
-            - 'Postman': 'docs/payments/postman.md'
-            - 'Google Pay': 'docs/payments/googlepay/index.md'
-            - 'Apple Pay': 'docs/payments/applepay/index.md'
-            - 'Примеры':
-                - 'PHP and Checkout': 'docs/payments/examples/php-kkt-cart-webhooks.md'
-                - 'Node.js верификация webhook': 'docs/payments/examples/nodejs-webhook-verification.md'
-            - 'Модули CMS':
-                - 'Bitrix': 'docs/payments/cms-modules/bitrix/index.md'
-                - 'InSales': 'docs/payments/cms-modules/insales/index.md'
-                - 'Webasyst/ShopScript': 'docs/payments/cms-modules/webasyst/index.md'
-                - 'Wordpress/Woocommerce': 'docs/payments/cms-modules/woocommerce/index.md'
-                - 'Wordpress/E-commerce': 'docs/payments/cms-modules/wp-e-commerce/index.md'
-                - 'Opencart': 'docs/payments/cms-modules/opencart/index.md'
-                - 'Netcat': 'docs/payments/cms-modules/netcat/index.md'
-                - 'Prestashop': 'docs/payments/cms-modules/prestashop/index.md'
-                - 'Drupal/Ubercart': 'docs/payments/cms-modules/ubercart/index.md'
-                - 'Drupal/Commerce': 'docs/payments/cms-modules/drupal-commerce/index.md'
-                - 'Magento': 'docs/payments/cms-modules/magento/index.md'
-                - 'Joomla/Virtuemart': 'docs/payments/cms-modules/virtuemart/index.md'
-        - Wallets:
-                - 'Обзор': 'docs/wallets/overview.md'
-                - 'Работа с кошельками': 'docs/wallets/usage/index.md'
-                - 'Выплаты на карты': 'docs/wallets/card-payouts/index.md'
-    - 'Справочники':
-        - 'Тестовые карты': 'docs/payments/refs/testcards.md'
+    - EN:
+        - 'Документация': 'en/index.md'
+        - 'Интеграция':
+            - Payments:
+                - 'Обзор': 'en/docs/payments/overview.md'
+                - 'Checkout': 'en/docs/payments/checkout.md'
+                - 'Tokenizer': 'en/docs/payments/tokenizer.md'
+                - '3D-Secure': 'en/docs/payments/3dsecure.md'
+                - 'Recurring': 'en/docs/payments/recurring.md'
+                - 'Postman': 'en/docs/payments/postman.md'
+                - 'Google Pay': 'en/docs/payments/googlepay/index.md'
+                - 'Apple Pay': 'en/docs/payments/applepay/index.md'
+                - 'Примеры':
+                    - 'PHP and Checkout': 'en/docs/payments/examples/php-kkt-cart-webhooks.md'
+                    - 'Node.js верификация webhook': 'en/docs/payments/examples/nodejs-webhook-verification.md'
+                - 'Модули CMS':
+                    - 'Bitrix': 'en/docs/payments/cms-modules/bitrix/index.md'
+                    - 'InSales': 'en/docs/payments/cms-modules/insales/index.md'
+                    - 'Webasyst/ShopScript': 'en/docs/payments/cms-modules/webasyst/index.md'
+                    - 'Wordpress/Woocommerce': 'en/docs/payments/cms-modules/woocommerce/index.md'
+                    - 'Wordpress/E-commerce': 'en/docs/payments/cms-modules/wp-e-commerce/index.md'
+                    - 'Opencart': 'en/docs/payments/cms-modules/opencart/index.md'
+                    - 'Netcat': 'en/docs/payments/cms-modules/netcat/index.md'
+                    - 'Prestashop': 'en/docs/payments/cms-modules/prestashop/index.md'
+                    - 'Drupal/Ubercart': 'en/docs/payments/cms-modules/ubercart/index.md'
+                    - 'Drupal/Commerce': 'en/docs/payments/cms-modules/drupal-commerce/index.md'
+                    - 'Magento': 'en/docs/payments/cms-modules/magento/index.md'
+                    - 'Joomla/Virtuemart': 'en/docs/payments/cms-modules/virtuemart/index.md'
+            - Wallets:
+                    - 'Обзор': 'en/docs/wallets/overview.md'
+                    - 'Работа с кошельками': 'en/docs/wallets/usage/index.md'
+                    - 'Выплаты на карты': 'en/docs/wallets/card-payouts/index.md'
+        - 'Справочники':
+            - 'Тестовые карты': 'en/docs/payments/refs/testcards.md'
+    - RU:
+        - 'Документация': 'index.md'
+        - 'Интеграция':
+            - Payments:
+                - 'Обзор': 'ru/docs/payments/overview.md'
+                - 'Checkout': 'ru/docs/payments/checkout.md'
+                - 'Tokenizer': 'ru/docs/payments/tokenizer.md'
+                - '3D-Secure': 'ru/docs/payments/3dsecure.md'
+                - 'Recurring': 'ru/docs/payments/recurring.md'
+                - 'Postman': 'ru/docs/payments/postman.md'
+                - 'Google Pay': 'ru/docs/payments/googlepay/index.md'
+                - 'Apple Pay': 'ru/docs/payments/applepay/index.md'
+                - 'Примеры':
+                    - 'PHP and Checkout': 'ru/docs/payments/examples/php-kkt-cart-webhooks.md'
+                    - 'Node.js верификация webhook': 'ru/docs/payments/examples/nodejs-webhook-verification.md'
+                - 'Модули CMS':
+                    - 'Bitrix': 'ru/docs/payments/cms-modules/bitrix/index.md'
+                    - 'InSales': 'ru/docs/payments/cms-modules/insales/index.md'
+                    - 'Webasyst/ShopScript': 'ru/docs/payments/cms-modules/webasyst/index.md'
+                    - 'Wordpress/Woocommerce': 'ru/docs/payments/cms-modules/woocommerce/index.md'
+                    - 'Wordpress/E-commerce': 'ru/docs/payments/cms-modules/wp-e-commerce/index.md'
+                    - 'Opencart': 'ru/docs/payments/cms-modules/opencart/index.md'
+                    - 'Netcat': 'ru/docs/payments/cms-modules/netcat/index.md'
+                    - 'Prestashop': 'ru/docs/payments/cms-modules/prestashop/index.md'
+                    - 'Drupal/Ubercart': 'ru/docs/payments/cms-modules/ubercart/index.md'
+                    - 'Drupal/Commerce': 'ru/docs/payments/cms-modules/drupal-commerce/index.md'
+                    - 'Magento': 'ru/docs/payments/cms-modules/magento/index.md'
+                    - 'Joomla/Virtuemart': 'ru/docs/payments/cms-modules/virtuemart/index.md'
+            - Wallets:
+                    - 'Обзор': 'ru/docs/wallets/overview.md'
+                    - 'Работа с кошельками': 'ru/docs/wallets/usage/index.md'
+                    - 'Выплаты на карты': 'ru/docs/wallets/card-payouts/index.md'
+        - 'Справочники':
+            - 'Тестовые карты': 'ru/docs/payments/refs/testcards.md'
