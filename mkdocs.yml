@@ -25,7 +25,7 @@ extra_javascript:
     - 'https://checkout.rbk.money/checkout.js'
     - '/docs/payments/livedemo/livedemo.js'
     - '/docs/lightbox/js/lightbox.min.js'
-strict: true
+strict: false
 markdown_extensions:
     - smarty
     - admonition
