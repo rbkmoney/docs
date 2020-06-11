@@ -4,6 +4,7 @@ repo_url: https://github.com/rbkmoney/docs
 theme:
     name: material
     custom_dir: theme
+    language: en
 extra:
     links:
         'Payments API':
