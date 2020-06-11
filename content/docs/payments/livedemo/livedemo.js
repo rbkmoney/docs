@@ -21,8 +21,8 @@ function initCheckout(templateID, templateAccessToken) {
     checkout = RbkmoneyCheckout.configure({
         invoiceTemplateID: templateID,
         invoiceTemplateAccessToken: templateAccessToken,
-        name: 'Резиновая уточка',
-        description: 'Очень важная вещь',
+        name: 'RBKmoney Developer Portal',
+        description: 'Developer Portal Demo',
         finished: function () {
             location.reload();
         },
