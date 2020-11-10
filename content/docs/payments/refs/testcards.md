@@ -5,25 +5,42 @@
 
 | Action                 | Payment System | Card PAN                 | Exp. date | CVV/CVC  |
 |:-----------------------|:---------------|:------------------------:|:---------:|:---------:
-| Success				 | Visa			  | 4242424242424242		 | 12/20     | 123      |
-| 	    				 | MasterCard	  | 5555555555554444		 | 12/20     | 123      |
-| 		        		 | Maestro		  | 586824160825533338		 | 12/20     | 123      |
-| 		        		 | MIR    		  | 2201382000000013		 | 12/20     | 123      |
-| 3-D Secure Mock        | Visa           | 4012888888881881         | 12/20     | 123      |
-|                        | MasterCard     | 5169147129584558         | 12/20     | 123      |
-| Insufficient Funds     | Visa           | 4000000000000002         | 12/20     | 123      |
-|                        | MasterCard     | 5100000000000412         | 12/20     | 123      |
-| Invalid Card           | Visa           | 4222222222222220         | 12/20     | 123      |
-|                        | MasterCard     | 5100000000000511         | 12/20     | 123      |
-| CVV Match Fail         | Visa           | 4003830171874018         | 12/20     | 123      |
-|                        | MasterCard     | 5496198584584769         | 12/20     | 123      |
-| Expired Card           | Visa           | 4000000000000069         | 12/20     | 123      |
-|                        | MasterCard     | 5105105105105100         | 12/20     | 123      |
-| Unknown Failure        | Visa           | 4111110000000112         | 12/20     | 123      |
-|                        | MasterCard     | 5124990000000002         | 12/20     | 123      |
-| Apple Pay Success      | Visa           | 4300000000000777         | 12/20     | 123      |
-| Apple Pay Failure      | Visa           | 5000000000000009         | 12/20     | 123      |
-| Google Pay Success     | MasterCard     | 2222990905257051         | 12/20     | 123      |
-| Google Pay Failure     | MasterCard     | 2222405343248877         | 12/20     | 123      |
-| Samsung Pay Success    | MasterCard     | 2223577120017656         | 12/20     | 123      |
-| Samsung Pay Failure    | MasterCard     | 2223007648726984         | 12/20     | 123      |
+| Success				 | Visa			  | 4242424242424242		 | 12/24     | 123      |
+| 	    				 | MasterCard	  | 5555555555554444		 | 12/24     | 123      |
+| 		        		 | Maestro		  | 586824160825533338		 | 12/24     | 123      |
+| 		        		 | MIR    		  | 2201382000000013		 | 12/24     | 123      |
+| 3-D Secure Mock        | Visa           | 4012888888881881         | 12/24     | 123      |
+|                        | MasterCard     | 5169147129584558         | 12/24     | 123      |
+| Insufficient Funds     | Visa           | 4000000000000002         | 12/24     | 123      |
+|                        | MasterCard     | 5100000000000412         | 12/24     | 123      |
+| Invalid Card           | Visa           | 4222222222222220         | 12/24     | 123      |
+|                        | MasterCard     | 5100000000000511         | 12/24     | 123      |
+| CVV Match Fail         | Visa           | 4003830171874018         | 12/24     | 123      |
+|                        | MasterCard     | 5496198584584769         | 12/24     | 123      |
+| Expired Card           | Visa           | 4000000000000069         | 12/24     | 123      |
+|                        | MasterCard     | 5105105105105100         | 12/24     | 123      |
+| Unknown Failure        | Visa           | 4111110000000112         | 12/24     | 123      |
+|                        | MasterCard     | 5124990000000002         | 12/24     | 123      |
+| Apple Pay Success      | Visa           | 4300000000000777         | 12/24     | 123      |
+| Apple Pay Failure      | Visa           | 5000000000000009         | 12/24     | 123      |
+| Google Pay Success     | MasterCard     | 2222990905257051         | 12/24     | 123      |
+| Google Pay Failure     | MasterCard     | 2222405343248877         | 12/24     | 123      |
+| Samsung Pay Success    | MasterCard     | 2223577120017656         | 12/24     | 123      |
+| Samsung Pay Failure    | MasterCard     | 2223007648726984         | 12/24     | 123      |
+
+## Таблица тестовых карт для выплат
+
+| Action                 | Payment System | Card PAN                 | Exp. date | CVV/CVC  |
+|:-----------------------|:---------------|:------------------------:|:---------:|:---------:
+| Success				 | Visa			  | 4242424242424242		 | 12/24     | 123      |
+| 	    				 | MasterCard	  | 5555555555554444		 | 12/24     | 123      |
+| 		        		 | Maestro		  | 586824160825533338		 | 12/24     | 123      |
+| 		        		 | MIR    		  | 2201382000000013		 | 12/24     | 123      |
+| Insufficient Funds     | Visa           | 4000000000000002         | 12/24     | 123      |
+|                        | MasterCard     | 5100000000000412         | 12/24     | 123      |
+| Invalid Card           | Visa           | 4222222222222220         | 12/24     | 123      |
+|                        | MasterCard     | 5100000000000511         | 12/24     | 123      |
+| Expired Card           | Visa           | 4000000000000069         | 12/24     | 123      |
+|                        | MasterCard     | 5105105105105100         | 12/24     | 123      |
+| Unknown Failure        | Visa           | 4111110000000112         | 12/24     | 123      |
+|                        | MasterCard     | 5124990000000002         | 12/24     | 123      |
