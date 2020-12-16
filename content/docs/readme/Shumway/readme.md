@@ -20,7 +20,7 @@
 
 ## Связанные сервисы
 
-- Hellgate
-- Payouter
+- `Hellgate`
+- `Payouter`
 
 ## Составители

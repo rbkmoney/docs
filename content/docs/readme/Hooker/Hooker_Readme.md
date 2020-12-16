@@ -57,6 +57,7 @@ Content-Signature: alg=RS256; digest=zFuf7bRH4RHwyktaqHQwmX5rn3LfSb4dKo...
 Подробное описание webhook'ов для типов событий плательщика описано на примере [кейса создания рекуррента](https://github.com/volkov-sergei/coredocs/tree/master/docs/Readme/Hooker/Кейс создания рекуррента.md).
 
 ## Cвязанные сервисы
-Для корректной работы сервиса, ему необходимо поддерживать связь с базой данных Kafka и сервисом Hellgate.   
+* `Hellgate`
+* `Kafka cluster`   
 
 ## Составители

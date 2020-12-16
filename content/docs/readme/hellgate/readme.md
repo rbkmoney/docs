@@ -63,14 +63,14 @@
 - создание связки плательщик - платежный инструмент.  
 
 ## Связанные сервисы
-* Machinegun
-* Dominant
-* Shumway
-* Fault-detector
-* Fraudbusters
-* CAPI
-* Hooker
-* Magista-kafka
+* `Machinegun`
+* `Dominant`
+* `Shumway`
+* `Fault-detector`
+* `Fraudbusters`
+* `CAPI`
+* `Hooker`
+* `Magista-kafka`
 
 
 ## Составители

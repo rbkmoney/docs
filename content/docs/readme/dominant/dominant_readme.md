@@ -89,6 +89,9 @@
 [Аккаунты, используемые в проводках.](objects/globalsObject.md)
 
 ## Связанные сервисы
-В процессе работы **Dominant** может направлять данные в сервис **Machinegun**. 
+* `Machinegun`
+* `Hellgate`
+* `Control-center`
+* `Payouter`
 
 ## Составители
