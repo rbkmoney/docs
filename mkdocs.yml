@@ -1,3 +1,4 @@
+
 docs_dir: 'content'
 site_name: 'RBKmoney|docs'
 repo_url: https://github.com/rbkmoney/docs
@@ -33,6 +34,7 @@ markdown_extensions:
     - def_list
     - footnotes
     - codehilite
+    - attr_list
     - toc:
         permalink: true
 nav:
@@ -47,6 +49,7 @@ nav:
             - 'Postman': 'docs/payments/postman.md'
             - 'Google Pay': 'docs/payments/googlepay/index.md'
             - 'Apple Pay': 'docs/payments/applepay/index.md'
+            - 'Yandex Pay': 'docs/payments/yandexpay/index.md'
             - 'Примеры':
                 - 'PHP and Checkout': 'docs/payments/examples/php-kkt-cart-webhooks.md'
                 - 'Node.js верификация webhook': 'docs/payments/examples/nodejs-webhook-verification.md'
