@@ -1,0 +1,69 @@
+bottomparticipants
+actor "Buyer" as Client
+participant "Merchant\nFrontend\n" as MerchF
+participant "Merchant\nBackend\n" as Merch
+participant "RBK.Money\n" as RBK #42E299
+participant "Token Provider\n***Pay" as Prv
+entryspacing 0.9
+Client->MerchF: 1) Выбор товаров или услуг\nОформление заказа\nЗапрос на покупку
+activate MerchF
+MerchF->Merch:2) Оформление заказа\nЗапрос на покупку
+activate Merch
+Merch->Merch:3) Резерв товара\nФормирование invoiceData 
+Merch->RBK: 4) Выставление счета на оплату: <link:https://developer.rbk.money/api/#operation/createInvoice>createInvoice</link>\n(invoiceData, API Key)
+activate RBK
+RBK-->Merch: 201 (invoiceData, invoiceAccessToken)
+deactivate RBK
+Merch-->MerchF: ok
+deactivate Merch
+MerchF->Client: 5) Страница оплаты заказа
+deactivate MerchF
+activate Client
+Client->MerchF: Подтверждение платежа: clickPayButton\n(paymentData)
+activate MerchF
+deactivate Client
+opt 6) Токенизация данных в Apple/Google/Sumsung/Yandex Pay. Используется, если paymentToolType:TokenizedCardData — см. шаг 7
+MerchF->Prv: paymentData
+activate Prv
+Prv-->MerchF: token
+deactivate Prv
+end
+aboxright over MerchF,RBK:**Примечание к шагу 7**\nВызов библиотеки Tokenizer.JS,\nкоторая выполняет запрос к backend RBK\nна создание токена платежного средства:\n<link:https://developer.rbk.money/api/#operation/createPaymentResource>createPaymentResource</link>
+MerchF->RBK:7) Реквизиты для оплаты выставленного счета\n(token/cardData/terminalData/walletData/mobileCommerceData,\ninvoiceAccessToken, paymentTool)
+activate RBK
+box left of MerchF:Запрос на создание токена не обязательно выполнять\nпутем вызова Tokenizer.JS: его можно отправить \nнапрямую с Merchant Frontend или через Merchant Backend
+RBK-->MerchF: 201 (paymentToolToken, paymentSession)
+deactivate RBK
+MerchF->RBK:8) Запрос на оплату высталенного счета:\n<link:https://developer.rbk.money/api/#operation/createPayment>createPayment</link>\n(invoiceAccessToken,\npaymentToolToken, paymentSession)
+activate RBK
+box left of MerchF:Запрос на оплату можно выполнить как напрямую\nс Merchant Frontend, так и через Merchant Backend
+RBK-->MerchF: 201 (paymentID)
+MerchF->RBK: Получение событий оплаты:\n<link:https://developer.rbk.money/api/#operation/getInvoiceEvents>getInvoiceEvents</link>
+box left of MerchF:Значение, отличное от InvoiceStatusChanged говорит\nо том, что с оплатой еще должны произойти\nопределенные события.\nПример: changeType: PaymentInteractionRequested и\ninteractionType: Redirect говорят о необходимости пройти <link:https://developer.rbk.money/docs/payments/3dsecure/>3DS</link> 
+RBK-->MerchF: changeType: InvoiceStatusChanged
+deactivate RBK
+MerchF->Client:9) Сообщение об успехе
+deactivate MerchF
+alt 10) запрос статуса 
+MerchF->RBK:Запрос на получение статуса платежа:\n<link:https://developer.rbk.money/api/#operation/getPaymentByID>getPaymentByID</link> (invoiceID, invoiceAccessToken) 
+activate RBK
+RBK-->MerchF: status
+deactivate RBK
+box left of MerchF:Запрос статуса можно выполнить\nкак напрямую с Merchant Frontend,\nтак и через Merchant Backend.\nПолучить уведомление также\nможет любой endpoint,\nнезависимо от части сервиса. 
+activate MerchF
+else 10) получение уведомления
+RBK->MerchF: Уведомление об оплате: <link:https://developer.rbk.money/api/#tag/Webhooks>webhook</link>
+end
+MerchF->Client: 11) Success page\nИнформирование об оплате/заказе
+deactivate MerchF
+
+
+
+
+
+
+
+  
+
+
+

@@ -42,10 +42,14 @@
 - Платежная форма самостоятельно выполняет весь процесс платежа.
 - При необходимости платформа может уведомлять вашу систему на настроенный вами адрес Webhook`а.
 
-### Диаграмма последовательности взаимодействия
+### Схема информационного взаимодействия {#payScheme}
 
-В качестве примера проведения успешной оплаты с использованием Webhook`ов можно рассмотреть следующую диаграмму:
-<a href="../../payments/wsd/custom_form_w_cb.png" data-lightbox="custom_form_w_cb.png" data-title="custom_form_w_cb.png"><img src="../../payments/wsd/custom_form_w_cb.png"></a>
+Ниже приведен пример успешной оплаты заказа с web-сайта продавца (merchant). Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
+
+<a href="../../payments/wsd/payScheme.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="../../payments/wsd/payScheme.png"></a>
+
+!!! note "Информация"
+    Получение, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
 
 ## Авторизация запросов
 
