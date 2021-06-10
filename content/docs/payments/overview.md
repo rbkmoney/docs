@@ -46,7 +46,7 @@
 
 Ниже приведен пример успешной оплаты заказа с web-сайта продавца (merchant). Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
 
-<a href="../../payments/wsd/payScheme.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="../../payments/wsd/payScheme.png"></a>
+<a href="/docs/payments/wsd/payScheme.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="/docs/payments/wsd/payScheme.png"></a>
 
 !!! note "Информация"
     Получение, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
