@@ -1,4 +1,8 @@
-box: python:3.7
+box: 
+  id: python:3.7
+  username: ${DOCKER_ID}
+  password: ${DOCKER_PWD}
+
 
 build:
   steps:

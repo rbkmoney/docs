@@ -38,7 +38,7 @@ markdown_extensions:
     - toc:
         permalink: true
 nav:
-    - 'Документация': 'index.md'
+    - 'О портале': 'index.md'
     - 'Интеграция':
         - Payments:
             - 'Обзор': 'docs/payments/overview.md'
