@@ -16,10 +16,24 @@ build:
       username: "wercker"
 
 deploy:
-  steps:
-    - lukevivier/gh-pages:
-      token: ${GITHUB_API_TOKEN}
-  after-steps:
-    - slack-notifier:
-      url: ${SLACK_WEBHOOK_URL}
-      username: "wercker"
+deploy:
+    steps:
+      - install-packages:
+        packages: rsync
+      - mktemp:
+        envvar: PRIVKEY
+      - create-file:
+        name: write key
+        filename: ${PRIVKEY}
+        content: ${WWWDEPLOY_SSH_PRIVATE}
+        overwrite: true
+        hide-from-log: true
+      - anka-sirota/rsync-deploy:
+        host: ${LINODE_IP}
+        directory: /docs
+        user: www-data
+        sshkey: ${PRIVKEY}
+    after-steps:
+      - slack-notifier:
+        url: ${SLACK_WEBHOOK_URL}
+        username: "wercker"
