@@ -16,7 +16,6 @@ build:
       username: "wercker"
 
 deploy:
-deploy:
     steps:
       - install-packages:
         packages: rsync
