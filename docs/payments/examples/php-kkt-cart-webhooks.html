@@ -1,0 +1,1426 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>PHP and Checkout - RBKmoney|docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/override.css">
+    
+      <link rel="stylesheet" href="/docs/lightbox/css/lightbox.min.css">
+    
+      <link rel="stylesheet" href="/docs/payments/livedemo/livedemo.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="RBKmoney|docs" class="md-header__button md-logo" aria-label="RBKmoney|docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RBKmoney|docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PHP and Checkout
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/rbkmoney/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="RBKmoney|docs" class="md-nav__button md-logo" aria-label="RBKmoney|docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    RBKmoney|docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/rbkmoney/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        О портале
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Интеграция
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Интеграция" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Интеграция
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1" type="checkbox" id="nav-2_1" checked>
+      
+      <label class="md-nav__link" for="nav-2_1">
+        Payments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Payments" data-md-level="2">
+        <label class="md-nav__title" for="nav-2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Payments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview.html" class="md-nav__link">
+        Обзор
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../checkout.html" class="md-nav__link">
+        Checkout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tokenizer.html" class="md-nav__link">
+        Tokenizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3dsecure.html" class="md-nav__link">
+        3D-Secure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recurring.html" class="md-nav__link">
+        Recurring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postman.html" class="md-nav__link">
+        Postman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../googlepay/index.html" class="md-nav__link">
+        Google Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applepay/index.html" class="md-nav__link">
+        Apple Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yandexpay/index.html" class="md-nav__link">
+        Yandex Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1_10" type="checkbox" id="nav-2_1_10" checked>
+      
+      <label class="md-nav__link" for="nav-2_1_10">
+        Примеры
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Примеры" data-md-level="3">
+        <label class="md-nav__title" for="nav-2_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          Примеры
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP and Checkout
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="php-kkt-cart-webhooks.html" class="md-nav__link md-nav__link--active">
+        PHP and Checkout
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Сценарий интеграции
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Выбор технических подходов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Сценарий взаимодействия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Пример возможной реализации
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример возможной реализации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. Создание инвойса
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. Инициализация платежной формы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. Проверка успеха платежа с помощью вебхука
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. Сценарий возврата платежа
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. Сценарий подтверждения платежа
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-webhook-" class="md-nav__link">
+    4.3. Возможные проблемы с Webhook-ами
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Остались вопросы?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nodejs-webhook-verification.html" class="md-nav__link">
+        Node.js верификация webhook
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1_11" type="checkbox" id="nav-2_1_11" >
+      
+      <label class="md-nav__link" for="nav-2_1_11">
+        Модули CMS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Модули CMS" data-md-level="3">
+        <label class="md-nav__title" for="nav-2_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Модули CMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/bitrix/index.html" class="md-nav__link">
+        Bitrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/insales/index.html" class="md-nav__link">
+        InSales
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/webasyst/index.html" class="md-nav__link">
+        Webasyst/ShopScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/woocommerce/index.html" class="md-nav__link">
+        Wordpress/Woocommerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/wp-e-commerce/index.html" class="md-nav__link">
+        Wordpress/E-commerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/opencart/index.html" class="md-nav__link">
+        Opencart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/netcat/index.html" class="md-nav__link">
+        Netcat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/prestashop/index.html" class="md-nav__link">
+        Prestashop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/ubercart/index.html" class="md-nav__link">
+        Drupal/Ubercart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/drupal-commerce/index.html" class="md-nav__link">
+        Drupal/Commerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/magento/index.html" class="md-nav__link">
+        Magento
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cms-modules/virtuemart/index.html" class="md-nav__link">
+        Joomla/Virtuemart
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_2" type="checkbox" id="nav-2_2" >
+      
+      <label class="md-nav__link" for="nav-2_2">
+        Wallets
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Wallets" data-md-level="2">
+        <label class="md-nav__title" for="nav-2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallets/overview.html" class="md-nav__link">
+        Обзор
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallets/usage/index.html" class="md-nav__link">
+        Работа с кошельками
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallets/card-payouts/index.html" class="md-nav__link">
+        Выплаты на карты
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Справочники
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Справочники" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Справочники
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../refs/testcards.html" class="md-nav__link">
+        Тестовые карты
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+    
+  
+  	<li class="md-nav__item">
+		<a href="https://developer.rbk.money/api/" title="Payments API" class="md-nav__link" target="_blank">
+			Payments API
+		</a>
+	</li>
+  
+  	<li class="md-nav__item">
+		<a href="https://rbkmoney.github.io/wallets-api/v0/" title="Wallets API" class="md-nav__link" target="_blank">
+			Wallets API
+		</a>
+	</li>
+  
+  	<li class="md-nav__item">
+		<a href="https://rbkmoney.github.io/wallets-api/v0/?api/privdoc/swagger.json" title="Identity Storage API" class="md-nav__link" target="_blank">
+			Identity Storage API
+		</a>
+	</li>
+  
+
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Сценарий интеграции
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Выбор технических подходов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Сценарий взаимодействия
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Пример возможной реализации
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример возможной реализации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. Создание инвойса
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. Инициализация платежной формы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. Проверка успеха платежа с помощью вебхука
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1. Сценарий возврата платежа
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2. Сценарий подтверждения платежа
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-webhook-" class="md-nav__link">
+    4.3. Возможные проблемы с Webhook-ами
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Остались вопросы?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rbkmoney/docs/edit/master/docs/docs/payments/examples/php-kkt-cart-webhooks.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>PHP and Checkout</h1>
+                
+                <p>Пример полной интеграции приема платежей с банковских карт с серверным кодом на PHP, использованием Checkout HTML API, корзины товаров в инвойсе, пригодной для использования онлайн-касс (54-ФЗ), платежей с удержанием (холдированные платежи) и вебхуков.</p>
+<h2 id="_1">Сценарий интеграции<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Представим, что мы проводим интеграцию платежной платформы RBKmoney для нашего интернет-магазина, продающего обеды с доставкой по предоплате. Движок магазина написан на PHP. У предпринимателя, владеющего магазином подключена онлайн-касса для соответствия 54-ФЗ. Важный нюанс: привередливые клиенты могут отказаться от заказа, если он будет доставлен с опозданием.</p>
+<h2 id="_2">Выбор технических подходов<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>поскольку у нас есть интернет-магазин с конкретными заказчиками, идентифицировать которых мы можем заранее, а оплата заказов в нашем магазине производится за конкретные товарные позиции конкретного заказчика, мы выбираем <a href="https://developer.rbk.money/api/#tag/Invoices">инвойсинговую схему</a> интеграции с RBKmoney;</li>
+<li>для интеграции платежей с онлайн-кассой нам потребуется список товарных позиций, их стоимость и ставка налогообложения. Нам понадобится структура cart метода <a href="https://developer.rbk.money/api/#operation/createInvoice">createInvoice</a>;</li>
+<li>поскольку вероятность отказа от заказа повышена, мы выбираем холдированные платежи, позволяющие в течение 3 суток с момента успешного запуска платежа, сделать <a href="https://developer.rbk.money/api/#operation/cancelPayment">отмену этого платежа</a> без комиссии;</li>
+<li>для того, чтобы убедиться, что заказ действительно был оплачен и мы можем отправлять курьера, мы должны будем получить авторизованное сообщение об успешной оплате. Для этого используем <a href="https://developer.rbk.money/api/webhooks">вебхуки</a> от платформы.</li>
+</ul>
+<h2 id="_3">Сценарий взаимодействия<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Плательщик делает заказ, заполняет данные для доставки и подтверждает заказ в нашем интернет-магазине;</li>
+<li>Наш интернет-магазин отображает кнопку оплаты, нажав на которую, плательщик увидит готовую платежную форму, введет данные карты и оплатит заказ;</li>
+<li>После успешной оплаты заказа платежная форма перенаправляет плательщика на страницу успеха, где мы сообщаем, что заказ начал комплектоваться;</li>
+<li>Платформа RBKmoney уведомит наш магазин об изменении статуса платежа на &ldquo;Успешный&rdquo;, прислав подписанный JSON на адрес обработчика вебхуков нашего магазина;</li>
+<li>Мы запускаем процесс комплектации заказа и его доставки;</li>
+<li>Неуспешный случай. Плательщик отказывается от заказа, мы возвращаем ему оплату назад на карту;</li>
+<li>Успешный случай. Создаем новый заказ, доставляем плательщику, мы подтверждаем списание денег с карты.</li>
+</ol>
+<h2 id="_4">Пример возможной реализации<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Предположим, что у нас были заказаны 1 бутерброд с сыром, стоимостью 50₽, напиток за 25₽, а доставка у нас стоит 10₽. Адрес плательщика: hungry-man@email.ru</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Все действия будем проводить в тестовом магазине с использованием данных <a href="https://developer.rbk.money/docs/refs/testcards/">тестовых карт</a>. Технически это ничем не отличается от реального приема платежей, кроме отсутствия движения реальных денег, поэтому для боевой интеграции нам достаточно будет только поменять ID магазина с &lsquo;{ &hellip; }&rsquo; на ID боевого магазина.</p>
+</div>
+<h3 id="1">1. Создание инвойса<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>После получения заказа от плательщика нам известна сумма заказа, товары, которые он заказал и его email. Этого достаточно для создания инвойса в RBKmoney. Для авторизации создания инвойсов мы сходили в личный кабинет и скопировали значение нашего <a href="https://dashboard.rbk.money/shop/{ ... }/key">персонального ключа</a> для нашего тестового магазина. Не забываем, что это приватный ключ, который должен находиться только на нашем бэкенде внутри PHP-кода.</p>
+<p>Теперь мы можем на нашем бэкенде написать код, который, собственно, создаст нам инвойс:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Название</th>
+<th align="center">Описание</th>
+<th align="center">Где взять?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">shopID</td>
+<td align="center">Идентификатор магазина из RBKmoney</td>
+<td align="center">скопируйте его в <a href="https://dashboard.rbk.money">ЛК RBKmoney</a> в разделе <code>Детали магазина</code>, поле <code>Идентификатор</code></td>
+</tr>
+<tr>
+<td align="center">apiKey</td>
+<td align="center">Ключ для доступа к API</td>
+<td align="center">скопируйте его в <a href="https://dashboard.rbk.money">ЛК RBKmoney</a> в разделе <code>API Ключ</code></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$apiKey</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A&quot;</span><span class="p">;</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://api.rbk.money/v1/processing/invoices&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">&quot;{</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">shopID</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">TEST</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">dueDate</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">2017-09-27T15:21:51.002Z</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">amount</span><span class="se">\&quot;</span><span class="s2">: 8500,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">currency</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">RUB</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">product</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Заказ номер 12345</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\&quot;</span><span class="s2">description</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Изысканная кухня</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">cart</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">price</span><span class="se">\&quot;</span><span class="s2">: 5000,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">product</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Бутерброд с сыром</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">quantity</span><span class="se">\&quot;</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">taxMode</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">rate</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">10%</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">InvoiceLineTaxVAT</span><span class="se">\&quot;\n</span><span class="s2">            }</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">price</span><span class="se">\&quot;</span><span class="s2">: 2500,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">product</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Компот</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">quantity</span><span class="se">\&quot;</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">taxMode</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">rate</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">18%</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">InvoiceLineTaxVAT</span><span class="se">\&quot;\n</span><span class="s2">            }</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">price</span><span class="se">\&quot;</span><span class="s2">: 1000,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">product</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Доставка</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">quantity</span><span class="se">\&quot;</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\&quot;</span><span class="s2">taxMode</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">rate</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">18%</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\n</span><span class="s2">                </span><span class="se">\&quot;</span><span class="s2">type</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">InvoiceLineTaxVAT</span><span class="se">\&quot;\n</span><span class="s2">            }</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ],  </span><span class="se">\n\&quot;</span><span class="s2">metadata</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\n</span><span class="s2">  { </span><span class="se">\n</span><span class="s2">    </span><span class="se">\&quot;</span><span class="s2">order_id</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">ID заказа во внутренней CRM: 13123298761</span><span class="se">\&quot;\n</span><span class="s2">  }</span><span class="se">\n</span><span class="s2">}&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nx">prepare_headers</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;cURL Error #:&quot;</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nf">prepare_headers</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$headers</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;X-Request-ID: &#39;</span> <span class="o">.</span> <span class="nb">uniqid</span><span class="p">();</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Authorization: Bearer &#39;</span> <span class="o">.</span> <span class="nv">$apiKey</span><span class="p">;</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Content-type: application/json; charset=utf-8&#39;</span><span class="p">;</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Accept: application/json&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nv">$headers</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Если мы все сделали верно, в ответ нам вернулась структура вида</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;invoice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">8500</span><span class="p">,</span>
+        <span class="nt">&quot;cart&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;cost&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Бутерброд с сыром&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;taxMode&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="s2">&quot;10%&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;InvoiceLineTaxVAT&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;cost&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span>
+                <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span>
+                <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Компот&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;taxMode&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="s2">&quot;18%&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;InvoiceLineTaxVAT&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;cost&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="nt">&quot;price&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Доставка&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;taxMode&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="s2">&quot;18%&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;InvoiceLineTaxVAT&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-27T14:21:51.158840Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUB&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Изысканная кухня&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;dueDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-27T15:21:51.002000Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;u7o9gfIwPA&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;order_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ID заказа во внутренней CRM: 13123298761&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Заказ номер 12345&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;shopID&quot;</span><span class="p">:</span> <span class="s2">&quot;TEST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;unpaid&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;invoiceAccessToken&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Важные данные, которые мы получили в ответ - это id&rdquo;: &ldquo;u7o9gfIwPA&rdquo; и &ldquo;invoiceAccessToken&rdquo;. Эти данные нам понадобятся для следующего шага - подготовки платежной формы и кнопки &ldquo;Оплатить&rdquo;.</p>
+<h3 id="2">2. Инициализация платежной формы<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Подготавливаем HTML, который нарисует в браузере плательщика кнопку &ldquo;Оплатить&rdquo;, а при нажатии на нее - откроет платежную форму RBKmoney в полупрозрачном iFrame поверх нашего интернет-магазина. После успешной оплаты платежная форма сделает переадресацию на страницу успеха нашего магазина.</p>
+<p>Для того, чтобы платёжная форма запустила холдированный платеж, устанавливаем флаг параметра <code>paymentFlowHold</code>, а также, устанавливаем политику того, что делать по окончании срока холдирования. <code>holdExpiration=cancel</code> по истечении срока вернет деньги плательщику, <code>holdExpiration=capture</code> - спишет их в нашу пользу.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;https://your-web-site.address/success.action.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;GET&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://checkout.rbk.money/checkout.js&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;rbkmoney-checkout&quot;</span>
+            <span class="na">data-invoice-id</span><span class="o">=</span><span class="s">&quot;u7o9gfIwPA&quot;</span>
+            <span class="na">data-invoice-access-token</span><span class="o">=</span><span class="s">&quot;eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A&quot;</span>
+            <span class="na">data-payment-flow-hold</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">data-hold-expiration</span><span class="o">=</span><span class="s">&quot;capture&quot;</span>            
+            <span class="na">data-name</span><span class="o">=</span><span class="s">&quot;Заказ №12345&quot;</span>
+            <span class="na">data-email</span><span class="o">=</span><span class="s">&#39;hungry-man@email.ru&#39;</span>
+            <span class="na">data-label</span><span class="o">=</span><span class="s">&quot;Оплатить с карты&quot;</span>
+            <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;Изысканная кухня&quot;</span>
+            <span class="na">data-pay-button-label</span><span class="o">=</span><span class="s">&quot;Оплатить&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>success.action.php</code> - адрес страницы для переадресации плательщика в случае успешного платежа.</p>
+<p>Не путайте ее со страницей обработчика webhook-а</p>
+</div>
+<p>Интеграция практически завершена. Теперь мы можем отдать сформированный HTML-код в браузер плательщика.</p>
+<p>Если все сделано правильно, то появится такая кнопка:</p>
+<form action="#3" method="GET">
+    <script src="https://checkout.rbk.money/checkout.js" class="rbkmoney-checkout"
+            data-invoice-template-id="u7pZElgWky"
+            data-invoice-template-access-token="eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A"
+            data-name="Заказ №12345"
+            data-email="hungry-man@email.ru"
+            data-label="Оплатить с карты"
+            data-description="Изысканная кухня"
+            data-pay-button-label="Оплатить">
+    </script>
+</form>
+
+<h3 id="3">3. Проверка успеха платежа с помощью вебхука<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>До того, как мы отправим заказ на комплектацию и доставку, нам нужно убедиться, что оплата действительно была произведена. Доверять браузеру плательщика мы, естественно, не можем, но мы можем доверять платформе RBKmoney. Разумеется, если ее запрос подписан приватным ключом платформы.</p>
+<p>Создаем вебхук в соответсвующем разделе личного кабинета. В нашей реализации нам будут интересны некоторые события группы Payment, отмечаем их:</p>
+<ul>
+<li>PaymentProcessed - платеж успешно обработан (средства захолдированы)</li>
+<li>PaymentCaptured - платеж успешно принят (захолдированные средства списаны)</li>
+<li>PaymentCancelled - платеж отменен (захолдированные средства возвращены)</li>
+</ul>
+<p>После успешной оплаты с холдированием на URL обработки вебхуков нашего магазина платформа пришлет сообщение вида:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Sig</span><span class="kc">nature</span><span class="p">:</span> <span class="err">alg=RS</span><span class="mi">256</span><span class="err">;</span> <span class="err">diges</span><span class="kc">t</span><span class="err">=dwIGR</span><span class="kc">n</span><span class="err">wI</span><span class="mi">67</span><span class="err">mi</span><span class="mi">36</span><span class="err">Z</span><span class="mi">-</span><span class="err">CUTuXpo_</span><span class="mi">4</span><span class="err">dGK</span><span class="kc">t</span><span class="err">WXFpQXW_</span><span class="mi">9</span><span class="err">aab</span><span class="mi">4</span><span class="err">Nave</span><span class="mi">9</span><span class="err">CaJVjP</span><span class="mi">9</span><span class="err">FJ</span><span class="kc">t</span><span class="err">PSiWM_</span><span class="mi">6</span><span class="err">Va</span><span class="mi">3</span><span class="err">OFhch</span><span class="mi">8</span><span class="kc">n</span><span class="err">IsCEQggSTwWWraRDHCg_Y</span><span class="mi">7</span><span class="err">GD</span><span class="mi">0</span><span class="err">_yA</span><span class="kc">f</span><span class="err">PGS</span><span class="mi">5</span><span class="err">iW</span><span class="kc">t</span><span class="err">x</span><span class="kc">t</span><span class="err">BvHGFNKRQKFcI</span><span class="mi">72</span><span class="err">wQFX</span><span class="kc">f</span><span class="err">UWS</span><span class="mi">8</span><span class="err">HroUTEmeZVb</span><span class="mi">6</span><span class="err">pxIzyLOKMjEMD_JRZizxER</span><span class="mi">6</span><span class="err">DCOFKsXgvl</span><span class="mi">8</span><span class="err">NZ</span><span class="kc">fe</span><span class="err">OqiD</span><span class="mi">6</span><span class="err">ZEP</span><span class="mi">2</span><span class="err">IwxRCi</span><span class="mi">0</span><span class="err">w</span><span class="kc">n</span><span class="err">HJWF</span><span class="mi">3</span><span class="err">IcMRs</span><span class="mi">5</span><span class="err">lP</span><span class="mi">6</span><span class="err">YiIX</span><span class="kc">n</span><span class="err">XXQGGLK</span><span class="kc">n</span><span class="err">qij</span><span class="mi">8</span><span class="err">j</span><span class="kc">t</span><span class="mi">0</span><span class="err">cUELI</span><span class="mi">0</span><span class="err">gDChWbJlX</span><span class="mi">0</span><span class="err">lLB</span><span class="mi">4</span><span class="err">c_A</span><span class="mi">8</span><span class="err">r</span><span class="mi">9</span><span class="err">PNm</span><span class="mi">7</span><span class="err">aGrAqrAMxJmDgH</span><span class="mi">0</span><span class="err">IlUTl</span><span class="mi">21</span><span class="err">g</span><span class="mi">7</span><span class="err">LrCWNhd_FAhcPaVSjwgHTBYRY</span><span class="mi">2</span><span class="err">GFcoe</span><span class="mi">5</span><span class="err">u</span><span class="mi">6</span><span class="err">P</span><span class="kc">n</span><span class="err">LWCh</span><span class="kc">n</span><span class="mi">7</span><span class="err">dDW</span><span class="mi">66</span><span class="err">XwA==</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span> <span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">;</span> <span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span> <span class="mi">706</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span> <span class="err">localhos</span><span class="kc">t</span><span class="p">:</span><span class="mi">8088</span>
+<span class="err">Co</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span> <span class="err">Keep</span><span class="mi">-</span><span class="err">Alive</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="mf">-E</span><span class="kc">n</span><span class="err">codi</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span> <span class="err">gzip</span>
+<span class="err">User</span><span class="mi">-</span><span class="err">Age</span><span class="kc">nt</span><span class="p">:</span> <span class="err">okh</span><span class="kc">tt</span><span class="err">p/</span><span class="mf">3.6.0</span>
+
+<span class="p">{</span>
+  <span class="nt">&quot;eventID&quot;</span><span class="p">:</span> <span class="mi">2006462</span><span class="p">,</span>
+  <span class="nt">&quot;eventType&quot;</span><span class="p">:</span> <span class="s2">&quot;PaymentProcessed&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;invoice&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">8500</span><span class="p">,</span>
+    <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-27T16:25:35.995166Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Изысканная кухня&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dueDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-28T16:25:35Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;u7wzxUVbZg&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;Заказ №12345&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;shopID&quot;</span><span class="p">:</span> <span class="s2">&quot;TEST&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;unpaid&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;occuredAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-27T16:25:37.505396Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;payment&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">8500</span><span class="p">,</span>
+    <span class="nt">&quot;contactInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;hungry-man@email.ru&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-27T16:25:36.876168Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;RUB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fingerprint&quot;</span><span class="p">:</span> <span class="s2">&quot;1f595464b38a9276b6ab61399417a5c3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ip&quot;</span><span class="p">:</span> <span class="s2">&quot;2A04:4A00:5:1014::100D&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;paymentSession&quot;</span><span class="p">:</span> <span class="s2">&quot;5CNNzitToqjmpuEajuOKnG&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;paymentToolToken&quot;</span><span class="p">:</span> <span class="s2">&quot;7TjB6PA3CZtdHLTjVD1Pig&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;processed&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;InvoicesTopic&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Теперь нам достаточно проверить подпись, присланную в заголовке <code>Content-Signature</code>. Код для проверки может выглядеть так:</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+<span class="c1">// Достаем сигнатуру из заголовка и декодируем</span>
+<span class="nv">$signatureFromHeader</span> <span class="o">=</span> <span class="nx">get_signature_from_header</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_CONTENT_SIGNATURE&#39;</span><span class="p">]);</span>
+
+<span class="k">function</span> <span class="nf">get_signature_from_header</span><span class="p">(</span><span class="nv">$contentSignature</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s2">&quot;/alg=(\S+);\sdigest=/&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$contentSignature</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$signature</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s1">&#39;Signature is missing&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$signature</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Декодируем данные</span>
+<span class="nv">$decodedSignature</span> <span class="o">=</span> <span class="nx">urlsafe_base64decode</span><span class="p">(</span><span class="nv">$signatureFromHeader</span><span class="p">);</span>
+<span class="k">function</span> <span class="nf">urlsafe_base64decode</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nb">strtr</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;-_,&#39;</span><span class="p">,</span> <span class="s1">&#39;+/=&#39;</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Данные, которые пришли в теле сообщения</span>
+<span class="nv">$content</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">);</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Публичный ключ - ключ для обработки уведомлений о смене статуса</span>
+<span class="sd"> * </span>
+<span class="sd"> * Заходим в личный кабинет RBKmoney: Создать Webhook;</span>
+<span class="sd"> * Вставляем в поле URL на который будут приходить уведомления</span>
+<span class="sd"> * Выбираем Типы событий, например: InvoicePaid и InvoiceCanсelled;</span>
+<span class="sd"> * После создания Webhook-а копируем Публичный ключ после нажатия на Показать детали;</span>
+<span class="sd"> * Копируем Публичный ключ полностью с заголовками ---- BEGIN PUB...;</span>
+<span class="sd"> */</span>
+<span class="nv">$webhookPublicKey</span> <span class="o">=</span> <span class="s1">&#39;your webhook public key&#39;</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">verify_signature</span><span class="p">(</span><span class="nv">$content</span><span class="p">,</span> <span class="nv">$decodedSignature</span><span class="p">,</span> <span class="nv">$webhookPublicKey</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nb">http_response_code</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">([</span><span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Webhook notification signature mismatch&#39;</span><span class="p">]);</span>
+    <span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Проверяем сигнатуру</span>
+<span class="k">function</span> <span class="nf">verify_signature</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$publicKey</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$signature</span><span class="p">)</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$publicKey</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$publicKeyId</span> <span class="o">=</span> <span class="nb">openssl_get_publickey</span><span class="p">(</span><span class="nv">$publicKey</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$publicKeyId</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$verify</span> <span class="o">=</span> <span class="nb">openssl_verify</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">,</span> <span class="nv">$publicKeyId</span><span class="p">,</span> <span class="nx">OPENSSL_ALGO_SHA256</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="nv">$verify</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// Преобразуем данные в массив</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$content</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span> 
+
+<span class="c1">// Далее различные проверки.</span>
+<span class="c1">// Например: совпадения магазина, суммы, номера заказа, статуса, нужных событий и т.д.</span>
+
+<span class="c1">// Обновление статуса заказа</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+<p>В случае успешной проверки мы можем начать отгрузку товара и доставку его покупателю.</p>
+<h3 id="41">4.1. Сценарий возврата платежа<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>Сегодня были пробки, и курьер не успел доставить обед вовремя. Покупатель отказался и требует вернуть деньги. Конечно, это можно сделать вручную в деталях инвойса в личном кабинете.</p>
+<p>Полученный при создании инвойса в 1 пункте ключ доступа к инвойсу <a href="https://developer.rbk.money/api/#operation/createInvoiceAccessToken">invoiceAccessToken</a> мог уже истечь, поэтому советуем для авторизации этой операции использовать ваш API-ключ.</p>
+<p>Для возврата захолдированных средств используется метод <a href="https://developer.rbk.money/api/#operation/cancelPayment">cancelPayment</a>. Код для этого может выглядеть следующим образом:</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nv">$apiKey</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJFUzI1NiIsImtpZCI6IllKSWl0UWNNNll6TkgtT0pyS2s4VWdjdFBVMlBoLVFCLS1tLXJ5TWtrU3MiLCJ0eXAiOiJKV1QifQ.eyJlbWFpbCI6ImFudG9uLmx2YUBnbWFpbC5jb20iLCJleHAiOjAsImp0aSI6InU3cFpGVHh6QkEiLCJuYW1lIjoiQW50b24gS3VyYW5kYSIsInJlc291cmNlX2FjY2VzcyI6eyJjb21tb24tYXBpIjp7InJvbGVzIjpbInBhcnR5LiouaW52b2ljZV90ZW1wbGF0ZXMudTdwWkVsZ1dreS5pbnZvaWNlX3RlbXBsYXRlX2ludm9pY2VzOndyaXRlIiwicGFydHkuKi5pbnZvaWNlX3RlbXBsYXRlcy51N3BaRWxnV2t5OnJlYWQiXX19LCJzdWIiOiJmNDI3MjNkMC0yMDIyLTRiNjYtOWY5Mi00NTQ5NzY5ZjFhOTIifQ.5kzCh5ykQNb9jAFGMN_S8i6ZKBzw8W4jrV6e9L2iD35cWoIaiAPb3pVGgIFow19rByqE1ZaOhupz8oglryvp_A&quot;</span><span class="p">;</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">&quot;https://api.rbk.money/v1/processing/invoices/u7o9gfIwPA/docs/payments/1/cancel&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">&quot;{</span><span class="se">\n\&quot;</span><span class="s2">reason</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">cancel</span><span class="se">\&quot;\n</span><span class="s2">}&quot;</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nx">prepare_headers</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;cURL Error #:&quot;</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nf">prepare_headers</span><span class="p">(</span><span class="nv">$apiKey</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$headers</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;X-Request-ID: &#39;</span> <span class="o">.</span> <span class="nb">uniqid</span><span class="p">();</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Authorization: Bearer &#39;</span> <span class="o">.</span> <span class="nv">$apiKey</span><span class="p">;</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Content-type: application/json; charset=utf-8&#39;</span><span class="p">;</span>
+    <span class="nv">$headers</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;Accept: application/json&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nv">$headers</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+
+<p>Если мы все сделали правильно, платформа отменит платеж и разморозит деньги на счете плательщика.</p>
+<h3 id="42">4.2. Сценарий подтверждения платежа<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>В случае успешной доставки, когда мы понимаем, что сделка завершена, нет смысла ждать стандартных 3 суток для автоматического подтверждения платежа. Достаточно вызвать метод <a href="https://developer.rbk.money/api/#operation/capturePayment">capturePayment</a> с подходом, аналогичным в п 4.1. и деньги окажутся на счете вашего магазина.</p>
+<h3 id="43-webhook-">4.3. Возможные проблемы с Webhook-ами<a class="headerlink" href="#43-webhook-" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Webhook возвращает HTTP/200, но статус не обновляется</p>
+<p>Проверьте, что происходит вызов функций обработчика вебхуков и доступ не ограничен, например, вашей внутренней системой авторизации</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">При получении Webhook-а отсутствует тело сообщения, но есть подпись</p>
+<p>Все дело в 301 редиректе на вашей стороне, который передает заголовки, но не передает тело сообщения.</p>
+<p>Страница для обработки webhook-а должна быть доступна без каких-либо редиректов на нее.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">При получении Webhook-а отсутствует подпись в заголовке</p>
+<p>Такое случается, когда указывают в форме URL не информационной страницы, а URL обработки webhook-а.</p>
+<p>Нужно помнить, что информационная страница <a href="#2"><strong>success.action.php</strong></a> и страница обработки <a href="#3"><strong>webhook-а</strong></a> - не одно и тоже</p>
+</div>
+<h3 id="_5">Остались вопросы?<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Прочитайте <a href="https://developer.rbk.money/api/">полную документацию</a> по нашим публичным API.</li>
+<li>Мы отвечаем на <a href="https://github.com/rbkmoney/docs/issues">вопросы</a> и принимаем <a href="https://github.com/rbkmoney/docs/pulls">предложения по изменениям</a> в нашем публичном репозитории этой документации на <a href="https://github.com/rbkmoney/docs">Github</a>.</li>
+<li>Адрес технической поддержки: support@rbkmoney.com</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../yandexpay/index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Yandex Pay" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Yandex Pay
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="nodejs-webhook-verification.html" class="md-footer__link md-footer__link--next" aria-label="Next: Node.js верификация webhook" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Node.js верификация webhook
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+      
+        <script src="https://checkout.rbk.money/checkout.js"></script>
+      
+        <script src="/docs/payments/livedemo/livedemo.js"></script>
+      
+        <script src="/docs/lightbox/js/lightbox.min.js"></script>
+      
+    
+  </body>
+</html>

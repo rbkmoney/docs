@@ -1,0 +1,1089 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>3D-Secure - RBKmoney|docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/override.css">
+    
+      <link rel="stylesheet" href="/docs/lightbox/css/lightbox.min.css">
+    
+      <link rel="stylesheet" href="/docs/payments/livedemo/livedemo.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3ds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="RBKmoney|docs" class="md-header__button md-logo" aria-label="RBKmoney|docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RBKmoney|docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3D-Secure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/rbkmoney/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="RBKmoney|docs" class="md-nav__button md-logo" aria-label="RBKmoney|docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    RBKmoney|docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/rbkmoney/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        О портале
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Интеграция
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Интеграция" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Интеграция
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1" type="checkbox" id="nav-2_1" checked>
+      
+      <label class="md-nav__link" for="nav-2_1">
+        Payments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Payments" data-md-level="2">
+        <label class="md-nav__title" for="nav-2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Payments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="overview.html" class="md-nav__link">
+        Обзор
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="checkout.html" class="md-nav__link">
+        Checkout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tokenizer.html" class="md-nav__link">
+        Tokenizer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3D-Secure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="3dsecure.html" class="md-nav__link md-nav__link--active">
+        3D-Secure
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3ds" class="md-nav__link">
+    Собственная платежная форма и 3DS
+  </a>
+  
+    <nav class="md-nav" aria-label="Собственная платежная форма и 3DS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Описание успешного сценария
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Диаграмма последовательностей
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Подробное описание сценария
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paymentinteractionrequested" class="md-nav__link">
+    Структура события PaymentInteractionRequested
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recurring.html" class="md-nav__link">
+        Recurring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="postman.html" class="md-nav__link">
+        Postman
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="googlepay/index.html" class="md-nav__link">
+        Google Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="applepay/index.html" class="md-nav__link">
+        Apple Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="yandexpay/index.html" class="md-nav__link">
+        Yandex Pay
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1_10" type="checkbox" id="nav-2_1_10" >
+      
+      <label class="md-nav__link" for="nav-2_1_10">
+        Примеры
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Примеры" data-md-level="3">
+        <label class="md-nav__title" for="nav-2_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          Примеры
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/php-kkt-cart-webhooks.html" class="md-nav__link">
+        PHP and Checkout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/nodejs-webhook-verification.html" class="md-nav__link">
+        Node.js верификация webhook
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_1_11" type="checkbox" id="nav-2_1_11" >
+      
+      <label class="md-nav__link" for="nav-2_1_11">
+        Модули CMS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Модули CMS" data-md-level="3">
+        <label class="md-nav__title" for="nav-2_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Модули CMS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/bitrix/index.html" class="md-nav__link">
+        Bitrix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/insales/index.html" class="md-nav__link">
+        InSales
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/webasyst/index.html" class="md-nav__link">
+        Webasyst/ShopScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/woocommerce/index.html" class="md-nav__link">
+        Wordpress/Woocommerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/wp-e-commerce/index.html" class="md-nav__link">
+        Wordpress/E-commerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/opencart/index.html" class="md-nav__link">
+        Opencart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/netcat/index.html" class="md-nav__link">
+        Netcat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/prestashop/index.html" class="md-nav__link">
+        Prestashop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/ubercart/index.html" class="md-nav__link">
+        Drupal/Ubercart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/drupal-commerce/index.html" class="md-nav__link">
+        Drupal/Commerce
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/magento/index.html" class="md-nav__link">
+        Magento
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cms-modules/virtuemart/index.html" class="md-nav__link">
+        Joomla/Virtuemart
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2_2" type="checkbox" id="nav-2_2" >
+      
+      <label class="md-nav__link" for="nav-2_2">
+        Wallets
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Wallets" data-md-level="2">
+        <label class="md-nav__title" for="nav-2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/overview.html" class="md-nav__link">
+        Обзор
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/usage/index.html" class="md-nav__link">
+        Работа с кошельками
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallets/card-payouts/index.html" class="md-nav__link">
+        Выплаты на карты
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Справочники
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Справочники" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Справочники
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="refs/testcards.html" class="md-nav__link">
+        Тестовые карты
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+    
+  
+  	<li class="md-nav__item">
+		<a href="https://developer.rbk.money/api/" title="Payments API" class="md-nav__link" target="_blank">
+			Payments API
+		</a>
+	</li>
+  
+  	<li class="md-nav__item">
+		<a href="https://rbkmoney.github.io/wallets-api/v0/" title="Wallets API" class="md-nav__link" target="_blank">
+			Wallets API
+		</a>
+	</li>
+  
+  	<li class="md-nav__item">
+		<a href="https://rbkmoney.github.io/wallets-api/v0/?api/privdoc/swagger.json" title="Identity Storage API" class="md-nav__link" target="_blank">
+			Identity Storage API
+		</a>
+	</li>
+  
+
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3ds" class="md-nav__link">
+    Собственная платежная форма и 3DS
+  </a>
+  
+    <nav class="md-nav" aria-label="Собственная платежная форма и 3DS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Описание успешного сценария
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Диаграмма последовательностей
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Подробное описание сценария
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paymentinteractionrequested" class="md-nav__link">
+    Структура события PaymentInteractionRequested
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rbkmoney/docs/edit/master/docs/docs/payments/3dsecure.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>3D-Secure</h1>
+                
+                <p><a href="https://en.wikipedia.org/wiki/3-D_Secure">3D-Secure</a> — это набор протоколов платежных систем, призванный улучшить безопасность приема платежей в интернете. Протокол подразумевает несколько переадресаций User Agent&rsquo;а плательщика, ввод второго фактора аутентификации на странице банка-эмитента (зачастую используется одноразовый SMS-код) и взаимодействие платежной системы с сервисами международных платежных систем (МПС).</p>
+<p>Если вы реализуете собственную платежную форму, используя библиотеку <a href="/docs/payments/tokenizer/">tokenizer.js</a> либо подключаетесь как платежная платформа, обрабатывая карточные данные напрямую, вам необходимо будет самостоятельно реализовать процесс прохождения 3D-Secure. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Данная технология также обязательна к реализации если вы хотите принимать карты Maestro, даже в том случае, если вам подключен без-3DS терминал. По-умолчанию все подключения к RBKmoney работают только через 3DS-терминалы. Получить без-3DS терминал можно по отдельному запросу.</p>
+</div>
+<h2 id="3ds">Собственная платежная форма и 3DS<a class="headerlink" href="#3ds" title="Permanent link">&para;</a></h2>
+<h3 id="_1">Описание успешного сценария<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Представим, что мы создаем собственную платежную форму используя технологии, которые позволяют в асинхронном режиме делать HTTP-запросы напрямую из браузера плательщика к API RBKmoney, такие, как, например, Javascript. В таком случае у нас появляются следующие сущности:</p>
+<ul>
+<li>ваш бэкенд, написанный на удобном для вас языке программирования;</li>
+<li>ваша реализация платежной формы, написанная на JS;</li>
+<li>бэкенд API RBKmoney;</li>
+<li>МПС;</li>
+<li>банк-эмитент и банк-эквайер;</li>
+<li>плательщик и его браузер.</li>
+</ul>
+<h3 id="_2">Диаграмма последовательностей<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><img alt="3d_secure_flow.wsd" src="/docs/payments/wsd/3d_secure_flow.svg" /></p>
+<h3 id="_3">Подробное описание сценария<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Используя ваш приватный API-ключ с вашего бэкенда создаем в RBKmoney инвойс вызывая метод <a href="https://developer.rbk.money/api/#operation/createInvoice">createInvoice</a> и получаем в ответ идентификатор инвойса и токен доступа к нему - <code>invoiceAccessToken</code>.</li>
+<li>С вашего бэкенда формируем HTML-код, передаем туда полученный идентификатор и токен доступа инвойса и отдаем этот код в браузер плательщику.<ul>
+<li><em>Внимание! Ни в коем случае не передавайте в браузер ваш приватный API-ключ! Используйте только полученный <code>invoiceAccessToken</code>.</em></li>
+</ul>
+</li>
+<li>В коде вашей платежной формы<ul>
+<li>если у вас нет сертификации PCI-DSS, то подключаем библиотеку tokenizer.js <a href="/docs/payments/tokenizer/">согласно инструкции</a> и получаем платежный токен через библиотеку;</li>
+<li>если у вас есть сертификация PCI-DSS, то передаем карточные данные напрямую вызывая метод <a href="https://developer.rbk.money/api/#operation/createPaymentResource">createPaymentResource</a> и также получаем платежный токен.</li>
+</ul>
+</li>
+<li>Из кода вашей платежной формы запускаем процесс списания денег с карты плательщика вызывая метод <a href="https://developer.rbk.money/api/#operation/createPayment">createPayment</a>.</li>
+<li>Запускаем таймер и начинаем опрашивать RBKmoney API на предмет появления новых событий в инвойсе вызывая метод <a href="https://developer.rbk.money/api/#operation/getInvoiceEvents">getInvoiceEvents</a>.<ul>
+<li><em>мы рекомендуем установить интервал опроса в 1 секунду и ограничение на время опроса в 60-120 секунд либо 60-120 запросов.</em></li>
+</ul>
+</li>
+<li>В это время Платформа RBKmoney<ul>
+<li>проверяет вовлеченность карты в 3D-Secure, и в случае положительного ответа от международных платежных систем, получает необходимые для запуска 3D-Secure данные;</li>
+<li>добавляет полученные данные в виде инструкции для платежной формы в событие инвойса;</li>
+<li><em>набор данных описан в документации метода <a href="https://developer.rbk.money/api/#operation/getInvoiceEvents">getInvoiceEvents</a> и доступен к просмотру если развернуть Response Schema по пути</em>
+<code>changes - PaymentInteractionRequested - userInteraction -  interactionType - Redirect.</code></li>
+<li>тип переадресации GET/POST Платформа указывает в инструкции <code>requestType</code>, шаблон заполнения - в структуре <code>request</code>, а URL, на который необходимо переадресовать браузер плательщика - в <code>uriTemplate</code>.</li>
+</ul>
+</li>
+<li>Формируем пакет данных для корректной переадресации и переадресовываем браузер плательщика на страницу банка-эмитента (описание набора данных приведено в следующей главе).</li>
+<li>Плательщик на странице банка-эмитента<ul>
+<li>вводит 2 фактор аутентификации и подтверждает его;</li>
+<li>либо вводит код неверно, либо нажимает ссылку &ldquo;Отменить оплату&rdquo;;</li>
+<li>банк формирует ответ и переадресовывает браузер плательщика на URL обработчика RBKmoney указанный в <code>TermUrl</code>.</li>
+</ul>
+</li>
+<li>Платформа RBKmoney в это время<ul>
+<li>переадресовывает браузер плательщика на указанный в параметре <code>termination_uri</code> URI-адрес вашей платежной формы;</li>
+<li><em>Обратите внимание! URL возврата нужно передавать в URL-encoded формате вида <code>https%3A%2F%2Fyour.host.address%2Furi</code>!</em></li>
+<li>отправляет полученный от банка в параметрах запроса ответ в МПС и проверяет его валидность;</li>
+<li>в случае неуспешной проверки результата 3DS добавляет событие &ldquo;платеж неуспешен&rdquo; в инвойс;</li>
+<li>в случае успешной проверки запускает процесс проведения платежа и списания средств с карты плательщика;</li>
+<li>по результатам проведения платежа меняет его статус и добавляет об этом событие в инвойс;</li>
+<li>в том случае, если за определенный период (<em>на момент написания этой версии документа - 5 минут</em>) переадресация с сайта банка не была произведена (плательщик отказался от оплаты, не смог найти код 3DS, у плательщика пропал интернет и т.п.) переводит платеж в неуспешное состояние и добавляет об этом запись в события инвойса.</li>
+</ul>
+</li>
+<li>Ваша платежная форма продолжает опрашивать систему и ожидать события о результате платежа.<ul>
+<li>обрабатывает заложенный вами бизнес-процесс успешного/неуспешного платежа;</li>
+<li>уведомляет ваш бэкенд о необходимости проверки состояния платежа и принятия решения об отгрузке товара/предоставлении услуги.</li>
+</ul>
+</li>
+</ol>
+<h3 id="paymentinteractionrequested">Структура события PaymentInteractionRequested<a class="headerlink" href="#paymentinteractionrequested" title="Permanent link">&para;</a></h3>
+<p>Рассмотрим структуру на примере ответа Платформы о необходимости проведения процесса 3DS при использовании тестовой карты <code>5169147129584558</code>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Обратите внимание! Платформа предоставляет возможность проводить интеграцию в том числе с полной эмуляцией всех процессов 3DS при использовании определенных номеров тестовых карт, указанных в <a href="/refs/testcards/">справочнике</a>.</p>
+</div>
+<p>После создания инвойса и запуска платежа с указанной карты в созданном инвойсе было записано событие со следующим набором данных:</p>
+<div class="codehilite"><pre><span></span><code>   <span class="p">{</span>
+        <span class="nt">&quot;changes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;changeType&quot;</span><span class="p">:</span> <span class="s2">&quot;PaymentInteractionRequested&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;paymentID&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;userInteraction&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;interactionType&quot;</span><span class="p">:</span> <span class="s2">&quot;Redirect&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;form&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;TermUrl&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;template&quot;</span><span class="p">:</span> <span class="s2">&quot;https://wrapper.rbk.money/mocketbank/term_url%7B%3Ftermination_uri%7D&quot;</span>
+                            <span class="p">},</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;PaReq&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;template&quot;</span><span class="p">:</span> <span class="s2">&quot;paReq&quot;</span>
+                            <span class="p">},</span>
+                            <span class="p">{</span>
+                                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;MD&quot;</span><span class="p">,</span>
+                                <span class="nt">&quot;template&quot;</span><span class="p">:</span> <span class="s2">&quot;COM_MPI-ymJorPXs5A1&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="nt">&quot;requestType&quot;</span><span class="p">:</span> <span class="s2">&quot;BrowserPostRequest&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;uriTemplate&quot;</span><span class="p">:</span> <span class="s2">&quot;https://3ds-mock.rbkmoney.com/mpi/acs&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-03-20T10:15:26.905268Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>Порядок обработки данных для формирования корректного запроса следующий:</p>
+<ol>
+<li><code>"interactionType": "Redirect"</code> и <code>"requestType": "BrowserPostRequest"</code> сообщают нам, что необходимо переадресовать браузер плательщика и передать данные методом POST.</li>
+<li><code>"uriTemplate": "https://3ds-mock.rbkmoney.com/mpi/acs"</code> означает, что нужно переадресовать браузер плательщика на указанный URL.</li>
+<li>Значения <code>key</code> означают имена POST-параметров, которые необходимо передать. <code>PaReq</code> и <code>MD</code> мы должны передать в неизменном виде.</li>
+<li>Значение <code>TermUrl</code> на самом деле содержит 2 адреса переадресации:<ul>
+<li>адрес вида <code>https://wrapper.rbk.money ...</code>, на который произойдет переадресация со страницы банка-эмитента;</li>
+<li>адрес в виде параметра запроса <code>/term_url?termination_uri=</code>, который должен содержать URL вашей платежной формы, на который Платформа переадресует браузер плательщика после получения ответа от банка;</li>
+<li>подставьте в параметр termination_uri адрес вашей платежной формы в URL-encoded формате, как например <code>https://wrapper.rbk.money/mocketbank/term_url?termination_uri=https%3A%2F%2Fcheckout.rbk.money%2Fv1%2Ffinish-interaction.html</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Пример cURL-запроса с корректно сформированным набором данных:</p>
+<div class="codehilite"><pre><span></span><code>curl &quot;https://3ds-mock.rbkmoney.com/mpi/acs&quot; --data &quot;TermUrl=https^%^3A^%^2F^%^2Fwrapper.rbk.money^%^2Fmocketbank^%^2Fterm_url^%^3Ftermination_uri^%^3Dhttps^%^253A^%^252F^%^252Fcheckout.rbk.money^%^252Fv1^%^252Ffinish-interaction.html^&amp;PaReq=paReq^&amp;MD=COM_MPI-ymgPxVH6m01&quot;
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="tokenizer.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tokenizer" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Tokenizer
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="recurring.html" class="md-footer__link md-footer__link--next" aria-label="Next: Recurring" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Recurring
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+      
+        <script src="https://checkout.rbk.money/checkout.js"></script>
+      
+        <script src="/docs/payments/livedemo/livedemo.js"></script>
+      
+        <script src="/docs/lightbox/js/lightbox.min.js"></script>
+      
+    
+  </body>
+</html>
