@@ -72,3 +72,10 @@ nav:
                 - 'Выплаты на карты': 'docs/wallets/card-payouts/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'docs/payments/refs/testcards.md'
+    - 'Readme микросервисов':
+        - 'Bender': 'docs/readme/Bender/readme.md'
+        - 'Dominant': 'docs/readme/dominant/dominant_readme.md'
+        - 'Shumway': 'docs/readme/Shumway/readme.md'
+        - 'Hellgate': 'docs/readme/hellgate/readme.md'
+        - 'Hooker': 'docs/readme/Hooker/Hooker_Readme.md'
+        - 'Machinegun': 'docs/readme/machinegun/readme.md'
