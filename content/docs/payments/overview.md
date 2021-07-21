@@ -83,7 +83,7 @@ InvoiceAccessToken, в отличие от [API Key](https://developer.rbk.money
 <a href="/docs/payments/wsd/payScheme.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="/docs/payments/wsd/payScheme.png"></a>
 
 !!! note "Информация"
-    Получение, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
+    Получение, передача, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
 
 ## Уведомление о событиях (Webhook)
 
@@ -92,4 +92,3 @@ InvoiceAccessToken, в отличие от [API Key](https://developer.rbk.money
 Webhook'ами можно управлять с помощью [данных](https://developer.rbk.money/api/#tag/Webhooks) запросов к API.
 
 При получении уведомления следует убедиться, что оно было отправлено платформой. Для решения этой задачи платформа подтверждает подлинность переданной информации, подписывая сообщения приватным ключом RSA. C описанием спецификации «‎Webhooks Events API» можно ознакомиться [здесь](https://developer.rbk.money/api/webhooks).
-
