@@ -45,7 +45,7 @@ nav:
             - 'Checkout': 'docs/payments/checkout.md'
             - 'Tokenizer': 'docs/payments/tokenizer.md'
             - '3D-Secure': 'docs/payments/3dsecure.md'
-            - 'Recurring': 'docs/payments/recurring.md'
+            - 'Recurring': 'docs/payments/recurring/recurring.md'
             - 'Postman': 'docs/payments/postman.md'
             - 'Google Pay': 'docs/payments/googlepay/index.md'
             - 'Apple Pay': 'docs/payments/applepay/index.md'
