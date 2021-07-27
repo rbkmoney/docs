@@ -39,7 +39,7 @@ category: pay
 
 #### Сценарий с использованием платежной формы мерчанта {#merchPayFormParent}
 
-Ниже описан сценарий проведения рекуррентного платежа в случае, когда покупка производится с формы оплаты мерчанта (не с [формы RBK.money](https://developer.rbk.money/docs/payments/checkout)).
+Ниже описан сценарий проведения рекуррентного платежа в случае, когда покупка производится с формы оплаты [мерчанта](https://developer.rbk.money/docs/payments/overview/#lk) (не с [формы RBK.money](https://developer.rbk.money/docs/payments/checkout)).
 
 1. Инициировать родительский платеж: создать и оплатить [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) согласно [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом примечания ниже.
 2. Инициировать рекуррентный платеж: cоздать новый [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) и оплатить его аналогично [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом примечания ниже (используя идентификатор родительского инвойса и платежа).
@@ -85,7 +85,9 @@ category: pay
 
 #### Сценарий с использованием платежной формы мерчанта {#merchPayFormCard}
 
-Ниже представлен сценарий проведения рекуррентного платежа в случае, когда привязка карты и покупка производятся с формы мерчанта (не с [формы RBK.money](https://developer.rbk.money/docs/payments/checkout)).
+Ниже представлен сценарий проведения рекуррентного платежа в случае, когда привязка карты и покупка производятся с формы [мерчанта](https://developer.rbk.money/docs/payments/overview/#lk) (не с [формы RBK.money](https://developer.rbk.money/docs/payments/checkout)).
+
+Сценарий отражает процесс оформления подписки на товар или услугу.
 
 Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
 
@@ -97,6 +99,7 @@ category: pay
 * Привязка карты требует подтверждения данного действия у банка-эмитента на соответствующей форме.
 * Получение, передача, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
 * На момент написания статьи для одного и того же пользователя ([покупателя](https://developer.rbk.money/docs/payments/overview/#shop), customerID) можно создать несколько привязок (customerBindingID). При этом активной будет являться лишь одна (самая последняя по дате создания) привязка. При проведении рекурректного платежа будет использована та банковская карта, с которой была создана последняя привязка.
+* Альтернативный сценарий использования привязанной карты отражен в [данной статье](../../examples/binding).
 
 #### Сценарий с использованием формы RBK.money {#rbkPayFormCard}
 

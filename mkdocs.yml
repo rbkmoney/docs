@@ -52,6 +52,7 @@ nav:
             - 'Yandex Pay': 'docs/payments/yandexpay/index.md'
             - 'Примеры':
                 - 'PHP and Checkout': 'docs/payments/examples/php-kkt-cart-webhooks.md'
+                - 'Покупка с привязанной карты': 'docs/payments/examples/binding.md'
                 - 'Node.js верификация webhook': 'docs/payments/examples/nodejs-webhook-verification.md'
             - 'Модули CMS':
                 - 'Bitrix': 'docs/payments/cms-modules/bitrix/index.md'
