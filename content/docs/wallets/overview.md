@@ -32,7 +32,7 @@
 Валюта ЭДС определяется при [создании](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька параметром `currency`.
 
 !!! note "Информация"
-    При выводе средств [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька, [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal) операции, и [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createDestination) назначения платежа не должны отличаться.
+    При выводе средств [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька, [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal) операции, и [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createDestination) назначения платежа должны совпадать.
 
 ### Управление операциями вывода ЭДС {#withdrawal}
 
@@ -41,12 +41,12 @@
 * владелец кошелька;
 * пользователь, получивший на это право.
 
-!!! note "Информация"
-    Пользователь — учетная запись, которой соответствует уникальный [ключ](https://developer.rbk.money/docs/payments/overview/#lk) для доступа к функциональности [платформы](https://developer.rbk.money/docs/payments/overview/#_1) по API.
+!!! note "пользователь"
+    Учетная запись, которой соответствует уникальный [ключ](https://developer.rbk.money/docs/payments/overview/#lk) для доступа к функциональности [платформы](https://developer.rbk.money/docs/payments/overview/#_1) по API.
 
-**Как предоставить право на вывод средств?**
+**Получение права на вывод средств**
 
-Владельцу [кошелька](#wallet)/[приемника средств](#destination) необходимо выпустить токен, подтверждающий право на осуществление данной операции, и передать его значение в параметре `walletGrant`/`destinationGrant` соответствующего [запроса](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal).
+Владельцу [кошелька](#wallet)/[приемника средств](#destination) необходимо выпустить токен, подтверждающий право на осуществление данной операции, и предоставить его другому пользователю. Пользователь в свою очередь должен передать полученное значение в параметре `walletGrant`/`destinationGrant` соответствующего [запроса](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal).
 
 Платформа оперирует двумя видами токенов:
 
