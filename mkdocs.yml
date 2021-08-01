@@ -68,7 +68,7 @@ nav:
                 - 'Joomla/Virtuemart': 'docs/payments/cms-modules/virtuemart/index.md'
         - Wallets:
                 - 'Обзор': 'docs/wallets/overview.md'
-                - 'Работа с кошельками': 'docs/wallets/usage/index.md'
-                - 'Выплаты на карты': 'docs/wallets/card-payouts/index.md'
+                - 'Пополнение': 'docs/wallets/deposit/index.md'
+                - 'Вывод средств': 'docs/wallets/withdrawal/index.md'
     - 'Справочники':
         - 'Тестовые карты': 'docs/payments/refs/testcards.md'
