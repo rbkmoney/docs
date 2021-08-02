@@ -91,7 +91,7 @@ category: pay
 
 Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
 
-<a href="../../recurring/img/CustomerPayer.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="../../recurring/img/CustomerPayer.png"></a>
+<object data="../../recurring/img/CustomerPayer.svg"> </object>
 
 ---
 **ПРИМЕЧАНИЕ**

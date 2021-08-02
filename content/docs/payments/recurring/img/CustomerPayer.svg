@@ -1,0 +1,1210 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     preserveAspectRatio="xMinYMin meet"
+     viewBox="0 0 1451 3265">
+    <desc>
+        bottomparticipants%0Aactor%20%22Buyer%22%20as%20Client%0Aparticipant%20%22Merchant%5CnFrontend%5Cn%22%20as%20MerchF%0Aparticipant%20%22Merchant%5CnBackend%5Cn%22%20as%20Merch%0Aparticipant%20%22RBK.Money%5Cn%22%20as%20RBK%20%2342E299%0Aentryspacing%200.8%0AClient-%3EMerchF%3A1)%20%D0%A0%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B5%0Aactivate%20MerchF%0AMerchF-%3EMerch%3A%202)%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%5Cn(customerData)%0Aactivate%20Merch%0AMerch-%3ERBK%3A3)%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%3A%20%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FcreateCustomer%3EcreateCustomer%3C%2Flink%3E%5Cn(API%20Key%2C%20%D1%81ustomerData)%0Aactivate%20RBK%0ARBK--%3EMerch%3A201%20%5Cn(customerAccessToken%2C%20customerID%2C%20%D1%81ustomerData)%0Adeactivate%20RBK%0AMerch--%3EMerchF%3AcustomerAccessToken%2C%20customerID%2C%20%D1%81ustomerData%0Adeactivate%20Merch%0AMerchF-%3EClient%3A4)%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BF%D0%B5%D1%85%D0%B5%0Adeactivate%20MerchF%0AMerchF-%3EClient%3A5)%20%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%5Cn%D0%B1%D0%B0%D0%BD%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D1%83%D1%8E%20%D0%BA%D0%B0%D1%80%D1%82%D1%83%20%D0%BA%20%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%83%0Aactivate%20Client%0AClient-%3EMerchF%3A%D0%92%D0%B2%D0%BE%D0%B4%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%5Cn%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D1%83%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%2C%5Cn%D0%BF%D0%BE%D0%B4%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D0%B8%3A%20clickBindButton%5Cn(cardData)%0Aactivate%20MerchF%0Adeactivate%20Client%0AMerchF-%3ERBK%3A6)%20%D0%94%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B1%D0%B0%D0%BD%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%5Cn(customerAccessToken%2C%20cardData%2C%20%5CnpaymentTool)%0Aactivate%20RBK%0Aaboxright%20over%20MerchF%2CRBK%3A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BA%20%D1%88%D0%B0%D0%B3%D1%83%206**%5Cn%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8%20Tokenizer.JS%2C%5Cn%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D1%8F%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D0%B5%D1%82%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BA%20backend%20RBK%5Cn%D0%BD%D0%B0%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%B0%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FcreatePaymentResource%3EcreatePaymentResource%3C%2Flink%3E%0Abox%20left%20of%20MerchF%3A%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%B0%20%D0%BD%D0%B5%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%5Cn%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D1%82%D1%8C%20%D0%BF%D1%83%D1%82%D0%B5%D0%BC%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B0%20Tokenizer.JS%3A%20%5Cn%D0%B5%D0%B3%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%5Cn%D0%BD%D0%B0%D0%BF%D1%80%D1%8F%D0%BC%D1%83%D1%8E%20%D1%81%20Merchant%20Frontend%20%5Cn%D0%B8%D0%BB%D0%B8%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20Merchant%20Backend%0ARBK--%3EMerchF%3A%20201%20(paymentToolToken%2C%20paymentSession)%0Adeactivate%20RBK%0AMerchF-%3ERBK%3A7)%20%D0%9F%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D0%BA%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8E%3A%20%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FcreateBinding%3EcreateBinding%3C%2Flink%3E%5Cn(customerAccessToken%2C%20paymentToolToken%2C%20customerID%2C%20paymentSession)%0Aactivate%20RBK%0ARBK--%3EMerchF%3A%20201%20(customerBindingID%2C%20paymentToolToken%2C%20paymentSession)%0Adeactivate%20RBK%0AMerchF-%3ERBK%3A8)%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%2C%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20%D1%81%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%BC%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FgetCustomerEvents%3EgetCustomerEvents%3C%2Flink%3E%5Cn(customerAccessToken%2C%20customerID)%0Aactivate%20RBK%0Abox%20left%20of%20MerchF%3A%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%2C%20%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%BE%D1%82%20%5CnCustomerBindingStatusChanged%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%20%5Cn%D0%BE%20%D1%82%D0%BE%D0%BC%2C%20%D1%87%D1%82%D0%BE%20%D1%81%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%BC%20%D0%B5%D1%89%D0%B5%20%D0%B4%D0%BE%D0%BB%D0%B6%D0%BD%D1%8B%20%5Cn%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%BE%D0%B9%D1%82%D0%B8%20%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F.%20%5Cn%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%3A%20%5CnchangeType%3A%20CustomerBindingInteractionRequested%20%5Cn%D0%B8%20interactionType%3A%20Rediret%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8F%D1%82%20%D0%BE%20%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20%5Cn%D0%BF%D0%BE%D0%B4%D1%82%D0%B2%D0%B5%D1%80%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D1%83%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%D0%BD%D0%B0%20%D1%84%D0%BE%D1%80%D0%BC%D0%B5%20%D0%B1%D0%B0%D0%BD%D0%BA%D0%B0%0ARBK--%3EMerchF%3AchangeType%3A%20CustomerBindingStatusChanged%0Adeactivate%20RBK%0AMerchF-%3EClient%3A9)%20%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BF%D0%B5%D1%85%D0%B5%0Adeactivate%20MerchF%0AMerchF-%3EMerch%3A10)%20CustomerBindingStatusChanged%0Aalt%2011)%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%20%0AMerch-%3ERBK%3A%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FgetCustomerById%3EgetCustomerById%3C%2Flink%3E%20(API%20Key%2C%20%20customerID)%20%0Aactivate%20RBK%0Abox%20left%20of%20Merch%3A%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%2C%20%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%BE%D1%82%20ready%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%5Cn%D0%BE%20%D1%82%D0%BE%D0%BC%2C%20%D1%87%D1%82%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%5Cn%D0%BD%D0%B5%D0%BB%D1%8C%D0%B7%D1%8F%20%D1%81%D0%BE%D0%B2%D0%B5%D1%80%D1%88%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%20%5Cn%D1%81%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20(payerType%3A%20CustomerPayer).%0ARBK--%3EMerch%3A%20status%3A%20ready%0Adeactivate%20RBK%0Aelse%2011)%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%0ARBK-%3EMerch%3A%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B5%20%5Cn(%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8)%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23tag%2FWebhooks%3Ewebhook%3C%2Flink%3E%0Aend%0AMerch-%3EMerch%3A12)%20%D0%A0%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%2F%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%5Cn%D1%81%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BD%D0%BE%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%5Cn%D0%A4%D0%BE%D1%80%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20invoiceData%20%0AMerch-%3ERBK%3A13)%20%D0%92%D1%8B%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%83%5Cn%D1%81%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%BD%D0%BE%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%BC%D1%83%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FcreateInvoice%3EcreateInvoice%3C%2Flink%3E%5Cn(API%20Key%2C%20invoiceData)%0Aactivate%20RBK%0ARBK--%3EMerch%3A201%20(invoiceID%2C%20invoiceData)%0Adeactivate%20RBK%0AMerch-%3ERBK%3A14)%20%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%83%20%D0%B2%D1%8B%D1%81%D1%82%D0%B0%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FcreatePayment%3EcreatePayment%3C%2Flink%3E%5Cn(API%20Key%2C%5CnpaymentToolToken%2C%20paymentSession%2C%5CnpayerType%3A%20CustomerPayer%2C%5CncustomerID)%0Aactivate%20RBK%0ARBK--%3EMerch%3A%20201%20(paymentID)%0Adeactivate%20RBK%0AMerch-%3ERBK%3A15)%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FgetInvoiceEvents%3EgetInvoiceEvents%3C%2Flink%3E%5Cn(API%20Key%2C%20invoiceID)%0Aactivate%20RBK%0Abox%20left%20of%20Merch%3A%D0%97%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%2C%20%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%BE%D1%82%20%5CnInvoiceStatusChanged%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%5Cn%D0%BE%20%D1%82%D0%BE%D0%BC%2C%20%D1%87%D1%82%D0%BE%20%D1%81%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9%20%D0%B5%D1%89%D0%B5%20%D0%B4%D0%BE%D0%BB%D0%B6%D0%BD%D1%8B%20%5Cn%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%BE%D0%B9%D1%82%D0%B8%20%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F.%0ARBK--%3EMerch%3A%20changeType%3A%20InvoiceStatusChanged%0Adeactivate%20RBK%0Aalt%2016)%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%20%0AMerch-%3ERBK%3A%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B0%3A%5Cn%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23operation%2FgetPaymentByID%3EgetPaymentByID%3C%2Flink%3E%20(API%20Key%2C%20invoiceID)%20%0Aactivate%20RBK%0ARBK--%3EMerch%3A%20status%0Adeactivate%20RBK%0Aelse%2016)%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%0ARBK-%3EMerch%3A%20%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%3A%20%3Clink%3Ahttps%3A%2F%2Fdeveloper.rbk.money%2Fapi%2F%23tag%2FWebhooks%3Ewebhook%3C%2Flink%3E%0Aend%0AMerch-%3EMerchF%3A%2017)%20payInfo%0AMerchF-%3EClient%3A18)%20%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B8%0A%0A%0A%0A%0A%0A%0A%0A%0A%20%20%0A%0A%0A%0A
+    </desc>
+    <defs/>
+    <g>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g/>
+        <g>
+            <rect fill="white" stroke="none" x="0" y="0" width="1451" height="3265"/>
+        </g>
+        <g/>
+        <g>
+            <path fill="none" stroke="black" paint-order="fill stroke markers"
+                  d=" M 29.01644090625 101.4981574275 L 29.01644090625 3160.5791138775" stroke-miterlimit="10"
+                  stroke-width="1.5706926250000002" stroke-dasharray="14.498701153846154,6.282770500000001"/>
+            <path fill="none" stroke="black" paint-order="fill stroke markers"
+                  d=" M 480.1401915750001 101.4981574275 L 480.1401915750001 3160.5791138775" stroke-miterlimit="10"
+                  stroke-width="1.5706926250000002" stroke-dasharray="14.498701153846154,6.282770500000001"/>
+            <path fill="none" stroke="black" paint-order="fill stroke markers"
+                  d=" M 941.0888162437502 101.4981574275 L 941.0888162437502 3160.5791138775" stroke-miterlimit="10"
+                  stroke-width="1.5706926250000002" stroke-dasharray="14.498701153846154,6.282770500000001"/>
+            <path fill="none" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1356.9717526812503 101.4981574275 L 1356.9717526812503 3160.5791138775" stroke-miterlimit="10"
+                  stroke-width="1.5706926250000002" stroke-dasharray="14.498701153846154,6.282770500000001"/>
+        </g>
+        <g>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 39.75997846125 21.769799782499998 A 10.743537555 10.743537555 0 1 1 39.75997308948167 21.759056246735582 M 29.01644090625 32.5133373375 L 29.01644090625 55.5082773675 M 15.44565662625 40.8065943975 L 42.58722518625 40.8065943975 M 29.01644090625 55.5082773675 L 15.44565662625 76.9953524775 M 29.01644090625 55.5082773675 L 42.58722518625 76.9953524775"
+                      stroke-miterlimit="10" stroke-width="3.2042129550000005" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="9.42415575" y="95.8436639775" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Buyer</text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 428.42634586312505 13.09957649249999 L 531.854037286875 13.09957649249999 L 531.854037286875 101.4981574275 L 428.42634586312505 101.4981574275 L 428.42634586312505 13.09957649249999 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="448.8767638406251" y="44.953222927500015" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Merchant</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="450.1218810281251" y="63.801534427500016"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Frontend</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="480.1401915750001" y="82.64984592750002"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 889.3749705318752 13.09957649249999 L 992.8026619556252 13.09957649249999 L 992.8026619556252 101.4981574275 L 889.3749705318752 101.4981574275 L 889.3749705318752 13.09957649249999 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="909.8253885093752" y="44.953222927500015" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Merchant</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="911.9018045250002" y="63.801534427500016"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Backend</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="941.0888162437502" y="82.64984592750002"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="#42E299" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1296.5054655631254 31.947887992499982 L 1417.4380397993755 31.947887992499982 L 1417.4380397993755 101.4981574275 L 1296.5054655631254 101.4981574275 L 1296.5054655631254 31.947887992499982 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="1316.9558835406253" y="63.80153442750001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">RBK.Money</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1356.9717526812503" y="82.64984592750001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 39.75997846125 3197.42756286 A 10.743537555 10.743537555 0 1 1 39.75997308948167 3197.4168193242353 M 29.01644090625 3208.171100415 L 29.01644090625 3231.1660404450004 M 15.44565662625 3216.464357475 L 42.58722518625 3216.464357475 M 29.01644090625 3231.1660404450004 L 15.44565662625 3252.653115555 M 29.01644090625 3231.1660404450004 L 42.58722518625 3252.653115555"
+                      stroke-miterlimit="10" stroke-width="3.2042129550000005" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="9.42415575" y="3179.4274253774997" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Buyer</text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 428.42634586312505 3160.5791138775 L 531.854037286875 3160.5791138775 L 531.854037286875 3248.9776948125 L 428.42634586312505 3248.9776948125 L 428.42634586312505 3160.5791138775 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="448.8767638406251" y="3192.4327603125" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Merchant</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="450.1218810281251" y="3211.2810718124997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Frontend</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="480.1401915750001" y="3230.1293833124996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 889.3749705318752 3160.5791138775 L 992.8026619556252 3160.5791138775 L 992.8026619556252 3248.9776948125 L 889.3749705318752 3248.9776948125 L 889.3749705318752 3160.5791138775 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="909.8253885093752" y="3192.4327603125" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Merchant</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="911.9018045250002" y="3211.2810718124997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Backend</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="941.0888162437502" y="3230.1293833124996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+            <path fill="none" stroke="none"/>
+            <g>
+                <path fill="#42E299" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1296.5054655631254 3160.5791138775 L 1417.4380397993755 3160.5791138775 L 1417.4380397993755 3230.1293833125 L 1296.5054655631254 3230.1293833125 L 1296.5054655631254 3160.5791138775 Z"
+                      stroke-miterlimit="10" stroke-width="3.01572984" stroke-dasharray=""/>
+            </g>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="1316.9558835406253" y="3192.4327603125" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">RBK.Money</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1356.9717526812503" y="3211.2810718124997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve"></text>
+            </g>
+        </g>
+        <g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 470.71603582500006 158.0430919275 L 489.5643473250001 158.0430919275 L 489.5643473250001 469.0402316775 L 470.71603582500006 469.0402316775 L 470.71603582500006 158.0430919275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 931.6646604937503 224.0121821775 L 950.5129719937502 224.0121821775 L 950.5129719937502 421.9194529275 L 931.6646604937503 421.9194529275 L 931.6646604937503 224.0121821775"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 308.8295839275 L 1366.3959084312503 308.8295839275 L 1366.3959084312503 374.7986741775 L 1347.5475969312504 374.7986741775 L 1347.5475969312504 308.8295839275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 19.59228515625 535.0093219275 L 38.44059665625 535.0093219275 L 38.44059665625 638.6750351774999 L 19.59228515625 638.6750351774999 L 19.59228515625 535.0093219275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 470.71603582500006 638.6750351774999 L 489.5643473250001 638.6750351774999 L 489.5643473250001 1543.3939871774999 L 470.71603582500006 1543.3939871774999 L 470.71603582500006 638.6750351774999"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 723.4924369275 L 1366.3959084312503 723.4924369275 L 1366.3959084312503 1053.3378881775 L 1347.5475969312504 1053.3378881775 L 1347.5475969312504 723.4924369275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 1119.3069784274999 L 1366.3959084312503 1119.3069784274999 L 1366.3959084312503 1166.4277571774999 L 1347.5475969312504 1166.4277571774999 L 1347.5475969312504 1119.3069784274999"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 1251.2451589275 L 1366.3959084312503 1251.2451589275 L 1366.3959084312503 1496.2732084274999 L 1347.5475969312504 1496.2732084274999 L 1347.5475969312504 1251.2451589275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 1701.7198037774997 L 1366.3959084312503 1701.7198037774997 L 1366.3959084312503 1871.3546072774998 L 1347.5475969312504 1871.3546072774998 L 1347.5475969312504 1701.7198037774997"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 2237.0118503774997 L 1366.3959084312503 2237.0118503774997 L 1366.3959084312503 2284.1326291275 L 1347.5475969312504 2284.1326291275 L 1347.5475969312504 2237.0118503774997"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 2425.4949653775 L 1366.3959084312503 2425.4949653775 L 1366.3959084312503 2472.6157441275 L 1347.5475969312504 2472.6157441275 L 1347.5475969312504 2425.4949653775"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 2557.4331458775 L 1366.3959084312503 2557.4331458775 L 1366.3959084312503 2727.0679493774996 L 1347.5475969312504 2727.0679493774996 L 1347.5475969312504 2557.4331458775"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 1347.5475969312504 2838.2729872275 L 1366.3959084312503 2838.2729872275 L 1366.3959084312503 2885.3937659775 L 1347.5475969312504 2885.3937659775 L 1347.5475969312504 2838.2729872275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="141.40544671875003" y="133.5402869775" width="216.92158329375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="144.23269344375004" y="150.5037673275"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">1) Регистрация в интерфейсе</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 29.01644090625 158.0430919275 L 455.1975926900001 158.0430919275" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(470.71603582500006,158.0430919275) translate(-470.71603582500006,-158.0430919275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 455.0091095750001 150.1896288025 L 470.71603582500006 158.0430919275 L 455.0091095750001 165.8965550525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="613.1693372625001" y="180.6610657275" width="194.89033329375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="613.1693372625001" y="199.50937722749998" width="109.01386845"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="615.9965839875001" y="197.62454607749999"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">2) Создание пользователя</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="615.9965839875001" y="216.47285757749998"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(customerData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 489.5643473250001 224.0121821775 L 916.1462173587503 224.0121821775" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(931.6646604937503,224.0121821775) translate(-931.6646604937503,-224.0121821775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 915.9577342437502 216.1587190525 L 931.6646604937503 224.0121821775 L 915.9577342437502 231.86564530249998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1047.4176373468754" y="246.63015597749998"
+                          width="203.22529423125" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1047.4176373468754" y="265.4784674775" width="112.36103641875"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1047.4176373468754" y="284.3267789775" width="170.4347668875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1050.2448840718753" y="263.5936363275"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">3) Создание пользователя: </text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/createCustomer">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1050.2448840718753" y="282.44194782750003" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">createCustomer</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1050.2448840718753" y="301.29025932750005"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">(API Key, сustomerData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 950.5129719937502 308.8295839275 L 1332.0291537962503 308.8295839275" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,308.8295839275) translate(-1347.5475969312504,-308.8295839275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 300.97612080249996 L 1347.5475969312504 308.8295839275 L 1331.8406706812505 316.6830470525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="972.8168072687503" y="331.4475577275" width="34.848829387500004"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="972.8168072687503" y="350.2958692275" width="352.4269543875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="975.6440539937503" y="348.4110380775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">201 </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="975.6440539937503" y="367.2593495775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(customerAccessToken, customerID, сustomerData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 374.7986741775 L 966.0314151287502 374.7986741775" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(950.5129719937502,374.7986741775) translate(-950.5129719937502,-374.7986741775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 966.2198982437502 366.9452110525 L 950.5129719937502 374.7986741775 L 966.2198982437502 382.6521373025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="539.3961439031251" y="397.4166479775" width="342.4367200125"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="542.2233906281251" y="414.3801283275"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">customerAccessToken, customerID, сustomerData</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 931.6646604937503 421.9194529275 L 505.08279046000007 421.9194529275" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(489.5643473250001,421.9194529275) translate(-489.5643473250001,-421.9194529275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 505.27127357500007 414.0659898025 L 489.5643473250001 421.9194529275 L 505.27127357500007 429.7729160525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="161.25041742187503" y="444.5374267275" width="177.2316418875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="164.07766414687504" y="461.5009070775"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">4) Сообщение об успехе</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 470.71603582500006 469.0402316775 L 44.53488404125 469.0402316775" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(29.01644090625,469.0402316775) translate(-29.01644090625,-469.0402316775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 44.723367156250006 461.1867685525 L 29.01644090625 469.0402316775 L 44.723367156250006 476.8936948025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="155.7295048125" y="491.65820547749996" width="199.22627079375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="155.7295048125" y="510.5065169775" width="207.12177860625"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="158.55675153750002" y="508.62168582749996"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">5) Предложение привязать</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="158.55675153750002" y="527.4699973275"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">банковскую карту к сервису</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 480.1401915750001 535.0093219275 L 53.95903979125001 535.0093219275" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(38.44059665625,535.0093219275) translate(-38.44059665625,-535.0093219275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 54.14752290625 527.1558588025 L 38.44059665625 535.0093219275 L 54.14752290625 542.8627850524999 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="104.60385271875002" y="557.6272957274999" width="145.3273450125"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="104.60385271875002" y="576.4756072275" width="214.25556766875"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="104.60385271875002" y="595.3239187275" width="299.94892704375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="104.60385271875002" y="614.1722302275" width="76.5089856375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="107.43109944375001" y="574.5907760775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Ввод данных карты</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="107.43109944375001" y="593.4390875775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Согласие на привязку карты,</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="107.43109944375001" y="612.2873990775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">подтверждение привязки: clickBindButton</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="107.43109944375001" y="631.1357105775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(cardData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 38.44059665625 638.6750351774999 L 455.1975926900001 638.6750351774999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(470.71603582500006,638.6750351774999) translate(-470.71603582500006,-638.6750351774999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 455.0091095750001 630.8215720525 L 470.71603582500006 638.6750351774999 L 455.0091095750001 646.5284983024999 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="799.4347800906252" y="661.2930089775" width="212.0656262625"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="799.4347800906252" y="680.1413204775" width="238.242384075"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="799.4347800906252" y="698.9896319775" width="95.6984387625"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="802.2620268156252" y="678.2564893275"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">6) Данные банковской карты</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="802.2620268156252" y="697.1048008275001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(customerAccessToken, cardData, </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="802.2620268156252" y="715.9531123275001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">paymentTool)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 489.5643473250001 723.4924369275 L 1332.0291537962503 723.4924369275" stroke-miterlimit="10"
+                      stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,723.4924369275) translate(-1347.5475969312504,-723.4924369275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 715.6389738025 L 1347.5475969312504 723.4924369275 L 1331.8406706812505 731.3459000524999 Z"/>
+                </g>
+            </g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 463.1767112250001 746.1104107274999 L 1356.9717526812503 746.1104107274999 L 1373.9352330312504 805.4825919525 L 1356.9717526812503 864.8547731775 L 463.1767112250001 864.8547731775 L 463.1767112250001 746.1104107274999"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="bold" text-decoration="normal" x="767.7759428312502" y="772.4980468275" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Примечание к шагу 6</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="767.7759428312502" y="791.3463583275001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Вызов библиотеки Tokenizer.JS,</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="767.7759428312502" y="810.1946698275001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">которая выполняет запрос к backend RBK</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="767.7759428312502" y="829.0429813275001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">на создание токена платежного средства:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/createPaymentResource">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="767.7759428312502" y="847.8912928275001" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">createPaymentResource</text>
+                </a>
+            </g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 470.71603582500006 946.8449282025 L 461.29188007500005 946.8449282025 M 94.45410787500002 887.4727469774999 L 461.29188007500005 887.4727469774999 L 461.29188007500005 1006.2171094275 L 94.45410787500002 1006.2171094275 L 94.45410787500002 887.4727469774999"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="120.84174397500004" y="913.8603830775" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Запрос на создание токена не обязательно </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="120.84174397500004" y="932.7086945775001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">выполнять путем вызова Tokenizer.JS: </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="120.84174397500004" y="951.5570060775001"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">его можно отправить </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="120.84174397500004" y="970.4053175775001"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">напрямую с Merchant Frontend </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="120.84174397500004" y="989.2536290775001"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">или через Merchant Backend</text>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="773.9831199343752" y="1028.8350832275" width="289.1457043875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="776.8103666593752" y="1045.7985635774999"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">201 (paymentToolToken, paymentSession)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 1053.3378881775 L 505.08279046000007 1053.3378881775"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(489.5643473250001,1053.3378881775) translate(-489.5643473250001,-1053.3378881775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 505.27127357500007 1045.4844250525 L 489.5643473250001 1053.3378881775 L 505.27127357500007 1061.1913513025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="666.8737449343752" y="1075.9558619774998" width="357.070509075"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="666.8737449343752" y="1094.8041734774997" width="503.3644543875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="669.7009916593752" y="1092.9193423274996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">7) Привязка карты к пользователю: </text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/createBinding">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="929.3884916593752" y="1092.9193423274996" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">createBinding</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="669.7009916593752" y="1111.7676538274995"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(customerAccessToken, paymentToolToken, customerID, paymentSession)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 489.5643473250001 1119.3069784274999 L 1332.0291537962503 1119.3069784274999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,1119.3069784274999) translate(-1347.5475969312504,-1119.3069784274999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 1111.4535153025 L 1347.5475969312504 1119.3069784274999 L 1331.8406706812505 1127.1604415524998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="706.4538230593752" y="1141.9249522275" width="424.2042981375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="709.2810697843752" y="1158.8884325774998"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">201 (customerBindingID, paymentToolToken, paymentSession)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 1166.4277571774999 L 505.08279046000007 1166.4277571774999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(489.5643473250001,1166.4277571774999) translate(-489.5643473250001,-1166.4277571774999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 505.27127357500007 1158.5742940525 L 489.5643473250001 1166.4277571774999 L 505.27127357500007 1174.2812203024998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="730.6786765750002" y="1189.0457309775" width="375.75459110625"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="730.6786765750002" y="1207.8940424774999"
+                          width="137.38056766875" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="730.6786765750002" y="1226.7423539774998" width="250.722852825"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="733.5059233000002" y="1206.0092113274998"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">8) Получение событий, связанных с пользователем:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/getCustomerEvents">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="733.5059233000002" y="1224.8575228274997" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">getCustomerEvents</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="733.5059233000002" y="1243.7058343274996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(customerAccessToken, customerID)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 489.5643473250001 1251.2451589275 L 1332.0291537962503 1251.2451589275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,1251.2451589275) translate(-1347.5475969312504,-1251.2451589275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 1243.3916958025 L 1347.5475969312504 1251.2451589275 L 1331.8406706812505 1259.0986220524999 Z"/>
+                </g>
+            </g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 470.71603582500006 1361.5077812025 L 461.29188007500005 1361.5077812025 M 47.86475240625002 1273.8631327275 L 461.29188007500005 1273.8631327275 L 461.29188007500005 1449.1524296774999 L 47.86475240625002 1449.1524296774999 L 47.86475240625002 1273.8631327275"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1300.2507688274998" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Значение, отличное от </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1319.0990803274997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">CustomerBindingStatusChanged говорит </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1337.9473918274996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">о том, что с пользователем еще должны </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1356.7957033274995"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">произойти определенные события. </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1375.6440148274994"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Пример: </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1394.4923263274993"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">changeType: CustomerBindingInteractionRequested </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1413.3406378274992"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">и interactionType: Rediret говорят о необходимости </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="74.25238850625004" y="1432.1889493274991"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">подтвердить привязку карты на форме банка</text>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="761.4587058718752" y="1471.7704034775" width="314.1945325125"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="764.2859525968752" y="1488.7338838274998"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">changeType: CustomerBindingStatusChanged</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 1496.2732084274999 L 505.08279046000007 1496.2732084274999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(489.5643473250001,1496.2732084274999) translate(-489.5643473250001,-1496.2732084274999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 505.27127357500007 1488.4197453025 L 489.5643473250001 1496.2732084274999 L 505.27127357500007 1504.1266715524998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="161.25041742187503" y="1518.8911822275" width="177.2316418875"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="164.07766414687504" y="1535.8546625774998"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">9) Сообщение об успехе</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 470.71603582500006 1543.3939871774999 L 44.53488404125 1543.3939871774999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(29.01644090625,1543.3939871774999) translate(-29.01644090625,-1543.3939871774999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 44.723367156250006 1535.5405240525 L 29.01644090625 1543.3939871774999 L 44.723367156250006 1551.2474503024998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="585.6302747625001" y="1566.0119609775" width="249.96845829375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="588.4575214875001" y="1582.9754413274998"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">10) CustomerBindingStatusChanged</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 480.1401915750001 1590.5147659274999 L 925.5703731087502 1590.5147659274999"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(941.0888162437502,1590.5147659274999) translate(-941.0888162437502,-1590.5147659274999)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 925.3818899937502 1582.6613028025 L 941.0888162437502 1590.5147659274999 L 925.3818899937502 1598.3682290524998 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1003.2499930656253" y="1658.3686873274996" width="247.500196575"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1003.2499930656253" y="1677.2169988274995"
+                          width="282.13642704375" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1006.0772397906253" y="1675.3321676774995"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Получение статуса пользователя:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/getCustomerById">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1006.0772397906253" y="1694.1804791774994" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">getCustomerById</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1121.9610288531253" y="1694.1804791774994"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve"> (API Key,  customerID) </text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 1701.7198037774997 L 1332.0291537962503 1701.7198037774997"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,1701.7198037774997) translate(-1347.5475969312504,-1701.7198037774997)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 1693.8663406524997 L 1347.5475969312504 1701.7198037774997 L 1331.8406706812505 1709.5732669024997 Z"/>
+                </g>
+            </g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 941.0888162437502 1774.2858030525 L 931.6646604937503 1774.2858030525 M 527.2609703250001 1724.3377775774998 L 931.6646604937501 1724.3377775774998 L 931.6646604937501 1824.2338285274998 L 527.2609703250001 1824.2338285274998 L 527.2609703250001 1724.3377775774998"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="553.6486064250003" y="1750.7254136774998" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Значение, отличное от ready говорит</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="553.6486064250003" y="1769.5737251774997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">о том, что для данного пользователя</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="553.6486064250003" y="1788.4220366774996"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">нельзя совершать платеж </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="553.6486064250003" y="1807.2703481774995"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">с привязанной карты (payerType: CustomerPayer).</text>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1098.5527274406254" y="1846.8518023274999"
+                          width="91.53095829375" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1101.3799741656253" y="1863.8152826774997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">status: ready</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 1871.3546072774998 L 956.6072593787502 1871.3546072774998"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(941.0888162437502,1871.3546072774998) translate(-941.0888162437502,-1871.3546072774998)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 1863.5011441524998 L 941.0888162437502 1871.3546072774998 L 956.7957424937503 1879.2080704024997 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1048.5895123468754" y="1939.2085286774998"
+                          width="177.06318485625" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1048.5895123468754" y="1958.0568401774997"
+                          width="200.88154423125" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1048.5895123468754" y="1976.9051516774996" width="65.6984387625"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1051.4167590718753" y="1956.1720090274996"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">Уведомление о статусе </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1051.4167590718753" y="1975.0203205274995"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">(готовности) пользователя:</text>
+                <a xlink:href="https://developer.rbk.money/api/#tag/Webhooks">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1051.4167590718753" y="1993.8686320274994" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">webhook</text>
+                </a>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1356.9717526812503 2001.4079566274997 L 956.6072593787502 2001.4079566274997"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(941.0888162437502,2001.4079566274997) translate(-941.0888162437502,-2001.4079566274997)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 1993.5544935024998 L 941.0888162437502 2001.4079566274997 L 956.7957424937503 2009.2614197524997 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="963.3926515187502" y="2046.6439042275" width="185.5812512625"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="963.3926515187502" y="2065.4922157275" width="158.730665325"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="963.3926515187502" y="2084.3405272275" width="199.3068372"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="966.2198982437502" y="2063.6073845775"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">12) Резерв товара/услуги</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="966.2198982437502" y="2082.4556960775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">согласно расписанию</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="966.2198982437502" y="2101.3040075774998"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">Формирование invoiceData </text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 2108.8433321774996 L 1016.4820622437502 2108.8433321774996 L 1016.4820622437502 2133.3461371275 L 956.6072593787502 2133.3461371275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(941.0888162437502,2133.3461371275) translate(-941.0888162437502,-2133.3461371275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2125.4926740025 L 941.0888162437502 2133.3461371275 L 956.7957424937503 2141.1996002524997 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1022.3808524406253" y="2155.9641109275" width="243.87470829375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1022.3808524406253" y="2174.8124224274998"
+                          width="242.8566418875" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1022.3808524406253" y="2193.6607339274997"
+                          width="94.87080204375" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1022.3808524406253" y="2212.5090454274996"
+                          width="155.44209110625" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1025.2080991656253" y="2172.9275912774997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">13) Выставление счета на оплату</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1025.2080991656253" y="2191.7759027774996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">согласно заданному расписанию:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/createInvoice">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1025.2080991656253" y="2210.6242142774995" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">createInvoice</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1025.2080991656253" y="2229.4725257774994"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">(API Key, invoiceData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 2237.0118503774997 L 1332.0291537962503 2237.0118503774997"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,2237.0118503774997) translate(-1347.5475969312504,-2237.0118503774997)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 2229.1583872525 L 1347.5475969312504 2237.0118503774997 L 1331.8406706812505 2244.8653135024997 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1047.6970145500004" y="2259.6298241775" width="193.242384075"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1050.5242612750003" y="2276.5933045274996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">201 (invoiceID, invoiceData)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 2284.1326291275 L 956.6072593787502 2284.1326291275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(941.0888162437502,2284.1326291275) translate(-941.0888162437502,-2284.1326291275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2276.2791660025 L 941.0888162437502 2284.1326291275 L 956.7957424937503 2291.9860922525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2306.7506029275" width="307.03877079375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2325.5989144275" width="106.5382825125"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2344.4472259275" width="67.90302860625"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2363.2955374274998"
+                          width="254.12861454375" height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2382.1438489274997" width="191.5871106375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="990.7988211906253" y="2400.9921604274996" width="87.33418095"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="993.6260679156253" y="2323.7140832775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">14) Запрос на оплату высталенного счета:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/createPayment">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="993.6260679156253" y="2342.5623947775" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">createPayment</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="993.6260679156253" y="2361.4107062774997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">(API Key,</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="993.6260679156253" y="2380.2590177774996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">paymentToolToken, paymentSession,</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="993.6260679156253" y="2399.1073292774995"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">payerType: CustomerPayer,</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="993.6260679156253" y="2417.9556407774994"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">customerID)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 2425.4949653775 L 1332.0291537962503 2425.4949653775"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,2425.4949653775) translate(-1347.5475969312504,-2425.4949653775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 2417.6415022525002 L 1347.5475969312504 2425.4949653775 L 1331.8406706812505 2433.3484285025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1085.6328055656254" y="2448.1129391775" width="117.37080204375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1088.4600522906253" y="2465.0764195274996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">201 (paymentID)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 2472.6157441275 L 956.6072593787502 2472.6157441275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(941.0888162437502,2472.6157441275) translate(-941.0888162437502,-2472.6157441275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2464.7622810025 L 941.0888162437502 2472.6157441275 L 956.7957424937503 2480.4692072525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1027.7495047843754" y="2495.2337179275" width="233.13740360625"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1027.7495047843754" y="2514.0820294275" width="119.89033329375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1027.7495047843754" y="2532.9303409275" width="138.75752079375"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1030.5767515093753" y="2512.1971982775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">15) Получение событий оплаты:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/getInvoiceEvents">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1030.5767515093753" y="2531.0455097775" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">getInvoiceEvents</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1030.5767515093753" y="2549.8938212774997"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">(API Key, invoiceID)</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 2557.4331458775 L 1332.0291537962503 2557.4331458775"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,2557.4331458775) translate(-1347.5475969312504,-2557.4331458775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 2549.5796827525 L 1347.5475969312504 2557.4331458775 L 1331.8406706812505 2565.2866090025 Z"/>
+                </g>
+            </g>
+            <path fill="white" stroke="black" paint-order="fill stroke markers"
+                  d=" M 941.0888162437502 2629.9991451524998 L 931.6646604937503 2629.9991451524998 M 628.5036461062501 2580.0511196774996 L 931.6646604937501 2580.0511196774996 L 931.6646604937501 2679.9471706275 L 628.5036461062501 2679.9471706275 L 628.5036461062501 2580.0511196774996"
+                  stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+            <g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="normal" x="654.8912822062503" y="2606.4387557774994" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Значение, отличное от </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="654.8912822062503" y="2625.2870672774993"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">InvoiceStatusChanged говорит</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="654.8912822062503" y="2644.135378777499"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">о том, что с оплатой еще должны </text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="654.8912822062503" y="2662.983690277499"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">произойти определенные события.</text>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1020.9855887687503" y="2702.5651444274995"
+                          width="246.6652356375" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1023.8128354937503" y="2719.5286247774993"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">changeType: InvoiceStatusChanged</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 2727.0679493774996 L 956.6072593787502 2727.0679493774996"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(941.0888162437502,2727.0679493774996) translate(-941.0888162437502,-2727.0679493774996)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2719.2144862524997 L 941.0888162437502 2727.0679493774996 L 956.7957424937503 2734.9214125024996 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1002.2941825187503" y="2794.9218707775" width="284.0480481375"
+                          height="24.50280495"/>
+                </g>
+                <g>
+                    <rect fill="white" stroke="none" x="1002.2941825187503" y="2813.7701822774998"
+                          width="259.6437512625" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1005.1214292437503" y="2811.8853511274997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">Запрос на получение статуса платежа:</text>
+                <a xlink:href="https://developer.rbk.money/api/#operation/getPaymentByID">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1005.1214292437503" y="2830.7336626274996" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">getPaymentByID</text>
+                </a>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1117.6726987750003" y="2830.7336626274996"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve"> (API Key, invoiceID) </text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 2838.2729872275 L 1332.0291537962503 2838.2729872275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(1347.5475969312504,2838.2729872275) translate(-1347.5475969312504,-2838.2729872275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 1331.8406706812505 2830.4195241025 L 1347.5475969312504 2838.2729872275 L 1331.8406706812505 2846.1264503525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1121.4811942375004" y="2860.8909610275"
+                          width="45.674024700000004" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1124.3084409625003" y="2877.8544413775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">status</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1347.5475969312504 2885.3937659775 L 956.6072593787502 2885.3937659775"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray="7.5393246000000005"/>
+                <g transform="translate(941.0888162437502,2885.3937659775) translate(-941.0888162437502,-2885.3937659775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2877.5403028525 L 941.0888162437502 2885.3937659775 L 956.7957424937503 2893.2472291025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="1026.5729107843754" y="2953.2476873775" width="244.91474735625"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="1029.4001575093753" y="2970.2111677274997"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">Уведомление об оплате: </text>
+                <a xlink:href="https://developer.rbk.money/api/#tag/Webhooks">
+                    <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal" font-weight="normal" text-decoration="underline" x="1208.6164661031253" y="2970.2111677274997" text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">webhook</text>
+                </a>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 1356.9717526812503 2977.7504923275 L 956.6072593787502 2977.7504923275"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(941.0888162437502,2977.7504923275) translate(-941.0888162437502,-2977.7504923275)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 956.7957424937503 2969.8970292025 L 941.0888162437502 2977.7504923275 L 956.7957424937503 2985.6039554525 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="670.2616224187501" y="3022.9864399274998" width="80.70576298125"
+                          height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="673.0888691437501" y="3039.9499202774996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">17) payInfo</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 941.0888162437502 3047.4892448775 L 495.65863471000006 3047.4892448775"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(480.1401915750001,3047.4892448775) translate(-480.1401915750001,-3047.4892448775)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 495.84711782500005 3039.6357817525 L 480.1401915750001 3047.4892448775 L 495.84711782500005 3055.3427080025 Z"/>
+                </g>
+            </g>
+            <g>
+                <g>
+                    <rect fill="white" stroke="none" x="149.15707537500003" y="3070.1072186774995"
+                          width="210.84248173125" height="24.50280495"/>
+                </g>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="11pt" font-style="normal"
+                      font-weight="normal" text-decoration="normal" x="151.98432210000004" y="3087.0706990274994"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">18) Уведомление о списании</text>
+            </g>
+            <g>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 480.1401915750001 3094.6100236274997 L 44.53488404125 3094.6100236274997"
+                      stroke-miterlimit="10" stroke-width="1.5706926250000002" stroke-dasharray=""/>
+                <g transform="translate(29.01644090625,3094.6100236274997) translate(-29.01644090625,-3094.6100236274997)">
+                    <path fill="black" stroke="none" paint-order="stroke fill markers"
+                          d=" M 44.723367156250006 3086.7565605024997 L 29.01644090625 3094.6100236274997 L 44.723367156250006 3102.4634867524996 Z"/>
+                </g>
+            </g>
+            <g>
+                <g/>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 517.8368145750002 1613.1327397274997 L 1422.9408429312502 1613.1327397274997 L 1422.9408429312502 2024.0259304274998 L 517.8368145750002 2024.0259304274998 L 517.8368145750002 1613.1327397274997 Z"
+                      stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray=""/>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 517.8368145750002 1613.1327397274997 L 517.8368145750002 1635.7507135274998 L 569.5373438250002 1635.7507135274998 L 580.8463307250003 1624.4417266274997 L 580.8463307250003 1613.1327397274997 L 517.8368145750002 1613.1327397274997"
+                      stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray=""/>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="536.6851260750002" y="1628.2113889274997"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">alt</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="599.6946422250003" y="1628.2113889274997"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">[11) запрос статуса ]</text>
+                <g>
+                    <path fill="none" stroke="black" paint-order="fill stroke markers"
+                          d=" M 517.8368145750002 1893.9725810774996 L 1422.9408429312502 1893.9725810774996"
+                          stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray="4.712077875"/>
+                </g>
+                <g/>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="599.6946422250003" y="1909.0512302774996"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">[11) получение уведомления]</text>
+            </g>
+            <g/>
+            <g>
+                <g/>
+                <path fill="none" stroke="black" paint-order="fill stroke markers"
+                      d=" M 875.1197259937502 2749.6859231774997 L 1422.9408429312502 2749.6859231774997 L 1422.9408429312502 3000.3684661275 L 875.1197259937502 3000.3684661275 L 875.1197259937502 2749.6859231774997 Z"
+                      stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray=""/>
+                <path fill="white" stroke="black" paint-order="fill stroke markers"
+                      d=" M 875.1197259937502 2749.6859231774997 L 875.1197259937502 2772.3038969775 L 926.8202552437502 2772.3038969775 L 938.1292421437503 2760.9949100774998 L 938.1292421437503 2749.6859231774997 L 875.1197259937502 2749.6859231774997"
+                      stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray=""/>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="893.9680374937502" y="2764.7645723775"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">alt</text>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="956.9775536437503" y="2764.7645723775"
+                      text-anchor="start" dominant-baseline="alphabetic"
+                      xml:space="preserve">[16) запрос статуса ]</text>
+                <g>
+                    <path fill="none" stroke="black" paint-order="fill stroke markers"
+                          d=" M 875.1197259937502 2908.0117397775 L 1422.9408429312502 2908.0117397775"
+                          stroke-miterlimit="10" stroke-width="2.6926159285714286" stroke-dasharray="4.712077875"/>
+                </g>
+                <g/>
+                <text fill="black" stroke="none" font-family="sans-serif" font-size="8.8pt" font-style="normal"
+                      font-weight="bold" text-decoration="normal" x="956.9775536437503" y="2923.0903889775004"
+                      text-anchor="start" dominant-baseline="alphabetic" xml:space="preserve">[16) получение уведомления]</text>
+            </g>
+            <g/>
+        </g>
+    </g>
+</svg>
