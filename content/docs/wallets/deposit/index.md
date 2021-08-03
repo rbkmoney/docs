@@ -29,13 +29,13 @@ category: wallet
 
 ### Пополнение по расписанию {#sheduleDeposit}
 
-[Платформа](http://127.0.0.1:8000/docs/payments/overview/) позволяет настроить регулярное пополнение [кошелька](../../wallets/overview/#wallet) cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) по заданному расписанию. Для этого необходимо обратиться к курирующему вас менеджеру RBK.Money.
+[Платформа](http://127.0.0.1:8000/docs/payments/overview/) позволяет настроить регулярное пополнение [кошелька](../../wallets/overview/#wallet) cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) по заданному расписанию. Для этого необходимо обратиться к курирующему вас менеджеру RBK.money.
 
 ### Разовое пополнение (обращение в RBK.Money) {#ссDeposit}
 
 Разовое пополнение можно произвести:
 
-* cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) (в случае, когда используется [платежный сервис](https://rbkmoney.github.io/docs/docs/payments/overview.html) RBK.Money);
+* cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) (в случае, когда используется [платежный сервис](https://rbkmoney.github.io/docs/docs/payments/overview.html) RBK.money);
 * с банковского счета (в случае, когда используется только [сервис электронных кошельков](../../wallets/overview)).
 
 Для этого необходимо обратиться к курирующему вас менеджеру RBK.Money.
