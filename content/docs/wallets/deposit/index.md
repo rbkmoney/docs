@@ -3,11 +3,11 @@ title: Пополнение кошелька
 
 search: true
 
-metatitle: pay
+metatitle: wallet
 
 metadescription: deposit
 
-category: pay
+category: wallet
 
 ---
 
