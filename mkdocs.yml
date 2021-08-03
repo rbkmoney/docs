@@ -69,6 +69,7 @@ nav:
                 - 'Joomla/Virtuemart': 'docs/payments/cms-modules/virtuemart/index.md'
         - Wallets:
                 - 'Обзор': 'docs/wallets/overview.md'
+                - 'Создание': 'docs/wallets/creation/index.md'
                 - 'Пополнение': 'docs/wallets/deposit/index.md'
                 - 'Вывод средств': 'docs/wallets/withdrawal/index.md'
     - 'Справочники':
