@@ -22,19 +22,31 @@ mkdocs serve --livereload
 
 ### Диаграммы
 
-Для генерации картинок из диаграмм на языке [PlantUML](http://plantuml.com) мы используем простой в использовании [platinum-toolset](https://github.com/rbkmoney/platinum-toolset). Будьте внимательны, для работы этому инструменту необходима Java Runtime.
+Для генерации картинок из диаграмм используются следующие инструменты:
 
-Установить его можно при помощи:
-
-```shell
-make install-toolset
-```
-
-Теперь, чтобы сгенерировать изображения png и svg из файлов с диаграммами wsd, достаточно всего лишь:
-
-```shell
-make
-```
+* [sequencediagram.org](https://sequencediagram.org)
+    * допополнительная информация для поддержки svg [здесь](https://stackoverflow.com/questions/644896/how-do-i-scale-a-stubborn-svg-embedded-with-the-object-tag/3484847#3484847).
+    * пример использования svg: 
+        * встроить отображение для html можно с помощью
+            ```html
+            <object data="../../recurring/img/CustomerPayer.svg"> </object>
+            ```
+        * управлять размером можно с помощью внесения изменений в .svg (тег `<svg>`)
+            ```xml
+            preserveAspectRatio="xMinYMin meet"
+            viewBox="0 0 1451 3265">
+            ```
+  
+* [platinum-toolset](https://github.com/rbkmoney/platinum-toolset) (язык [PlantUML](http://plantuml.com)).  
+    * для работы этому инструменту необходима Java Runtime;
+    * Установить его можно при помощи:
+        ```shell
+        make install-toolset
+        ```
+    * Чтобы сгенерировать изображения png и svg из файлов с диаграммами wsd, достаточно:
+        ```shell
+        make
+        ```      
 
 ### Локальное тестирование/ревью изменений
 

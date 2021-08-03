@@ -19,7 +19,7 @@ category: pay
 
 Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
 
-<a href="../../examples/img/CustomerPayer.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="../../examples/img/CustomerPayer.png"></a>
+<object data="../../examples/img/CustomerPayer.svg"> </object>
 
 !!!note "Информация"
     Получение, передача, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).

@@ -41,13 +41,9 @@ category: pay
 
 Ниже описан сценарий проведения рекуррентного платежа в случае, когда покупка производится с формы оплаты [мерчанта](https://developer.rbk.money/docs/payments/overview/#lk) (не с [формы RBK.money](https://developer.rbk.money/docs/payments/checkout)).
 
-1. Инициировать родительский платеж: создать и оплатить [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) согласно [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом примечания ниже.
-2. Инициировать рекуррентный платеж: cоздать новый [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) и оплатить его аналогично [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом примечания ниже (используя идентификатор родительского инвойса и платежа).
+1. Инициировать родительский платеж: создать и оплатить [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) согласно [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом нижеописанных особенностей.
 
----
-**ПРИМЕЧАНИЕ**
-
-* При выполнении п.1 в теле запросов к API требуется передать определенные значения нижеуказанных параметров.
+    В теле запросов к API требуется передать определенные значения указанных в таблице параметров.
 
     | Метод API  | Параметр | Значение |
     | ------------- | ------------- | ------------- |
@@ -55,31 +51,29 @@ category: pay
     | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | payerType  |  PaymentResourcePayer  |
     | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | makeRecurrent  |  true  |
 
-* При выполнении п.2 [метод создания токена платежного средства](https://developer.rbk.money/api/#tag/Tokens) не вызывается, а в теле запросов к API требуется передать определенные значения нижеуказанных параметров.
+2. Инициировать рекуррентный платеж: cоздать новый [инвойс](https://developer.rbk.money/docs/payments/overview/#invoice) и оплатить его аналогично [данной](https://developer.rbk.money/docs/payments/overview/#payScheme) схеме взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/), но с учетом нижеописанных особенностей.
+
+    [Метод создания токена платежного средства](https://developer.rbk.money/api/#tag/Tokens) не вызывается, а в теле запросов к API требуется передать определенные значения указанных в таблице параметров.
 
     | Метод API  | Параметр | Значение |
     | ------------- | ------------- | ------------- |
     | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | payerType  |  RecurrentPayer  |
-    | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | invoiceID  |  Идентификатор родительского инвойса, полученный в п.2 сценария выше  |
-    | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | paymentID  |  Идентификатор родительского платежа, полученный в п.2 сценария выше  |
+    | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | invoiceID  |  Идентификатор родительского инвойса, полученный в п.1 сценария выше  |
+    | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | paymentID  |  Идентификатор родительского платежа, полученный в п.1 сценария выше  |
     | [createPayment](https://developer.rbk.money/api/#operation/createPayment)  | makeRecurrent  |  true  |
 
-  * При создании новых рекуррентных списаний технически допускается использовать идентификаторы как исходных родительских инвойса и платежа (п.1 сценария выше), так и предыдущих (п.2 сценария выше).
+**Примечания**
+
+* При создании новых рекуррентных списаний технически допускается использовать идентификаторы как исходных родительских инвойса и платежа (п.1 сценария выше), так и предыдущих (п.2 сценария выше).
 
 * В целях безопасности международные платежные системы могут накладывать ограничения на длительность перерыва между двумя рекуррентными платежами: отказывать в безакцептном списании, если оно было запрошено более чем через N месяцев с момента совершения предыдущего. В связи с этим для каждого рекуррентного списания можно использовать идентификатор предыдущего платежа, а не самого первого (родительского).
-
----
 
 #### Сценарий с использованием платежной формы RBK.money {#rbkPayFormParent}
 
 См. [описание сценария](https://developer.rbk.money/docs/payments/overview/#pay), в котором оплата производится с платежной формы RBK.money.
 
----
-**ПРИМЕЧАНИЕ**
-
-В параметре `data-recurring`/`recurring` [HTML/JS API](../../checkout/#_1) необходимо передать значение `true`.
-
----
+!!!note "Информация"
+    В параметре `data-recurring`/`recurring` [HTML/JS API](../../checkout/#_1) необходимо передать значение `true`.
 
 ### Привязанная карта {#сardCases}
 
@@ -93,10 +87,9 @@ category: pay
 
 <object data="../../recurring/img/CustomerPayer.svg"> </object>
 
----
-**ПРИМЕЧАНИЕ**
+**Примечания**
 
-* Привязка карты требует подтверждения данного действия у банка-эмитента на соответствующей форме.
+* При подтверждении привязки банковской карты должна быть пройдена 3-D Secure аутентификация.
 * Получение, передача, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
 * На момент написания статьи для одного и того же пользователя ([покупателя](https://developer.rbk.money/docs/payments/overview/#shop), customerID) можно создать несколько привязок (customerBindingID). При этом активной будет являться лишь одна (самая последняя по дате создания) привязка. При проведении рекурректного платежа будет использована та банковская карта, с которой была создана последняя привязка.
 * Альтернативный сценарий использования привязанной карты отражен в [данной статье](../../examples/binding).
