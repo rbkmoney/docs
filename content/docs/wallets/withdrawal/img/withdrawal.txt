@@ -1,0 +1,49 @@
+bottomparticipants
+participant "Merchant\nBackend\n" as Merch
+participant "RBK.Money\n\n" as RBK #42E299
+entryspacing 0.8
+Merch->RBK:1) Сохранение/токенизация карты:<link:https://rbkmoney.github.io/wallets-api/v0/?api/payres/swagger.yaml#operation/storeBankCard>storeBankCard</link> \n(API key, cardData)
+activate RBK 
+RBK-->Merch:201 (token, cardData)
+deactivate RBK
+activate Merch
+Merch->RBK:2) Создание <link:https://developer.rbk.money/docs/wallets/overview/#destination>приемника средств</link>:  \n(API key, <link:https://developer.rbk.money/docs/wallets/creation/>identityID</link>, destinationData, token, type: BankCardDestinationResource)
+deactivate Merch
+activate RBK
+RBK-->Merch:201 (destinationID, destinationData)
+deactivate RBK
+alt 3) Запрос статуса 
+Merch->RBK:Запрос на получение статуса привязки:\n<link:https://rbkmoney.github.io/wallets-api/v0/#operation/getDestination>getDestination</link> \n(API key, destinationID)
+activate Merch
+activate RBK
+RBK-->Merch:201 (destinationID, status: authorized)
+deactivate RBK
+else 3) Получение уведомления
+RBK->Merch:Уведомлпение о привязке: <link:https://rbkmoney.github.io/wallets-api/v0/#tag/Webhooks>webhook</link>\n(DestinationAuthorized) 
+end
+Merch->RBK:4) Вывод средств: <link:https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal>createWithdrawal</link>\n(API key, <link:https://developer.rbk.money/docs/wallets/creation/>walletID</link>, destinationID)
+deactivate Merch
+activate RBK
+RBK-->Merch:201 (withdrawalID, status)
+deactivate RBK
+alt 4) Запрос статуса 
+Merch->RBK:Запрос на получение статуса операции вывода:\n<link:https://rbkmoney.github.io/wallets-api/v0/#operation/getWithdrawal>getWithdrawal</link> \n(API key, withdrawalID)
+activate RBK
+RBK-->Merch:201 (withdrawalID, status: Succeeded)
+deactivate RBK
+else 4) Получение уведомления
+RBK->Merch:Уведомлпение о привязке: <link:https://rbkmoney.github.io/wallets-api/v0/#tag/Webhooks>webhook</link>\n(WithdrawalSucceeded) 
+end
+
+
+
+
+
+
+
+
+
+  
+
+
+
