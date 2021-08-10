@@ -27,7 +27,7 @@ category: wallet
 
 [ЛК](https://developer.rbk.money/docs/payments/overview/#lk) позволяет пополнить баланс [кошелька](../../wallets/overview/#wallet) cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop). Инструкция для пополнения описана в [данном](https://help.rbkmoney.com/lk/lk/#out) руководстве пользователя.
 
-### Пополнение по расписанию {#sheduleDeposit}
+### Пополнение по расписанию {#scheduleDeposit}
 
 [Платформа](http://127.0.0.1:8000/docs/payments/overview/) позволяет настроить регулярное пополнение [кошелька](../../wallets/overview/#wallet) cо счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) по заданному расписанию. Для этого необходимо обратиться к курирующему вас менеджеру RBK.money.
 
@@ -44,7 +44,7 @@ category: wallet
 
 * Обязательным условием для проведения пополнения со счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) является наличие привязки [кошелька](../../wallets/overview/#wallet) к данному магазину.
 Для привязки следует обратиться к курирующему вас менеджеру RBK.money.
-* Валюта операции пополнения и валюта пополняемого кошелька (см. [currency](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet)) не должны отличаться от рублей.
+* Валюта счета [магазина](https://developer.rbk.money/docs/payments/overview/#shop) и валюта пополняемого кошелька (см. [currency](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet)) должны совпадать.
 
 ## Поиск операций {#search}
 

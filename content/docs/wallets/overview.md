@@ -32,7 +32,7 @@
 Валюта ЭДС определяется при [создании](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька параметром `currency`.
 
 !!! note "Информация"
-    При выводе средств [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька, [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal) операции, и [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createDestination) назначения платежа должны совпадать.
+    При выводе средств [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet) кошелька, [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createWithdrawal) операции, и [валюта](https://rbkmoney.github.io/wallets-api/v0/#operation/createDestination) приемника средств должны совпадать.
 
 ### Управление операциями вывода ЭДС {#withdrawal}
 
