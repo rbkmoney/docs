@@ -1,6 +1,6 @@
 bottomparticipants
 participant "Merchant\nBackend\n" as Merch
-participant "RBK.Money\n\n" as RBK #42E299
+participant "RBK.money\n\n" as RBK #42E299
 entryspacing 0.8
 Merch->RBK:1) Сохранение/токенизация карты:<link:https://rbkmoney.github.io/wallets-api/v0/?api/payres/swagger.yaml#operation/storeBankCard>storeBankCard</link> \n(API key, cardData)
 activate RBK 
