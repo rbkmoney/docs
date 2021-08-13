@@ -1,0 +1,23 @@
+bottomparticipants
+participant "Merchant\nBackend\n" as Merch
+participant "RBK.money\n\n" as RBK #42E299
+entryspacing 0.8
+Merch->RBK:1) Создание <link:https://developer.rbk.money/docs/wallets/overview/#identity>личности</link>: <link:https://rbkmoney.github.io/wallets-api/v0/#operation/createIdentity>createIdentity</link> \n(API key, identityData, provider, class, <link:https://developer.rbk.money/api/#tag/Parties>partyID</link>)
+RBK-->Merch:201 (identityID, identityData)
+note right of Merch:После создания личности принадлежащий ей identityID\nнеобходимо передать курирующему менеджеру RBK.money\nдля настройки ставок вознаграждения по операциям \nс использованием электронного кошелька
+Merch->RBK:2) Создание <link:https://developer.rbk.money/docs/wallets/overview/#wallet>кошелька</link>: <link:https://rbkmoney.github.io/wallets-api/v0/#operation/createWallet>createWallet</link> \n(API key, identityID, walletData)
+note right of Merch:Запрос на создание кошелька можно инициировать лишь после\nнастройки ставок вознаграждения на стороне RBK.money
+RBK-->Merch:201 (walletID, walletData)
+
+
+
+
+
+
+
+
+
+  
+
+
+
