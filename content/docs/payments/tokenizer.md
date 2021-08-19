@@ -19,37 +19,37 @@ category: pay
 
 **Руководство по использованию**
 
-1. Подключите **Tokenizer.js** на свою страницу оплаты:
+* Подключите **Tokenizer.js** на свою страницу оплаты.
 
-    ```html
-    <script src="https://rbkmoney.st/tokenizer.js"></script>
-    ```
+```html
+<script src="https://rbkmoney.st/tokenizer.js"></script>
+```
 
-2. Передайте ему [InvoiceAccessToken](https://developer.rbk.money/docs/payments/overview/#invoiceAccessToken):
+* Передайте ему [InvoiceAccessToken](https://developer.rbk.money/docs/payments/overview/#invoiceAccessToken).  
 
-    ```html
-    <script type="text/javascript">
-        Tokenizer.setAccessToken('<access_token>');
-    </script>
-    ```
+```html
+<script type="text/javascript">
+    Tokenizer.setAccessToken('<access_token>');
+</script>
+```
 
-3. Передайте **Tokenizer.js** реквизиты банковской карты, полученные на собственной платежной форме. Примите токен в ответ.
+* Передайте **Tokenizer.js** полученные от покупателя реквизиты банковской карты. Примите токен в ответ.
 
-    ```html
-    <script type="text/javascript">
-        Tokenizer.card.createToken({
-            paymentToolType: 'CardData',
-            cardHolder: '<card holder>',
-            cardNumber: '<card number>',
-            expDate: '<exp date>',
-            cvv: '<cvv>'
-        }, (token) => {
-            console.log(token); // { token: 'string', session: 'string' }
+```html
+<script type="text/javascript">
+    Tokenizer.card.createToken({
+        paymentToolType: 'CardData',
+        cardHolder: '<card holder>',
+        cardNumber: '<card number>',
+        expDate: '<exp date>',
+        cvv: '<cvv>'
+    }, (token) => {
+        console.log(token); // { token: 'string', session: 'string' }
         }, (error) => {
-            console.error(error); // { code: 'string', message: 'string' }
+        console.error(error); // { code: 'string', message: 'string' }
         });
-    </script>
-    ```
+</script>
+```
 
 **Пример взаимодействия платежной формы с библиотекой**
 
