@@ -42,7 +42,7 @@ nav:
     - 'Интеграция':
         - Payments:
             - 'Обзор': 'docs/payments/overview.md'
-            - 'Checkout': 'docs/payments/checkout.md'
+            - 'Checkout': 'docs/payments/checkout/index.md'
             - 'Tokenizer': 'docs/payments/tokenizer.md'
             - '3D-Secure': 'docs/payments/3dsecure.md'
             - 'Recurring': 'docs/payments/recurring/recurring.md'
