@@ -1,17 +1,40 @@
-Библиотека **tokenizer.js** предоставляет вам возможность создания собственных платежных форм, находящихся непосредственно на вашем веб-сервере, однако требует более сложной технической реализации.
+---
+title: Tokenizer
 
-## Пример интеграции собственной платежной формы
-* Подключите tokenizer.js на свою страницу:
+search: true
+
+metatitle: pay
+
+metadescription: Tokenizer library
+
+category: pay
+
+---
+
+# Tokenizer
+
+**Tokenizer.js** — библиотека, которая позволяет создать токен платежного средства с целью безопасного хранения и получения реквизитов для оплаты [инвойса](https://developer.rbk.money/docs/payments/overview/#invoice).
+
+Сценарий, в котором используется **Tokenizer.js** описан в [данном](https://developer.rbk.money/docs/payments/overview/#payScheme) разделе.
+
+**Руководство по использованию**
+
+* Подключите **Tokenizer.js** на свою страницу оплаты.
+
 ```html
 <script src="https://rbkmoney.st/tokenizer.js"></script>
 ```
-* Установите access token в tokenizer:
+
+* Передайте ему [InvoiceAccessToken](https://developer.rbk.money/docs/payments/overview/#invoiceAccessToken).  
+
 ```html
 <script type="text/javascript">
     Tokenizer.setAccessToken('<access_token>');
 </script>
 ```
-* Получите токен платежного средства, передав данные в tokenizer:
+
+* Передайте **Tokenizer.js** полученные от покупателя реквизиты банковской карты. Примите токен в ответ.
+
 ```html
 <script type="text/javascript">
     Tokenizer.card.createToken({
@@ -22,13 +45,14 @@
         cvv: '<cvv>'
     }, (token) => {
         console.log(token); // { token: 'string', session: 'string' }
-    }, (error) => {
+        }, (error) => {
         console.error(error); // { code: 'string', message: 'string' }
-    });
+        });
 </script>
 ```
 
-Пример обработки формы c помощью tokenizer:
+**Пример взаимодействия платежной формы с библиотекой**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
