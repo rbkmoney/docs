@@ -23,9 +23,9 @@ category: Developer guide
 
 Принцип работы способа оплаты **Google Pay** указан на сайте [developers.google.com](https://developers.google.com/pay/api/web/overview).
 
-Инструкция предназначена для компаний, осуществляющих прием платежей с помощью собственной платежной формы и взаимодействия с платформой RBK.money по [API](https://developer.rbk.money/api/).
+Инструкция предназначена для компаний, осуществляющих приём платежей с помощью собственной платёжной формы и взаимодействия с платформой RBK.money по [API](https://developer.rbk.money/api/).
 
-Если прием платежей осуществляется с помощью [платежного виджета](https://rbk.money/payment-solutions/) RBK.money, описанные ниже действия выполнять не требуется — способ оплаты **Google Pay** уже доступен для покупателей.
+Если приём платежей осуществляется с помощью [платёжного виджета](https://rbk.money/payment-solutions/) RBK.money, описанные ниже действия выполнять не требуется — способ оплаты **Google Pay** уже доступен для покупателей.
 
 ## Размещение кнопки и обработчика событий Google Pay {#button}
 
@@ -42,7 +42,7 @@ category: Developer guide
 
 * при выборе данного метода покупатель должен нажать соответствующую [кнопку](#button) на странице оплаты заказа: шаг 5 [схемы](../overview.md#payScheme) проведения платежа;
 * запрос на токенизацию данных в Google Pay описан в разделе [«Токенизация платежных данных в Google Pay»](#token): шаг 6 [схемы](../overview.md#payScheme) проведения платежа.
-* при формировании [запроса на создание токена платежного средства](https://developer.rbk.money/api/#operation/createPaymentResource) (шаг 7 [схемы](../overview.md#payScheme) проведения платежа) в объекте `PaymentTool` следует указать нижеприведенные значения.
+* при формировании [запроса на создание токена платёжного средства](https://developer.rbk.money/api/#operation/createPaymentResource) (шаг 7 [схемы](../overview.md#payScheme) проведения платежа) следует передать определенные значения указанных ниже параметров.
 
 | Параметр | Значение |
 |---------|----------|
@@ -51,11 +51,11 @@ category: Developer guide
 |`gatewayMerchantID`| Идентификатор мерчанта (продавца), выданный [группой сопровождения RBK.money](mailto:support@rbk.money) |
 |`paymentToken`| Структура и значения, [полученные от Google Pay](#token)|
 
-### Токенизация платежных данных в Google Pay {#token}
+### Токенизация платёжных данных в Google Pay {#token}
 
-Токенизация данных в **Google Pay** выполняется на шаге 6 [схемы взаимодействия](../overview.md#payScheme) с RBK.money. Получение токена осуществляется путем передачи `PaymentDataRequest` сервису Google Pay: см. шаги [«Создайте объект PaymentDataRequest»](https://developers.google.com/pay/api/web/guides/tutorial#paymentdatarequest) и [«Настройте обработчик жестов пользователей»](https://developers.google.com/pay/api/web/guides/tutorial#paymentdatarequest).
+Токенизация данных в **Google Pay** выполняется на шаге 6 [схемы взаимодействия](../overview.md#payScheme) с RBK.money. Получение токена осуществляется путем передачи `PaymentDataRequest` сервису Google Pay: см. шаги [«Создайте объект PaymentDataRequest»](https://developers.google.com/pay/api/web/guides/tutorial#paymentdatarequest) и [«Настройте обработчик жестов пользователей»](https://developers.google.com/pay/api/web/guides/tutorial#event-handler).
 
-В случае подтверждения покупателем оплаты заказа сервис **Google Pay** создает для него платежный токен (PaymentToken). Google Pay отправляет созданный токен на frontend сайта продавца: см. ниже **Callback**. Полученный токен должен быть передан RBK.money при формировании платежного [запроса](https://developer.rbk.money/api/#operation/createPaymentResource): см. шаг 7 [данной](../overview.md#payScheme) схемы взаимодействия.
+В случае подтверждения покупателем оплаты заказа сервис **Google Pay** создает для него платёжный токен (PaymentToken). Google Pay отправляет созданный токен на frontend сайта продавца: см. ниже **Callback**. Полученный токен должен быть передан RBK.money при формировании платёжного [запроса](https://developer.rbk.money/api/#operation/createPaymentResource): см. шаг 7 [данной](../overview.md#payScheme) схемы взаимодействия.
 
 **Сallback**
 
