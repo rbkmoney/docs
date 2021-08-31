@@ -20,10 +20,10 @@ category: pay
 
 Данная статья предназначена для компаний, осуществляющих приём платежей с помощью собственной платёжной формы и взаимодействия с [платформой](https://developer.rbk.money/docs/payments/overview/#_1) RBK.money по [API](https://developer.rbk.money/api/).
 
-!!! note "Обязательность 3DS"
+!!! note "Обязательность 3DS-аутентификации"
     По-умолчанию все платежи,  проводимые RBK.money, требуют использования 3DS. Для уточнения возможности отключения 3DS (использования не-3DS терминала) обратитесь в службу поддержки. Однако в некоторых случаях при проведении платежей через не-3DS терминал банк-эмитент всё же может потребовать аутентификацию: ваше приложение должно поддерживать использование данной технологии.
 
-## Сценарий
+## Сценарий {#cases}
 
 Этап, на котором используется 3DS, отражён в [данном](https://developer.rbk.money/docs/payments/overview/#payScheme) сценарии.
 
@@ -94,5 +94,8 @@ category: pay
 
 * Покупатель воспользуется вторым фактором аутентификации на странице банка-эмитента.
 * Банк-эмитент сформирует ответ об успешности прохождения аутентификации и оповестит об этом [платформу](https://developer.rbk.money/docs/payments/overview/#_1).
+
+    !!! note "Успешное прохождение 3DS-аутентификации"
+        Для того чтобы узнать об успешном прохождении [покупателем](https://developer.rbk.money/docs/payments/overview/#shop) 3DS-аутентификации, при выполнении [запроса](https://developer.rbk.money/api/#operation/createPayment) на оплату выставленного [счета](https://developer.rbk.money/docs/payments/overview/#invoice) необходимо передать `redirectUrl`: см. `payer` → `sessionInfo`.
 
 RBK.money следует [опрашивать](https://developer.rbk.money/api/#operation/getInvoiceEvents) до тех пор, пока параметр `changeType` не примет значение `InvoiceStatusChanged`. Данное значение говорит о финальном статусе оплаты [инвойса](https://developer.rbk.money/docs/payments/overview/#invoice).
