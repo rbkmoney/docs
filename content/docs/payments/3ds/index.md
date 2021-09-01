@@ -89,7 +89,7 @@ category: pay
     Пример запроса:
 
 ```json 
-    curl "https://3ds-mock.rbkmoney.com/mpi/acs" --data "TermUrl=https://wrapper.rbk.money&PaReq=paReq&MD=COM_MPICOM_MPI-ymJorPXs5A1"
+    curl "https://3ds-mock.rbkmoney.com/mpi/acs" --data "TermUrl=https://wrapper.rbk.money?PaReq=paReq&MD=COM_MPICOM_MPI-ymJorPXs5A1"
 ```
 
 * Покупатель воспользуется вторым фактором аутентификации на странице банка-эмитента.
