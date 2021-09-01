@@ -25,7 +25,7 @@ category: pay
 
 ## Сценарий {#cases}
 
-Этап, на котором используется 3DS, отражён в [данном](https://developer.rbk.money/docs/payments/overview/#payScheme) сценарии.
+Этап проведения платежа, на котором используется 3DS, отражён в [данном](https://developer.rbk.money/docs/payments/overview/#payScheme) сценарии.
 
 Ниже представлена схема, описывающая детали прохождения [покупателем](https://developer.rbk.money/docs/payments/overview/#shop) 3DS.
 
