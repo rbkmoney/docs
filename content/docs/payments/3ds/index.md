@@ -41,7 +41,7 @@ category: pay
     !!! note "Интервал и время опроса"
         Рекомендуется установить интервал опроса в 1 секунду и ограничение на время опроса в 60-120 секунд, либо 60-120 запросов.
 
-* [Платформа](https://developer.rbk.money/docs/payments/overview/#_1) проверит необходимость использования 3DS и вернет нужные для этого данные в случае положительного результата: см. в [ответе](https://developer.rbk.money/api/#operation/getInvoiceEvents) `changes` → `changeType: PaymentInteractionRequested` → `userInteraction` → `interactionType: Redirect`.
+* [Платформа](https://developer.rbk.money/docs/payments/overview/#_1) проверит необходимость использования 3DS и вернет нужные для этого данные в случае положительного результата: в ответе на [запрос событий по инвойсу](https://developer.rbk.money/api/#operation/getInvoiceEvents) появится изменение с `changeType` = `PaymentInteractionRequested` и `userInteraction.interactionType` = `Redirect`.
 
     Пример ответа платформы:
 
