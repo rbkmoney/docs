@@ -15,18 +15,18 @@ box left of MerchF:Значение, отличное от InvoiceStatusChanged 
 RBK-->MerchF: changeType: PaymentInteractionRequested, \ninteractionType: Redirect, redirectData (uriTemplate)
 deactivate MerchF
 MerchF->Client: 3) Переадрессация на uriTemplate
-opt аутентификация может быть пройдена без ввода auth code (зависит от решения банка-эмитента)
-Issuer->Client: 4) 2factor auth code (sms)
-Client->Issuer: 5) 2factor auth code 
-end
+opt Аутентификация может быть пройдена без ввода 2FA code (зависит от решения банка-эмитента)
+Issuer->Client:4) 2FA code (sms)
+rbox over Client:Ввод 2FA code\nв браузере на \nстранице \nбанка-эмитента
+Client->Issuer:5) 2FA code 
 activate Issuer
+end
 Issuer->RBK: 6) Уведомление об успешности 3DS на TermUrl
+rbox over Client,RBK:Переадресация браузера покупателя на веб-сайт Merchant'a
 deactivate Issuer
 MerchF->RBK: 7) Получение событий оплаты:\n<link:https://developer.rbk.money/api/#operation/getInvoiceEvents>getInvoiceEvents</link> (invoiceAccessToken, invoiceID)
 activate MerchF
-RBK-->MerchF: changeType: InvoiceStatusChanged
+RBK-->MerchF:changeType: PaymentStatusChanged, status: processed
 deactivate MerchF
-  
-
 
 
