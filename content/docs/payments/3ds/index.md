@@ -98,7 +98,7 @@ category: pay
     !!! note "Завершение 3DS-аутентификации"
         Для того чтобы узнать о завершении 3DS-аутентификации [покупателя](https://developer.rbk.money/docs/payments/overview/#shop), при выполнении [запроса](https://developer.rbk.money/api/#operation/createPayment) на оплату выставленного [счета](https://developer.rbk.money/docs/payments/overview/#invoice) необходимо передать `redirectUrl`: см. `payer` → `sessionInfo`. Браузер покупателя будет перенаправлен на указанный URL в случае как успешного, так и неуспешного завершения аутентификации.
 
-[Событие](https://developer.rbk.money/docs/payments/overview/#_1) `PaymentStatusChanged` говорит об изменении состояния оплаты и соответственно статусе прохождения 3DS (см. параметр `status`):
+[Событие](https://developer.rbk.money/docs/payments/overview/#_1) `PaymentStatusChanged` говорит об изменении состояния оплаты и, соответственно, о статусе прохождения 3DS (см. параметр `status`):
 
 * `processed` и `captured` — оплату [заказа](https://developer.rbk.money/docs/payments/overview/#invoice) можно считать успешно выполненной: денежные средства в размере суммы [выставленного счета](https://developer.rbk.money/docs/payments/overview/#invoice) уже как минимум заблокированы на источнике денежных средств [плательщика](https://developer.rbk.money/docs/payments/overview/#shop);
 * `failed` — оплата неуспешна.
