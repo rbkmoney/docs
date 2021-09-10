@@ -44,7 +44,7 @@ nav:
             - 'Обзор': 'docs/payments/overview.md'
             - 'Checkout': 'docs/payments/checkout/index.md'
             - 'Tokenizer': 'docs/payments/tokenizer.md'
-            - '3D-Secure': 'docs/payments/3dsecure.md'
+            - '3D-Secure': 'docs/payments/3ds/index.md'
             - 'Recurring': 'docs/payments/recurring/recurring.md'
             - 'Postman': 'docs/payments/postman.md'
             - 'Google Pay': 'docs/payments/googlepay/index.md'
