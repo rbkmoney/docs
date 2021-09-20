@@ -10,7 +10,7 @@
 ## Тестирование API с помощью Postman
 
 - [Postman](https://www.getpostman.com/) предоставляет удобный GUI для работы с API подобными нашему и позволяет делать подстановку переменных из результатов выполненного запроса в последующие, что удобно при выполнении каскадных вызовов API.
-- Для этого импортируйте [коллекцию RBKmoney API](/docs/payments/postman/RBKmoney.postman_collection.json) и [переменные окружения](/docs/payments/postman/RBKmoney.postman_environment.json) в ваш экземпляр программы.
+- Для этого импортируйте [коллекцию RBK.money API](/docs/payments/postman/RBKmoney.postman_collection.json), [коллекцию RBK.money Wallets](/docs/payments/postman/RBKmoney.Wallets.postman_collection.json) и [переменные окружения](/docs/payments/postman/RBKmoney.postman_environment.json) в ваш экземпляр программы.
 
 !!! note "Подсказка" 
 	Удобнее всего скопировать ссылки на [коллекцию](/docs/payments/postman/RBKmoney.postman_collection.json) и [переменные окружения](/docs/payments/postman/RBKmoney.postman_environment.json) и импортировать их, вставив через меню _File->Import->Import From Link_
