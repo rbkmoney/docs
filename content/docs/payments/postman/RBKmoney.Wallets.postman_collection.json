@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "d81ff5eb-5b77-4916-b10b-5dcec1d1cacb",
+		"name": "RBKmoney Wallets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createIdentitie",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_endpoint",
+						"value": "https://api.rbk.money/wallet/v0",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создание сущности \"Личность\"\r\n{\r\n  \"name\": \"Name Surname\",\r\n  \"provider\": \"test\",\r\n  \"class\": \"person\",\r\n  \"metadata\": {\r\n    \"lkDisplayName\": \"Иван Иванов\"\r\n  },\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/identities",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"identities"
+					]
+				},
+				"description": "Creating identitie"
+			},
+			"response": []
+		},
+		{
+			"name": "createTokenFromRetireeInsuranceCertificate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать токен СНИЛС'а\r\n{\r\n  \"type\": \"RUSRetireeInsuranceCertificateData\",\r\n  \"number\": \"123-456-789 64\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/privdoc/v0/private-documents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"privdoc",
+						"v0",
+						"private-documents"
+					]
+				},
+				"description": "Creating token"
+			},
+			"response": []
+		},
+		{
+			"name": "createTokenFromPassport",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать токен паспорта\r\n{\r\n  \"type\": \"RUSDomesticPassportData\",\r\n  \"series\": \"4567\",\r\n  \"number\": \"123456\",\r\n  \"issuer\": \"Отделение УФМС России по Москве\\n\",\r\n  \"issuerCode\": \"666-777\\n\",\r\n  \"issuedAt\": \"2019-08-24\",\r\n  \"familyName\": \"Иван\",\r\n  \"firstName\": \"Иванович\",\r\n  \"patronymic\": \"Иванов\",\r\n  \"birthDate\": \"2019-08-24\",\r\n  \"birthPlace\": \"дер. Белянино\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/privdoc/v0/private-documents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"privdoc",
+						"v0",
+						"private-documents"
+					]
+				},
+				"description": "Creating token from passport"
+			},
+			"response": []
+		},
+		{
+			"name": "createCardToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать токен карты\r\n{\r\n  \"type\": \"BankCard\",\r\n  \"cardNumber\": \"4242424242424242\",\r\n  \"expDate\": \"12/24\",\r\n  \"cardHolder\": \"IVAN IVANOV\",\r\n  \"cvv\": \"123\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/payres/v0/bank-cards",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"payres",
+						"v0",
+						"bank-cards"
+					]
+				},
+				"description": "Creating bank kard binding"
+			},
+			"response": []
+		},
+		{
+			"name": "createWallet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать кошелек\r\n{\r\n  \"name\": \"Worldwide PHP Awareness Initiative\",\r\n  \"identity\": {put your Identity id}, //Указать идентификатор личности, созданный методом createIdentitie\r\n  \"currency\": \"RUB\",\r\n  \"metadata\": {\r\n    \"client_locale\": \"RU_ru\"\r\n  },\r\n  \"externalID\": \"10036274\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/wallets",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"wallets"
+					]
+				},
+				"description": "Creating wallet"
+			},
+			"response": []
+		},
+		{
+			"name": "getDestinationStatus",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Проверить статус приемника денежных средств (карты на которую будет произведена выплата)"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/destinations/{put your destination id}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"destinations",
+						"{put your destination id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDestination",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать приемник денежных средств (карта, на которую будет произведена выплата)\r\n{\r\n  \"name\": \"Squarey plastic thingy\",\r\n  \"identity\": {put your identity id}, // Идентификатор личности, созданный методом createIdentitie\r\n  \"currency\": \"RUB\",\r\n  \"resource\": {\r\n    \"type\": \"BankCardDestinationResource\",\r\n    \"token\": {put your tiken data} /* Токен платежного средства (карты), созданный методом createCardToken */\r\n  },\r\n  \"metadata\": {\r\n    \"color_hint\": \"olive-green\"\r\n  },\r\n \r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/destinations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createWithdrawal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать выплату\r\n{\r\n  \"wallet\": {put your wallet id}, // Идентификатор кошелька, созданный методом createWallet\r\n  \"destination\": {put your destination id}, /* Идентификатор приемника денежных средств (карты), созданный методом createDestination */\r\n  \"body\": {\r\n    \"amount\": 10000,\r\n    \"currency\": \"RUB\"\r\n  },\r\n  \"fee\": {\r\n    \"amount\": 10000,\r\n    \"currency\": \"RUB\"\r\n  },\r\n  \"metadata\": {\r\n    \"notify_email\": \"iliketrains@example.com\"\r\n  },\r\n\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/withdrawals",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"withdrawals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWithdrawalStatus",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Проверить статус выплаты"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/withdrawals/{put your withdrawal id}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"withdrawals",
+						"{put your withdrawal id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getIdentities",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Получить список личностей мерчанта"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/identities?limit=10",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"identities"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createReport",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Request-ID",
+						"value": "{{$timestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{api_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// Создать отчет по произведенным выплатам\r\n{\r\n  \"reportType\": \"withdrawalRegistry\",\r\n  \"fromTime\": \"2021-03-01T15:06:54.807732Z\",\r\n  \"toTime\": \"2021-03-31T15:06:54.807732Z\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.rbk.money/wallet/v0/identities/{put your identity id}/reports",
+					"protocol": "https",
+					"host": [
+						"api",
+						"rbk",
+						"money"
+					],
+					"path": [
+						"wallet",
+						"v0",
+						"identities",
+						"{put your identity id}",
+						"reports"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

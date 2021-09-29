@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c5cb59c9-0a5a-4cd0-91b7-d81eca889160",
+		"_postman_id": "1a20b091-b0bb-410c-ab70-a3d343d4e72f",
 		"name": "RBKmoney",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,24 +11,24 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"invoice_id\", jsonData.invoice.id);",
 							"postman.setEnvironmentVariable(\"invoice_access_token\", jsonData.invoiceAccessToken.payload);"
-						]
+						],
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"type": "text/javascript",
 						"exec": [
 							"//Prefer relative invoice dueDate",
 							"var Now = new Date();",
 							"Now.setHours(Now.getHours() + 1);",
 							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -50,7 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Order num 12345\",\n  \"description\": \"Delicious meals\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Sandwich\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Cola\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Internal order num 13123298761\"\n  }\n}"
+					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000, //Сумма товаров, указанных в инвойсе\n  \"currency\": \"RUB\",\n  \"product\": \"Order num 12345\", // Наименование предлагаемых товаров и услуг\n  \"description\": \"Products name\", // Опиание предлагаемых товаров или услуг\n    \"cart\": [ // Корзина товаров\n        {\n            \"price\": 5000,\n            \"product\": \"Product 1\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Product 2\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Internal order num 13123298761\"\n  }\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices",
@@ -120,13 +120,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "383b980b-2889-4b04-85be-11d8b0331f42",
-						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.paymentToolToken);",
 							"postman.setEnvironmentVariable(\"payment_session\", jsonData.paymentSession);"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -148,56 +147,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"4242424242424242\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/processing/payment-resources",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"processing",
-						"payment-resources"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createPaymentResource(3DS)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "608469f6-649b-4a40-9d1f-bbb8bd55f7b9",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"payment_tool_token\", jsonData.paymentToolToken);",
-							"postman.setEnvironmentVariable(\"payment_session\", jsonData.paymentSession);"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{invoice_access_token}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"5169147129584558\",\n    \"expDate\": \"12/20\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
+					"raw": "{\n  \"paymentTool\": {\n    \"paymentToolType\": \"CardData\",\n    \"cardNumber\": \"4242424242424242\",\n    \"expDate\": \"12/24\",\n    \"cvv\": \"123\",\n    \"cardHolder\": \"SUCCESS CARD\"\n  },\n  \"clientInfo\": {\n  \"fingerprint\": \"123\"\n}\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/payment-resources",
@@ -218,7 +168,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ec4646ea-5ede-426b-96e7-4a8d559be664",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -230,7 +179,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "250827f2-b9f4-4099-ad11-57d4591dd340",
 						"type": "text/javascript",
 						"exec": [
 							"//Prefer relative invoice dueDate",
@@ -280,24 +228,22 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "15c1f731-872f-4c33-abbd-4e6d097ea676",
-						"type": "text/javascript",
 						"exec": [
 							""
-						]
+						],
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "998f9ffa-3820-4291-ac8c-2c60bb04b71f",
-						"type": "text/javascript",
 						"exec": [
 							"//Prefer relative invoice dueDate",
 							"var Now = new Date();",
 							"Now.setHours(Now.getHours() + 1);",
 							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -319,7 +265,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"paymentResource\": {\r\n    \"paymentToolToken\": \"{{payment_tool_token}}\",\r\n    \"paymentSession\": \"{{payment_session}}\"\r\n  }\r\n}"
+					"raw": "// Создание связки плательщик-платежное средство\r\n{\r\n  \"paymentResource\": {\r\n    \"paymentToolToken\": \"{{payment_tool_token}}\",\r\n    \"paymentSession\": \"{{payment_session}}\"\r\n  }\r\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}/bindings",
@@ -337,17 +283,16 @@
 			"response": []
 		},
 		{
-			"name": "createInstantPayment",
+			"name": "createPayment(type=PaymentFlowInstant)",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "c2049ed3-6e53-4de8-9d48-655551cb8379",
-						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"payment_id\", jsonData.id);"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -369,7 +314,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowInstant\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
+					"raw": "// Создание моментального платежа (без холдрования)\n{\n  \"flow\": {\n    \"type\": \"PaymentFlowInstant\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments",
@@ -392,7 +337,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "04b67c1b-1782-4f75-8411-11256a29608c",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -437,17 +381,16 @@
 			"response": []
 		},
 		{
-			"name": "createHeldPayment",
+			"name": "createPayment(type=PaymentFlowHold)",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "40d60b29-e813-42ba-ad6b-3a3bb3ec2c0b",
-						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"payment_id\", jsonData.id);"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -469,7 +412,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"flow\": {\n    \"type\": \"PaymentFlowHold\",\n    \"onHoldExpiration\": \"cancel\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
+					"raw": "// Создание холдированного платежа\n{\n  \"flow\": {\n    \"type\": \"PaymentFlowHold\",\n    \"onHoldExpiration\": \"cancel\"\n  },\n  \"payer\": {\n  \t  \"payerType\": \"PaymentResourcePayer\",\n\t  \"paymentToolToken\":\"{{payment_tool_token}}\",\n\t  \"paymentSession\":\"{{payment_session}}\",\n\t  \"contactInfo\":\n\t    {\n\t      \"email\":\"{{notifications_email}}\",\n\t      \"phoneNumber\":\"9876543210\"\n\t    }\n  }\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments",
@@ -565,29 +508,27 @@
 			"response": []
 		},
 		{
-			"name": "createPartialRefund",
+			"name": "createRefund",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "5aa4b89f-8f56-4a75-8377-ffe27c8aecaf",
-						"type": "text/javascript",
 						"exec": [
 							""
-						]
+						],
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "af6fe20e-561a-4986-9350-800fe78ad753",
-						"type": "text/javascript",
 						"exec": [
 							"//Prefer relative invoice dueDate",
 							"var Now = new Date();",
 							"Now.setHours(Now.getHours() + 1);",
 							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -609,7 +550,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"amount\": 100,\r\n  \"currency\": \"RUB\",\r\n  \"reason\": \"string\"\r\n}"
+					"raw": "/*Данным методом создаются частичные и полные возвраты. Для полного возврата необходимо указать полную сумму платежа*/\r\n{\r\n  \"amount\": 100, //сумма возврата, не превышающая сумму платежа\r\n  \"currency\": \"RUB\",\r\n  \"reason\": \"string\"\r\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}/refunds",
@@ -630,6 +571,9 @@
 		},
 		{
 			"name": "getInvoiceById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -648,7 +592,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "//Получить данные по инвойсу"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}",
@@ -666,6 +610,9 @@
 		},
 		{
 			"name": "getCustomerById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -684,7 +631,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "//Получить данные о плательщике"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}",
@@ -702,6 +649,9 @@
 		},
 		{
 			"name": "getCustomerEvents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -720,7 +670,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить события плательщика"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/customers/{{customer_id}}/events?limit={{limit}}",
@@ -745,6 +695,9 @@
 		},
 		{
 			"name": "getInvoicePaymentMethods",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -763,7 +716,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить информацию о методах оплаты инвойса"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}",
@@ -781,6 +734,9 @@
 		},
 		{
 			"name": "getPaymentById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -799,7 +755,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить информацию о платеже"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/payments/{{payment_id}}",
@@ -819,6 +775,9 @@
 		},
 		{
 			"name": "getInvoiceEvents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -833,7 +792,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить события по указанному инвойсу"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/events?limit={{limit}}",
@@ -858,6 +817,9 @@
 		},
 		{
 			"name": "getInvoices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -876,7 +838,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить данные о созданных инвойсах"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/invoices?fromTime={{from_time}}&toTime={{to_time}}&limit={{limit}}",
@@ -908,226 +870,6 @@
 			"response": []
 		},
 		{
-			"name": "getContract",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/processing/contracts",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"processing",
-						"contracts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getMyParty",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/processing/me",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"processing",
-						"me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getShopById",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/processing/shops/{{shop_id}}",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"processing",
-						"shops",
-						"{{shop_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getPaymentMethodStats",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/customers/stats/payment_method?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}&paymentMethod=bankCard",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"analytics",
-						"shops",
-						"{{shop_id}}",
-						"customers",
-						"stats",
-						"payment_method"
-					],
-					"query": [
-						{
-							"key": "fromTime",
-							"value": "{{from_time}}"
-						},
-						{
-							"key": "toTime",
-							"value": "{{to_time}}"
-						},
-						{
-							"key": "splitUnit",
-							"value": "{{split_unit}}"
-						},
-						{
-							"key": "splitSize",
-							"value": "{{split_size}}"
-						},
-						{
-							"key": "paymentMethod",
-							"value": "bankCard"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getPaymentConversionStats",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/analytics/shops/{{shop_id}}/payments/stats/conversion?fromTime={{from_time}}&toTime={{to_time}}&splitUnit={{split_unit}}&splitSize={{split_size}}",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"analytics",
-						"shops",
-						"{{shop_id}}",
-						"payments",
-						"stats",
-						"conversion"
-					],
-					"query": [
-						{
-							"key": "fromTime",
-							"value": "{{from_time}}"
-						},
-						{
-							"key": "toTime",
-							"value": "{{to_time}}"
-						},
-						{
-							"key": "splitUnit",
-							"value": "{{split_unit}}"
-						},
-						{
-							"key": "splitSize",
-							"value": "{{split_size}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "fulfillInvoice",
 			"request": {
 				"method": "POST",
@@ -1147,7 +889,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"reason\": \"Purchase delivered\"\n}"
+					"raw": "// Погасить инвойс\n{\n  \"reason\": \"Purchase delivered\"\n}"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/invoices/{{invoice_id}}/fulfill",
@@ -1166,6 +908,9 @@
 		},
 		{
 			"name": "getWebhooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -1190,7 +935,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "// Получить данные об установленных вебхуках"
 				},
 				"url": {
 					"raw": "{{api_endpoint}}/processing/webhooks",
@@ -1200,67 +945,6 @@
 					"path": [
 						"processing",
 						"webhooks"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getInvoiceTemplateByID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "fae03278-b5cc-42cd-b068-0250b6a5392c",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "749c0c21-a5d7-4ad9-a0fb-a16c33b2bbab",
-						"type": "text/javascript",
-						"exec": [
-							"//Prefer relative invoice dueDate",
-							"var Now = new Date();",
-							"Now.setHours(Now.getHours() + 1);",
-							"postman.setEnvironmentVariable('now_plus_1h',(Now).toISOString())"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{api_key}}"
-					},
-					{
-						"key": "X-Request-ID",
-						"value": "{{$timestamp}}"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json; charset=utf-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"shopID\": \"{{shop_id}}\",\n  \"dueDate\": \"{{now_plus_1h}}\",\n  \"amount\": 6000,\n  \"currency\": \"RUB\",\n  \"product\": \"Заказ номер 12345\",\n  \"description\": \"Изысканная кухня\",\n    \"cart\": [\n        {\n            \"price\": 5000,\n            \"product\": \"Бутерброд с сыром\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"10%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        },\n        {\n            \"price\": 1000,\n            \"product\": \"Компот\",\n            \"quantity\": 1,\n            \"taxMode\": {\n                \"rate\": \"18%\",\n                \"type\": \"InvoiceLineTaxVAT\"\n            }\n        }\n    ],  \n\"metadata\": \n  { \n    \"order_id\": \"Внутренний номер заказа 13123298761\"\n  }\n}"
-				},
-				"url": {
-					"raw": "{{api_endpoint}}/processing/invoice-templates/{{invoice_template_id}}",
-					"host": [
-						"{{api_endpoint}}"
-					],
-					"path": [
-						"processing",
-						"invoice-templates",
-						"{{invoice_template_id}}"
 					]
 				}
 			},
