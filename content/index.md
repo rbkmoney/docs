@@ -14,33 +14,33 @@ category:  main
 
 ---
 
-# Добро пожаловать на портал документации RBK.money!
+# Welcome to RBK.money developer documentation portal!
 
-RBK.money (далее по тексту — платформа) позволяет принимать платежи онлайн.
+RBK.money (hereinafter - the platform) allows you to accept payments online.
 
-## Для кого и зачем создан портал?
+## Who is this portal designed for?
 
-Портал будет полезен, если:
+The portal will be helpful if:
 
-* вы разработчик компании, использующей [products RBK.money](https://rbk.money);
-* у вас есть необходимость выстраивать интеграцию с платформой c помощью API или использовать наши плагины/SDK для приема платежей;
-* вам необходимо увидеть описание платежных API и иную техническую документацию.
+* you are one of the software developers in a company using  [RBK.money products](https://rbk.money);
+* you need to perform integration with the platform via API or use our plugins/SDK to accept payments;
+* you need to review payment API description and/or study other technical documentation.
 
-## С чего начать?
+## Where do I start?
 
 **Step 1** 
-Прочитайте [обзор](/docs/payments/overview) технической интеграции с платформой.
+Study the [overview](/docs/payments/overview) of the platform technical integration procedure.
 
-**Шаг 2**
-Выберите подходящий способ приема платежей:
+**Step 2**
+Choose convenient payment acceptance method:
 
-* нужны готовые решения для продажи товаров в интернете и быстрая организация приема платежей на сайте — ознакомьтесь с [инструкцией по настройке платежных модулей](/docs/payments/cms-modules/bitrix);
-* необходимо минимизировать время на интеграцию и ресурсы на разработку — используйте [платежную форму RBK.money](/docs/payments/checkout);
-* хотите полностью управлять внешним видом страницы оплаты и действиями покупателя на вашем сайте — реализуйте собственную платежную форму и используйте [одну из наших библиотек](/docs/payments/tokenizer), а также [платежный API](https://developer.rbk.money/api/);
-* принимаете платежи в мобильном приложении — готовый SDK для [iOS](https://github.com/rbkmoney/payments-ios-sdk) или [Android](https://github.com/rbkmoney/payments-android-sdk) поможет вам в этом.
+* if you need an out-of-the-box solution for online sales and its rapid deployment to provide timely online payment acceptance - follow our payment modules setting up [guidelines](/docs/payments/cms-modules/bitrix);
+* if you need to minimize time expenditure on integration procedure and resource cost on development - use RBK.money [checkout form](/docs/payments/checkout);
+* if you want to thoroughly manage and customise payment page layout and buyers' actions on your website implement your own payment form using one of our [libraries](/docs/payments/tokenizer), and payment  [APIs](https://developer.rbk.money/api/);
+* if you accept online payments in mobile apps - ready-made SDK for [iOS](https://github.com/rbkmoney/payments-ios-sdk) or [Android](https://github.com/rbkmoney/payments-android-sdk) will help you out.
 
-**Шаг 3**
-Воспользуйтесь быстрым способом провести платеж: разместите представленный ниже код на сайте и проведите тестовую оплату с помощью нашей платежной формы.
+**Step 3**
+Use our quick solution to make your test payment: add the script below to your website and perform a test payment using our payment form:
 
 ```html
 <script src="https://checkout.rbk.money/checkout.js" class="rbkmoney-checkout"
@@ -52,16 +52,16 @@ RBK.money (далее по тексту — платформа) позволяе
 </script>
 ```
 
-При оплате можно указать реквизиты одной из [тестовых карт](/docs/payments/refs/testcards).
+When paying, you may use the following [test card] information(/docs/payments/refs/testcards).
 
     Card number: 4242 4242 4242 4242
     Exp date: 12/20
     CVC: 123
 
-<button class="live-demo-button">Оплатить</button>
+<button class="live-demo-button">Checkout</button>
 
-Более подробную информацию вы можете найти в разделе  [Checkout](/docs/payments/checkout).
+You can find more information in [Checkout](/docs/payments/checkout) section.
 
-## Нужна помощь?
+## Need help?
 
-Ознакомьтесь с описанием разделов данного портала и, если у вас остались вопросы — мы [отвечаем на них](https://github.com/rbkmoney/docs/issues) и [принимаем предложения](https://github.com/rbkmoney/docs/pulls) по изменениям в нашем публичном репозитории на [Github](https://github.com/rbkmoney/docs).
+Read descriptions of the sections of this portal and, if you still have [questions](https://github.com/rbkmoney/docs/issues) or  [suggestions](https://github.com/rbkmoney/docs/pulls) for changes, we will gladly answer them in our public repository on [Github](https://github.com/rbkmoney/docs).
