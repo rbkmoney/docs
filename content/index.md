@@ -52,7 +52,7 @@ Use our quick solution to make your test payment: add the script below to your w
 </script>
 ```
 
-When paying, you may use the following [test card] information(/docs/payments/refs/testcards).
+When paying, you may use the following [test card] (/docs/payments/refs/testcards) information.
 
     Card number: 4242 4242 4242 4242
     Exp date: 12/20
