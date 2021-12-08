@@ -74,7 +74,7 @@ The life cycle of the payment is described in this [user guide](https://help.rbk
 
 ### The Scheme of information interaction {#payScheme}
 
-An example of [invoice](#invoice) payment performed from merchant's website via mercant created payform is given below.
+An example of [invoice](#invoice) payment performed from merchant's website via merchant created payform is given below.
 
 The query names presented in the scheme indicate the specific methods of the payment [API](https://developer.rbk.money/api/).
 
