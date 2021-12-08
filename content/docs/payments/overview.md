@@ -47,7 +47,7 @@ To get information about the shop and/or manage its activity use the following [
 An invoice is a bill: a display of an order with goods or services to be paid. It demonstrates the obligations of the seller and the buyer.
 
 You can create an invoice or get its status using [these](https://developer.rbk.money/api/#tag/Invoices) api queries.
-A [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) request results in pending payment invoice ussue in the platform, which is assigned a unique identifier and [access key](#invoiceAccessToken).
+A [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) request results in pending payment invoice issue in the platform, which is assigned a unique identifier and [access key](#invoiceAccessToken).
 
 The life cycle of the payment invoice is described in [this](https://help.rbkmoney.com/lk/lk/#invoiceLifeCycle) section of the manual, as well as in the  ["Invoice States and Statuses"](https://developer.rbk.money/api/#section/Sostoyaniya-i-statusy-invojsa) section of the API documentation.
 
@@ -59,7 +59,7 @@ InvoiceAccessToken, unlike the [API Key](https://developer.rbk.money/api/#sectio
 
 ## Payment {#pay}
 
-In order for the funds for goods and services offered to the payer be added to merchant's [accont](#shop), the [invoice](#invoice) must be paid for.
+In order for the funds for goods and services offered to the payer be added to merchant's [account](#shop), the [invoice](#invoice) must be paid for.
 
 In case the payment is made via [RBK.money payment form (checkout)](../checkout), the sequence of interactions with the platform looks as follows: 
 
