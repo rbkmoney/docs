@@ -1,94 +1,92 @@
-# Обзор
+# Overview
 
-Управлять платежами можно с помощью [личного кабинета](https://help.rbkmoney.com/lk/lk/) и/или путем обращения к [RBK.money Platform API](https://developer.rbk.money/api/).
-Способы приема платежей описаны на шаге 2 раздела [«‎С чего начать?»](https://developer.rbk.money/index.html#_2).
+You can manage your payments using your [personal account](https://help.rbkmoney.com/lk/lk/) and/or by addressing the [RBK.money Platform API](https://developer.rbk.money/api/).
+Payment acceptance methods are described in step 2 of ["Where do I start?"](https://developer.rbk.money/index.html#_2) section of the welcome page.
 
-Ниже приведено описание основных терминов и понятий, которыми оперирует платформа.
+The description of the main terms and notions which the Platform operates is given below.
 
-!!! note "Платформа (Platform)"
-    Программно-аппаратный комплекс RBK.money, обеспечивающий техническую реализацию бизнес-процессов по приему платежей.
+!!! note "The Platform"
+    RBK.money software-hardware appliance providing technical realization of payment acceptance business-processes.
 
-## Личный кабинет {#lk}
+## Personal account {#lk}
 
-Чтобы начать работать с платформой, необходимо [зарегистрироваться](https://help.rbkmoney.com/lk/lk/#reg) и [получить доступ](https://help.rbkmoney.com/lk/lk/#preparation) к [личному кабинету](https://rbk.money/back-office/) мерчанта (далее по тексту — ЛК).
+To start working with the platform you need to [create](https://help.rbkmoney.com/lk/lk/#reg) and [sign in](https://help.rbkmoney.com/lk/lk/#preparation) to merchant [personal account](https://rbk.money/back-office/) (hereinafter - PA).
 
-!!! note "Мерчант (Merchant)"
-    Продавец товара или услуги, которую оплачивает покупатель. Участник информационно-технического и финансового взаимодействия.
+!!! note "Merchant"
+   The seller of a product or service paid for by a buyer. Participant of information-technical and financial interaction.
 
-В нем вы сможете найти [API-ключ](https://help.rbkmoney.com/lk/lk/#apiKey) (API Key) для прохождения [аутентификации](#api) при обращении к API, а также провести [тестовый платеж](https://help.rbkmoney.com/lk/lk/#testManagement).
-
+In your PA section you can find the [API Key](https://help.rbkmoney.com/lk/lk/#apiKey) required for [authentication](#api) when addressing the Platform API, and make a [test payment](https://help.rbkmoney.com/lk/lk/#testManagement).
 ## API {#api}
 
-Одним из способов  приема платежей является интеграция с платформой по [RBK.money Platform API](https://developer.rbk.money/api/).
+One of the ways to receive payments online is to integrate with [RBK.money Platform API](https://developer.rbk.money/api/).
 
-C целью успешной авторизации запроса к [API](https://developer.rbk.money/api) в его заголовке следует передать  соответствующий ключ.  Для каждого отдельного запроса могут потребоваться различные ключи: зависит от типа выполняемой операции.
+In order to successfully authorize a request to the [API](https://developer.rbk.money/api) an appropriate key should be passed in its header.  Different keys may be required for each individual request depending on the type of operation performed.
 
-Так, например, [API-ключ](https://developer.rbk.money/api/#section/Authentication) передается в [запросе](https://developer.rbk.money/api/#operation/createInvoice) на создание [инвойса](#invoice), а [ключ доступа к инвойсу](#invoiceAccessToken) — в последующих [запросах](#payScheme), нацеленных на оплату выставленного счета.
+For example, the [API-Key](https://developer.rbk.money/api/#section/Authentication) is passed in [invoice](#invoice) creation [request](https://developer.rbk.money/api/#operation/createInvoice), and the [invoice access key](#invoiceAccessToken) — is passed in subsequent [requests](#payScheme), aimed at paying the invoice.
 
-## Магазин {#shop}
+## Shop {#shop}
 
-Магазин — торговая точка мерчанта. Представляет собой способ обобщения товаров или услуг, объединённых одной категорией (MCC, Merchant Category Code). Является получателем платежа.
+A shop is a merchant's point of sale. Represents a way of summarizing goods or services combined by a single category (MCC, Merchant Category Code). It is the recipient of the payment.
 
-Магазину соответствует как минимум один [счет](https://developer.rbk.money/api/#operation/getAccountByID) в платформе, на котором аккумулируются полученные от покупателей денежные средства.
+Any shop corresponds to at least one [account](https://developer.rbk.money/api/#operation/getAccountByID) in the platform on which the funds received from buyers are accumulated.
 
-!!! note "Покупатель (Payer)"
-    Физическое лицо, осуществляющее оплату товаров или услуг. В некоторых случаях упоминается как «‎плательщик».
+!!! note "Payer"
+    An individual who pays for goods or services. In some cases, referred to as a "buyer".
 
-Накопленные средства можно получить с помощью банковского перевода или на баланс [электронного кошелька RBK.money](https://developer.rbk.money/docs/wallets/overview/).
+Accumulated funds can be received by bank transfer or by adding funds to merchant's [RBK.money e-wallet](https://developer.rbk.money/docs/wallets/overview/).
 
-Магазин может быть:
+A Shop can be:
 
-* активным или [неактивным](https://help.rbkmoney.com/lk/lk/#holdShop);
-* настоящим или [тестовым](https://help.rbkmoney.com/lk/lk/#testManagement).
+* active or [inactive](https://help.rbkmoney.com/lk/lk/#holdShop);
+* real or [test](https://help.rbkmoney.com/lk/lk/#testManagement).
 
-Получить информацию о магазине, а также управлять его активностью можно с помощью [данных](https://developer.rbk.money/api/#tag/Shops) запросов к api.
+To get information about the shop and/or manage its activity use the following [API queries](https://developer.rbk.money/api/#tag/Shops).
 
-## Инвойс {#invoice}
+## Invoice {#invoice}
 
-Инвойс — это счет на оплату: отражение заказа с товарами или услугами, который необходимо оплатить. Демонстрирует обязательства продавца и покупателя.
+An invoice is a bill: a display of an order with goods or services to be paid. It demonstrates the obligations of the seller and the buyer.
 
-Создать инвойс или получить его состояние можно с помощью [данных](https://developer.rbk.money/api/#tag/Invoices) запросов к api.
-В результате выполнения запроса [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) в платформе создается счет, ожидающий оплату, которому присваивается уникальный идентификатор и [ключ доступа](#invoiceAccessToken).
+You can create an invoice or get its status using [these](https://developer.rbk.money/api/#tag/Invoices) api queries.
+A [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) request results in pending payment invoice ussue in the platform, which is assigned a unique identifier and [access key](#invoiceAccessToken).
 
-Жизненный цикл счета на оплату отражен в [данном](https://help.rbkmoney.com/lk/lk/#invoiceLifeCycle) разделе руководства, а также в разделе [«‎Состояния и статусы инвойса»](https://developer.rbk.money/api/#section/Sostoyaniya-i-statusy-invojsa) документации API.
+The life cycle of the payment invoice is described in [this](https://help.rbkmoney.com/lk/lk/#invoiceLifeCycle) section of the manual, as well as in the  ["Invoice States and Statuses"](https://developer.rbk.money/api/#section/Sostoyaniya-i-statusy-invojsa) section of the API documentation.
 
-### Ключ доступа к инвойсу {#invoiceAccessToken}
+### Invoice Access Key {#invoiceAccessToken}
 
-Ключ (InvoiceAccessToken) позволяет авторизовать ограниченное количество операций, необходимых для проведения платежей по указанному [инвойсу](#invoice).
+The key (InvoiceAccessToken) allows you to authorize a limited number of transactions required to make payments on a specified [invoice](#invoice).
 
-InvoiceAccessToken, в отличие от [API Key](https://developer.rbk.money/api/#section/Authentication), допустимо публиковать.
+InvoiceAccessToken, unlike the [API Key](https://developer.rbk.money/api/#section/Authentication), can be disclosed and published.
 
-## Платеж {#pay}
+## Payment {#pay}
 
-Для того чтобы денежные средства за предложенные покупателю товары или услуги поступили на [счет магазина](#shop), необходимо оплатить [инвойс](#invoice).
+In order for the funds for goods and services offered to the payer be added to merchant's [accont](#shop), the [invoice](#invoice) must be paid for.
 
-В случае, когда оплата производится с [платежной формы RBK.money](../checkout),  последовательность взаимодействия с платформой выглядит так:
+In case the payment is made via [RBK.money payment form (checkout)](../checkout), the sequence of interactions with the platform looks as follows: 
 
-* вызвать метод [createInvoice](https://developer.rbk.money/api/#operation/createInvoice);
-* [встроить](../checkout) платежную форму в браузер покупателя.
+* invoke [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) method;
+* [встроить](../checkout) the payment form in buyer's browser.
 
-Далее [платежная форма](../checkout) самостоятельно выполняет весь процесс проведения платежа.
+The [payment form](../checkout) performs the entire payment process itself.
 
-В случае, когда вы сами верстаете платежную форму,
-последовательность взаимодействия с платформой выглядит так, как показано в разделе [«‎Схема информационного взаимодействия»](#payScheme).
+In case you create the payment form yourself, the sequence of interactions with the Platform looks as shown in ["The Scheme of information interaction"](#payScheme) section.
 
-Жизненный цикл платежа отражен в [данном руководстве пользователя](https://help.rbkmoney.com/lk/lk/#payLifeCycle).
+The life cycle of the payment is described in this [user guide](https://help.rbkmoney.com/lk/lk/#payLifeCycle).
 
-### Схема информационного взаимодействия {#payScheme}
+### The Scheme of information interaction {#payScheme}
 
-Ниже приведен пример оплаты [инвойса](#invoice) с web-сайта мерчанта в случае, когда платеж производится с его собственной платежной формы.
+An example of [invoice](#invoice) payment performed from merchant's website via mercant created payform is given below.
 
-Названия представленных на схеме запросов указывают на конкретные методы платежного [API](https://developer.rbk.money/api/).
+The query names presented in the scheme indicate the specific methods of the payment [API](https://developer.rbk.money/api/).
 
 <a href="/docs/payments/wsd/payScheme.png" data-lightbox="payScheme.png" data-title="payScheme.png"><img src="/docs/payments/wsd/payScheme.png"></a>
 
-!!! note "Информация"
-    Получение, передача, обработка и хранение данных банковских карт влечет за собой необходимость соответствовать [определенным стандартам безопасности](https://ru.pcisecuritystandards.org/minisite/env2/).
+!!! note "Information"
+    Receiving, transmitting, processing and storing bank card data entails the need to meet certain [security standards](https://ru.pcisecuritystandards.org/minisite/env2/).
 
-## Уведомление о событиях (Webhook)
+## Event notification (Webhook)
 
-Для того чтобы отслеживать состояние инвойсов и платежей, необходимо настроить уведомления (webhook/callback).
+In order to track the status of invoices and payments the set up of notifications (webhook/callback) is required.
 
-Webhook'ами можно управлять с помощью [данных](https://developer.rbk.money/api/#tag/Webhooks) запросов к API.
+Webhooks can be managed through [these](https://developer.rbk.money/api/#tag/Webhooks) API requests.
 
-При получении уведомления следует убедиться, что оно было отправлено платформой. Для решения этой задачи платформа подтверждает подлинность переданной информации, подписывая сообщения приватным ключом RSA. C описанием спецификации «‎Webhooks Events API» можно ознакомиться [здесь](https://developer.rbk.money/api/webhooks).
+When you receive a notification, you need to make sure it was sent by the Platform. To accomplish this, the platform authenticates the information transmitted by signing messages with a private RSA key. A description of the "Webhooks Events API" specification can be found [here](https://developer.rbk.money/api/webhooks).
