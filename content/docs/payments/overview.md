@@ -63,7 +63,7 @@ In order for the funds for goods and services offered to the payer be added to m
 
 In case the payment is made via [RBK.money payment form (checkout)](../checkout), the sequence of interactions with the platform looks as follows: 
 
-* invoke [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) method;
+* call [createInvoice](https://developer.rbk.money/api/#operation/createInvoice) method;
 * [embed](../checkout) the payment form in buyer's browser.
 
 The [payment form](../checkout) performs the entire payment process itself.
